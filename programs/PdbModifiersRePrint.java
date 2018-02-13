@@ -19,7 +19,7 @@ import meshi.util.file.MeshiWriter;
 import java.io.IOException;
 
 /**
- * Created by siditom on 02/03/2017.
+ * Created by chen on 02/03/2017.
  */
 public class PdbModifiersRePrint extends MeshiProgram {
     private static CommandList commands;
