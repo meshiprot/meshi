@@ -12,7 +12,6 @@ import meshi.parameters.DsspLocalStructureLetter;
 import meshi.parameters.LocalStructureAlphabetType;
 import meshi.sequences.*;
 import meshi.util.MeshiAttribute;
-import meshi.util.Utils;
 import meshi.util.filters.Filter;
 import meshi.util.info.InfoType;
 
@@ -77,12 +76,13 @@ public class DeepCNF_ssCompatibilityFeature extends AbstractEnergy {
                 double predicted = prediction.highestProbability;
                 sumObserved += observed;
                 sumPredicted += predicted;
-            } else {
+            }
+            /*else {
                 String errorMessage = "Something is wrong about the secondary structure prediction. Apparently it has holes in it.\n" +
                         "Residue is " + residue;
                 if (Utils.isStrict()) throw new RuntimeException(errorMessage);
                 else Utils.println(errorMessage);
-            }
+            }*/
         }
             return sumObserved/sumPredicted;
 
