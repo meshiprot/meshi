@@ -11,15 +11,12 @@ MESHI = \
 	$.meshi/*/*/*.java \
 	$.meshi/*/*/*/*.java \
 	$.meshi/*/*/*/*/*.java \
+	$.programs/*.java
 
-PROGRAMS = \
-	$.programs/*.java 
 
-default: classes programs
+default: classes
 
 classes: $(MESHI:.java=.class)
-
-programs: $(PROGRAMS:.java=.class)
 
 clean:
 	$(RM) *.class
@@ -27,3 +24,5 @@ clean:
 	$(RM) */*/*.class
 	$(RM) */*/*/*.class
 	$(RM) */*/*/*/*.class
+	$(RM) */*/*/*/*/*.class
+	$(RM) */*/*/*/*/*/*.class
