@@ -1,9 +1,11 @@
 package meshi.energy.goap;
 
+import java.io.Serializable;
+
 /**
  * Created by chen on 05/07/2015.
  */
-public class FortranArray7Dim_cnttheta {
+public class FortranArray7Dim_cnttheta implements Serializable{
 
         float[][][][][][][] cnttheta=new float[20][15][20][15][GoapCreator.ibin_unknown][5][12];//last 2 indices switched! 31.3.15
         protected float

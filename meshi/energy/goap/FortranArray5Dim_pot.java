@@ -1,9 +1,11 @@
 package meshi.energy.goap;
 
+import java.io.Serializable;
+
 /**
  * Created by chen on 05/07/2015.
  */
-public class FortranArray5Dim_pot {
+public class FortranArray5Dim_pot implements Serializable{
 
         float[][][][][] potential_pot = new float[GoapCreator.ibin_unknown][20][15][20][15];//last index made first! 31.3.15
 

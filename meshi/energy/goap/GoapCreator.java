@@ -10,22 +10,21 @@ import meshi.util.Utils;
 import meshi.util.file.MeshiLineReader;
 import meshi.util.info.InfoType;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
+import java.util.zip.GZIPInputStream;
 
 /**
  * Created by chen on 05/07/2015.
  */
-public class GoapCreator extends EnergyCreator {
+public class GoapCreator extends EnergyCreator{
     public static final int ibin_unknown=20; //this is originaly declared inside a "pararmeter(...)"
     int[] map_unknown = new int[501];
     public static  int ibinme_unknown;
     public static  int mapnum_numOfLinesToBeRead;
     String lineFromFortReader;
     final double dh_unknown = 2./ibin_unknown;
-    private  String parametersPath;
+    public  String parametersPath;
     String[] lineElements = new String[22];
     Fort21 fort21;
     Fort31 fort31;
@@ -41,14 +40,18 @@ public class GoapCreator extends EnergyCreator {
             parametersPath = commands.firstWord(KeyWords.PARAMETERS_DIRECTORY).secondWord() + "/meshiPotential/GOAP/";
             Utils.println("checkup 13.7.15, parametersPath: " + parametersPath);
             try {
-                fort21 = getFort21();
-            } catch (IOException ex) {
+                //fort21 = getFort21();// siditom change 15.2.2018 - read object from memory instead of text file.
+                Utils.println("checkup 15.2.18, fort21");
+                fort21 = getFort21Object();
+            } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
 
             try {
-                fort31 = getFort31();
-            } catch (IOException ex) {
+                Utils.println("checkup 15.2.18, fort31");
+                //fort31 = getFort31(); // siditom change 15.2.2018 - read object from memory instead of text file.
+                fort31 = getFort31Object();
+            } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
 
@@ -141,6 +144,15 @@ public class GoapCreator extends EnergyCreator {
         return new Charges(cind_atomsByOrder,chg_chargesByOrder, resn_threeLetterResidueCodes,ianum_numbersOfAtomsInResidues);
     }
 
+    public  Fort31 getFort31Object() throws Exception {
+        FileInputStream fis = new FileInputStream(parametersPath+"fort31_db");
+        GZIPInputStream gs = new GZIPInputStream(fis);
+        ObjectInputStream ois = new ObjectInputStream(gs);
+        Fort31 fort31 = (Fort31) ois.readObject();
+        ois.close();
+        fis.close();
+        return fort31;
+    }
 
     public  Fort31 getFort31() throws IOException {
         FortranArray7Dim_cnttheta cnttheta_unknown = new FortranArray7Dim_cnttheta();
@@ -301,7 +313,15 @@ public class GoapCreator extends EnergyCreator {
         return new Fort31(cnttheta_unknown,map_unknown,ig_s_parameter);
     }
 
-
+    public Fort21 getFort21Object() throws Exception{
+        FileInputStream fis = new FileInputStream(parametersPath+"fort21_db");
+        GZIPInputStream gs = new GZIPInputStream(fis);
+        ObjectInputStream ois = new ObjectInputStream(gs);
+        Fort21 fort21 = (Fort21) ois.readObject();
+        ois.close();
+        fis.close();
+        return fort21;
+    }
 
     public Fort21 getFort21() throws IOException{
 

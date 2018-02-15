@@ -1,9 +1,11 @@
 package meshi.energy.goap;
 
+import java.io.Serializable;
+
 /**
  * Created by chen on 05/07/2015.
  */
-public class Fort31 {
+public class Fort31 implements Serializable{
         public FortranArray7Dim_cnttheta cnttheta_unknown;
         public int[] map_unknown;
     int ig_s_parameter;
