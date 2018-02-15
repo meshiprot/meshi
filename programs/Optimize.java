@@ -852,8 +852,10 @@ public class Optimize extends MeshiProgram implements KeyWords {
         writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?> ");
         writer.println("<ProteinInfoList name=\"Failure report for Protein: " + model.sourceFile() + "\">");
         writer.print("<ProteinInfo  value=\"MCM_END\" step=\"0\" ");
-        for (Score scoreFunction : scoreFunctions) {
-            writer.print(scoreFunction.toString()+"_weightedMedianScore=\"0.05\" "+scoreFunction.toString()+"_interdecile=\"0\" ");
+        if (scoreFunctions!=null){
+            for (Score scoreFunction : scoreFunctions) {
+                writer.print(scoreFunction.toString()+"_weightedMedianScore=\"0.05\" "+scoreFunction.toString()+"_interdecile=\"0\" ");
+            }
         }
         writer.println("time=\"0\" fileName=\""+inFileName+"\" >");
         writer.println("<Exception>\n"+ exception + "\n</Exception>" );
