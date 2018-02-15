@@ -1,0 +1,6 @@
+[blastpgp] WARNING: -t larger than 1 not supported when restarting from a checkpoint; setting -t to 1
+
+[blastpgp] WARNING: posReadCheckpoint: Attempting to recover data from previous checkpoint
+
+[blastpgp] WARNING: posReadCheckpoint: Data recovered successfully
+

@@ -1,0 +1,59 @@
+./buildali2.pl  /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/tmp_T0517_3912/T0517.seq  -cpu  4  -noss 
+$ ./reformat.pl -M first -noss a3m a3m /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/tmp_T0517_3912/T0517.seq /tmp/14524/T0517.in.a3m -> 1
+$ ./reformat.pl -r a3m psi /tmp/14524/T0517.in.a3m /tmp/14524/T0517.psi -> 1
+
+************************************************
+ Building alignment for /tmp/14524/T0517 (T0517)
+************************************************
+Building alignment for query with PSI-BLAST ...
+$ /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/util/BLAST/bin/blastpgp -I T -s T -a 4 -b 20000 -v 1 -e 0.001 -d /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/databases/NR_new/nr90 -i /tmp/14524/T0517.seq > /tmp/14524/T0517.bla
+$ ./alignhits.pl -cov 80 -e 0.001  -bl 0.33 -bs 0.67  -best -psi -q /tmp/14524/T0517.seq /tmp/14524/T0517.bla /tmp/14524/T0517.core.psi -> 927
+$ ./alignhits.pl -cov 80 -e 0.001  -bl 0 -bs 0.167 -bg 20 -B /tmp/14524/T0517.core.psi  -best -psi -q /tmp/14524/T0517.seq /tmp/14524/T0517.bla /tmp/14524/T0517.psi -> 949
+$ ./alignhits.pl -cov 80 -e 0.001  -bl 0 -bs 0.167 -bg 20 -B /tmp/14524/T0517.core.psi  -best -a3m -q /tmp/14524/T0517.seq /tmp/14524/T0517.bla /tmp/14524/T0517.a3m -> 949
+Found 949 sequences in PSI-BLAST round 1 (E-value<1E-03, coverage>20%, db=nr90)
+
+$ /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/util/BLAST/bin/blastpgp -I T -s T -a 4 -b 20000 -v 1 -e 0.001 -d /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/databases/NR_new/nr70 -i /tmp/14524/T0517.seq -B /tmp/14524/T0517.psi > /tmp/14524/T0517.bla
+$ ./alignhits.pl -cov 20 -e 0.001   -bl 0 -bs 0.167 -bg 20 -B /tmp/14524/T0517.core.psi   -a3m -q /tmp/14524/T0517.seq /tmp/14524/T0517.bla /tmp/14524/T0517.tmp -> 521
+$ cat /tmp/14524/T0517.tmp >> /tmp/14524/T0517.a3m
+$ ./alignhits.pl -cov 20 -e 0.001   -bl 0 -bs 0.167 -bg 20 -B /tmp/14524/T0517.core.psi   -psi -q /tmp/14524/T0517.seq /tmp/14524/T0517.bla /tmp/14524/T0517.tmp -> 521
+$ cat /tmp/14524/T0517.tmp >> /tmp/14524/T0517.psi
+Found 521 sequences in PSI-BLAST round 2 (E-value<1E-03, coverage>20%, db=nr70)
+
+$ /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/util/BLAST/bin/blastpgp -I T -s T -a 4 -b 20000 -v 1 -e 0.001 -d /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/databases/NR_new/nr70 -i /tmp/14524/T0517.seq -B /tmp/14524/T0517.psi > /tmp/14524/T0517.bla
+$ ./alignhits.pl -cov 20 -e 0.001   -bl 0 -bs 0.167 -bg 20 -B /tmp/14524/T0517.core.psi   -a3m -q /tmp/14524/T0517.seq /tmp/14524/T0517.bla /tmp/14524/T0517.tmp -> 585
+$ cat /tmp/14524/T0517.tmp >> /tmp/14524/T0517.a3m
+$ ./alignhits.pl -cov 20 -e 0.001   -bl 0 -bs 0.167 -bg 20 -B /tmp/14524/T0517.core.psi   -psi -q /tmp/14524/T0517.seq /tmp/14524/T0517.bla /tmp/14524/T0517.tmp -> 585
+$ cat /tmp/14524/T0517.tmp >> /tmp/14524/T0517.psi
+Found 585 sequences in PSI-BLAST round 3 (E-value<1E-03, coverage>20%, db=nr70)
+
+$ /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/util/BLAST/bin/blastpgp -I T -s T -a 4 -b 20000 -v 1 -e 0.001 -d /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/databases/NR_new/nr70 -i /tmp/14524/T0517.seq -B /tmp/14524/T0517.psi > /tmp/14524/T0517.bla
+$ ./alignhits.pl -cov 20 -e 0.001   -bl 0 -bs 0.167 -bg 20 -B /tmp/14524/T0517.core.psi   -a3m -q /tmp/14524/T0517.seq /tmp/14524/T0517.bla /tmp/14524/T0517.tmp -> 621
+$ cat /tmp/14524/T0517.tmp >> /tmp/14524/T0517.a3m
+$ ./alignhits.pl -cov 20 -e 0.001   -bl 0 -bs 0.167 -bg 20 -B /tmp/14524/T0517.core.psi   -psi -q /tmp/14524/T0517.seq /tmp/14524/T0517.bla /tmp/14524/T0517.tmp -> 621
+$ cat /tmp/14524/T0517.tmp >> /tmp/14524/T0517.psi
+Found 621 sequences in PSI-BLAST round 4 (E-value<1E-03, coverage>20%, db=nr70)
+
+$ /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/util/BLAST/bin/blastpgp -I T -s T -a 4 -b 20000 -v 1 -e 0.001 -d /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/databases/NR_new/nr70 -i /tmp/14524/T0517.seq -B /tmp/14524/T0517.psi > /tmp/14524/T0517.bla
+$ ./alignhits.pl -cov 20 -e 0.001   -bl 0 -bs 0.167 -bg 20 -B /tmp/14524/T0517.core.psi   -a3m -q /tmp/14524/T0517.seq /tmp/14524/T0517.bla /tmp/14524/T0517.tmp -> 637
+Found 637 sequences in PSI-BLAST round 5 (E-value<1E-03, coverage>20%, db=nr70)
+
+$ cat /tmp/14524/T0517.tmp >> /tmp/14524/T0517.a3m
+$ ./alignhits.pl -cov 20 -e 0.001   -bl 0 -bs 0.167 -bg 20 -B /tmp/14524/T0517.core.psi   -psi -q /tmp/14524/T0517.seq /tmp/14524/T0517.bla /tmp/14524/T0517.tmp -> 637
+$ cat /tmp/14524/T0517.tmp >> /tmp/14524/T0517.psi
+$ ./hhfilter -M a3m -id 90  -cov 20 -diff 0 -i /tmp/14524/T0517.a3m -o /tmp/14524/T0517.fil
+Input file = /tmp/14524/T0517.a3m
+Output file = /tmp/14524/T0517.fil
+Read /tmp/14524/T0517.a3m with 3313 sequences
+Alignment in /tmp/14524/T0517.a3m contains 159 match states
+1014 out of 3313 sequences passed filter (20% min coverage, 90% max pairwise sequence identity)
+$ ./reformat.pl -r a3m psi /tmp/14524/T0517.fil /tmp/14524/T0517.psi -> 1014
+$ cat /tmp/14524/T0517.a3m /tmp/14524/T0517.in.a3m /tmp/14524/T0517.fil > /tmp/14524/T0517.tmp.a3m
+$ ./hhfilter -M a3m -id 90  -cov 20 -diff 0 -i /tmp/14524/T0517.tmp.a3m -o /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/tmp_T0517_3912/T0517.a3m
+Input file = /tmp/14524/T0517.tmp.a3m
+Output file = /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/tmp_T0517_3912/T0517.a3m
+Read /tmp/14524/T0517.tmp.a3m with 1015 sequences
+Alignment in /tmp/14524/T0517.tmp.a3m contains 159 match states
+1014 out of 1015 sequences passed filter (20% min coverage, 90% max pairwise sequence identity)
+Written alignment with 1014 sequences to /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/tmp_T0517_3912/T0517.a3m
+
+Finished  buildali.pl /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/tmp_T0517_3912/T0517.seq -cpu 4 -noss

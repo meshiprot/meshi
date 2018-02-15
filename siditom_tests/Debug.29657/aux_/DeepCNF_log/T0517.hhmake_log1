@@ -1,0 +1,7 @@
+/home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/tmp_T0517_3912/T0517.a3m is in A2M, A3M or FASTA format
+Read /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/tmp_T0517_3912/T0517.a3m with 1014 sequences
+Alignment in /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/tmp_T0517_3912/T0517.a3m contains 159 match states
+110 out of 1014 sequences passed filter (up to 40% position-dependent max pairwise sequence identity)
+Effective number of sequences exp(entropy) = 6.9 
+Writing HMM to /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/tmp_T0517_3912/T0517.feat
+Done

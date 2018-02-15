@@ -1,0 +1,12 @@
+stty: standard input: Inappropriate ioctl for device
+stty: standard input: Inappropriate ioctl for device
+stdin: is not a tty
+Exception in thread "main" java.lang.RuntimeException: Something is wrong about the secondary structure prediction. Apparently it has holes in it.
+Residue is null
+	at meshi.energy.secondaryStructureAlphabet.DeepCNF_ssCompatibilityFeature.ssCometability(DeepCNF_ssCompatibilityFeature.java:83)
+	at meshi.energy.secondaryStructureAlphabet.DeepCNF_ssCompatibilityFeature.evaluate(DeepCNF_ssCompatibilityFeature.java:57)
+	at meshi.energy.secondaryStructureAlphabet.DeepCNF_ssCompatibilityFeature.<init>(DeepCNF_ssCompatibilityFeature.java:53)
+	at meshi.energy.secondaryStructureAlphabet.DeepCNF_ssCompatibilityFeatureCreator.createEnergyTerm(DeepCNF_ssCompatibilityFeatureCreator.java:38)
+	at meshi.energy.TotalEnergy.<init>(TotalEnergy.java:89)
+	at meshi.energy.TotalEnergy.<init>(TotalEnergy.java:77)
+	at programs.Optimize.main(Optimize.java:290)

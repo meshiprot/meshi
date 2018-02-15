@@ -1,0 +1,1676 @@
+BLASTP 2.2.26 [Sep-21-2011]
+
+
+Reference: Altschul, Stephen F., Thomas L. Madden, Alejandro A. Schaffer, 
+Jinghui Zhang, Zheng Zhang, Webb Miller, and David J. Lipman (1997), 
+"Gapped BLAST and PSI-BLAST: a new generation of protein database search
+programs",  Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics:
+Schaffer, Alejandro A., L. Aravind, Thomas L. Madden,
+Sergei Shavirin, John L. Spouge, Yuri I. Wolf,  
+Eugene V. Koonin, and Stephen F. Altschul (2001), 
+"Improving the accuracy of PSI-BLAST protein database searches with 
+composition-based statistics and other refinements",  Nucleic Acids Res. 29:2994-3005.
+
+Query= T0517 YP_755085.1, Syntrophomonas wolfei str. Goettingen, 159
+residues
+         (159 letters)
+
+Database: nr90 
+           41,206,127 sequences; 13,518,132,356 total letters
+
+Searching..................................................done
+
+
+Results from round 1
+
+
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+ref|WP_035163877.1| pyridine nucleotide-disulfide oxidoreductase...   293   2e-77
+ref|WP_050356016.1| hypothetical protein [[Clostridium] purinily...   291   8e-77
+ref|WP_027623704.1| hypothetical protein [Clostridium lundense]       289   4e-76
+ref|WP_035378483.1| pyridine nucleotide-disulfide oxidoreductase...   289   5e-76
+ref|WP_035144998.1| hypothetical protein [Clostridium tetanomorp...   288   6e-76
+ref|WP_011989001.1| CoA-disulfide reductase [Clostridium kluyver...   288   6e-76
+ref|WP_029161602.1| CoA-disulfide reductase [Clostridium scatolo...   288   7e-76
+ref|WP_008789116.1| MULTISPECIES: CoA-disulfide reductase [Copro...   288   8e-76
+ref|WP_035290970.1| hypothetical protein [Clostridium sp. KNHs214]    287   1e-75
+ref|WP_044353112.1| CoA-disulfide reductase [Paenibacillus sp. E...   286   2e-75
+ref|WP_023483431.1| hypothetical protein [Paenibacillus larvae] ...   286   2e-75
+ref|WP_014186494.1| CoA-disulfide reductase [Desulfosporosinus o...   286   3e-75
+ref|WP_048571462.1| hypothetical protein [Clostridium cylindrosp...   286   3e-75
+ref|WP_019553760.1| hypothetical protein [Propionispira raffinos...   285   4e-75
+ref|WP_007064488.1| CoA-disulfide reductase [Clostridium carboxi...   285   4e-75
+ref|WP_027937485.1| pyridine nucleotide-disulfide oxidoreductase...   285   5e-75
+ref|WP_021170900.1| pyridine nucleotide-disulfide oxidoreductase...   285   5e-75
+ref|WP_018671996.1| CoA-disulfide reductase [Brevibacillus later...   284   1e-74
+ref|WP_034601241.1| pyridine nucleotide-disulfide oxidoreductase...   284   1e-74
+ref|WP_031389005.1| hypothetical protein [Clostridium sp. KNHs209]    284   1e-74
+ref|WP_025529977.1| CoA-disulfide reductase [Hungatella hathewayi]    284   1e-74
+emb|CDC36410.1| pyridine nucleotide-disulfide oxidoreductase [An...   283   2e-74
+ref|WP_012635199.1| CoA-disulfide reductase [Halothermothrix ore...   283   2e-74
+ref|WP_023162017.1| CoA-disulfide reductase [Clostridium autoeth...   283   2e-74
+ref|WP_027309001.1| pyridine nucleotide-disulfide oxidoreductase...   283   2e-74
+ref|WP_014825454.1| CoA-disulfide reductase [Desulfosporosinus a...   283   3e-74
+ref|WP_042125342.1| CoA-disulfide reductase [Paenibacillus sp. F...   283   3e-74
+ref|WP_005545655.1| CoA-disulfide reductase [Paenibacillus alvei...   283   3e-74
+ref|WP_011879261.1| CoA-disulfide reductase [Desulfotomaculum re...   282   3e-74
+ref|WP_024728682.1| pyridine nucleotide-disulfide oxidoreductase...   282   4e-74
+ref|WP_002596774.1| hypothetical protein [Clostridium colicanis]...   282   4e-74
+ref|WP_018755064.1| hypothetical protein [Paenibacillus terrigena]    282   4e-74
+ref|WP_007960421.1| CoA-disulfide reductase [Pelosinus fermentan...   282   5e-74
+ref|WP_045516861.1| pyridine nucleotide-disulfide oxidoreductase...   282   5e-74
+ref|WP_019230220.1| hypothetical protein [Sedimentibacter sp. B4]     282   5e-74
+ref|WP_024614381.1| pyridine nucleotide-disulfide oxidoreductase...   282   5e-74
+ref|WP_021801762.1| pyridine nucleotide-disulfide oxidoreductase...   282   5e-74
+ref|WP_038322047.1| pyridine nucleotide-disulfide oxidoreductase...   282   6e-74
+ref|WP_035304772.1| hypothetical protein [Clostridium sp. HMP27]...   282   6e-74
+ref|WP_032122269.1| hypothetical protein [Clostridium sp. LF2]        282   6e-74
+gb|ACJ32687.1| Multidomain redox protein (NAD(FAD)-dependent oxi...   282   7e-74
+ref|WP_004455218.1| hypothetical protein [Clostridium pasteurian...   282   7e-74
+ref|WP_014904019.1| CoA-disulfide reductase [Desulfosporosinus m...   282   7e-74
+ref|WP_047808518.1| pyridine nucleotide-disulfide oxidoreductase...   282   7e-74
+ref|WP_043965669.1| pyridine nucleotide-disulfide oxidoreductase...   282   7e-74
+ref|WP_009226181.1| CoA-disulfide reductase [Paenibacillus sp. o...   282   7e-74
+ref|WP_008909989.1| CoA-disulfide reductase [Caloramator austral...   281   7e-74
+ref|WP_026485805.1| pyridine nucleotide-disulfide oxidoreductase...   281   8e-74
+ref|WP_044898309.1| pyridine nucleotide-disulfide oxidoreductase...   281   8e-74
+ref|WP_010245420.1| CoA-disulfide reductase [Acetivibrio cellulo...   281   9e-74
+ref|WP_013787030.1| CoA-disulfide reductase [Thermoanaerobacteri...   281   1e-73
+ref|WP_013757559.1| CoA-disulfide reductase [Treponema brennabor...   281   1e-73
+ref|WP_013779694.1| CoA-disulfide reductase [Mahella australiens...   281   1e-73
+ref|WP_003398586.1| CoA-disulfide reductase [Anoxybacillus flavi...   281   1e-73
+ref|WP_044478744.1| hypothetical protein [Paenibacillus sp. GD11]     281   1e-73
+ref|WP_018248067.1| hypothetical protein [Orenia marismortui]         280   1e-73
+emb|CCZ61436.1| coA-disulfide reductase [Clostridium hathewayi C...   280   1e-73
+ref|WP_025436699.1| pyridine nucleotide-disulfide oxidoreductase...   280   1e-73
+emb|CDE97881.1| coA-disulfide reductase / Disulfide bond regulat...   280   2e-73
+ref|WP_028610711.1| hypothetical protein [Paenibacillus harenae]      280   2e-73
+ref|WP_026882582.1| hypothetical protein [Clostridium akagii]         280   2e-73
+ref|WP_023354627.1| pyridine nucleotide-disulfide oxidoreductase...   280   2e-73
+ref|WP_013296803.1| CoA-disulfide reductase [Thermoanaerobacteri...   280   2e-73
+ref|WP_027400247.1| hypothetical protein [Anaerovorax odorimutans]    280   3e-73
+ref|WP_014519515.1| CoA-disulfide reductase [Clostridium botulin...   280   3e-73
+ref|WP_015310789.1| NAD(FAD)-dependent dehydrogenase [Thermoanae...   280   3e-73
+ref|WP_031544341.1| hypothetical protein [Lachnospiraceae bacter...   280   3e-73
+emb|CDD49466.1| putative uncharacterized protein [Bacteroides sp...   279   3e-73
+ref|WP_028829076.1| pyridine nucleotide-disulfide oxidoreductase...   279   3e-73
+ref|WP_036713741.1| pyridine nucleotide-disulfide oxidoreductase...   279   3e-73
+ref|WP_045520133.1| pyridine nucleotide-disulfide oxidoreductase...   279   4e-73
+dbj|BAQ12267.1| putative pyridine nucleotide-disulfide oxidoredu...   279   4e-73
+gb|ADU25715.1| FAD-dependent pyridine nucleotide-disulfide oxido...   279   4e-73
+ref|WP_028537575.1| CoA-disulfide reductase [Paenibacillus sp. J14]   279   4e-73
+ref|WP_036623092.1| CoA-disulfide reductase [Paenibacillus macer...   279   4e-73
+ref|WP_039774002.1| pyridine nucleotide-disulfide oxidoreductase...   278   5e-73
+ref|WP_044877767.1| hypothetical protein [Paenibacillus sp. IHBB...   278   5e-73
+dbj|GAP41048.1| NADPH-dependent 2,4-dienoyl-CoA reductase [Anaer...   278   5e-73
+ref|WP_009252465.1| MULTISPECIES: CoA-disulfide reductase [Clost...   278   5e-73
+gb|ACL75501.1| FAD-dependent pyridine nucleotide-disulphide oxid...   278   6e-73
+ref|WP_042135719.1| pyridine nucleotide-disulfide oxidoreductase...   278   6e-73
+ref|WP_025689184.1| pyridine nucleotide-disulfide oxidoreductase...   278   7e-73
+emb|CCZ31571.1| coA-disulfide reductase [Coprobacillus sp. CAG:183]   278   7e-73
+ref|WP_014116020.1| CoA-disulfide reductase [Oscillibacter valer...   278   7e-73
+ref|WP_009624938.1| CoA-disulfide reductase [Desulfosporosinus s...   278   8e-73
+ref|WP_042206245.1| pyridine nucleotide-disulfide oxidoreductase...   278   8e-73
+ref|WP_009170709.1| CoA-disulfide reductase [Clostridium sp. DL-...   278   9e-73
+ref|WP_021874970.1| pyridine nucleotide-disulfide oxidoreductase...   278   1e-72
+ref|WP_036654491.1| hypothetical protein [Paenibacillus wynnii] ...   277   1e-72
+ref|WP_017416003.1| hypothetical protein [Clostridium tunisiense]     277   1e-72
+ref|WP_010238343.1| CoA-disulfide reductase [Clostridium arbusti]     277   1e-72
+gb|EKN42666.1| pyridine nucleotide-disulfide oxidoreductase fami...   277   1e-72
+ref|WP_033168050.1| hypothetical protein [Clostridium sp. KNHs205]    277   1e-72
+ref|WP_026891998.1| hypothetical protein [[Clostridium] aerotole...   277   1e-72
+ref|WP_038261078.1| pyridine nucleotide-disulfide oxidoreductase...   277   1e-72
+ref|WP_039293030.1| hypothetical protein [Paenibacillus sp. IHB ...   277   2e-72
+ref|WP_031413338.1| pyridine nucleotide-disulfide oxidoreductase...   277   2e-72
+ref|WP_042235027.1| pyridine nucleotide-disulfide oxidoreductase...   277   2e-72
+ref|WP_038668292.1| pyridine nucleotide-disulfide oxidoreductase...   277   2e-72
+gb|AAQ65412.1| pyridine nucleotide-disulphide oxidoreductase fam...   277   2e-72
+ref|WP_008680429.1| CoA-disulfide reductase [Clostridium sp. 7_2...   277   2e-72
+ref|WP_038277156.1| pyridine nucleotide-disulfide oxidoreductase...   276   2e-72
+ref|WP_042212014.1| pyridine nucleotide-disulfide oxidoreductase...   276   3e-72
+ref|WP_006844451.1| pyridine nucleotide-disulfide oxidoreductase...   276   3e-72
+ref|WP_021284040.1| hypothetical protein [Clostridium sp. BL8] >...   276   3e-72
+ref|WP_006781843.1| CoA-disulfide reductase [Hungatella hatheway...   276   3e-72
+ref|WP_013273802.1| CoA-disulfide reductase [[Clostridium] sacch...   276   3e-72
+ref|WP_031424429.1| pyridine nucleotide-disulfide oxidoreductase...   276   3e-72
+ref|WP_008425916.1| NAD(FAD)-dependent dehydrogenase [Clostridiu...   276   3e-72
+emb|CCZ06647.1| coA-disulfide reductase [Odoribacter sp. CAG:788]     276   3e-72
+emb|CRH91704.1| dihydrolipoamide dehydrogenase [Chlamydia tracho...   276   4e-72
+emb|CDF22875.1| pyridine nucleotide-disulfide oxidoreductase [Pr...   276   4e-72
+ref|WP_015846445.1| CoA-disulfide reductase [Paenibacillus sp. J...   275   4e-72
+ref|WP_025699413.1| pyridine nucleotide-disulfide oxidoreductase...   275   4e-72
+ref|WP_006772345.1| CoA-disulfide reductase [Hungatella hatheway...   275   5e-72
+emb|CDC55111.1| putative uncharacterized protein [Bacteroides co...   275   6e-72
+ref|WP_018752819.1| hypothetical protein [Paenibacillus sanguinis]    275   6e-72
+gb|EEU03996.1| pyridine nucleotide-disulfide oxidoreductase [Eub...   275   6e-72
+ref|WP_039656988.1| pyridine nucleotide-disulfide oxidoreductase...   275   7e-72
+ref|WP_047772977.1| pyridine nucleotide-disulfide oxidoreductase...   275   7e-72
+ref|WP_038589642.1| pyridine nucleotide-disulfide oxidoreductase...   275   7e-72
+ref|WP_046823116.1| pyridine nucleotide-disulfide oxidoreductase...   275   7e-72
+ref|WP_004819321.1| CoA-disulfide reductase [Peptoniphilus indol...   275   7e-72
+ref|WP_021433360.1| coA-disulfide reductase [[Clostridium] bifer...   275   8e-72
+gb|AGB42229.1| NAD(FAD)-dependent dehydrogenase [Halobacteroides...   275   8e-72
+ref|WP_024294016.1| MULTISPECIES: pyridine nucleotide-disulfide ...   275   8e-72
+ref|WP_027631654.1| hypothetical protein [Clostridium hydrogenif...   275   8e-72
+ref|WP_036725221.1| pyridine nucleotide-disulfide oxidoreductase...   274   1e-71
+ref|WP_007571689.1| pyridine nucleotide-disulfide oxidoreductase...   274   1e-71
+ref|WP_047001881.1| pyridine nucleotide-disulfide oxidoreductase...   274   1e-71
+ref|WP_046234524.1| CoA-disulfide reductase [Paenibacillus algor...   274   1e-71
+ref|WP_026887429.1| pyridine nucleotide-disulfide oxidoreductase...   274   1e-71
+ref|WP_042274724.1| pyridine nucleotide-disulfide oxidoreductase...   274   1e-71
+ref|WP_034863311.1| pyridine nucleotide-disulfide oxidoreductase...   274   1e-71
+ref|WP_038696003.1| CoA-disulfide reductase [Paenibacillus stell...   273   1e-71
+ref|WP_028590232.1| CoA-disulfide reductase [Paenibacillus panac...   273   2e-71
+ref|WP_008422005.1| NAD(FAD)-dependent dehydrogenase [Clostridiu...   273   2e-71
+emb|CDC99551.1| pyridine nucleotide-disulfide oxidoreductase [Al...   273   2e-71
+ref|WP_027701237.1| pyridine nucleotide-disulfide oxidoreductase...   273   2e-71
+ref|WP_039678729.1| pyridine nucleotide-disulfide oxidoreductase...   273   2e-71
+ref|WP_015614018.1| NAD(FAD)-dependent dehydrogenase [Clostridiu...   273   2e-71
+ref|WP_036702220.1| pyridine nucleotide-disulfide oxidoreductase...   273   2e-71
+ref|WP_041896380.1| pyridine nucleotide-disulfide oxidoreductase...   273   2e-71
+ref|WP_046214046.1| CoA-disulfide reductase [Paenibacillus wulum...   273   3e-71
+ref|WP_035118465.1| pyridine nucleotide-disulfide oxidoreductase...   273   3e-71
+ref|WP_047843090.1| CoA-disulfide reductase [Paenibacillus sp. V...   273   3e-71
+ref|WP_029452460.1| hypothetical protein [Clostridium algidicarnis]   273   3e-71
+ref|WP_040210268.1| hypothetical protein [Clostridium sp. MS1]        273   3e-71
+ref|WP_015393391.1| NAD(FAD)-dependent dehydrogenase [Clostridiu...   272   3e-71
+ref|WP_048695398.1| pyridine nucleotide-disulfide oxidoreductase...   272   3e-71
+ref|WP_024633365.1| MULTISPECIES: CoA-disulfide reductase [Paeni...   272   4e-71
+ref|WP_044962694.1| pyridine nucleotide-disulfide oxidoreductase...   272   4e-71
+ref|WP_025705657.1| pyridine nucleotide-disulfide oxidoreductase...   272   4e-71
+ref|WP_047374290.1| pyridine nucleotide-disulfide oxidoreductase...   272   4e-71
+ref|WP_019420374.1| hypothetical protein [Paenibacillus sp. OSY-SE]   272   5e-71
+ref|WP_022774649.1| NAD(FAD)-dependent dehydrogenase [Candidatus...   272   5e-71
+ref|WP_006785298.1| CoA-disulfide reductase [Turicibacter sangui...   272   5e-71
+gb|KKB54686.1| CoA-disulfide reductase [Parabacteroides goldstei...   272   5e-71
+emb|CDE07042.1| putative uncharacterized protein [Prevotella sp....   272   5e-71
+ref|WP_024991729.1| pyridine nucleotide-disulfide oxidoreductase...   272   6e-71
+ref|WP_020815394.1| CoA-disulfide reductase [[Clostridium] papyr...   272   6e-71
+ref|WP_004616198.1| CoA-disulfide reductase [[Clostridium] papyr...   272   7e-71
+ref|WP_027095567.1| pyridine nucleotide-disulfide oxidoreductase...   271   8e-71
+emb|CCZ74467.1| uncharacterized protein BN535_00697 [Bacteroides...   271   9e-71
+ref|WP_024836478.1| hypothetical protein [Clostridium sp. 12(A)]      271   9e-71
+ref|WP_037284646.1| CoA-disulfide reductase [Saccharibacillus sa...   271   1e-70
+ref|WP_046148633.1| pyridine nucleotide-disulfide oxidoreductase...   271   1e-70
+emb|CDN44878.1| FAD-dependent pyridine nucleotide-disulphide oxi...   270   1e-70
+ref|WP_018592256.1| CoA-disulfide reductase [Terrisporobacter gl...   270   1e-70
+ref|WP_006255173.1| pyridine nucleotide-disulfide oxidoreductase...   270   2e-70
+ref|WP_027099080.1| pyridine nucleotide-disulfide oxidoreductase...   270   2e-70
+ref|WP_046226489.1| CoA-disulfide reductase [Paenibacillus dauci]     270   2e-70
+emb|CCX70281.1| uncharacterized protein BN567_01491 [Prevotella ...   270   2e-70
+ref|WP_004609220.1| CoA-disulfide reductase [[Clostridium] spiro...   270   2e-70
+ref|WP_041487316.1| pyridine nucleotide-disulfide oxidoreductase...   270   2e-70
+ref|WP_046452010.1| pyridine nucleotide-disulfide oxidoreductase...   270   2e-70
+emb|CCZ70369.1| coA-disulfide reductase [Bacteroides sp. CAG:702]     270   2e-70
+ref|WP_045849581.1| pyridine nucleotide-disulfide oxidoreductase...   270   2e-70
+ref|WP_021635812.1| pyridine nucleotide-disulfide oxidoreductase...   270   3e-70
+ref|WP_027622530.1| pyridine nucleotide-disulfide oxidoreductase...   270   3e-70
+ref|WP_031369386.1| pyridine nucleotide-disulfide oxidoreductase...   270   3e-70
+ref|WP_011340111.1| pyridine nucleotide-disulfide oxidoreductase...   269   3e-70
+ref|WP_022744780.1| CoA disulfide reductase [Clostridium sacchar...   269   3e-70
+ref|WP_028597209.1| hypothetical protein [Paenibacillus pasadene...   269   3e-70
+ref|WP_027108113.1| pyridine nucleotide-disulfide oxidoreductase...   269   3e-70
+ref|WP_036943734.1| pyridine nucleotide-disulfide oxidoreductase...   269   4e-70
+ref|WP_035134446.1| pyridine nucleotide-disulfide oxidoreductase...   269   4e-70
+ref|WP_008155337.1| pyridine nucleotide-disulfide oxidoreductase...   269   5e-70
+ref|WP_024995254.1| pyridine nucleotide-disulfide oxidoreductase...   268   5e-70
+emb|CDE43300.1| coA-disulfide reductase / Disulfide bond regulat...   268   6e-70
+ref|WP_025334417.1| pyridine nucleotide-disulfide oxidoreductase...   268   6e-70
+ref|WP_042175481.1| CoA-disulfide reductase [Paenibacillus sp. F...   268   6e-70
+ref|WP_036879520.1| pyridine nucleotide-disulfide oxidoreductase...   268   7e-70
+dbj|GAO30404.1| CoA-disulfide reductase [Geofilum rubicundum JCM...   268   7e-70
+emb|CDB11784.1| pyridine nucleotide-disulfide oxidoreductase [Ba...   268   8e-70
+ref|WP_010074771.1| CoA-disulfide reductase [Clostridium cellulo...   268   8e-70
+ref|WP_039307972.1| pyridine nucleotide-disulfide oxidoreductase...   268   8e-70
+ref|WP_021657843.1| CoA-disulfide reductase [Clostridiales bacte...   268   8e-70
+ref|WP_039872225.1| CoA-disulfide reductase [Paenibacillus sp. F...   268   1e-69
+gb|KFI85846.1| pyridine nucleotide-disulfide oxidoreductase fami...   267   1e-69
+gb|KIL79153.1| CoA-disulfide reductase [Bacillus badius]              267   1e-69
+ref|WP_015043666.1| MULTISPECIES: CoA-disulfide reductase [Dehal...   267   1e-69
+ref|WP_048515085.1| pyridine nucleotide-disulfide oxidoreductase...   266   2e-69
+ref|WP_035019109.1| pyridine nucleotide-disulfide oxidoreductase...   266   2e-69
+ref|WP_024267150.1| CoA-disulfide reductase [Salinispira pacific...   266   3e-69
+ref|WP_044545289.1| pyridine nucleotide-disulfide oxidoreductase...   266   3e-69
+emb|CDE33649.1| pyridine nucleotide-disulfide oxidoreductase [Pr...   266   3e-69
+ref|WP_049661980.1| pyridine nucleotide-disulfide oxidoreductase...   266   3e-69
+ref|WP_021646070.1| pyridine nucleotide-disulfide oxidoreductase...   266   3e-69
+ref|WP_026902264.1| pyridine nucleotide-disulfide oxidoreductase...   266   3e-69
+gb|EDO51770.1| pyridine nucleotide-disulfide oxidoreductase [Bac...   266   4e-69
+ref|WP_036729024.1| pyridine nucleotide-disulfide oxidoreductase...   266   4e-69
+ref|WP_027939448.1| pyridine nucleotide-disulfide oxidoreductase...   265   5e-69
+ref|WP_021311370.1| sulfurtransferase TusA [Bacteroidetes bacter...   265   6e-69
+ref|WP_032842705.1| pyridine nucleotide-disulfide oxidoreductase...   265   6e-69
+ref|WP_006743999.1| pyridine nucleotide-disulfide oxidoreductase...   265   6e-69
+gb|EFB33671.1| pyridine nucleotide-disulfide oxidoreductase [Pre...   265   7e-69
+emb|CCX61012.1| pyridine nucleotide-disulfide oxidoreductase [Ba...   265   8e-69
+ref|WP_025830655.1| pyridine nucleotide-disulfide oxidoreductase...   265   8e-69
+ref|WP_046148754.1| pyridine nucleotide-disulfide oxidoreductase...   265   8e-69
+gb|EJP30674.1| hypothetical protein HMPREF1146_1073 [Prevotella ...   265   8e-69
+ref|WP_018163703.1| CoA-disulfide reductase [Streptococcus henryi]    265   9e-69
+ref|WP_041502095.1| pyridine nucleotide-disulfide oxidoreductase...   265   9e-69
+ref|WP_036878361.1| pyridine nucleotide-disulfide oxidoreductase...   265   9e-69
+ref|WP_029503226.1| pyridine nucleotide-disulfide oxidoreductase...   264   9e-69
+ref|WP_031573626.1| hypothetical protein [Proteiniclasticum rumi...   264   1e-68
+ref|WP_045515168.1| pyridine nucleotide-disulfide oxidoreductase...   264   1e-68
+emb|CDH98062.1| rhodanese domain-containing protein [Staphylococ...   264   1e-68
+ref|WP_043928384.1| hypothetical protein [Bacillus licheniformis]     264   1e-68
+ref|WP_029495087.1| pyridine nucleotide-disulfide oxidoreductase...   264   1e-68
+ref|WP_029599494.1| pyridine nucleotide-disulfide oxidoreductase...   264   1e-68
+ref|WP_014263241.1| CoA-disulfide reductase [Filifactor alocis] ...   264   1e-68
+ref|WP_042201530.1| CoA-disulfide reductase [Paenibacillus sp. G4]    264   1e-68
+emb|CCZ82217.1| putative uncharacterized protein [Odoribacter la...   264   1e-68
+dbj|GAE20180.1| NADH dehydrogenase [Bacteroides pyogenes DSM 206...   264   1e-68
+emb|CCY64165.1| pyridine nucleotide-disulfide oxidoreductase [Pr...   264   1e-68
+ref|WP_029490851.1| pyridine nucleotide-disulfide oxidoreductase...   263   2e-68
+ref|WP_013605784.1| pyridine nucleotide-disulfide oxidoreductase...   263   2e-68
+ref|WP_040193197.1| pyridine nucleotide-disulfide oxidoreductase...   263   2e-68
+ref|WP_015050849.1| CoA-disulfide reductase [Thermacetogenium ph...   263   2e-68
+gb|EFR49812.1| hypothetical protein BBNG_00359 [Bifidobacterium ...   263   2e-68
+ref|WP_049868179.1| hypothetical protein [Paenibacillus sp. D9] ...   263   2e-68
+ref|WP_036883304.1| pyridine nucleotide-disulfide oxidoreductase...   263   2e-68
+ref|WP_038350965.1| pyridine nucleotide-disulfide oxidoreductase...   263   2e-68
+ref|WP_013389059.1| CoA-disulfide reductase [Ilyobacter polytrop...   263   2e-68
+ref|WP_026506950.1| hypothetical protein [Butyrivibrio sp. MC2013]    263   3e-68
+ref|WP_005972735.1| CoA-disulfide reductase [Fusobacterium perio...   262   4e-68
+gb|ABX43821.1| FAD-dependent pyridine nucleotide-disulphide oxid...   262   4e-68
+ref|WP_016185054.1| hypothetical protein [Enterococcus sulfureus...   262   4e-68
+ref|WP_031920606.1| dihydroneopterin aldolase [Staphylococcus au...   262   4e-68
+ref|WP_033493206.1| pyridine nucleotide-disulfide oxidoreductase...   262   5e-68
+ref|WP_046836307.1| dihydroneopterin aldolase [Staphylococcus su...   262   5e-68
+ref|WP_008620233.1| pyridine nucleotide-disulfide oxidoreductase...   262   6e-68
+emb|CDC98082.1| pyridine nucleotide-disulfide oxidoreductase [Pr...   262   6e-68
+ref|WP_027473057.1| pyridine nucleotide-disulfide oxidoreductase...   262   6e-68
+ref|WP_019468540.1| dihydroneopterin aldolase [Staphylococcus sp...   261   9e-68
+ref|WP_002500371.1| dihydroneopterin aldolase [Staphylococcus ep...   261   9e-68
+ref|WP_027640015.1| pyridine nucleotide-disulfide oxidoreductase...   261   9e-68
+ref|WP_046207533.1| dihydroneopterin aldolase [Staphylococcus co...   261   1e-67
+ref|WP_046230865.1| hypothetical protein [Paenibacillus algorifo...   261   1e-67
+ref|WP_000192254.1| hypothetical protein [Streptococcus agalacti...   261   1e-67
+ref|WP_007430469.1| hypothetical protein [Paenibacillus sp. Aloe...   261   1e-67
+ref|WP_044291621.1| dihydroneopterin aldolase [Staphylococcus au...   261   1e-67
+ref|WP_044232859.1| pyridine nucleotide-disulfide oxidoreductase...   260   1e-67
+ref|WP_029468508.1| pyridine nucleotide-disulfide oxidoreductase...   260   1e-67
+ref|WP_029493689.1| pyridine nucleotide-disulfide oxidoreductase...   260   1e-67
+ref|WP_029193952.1| hypothetical protein [Paenibacillus alginoly...   260   1e-67
+ref|WP_047911402.1| hypothetical protein [Paenibacillus sp. TCA2...   260   1e-67
+ref|WP_016999819.1| dihydroneopterin aldolase [Staphylococcus le...   260   1e-67
+ref|WP_026626432.1| pyridine nucleotide-disulfide oxidoreductase...   260   2e-67
+emb|CDD32054.1| putative uncharacterized protein [Bacteroides sp...   260   2e-67
+ref|WP_049828400.1| hypothetical protein [Paenibacillus sp. UNCC...   260   2e-67
+ref|WP_036380641.1| pyridine nucleotide-disulfide oxidoreductase...   260   2e-67
+ref|WP_044634529.1| hypothetical protein [Treponema phagedenis] ...   260   2e-67
+ref|WP_021167701.1| CoA disulfide reductase [Sporomusa ovata] >g...   260   2e-67
+ref|WP_024396977.1| pyridine nucleotide-disulfide oxidoreductase...   260   2e-67
+ref|WP_024984354.1| hypothetical protein [Brevibacillus borstele...   260   2e-67
+ref|WP_013547503.1| pyridine nucleotide-disulfide oxidoreductase...   260   2e-67
+ref|WP_021666283.1| pyridine nucleotide-disulfide oxidoreductase...   260   2e-67
+ref|WP_008796281.1| CoA-disulfide reductase [Fusobacterium nucle...   260   2e-67
+ref|WP_003399194.1| hypothetical protein [Anoxybacillus flavithe...   260   2e-67
+emb|CCZ51254.1| coA-disulfide reductase / Disulfide bond regulat...   260   2e-67
+ref|WP_010295643.1| CoA-disulfide reductase [Clostridium senegal...   260   2e-67
+ref|WP_043853630.1| pyridine nucleotide-disulfide oxidoreductase...   260   3e-67
+ref|WP_002506436.1| dihydroneopterin aldolase [Staphylococcus sp...   260   3e-67
+ref|WP_036864341.1| pyridine nucleotide-disulfide oxidoreductase...   259   3e-67
+ref|WP_049825081.1| hypothetical protein [Paenibacillus sp. 1-18]     259   3e-67
+ref|WP_039067948.1| dihydroneopterin aldolase [Staphylococcus xy...   259   3e-67
+ref|WP_027131991.1| CoA-disulfide reductase [Fusobacterium necro...   259   4e-67
+ref|WP_021664829.1| hypothetical protein, partial [Porphyromonas...   259   4e-67
+ref|WP_042214805.1| pyridine nucleotide-disulfide oxidoreductase...   259   5e-67
+ref|WP_028397797.1| hypothetical protein [Bacillus sp. FJAT-14578]    259   5e-67
+dbj|GAE22172.1| NADH dehydrogenase [Bacteroides pyogenes JCM 10003]   259   5e-67
+ref|WP_009531229.1| CoA-disulfide reductase [Peptostreptococcace...   259   5e-67
+ref|WP_045026191.1| pyridine nucleotide-disulfide oxidoreductase...   258   5e-67
+ref|WP_050215128.1| dihydroneopterin aldolase [Streptococcus pne...   258   6e-67
+ref|WP_031463503.1| hypothetical protein [Paenibacillus polymyxa]     258   6e-67
+ref|WP_010662784.1| pyridine nucleotide-disulfide oxidoreductase...   258   7e-67
+ref|WP_023511150.1| CoA-disulfide reductase [Sporolactobacillus ...   258   7e-67
+ref|WP_047035422.1| pyridine nucleotide-disulfide oxidoreductase...   258   8e-67
+ref|WP_013044052.1| pyridine nucleotide-disulfide oxidoreductase...   258   8e-67
+ref|WP_023388136.1| CoA-disulfide reductase [Youngiibacter fragi...   258   1e-66
+ref|WP_045078449.1| pyridine nucleotide-disulfide oxidoreductase...   257   1e-66
+gb|AII68527.1| pyridine nucleotide-disulfide oxidoreductase [Bac...   257   1e-66
+ref|WP_017722249.1| dihydroneopterin aldolase [Staphylococcus xy...   257   2e-66
+ref|WP_027409845.1| hypothetical protein [Anoxybacillus tepidamans]   257   2e-66
+ref|WP_009346875.1| pyridine nucleotide-disulfide oxidoreductase...   257   2e-66
+ref|WP_029758530.1| pyridine nucleotide-disulfide oxidoreductase...   257   2e-66
+ref|WP_019539038.1| hypothetical protein [Proteiniphilum acetati...   257   2e-66
+ref|WP_013968998.1| pyridine nucleotide-disulfide oxidoreductase...   257   2e-66
+emb|CCY81138.1| uncharacterized protein BN473_01878 [Prevotella ...   257   2e-66
+ref|WP_002442014.1| dihydroneopterin aldolase [Staphylococcus ca...   257   2e-66
+ref|WP_040030665.1| dihydroneopterin aldolase [Staphylococcus co...   257   2e-66
+ref|WP_012656291.1| CoA-disulfide reductase [Macrococcus caseoly...   257   2e-66
+dbj|BAB83477.1| unnamed protein product [Staphylococcus hominis]      257   2e-66
+ref|WP_009123893.1| pyridine nucleotide-disulfide oxidoreductase...   256   3e-66
+ref|WP_047132603.1| dihydroneopterin aldolase [Staphylococcus co...   256   3e-66
+ref|WP_032603165.1| dihydroneopterin aldolase [Staphylococcus ep...   256   3e-66
+ref|WP_040101365.1| hypothetical protein [Paenibacillus polymyxa...   256   3e-66
+ref|WP_019007350.1| hypothetical protein [Cohnella laeviribosi]       256   3e-66
+ref|WP_019687218.1| hypothetical protein [Paenibacillus polymyxa]     256   3e-66
+ref|WP_041963939.1| pyridine nucleotide-disulfide oxidoreductase...   256   3e-66
+ref|WP_023015611.1| hypothetical protein [Staphylococcus simulan...   256   3e-66
+ref|WP_003252670.1| hypothetical protein [Geobacillus thermogluc...   256   4e-66
+ref|WP_010754685.1| hypothetical protein [Enterococcus asini] >g...   256   4e-66
+ref|WP_038696170.1| hypothetical protein [Paenibacillus stellife...   256   4e-66
+ref|WP_044645887.1| hypothetical protein [Paenibacillus terrae] ...   256   4e-66
+gb|EEC95812.1| hypothetical protein PRABACTJOHN_02797 [Parabacte...   255   4e-66
+ref|WP_048311813.1| hypothetical protein [Anaerobacillus macyae]...   255   5e-66
+ref|WP_018369474.1| CoA-disulfide reductase [Streptococcus marim...   255   5e-66
+ref|WP_047752937.1| hypothetical protein [Geobacillus sp. T6] >g...   255   5e-66
+ref|WP_046131602.1| hypothetical protein [Bacillus sp. TH008] >g...   255   5e-66
+ref|WP_044395656.1| pyridine nucleotide-disulfide oxidoreductase...   255   6e-66
+emb|CDF14874.1| uncharacterized protein BN821_02324 [Bacteroides...   255   6e-66
+ref|WP_013777390.1| CoA-disulfide reductase [Tepidanaerobacter a...   255   6e-66
+ref|WP_047969951.1| hypothetical protein [Bacillus sp. LL01] >gi...   255   8e-66
+ref|WP_038535306.1| hypothetical protein [Bacillus sp. X1(2014)]...   255   8e-66
+ref|WP_028563400.1| hypothetical protein [Paenibacillus pinihumi]     255   9e-66
+ref|WP_035060424.1| pyridine nucleotide-disulfide oxidoreductase...   254   9e-66
+ref|WP_044747215.1| hypothetical protein [Bacillus alveayuensis]      254   1e-65
+ref|WP_023558961.1| hypothetical protein [Brevibacillus panacihu...   254   1e-65
+ref|WP_009132195.1| hypothetical protein [Bacteroides oleiciplen...   254   1e-65
+ref|WP_006800276.1| pyridine nucleotide-disulfide oxidoreductase...   254   1e-65
+emb|CPA34655.1| sirA-like family protein [Staphylococcus aureus]...   254   1e-65
+ref|WP_048823577.1| hypothetical protein [Bacillus sp. B-jedd] >...   254   2e-65
+ref|WP_047448821.1| pyridine nucleotide-disulfide oxidoreductase...   253   2e-65
+ref|WP_025862678.1| pyridine nucleotide-disulfide oxidoreductase...   253   2e-65
+ref|WP_036159160.1| hypothetical protein [Lysinibacillus odyssey...   253   3e-65
+ref|WP_021675709.1| CoA-disulfide reductase [Peptostreptococcace...   253   3e-65
+dbj|GAF03549.1| sulfurtransferase TusA [Saccharicrinis fermentan...   253   3e-65
+ref|WP_042234330.1| hypothetical protein [Paenibacillus chitinol...   253   3e-65
+ref|WP_047832970.1| hypothetical protein [Robinsoniella sp. RHS]...   253   3e-65
+ref|WP_026582676.1| hypothetical protein [Bacillus sp. J33]           252   4e-65
+ref|WP_002480194.1| hypothetical protein [Staphylococcus simulan...   252   4e-65
+ref|WP_003108051.1| CoA-disulfide reductase [Streptococcus parau...   252   4e-65
+ref|WP_048006889.1| hypothetical protein [Bacillus marisflavi] >...   252   5e-65
+ref|WP_032873032.1| MULTISPECIES: hypothetical protein [Bacillus...   252   5e-65
+ref|WP_029597830.1| pyridine nucleotide-disulfide oxidoreductase...   252   5e-65
+ref|WP_044270197.1| pyridine nucleotide-disulfide oxidoreductase...   252   5e-65
+ref|WP_034289445.1| hypothetical protein [Bacillus sp. 72]            252   5e-65
+emb|CRK81519.1| NADH dehydrogenase [Bacillus sp. LF1]                 252   6e-65
+ref|WP_037550232.1| pyridine nucleotide-disulfide oxidoreductase...   252   6e-65
+ref|WP_042455563.1| hypothetical protein [Bacillus sp. FF4]           252   6e-65
+ref|WP_022637245.1| pyridine nucleotide-disulfide oxidoreductase...   252   6e-65
+ref|WP_028400528.1| hypothetical protein [Bacillus panaciterrae]      252   6e-65
+ref|WP_046403527.1| pyridine nucleotide-disulfide oxidoreductase...   252   6e-65
+dbj|BAE06295.1| conserved hypothetical protein [Staphylococcus a...   252   6e-65
+ref|WP_028552748.1| hypothetical protein [Paenibacillus sp. UNC4...   252   7e-65
+ref|WP_010680585.1| CoA disulfide reductase [Fusobacterium gonid...   252   7e-65
+ref|WP_039643761.1| dihydroneopterin aldolase [Staphylococcus hy...   252   7e-65
+ref|WP_037544071.1| dihydroneopterin aldolase [Staphylococcus ps...   251   8e-65
+ref|WP_015771882.1| pyridine nucleotide-disulfide oxidoreductase...   251   9e-65
+gb|EFF50225.1| pyridine nucleotide-disulfide oxidoreductase [Bac...   251   9e-65
+emb|CBK66843.1| Uncharacterized NAD(FAD)-dependent dehydrogenase...   251   9e-65
+ref|WP_026688548.1| hypothetical protein [Bacillus aurantiacus]       251   9e-65
+ref|WP_025907964.1| hypothetical protein [Bacillus flexus]            251   9e-65
+ref|WP_042224023.1| hypothetical protein [Oceanobacillus manasie...   251   9e-65
+ref|WP_009134375.1| pyridine nucleotide-disulfide oxidoreductase...   251   1e-64
+ref|WP_044654843.1| pyridine nucleotide-disulfide oxidoreductase...   251   1e-64
+ref|WP_041544299.1| hypothetical protein [Oceanobacillus iheyensis]   251   1e-64
+ref|WP_044745590.1| hypothetical protein [Anoxybacillus sp. ATCC...   250   1e-64
+ref|WP_035326745.1| hypothetical protein [Bacillus firmus] >gi|5...   250   1e-64
+ref|WP_031775549.1| dihydroneopterin aldolase, partial [Staphylo...   250   1e-64
+ref|WP_035940621.1| pyridine nucleotide-disulfide oxidoreductase...   250   2e-64
+ref|WP_028391132.1| hypothetical protein [Bacillus sp. FJAT-14515]    250   2e-64
+ref|WP_040082387.1| hypothetical protein [Bacillus sp. A053] >gi...   250   2e-64
+ref|WP_027364104.1| hypothetical protein [Desulfotomaculum alcoh...   250   2e-64
+ref|WP_037565723.1| dihydroneopterin aldolase [Staphylococcus ag...   250   2e-64
+ref|WP_005830548.1| MULTISPECIES: hypothetical protein [Bacillal...   250   2e-64
+emb|CCZ13626.1| pyridine nucleotide-disulfide oxidoreductase fam...   250   2e-64
+ref|WP_013657550.1| CoA-disulfide reductase [Cellulosilyticum le...   250   2e-64
+ref|WP_047552986.1| dihydroneopterin aldolase [Staphylococcus au...   250   2e-64
+ref|WP_019155558.1| hypothetical protein [Bacillus massilioseneg...   250   2e-64
+emb|CCY50209.1| uncharacterized protein BN523_02371 [Bacteroides...   250   2e-64
+ref|WP_048035536.1| hypothetical protein [Brevibacillus brevis] ...   250   2e-64
+ref|WP_029069268.1| pyridine nucleotide-disulfide oxidoreductase...   250   2e-64
+ref|WP_034746554.1| hypothetical protein [Bacillus wakoensis] >g...   250   2e-64
+ref|WP_026678587.1| hypothetical protein [Fictibacillus gelatini]     250   2e-64
+emb|CDD88578.1| putative uncharacterized protein [Tannerella sp....   250   2e-64
+ref|WP_018930934.1| hypothetical protein [Gracilibacillus lacisa...   250   3e-64
+ref|WP_035356496.1| pyridine nucleotide-disulfide oxidoreductase...   250   3e-64
+gb|EKE03052.1| hypothetical protein ACD_20C00279G0001 [unculture...   250   3e-64
+ref|WP_026567379.1| hypothetical protein [Bacillus sp. UNC41MFS5]     250   3e-64
+ref|WP_014355438.1| CoA-disulfide reductase [Acetobacterium wood...   250   3e-64
+ref|WP_046099577.1| dihydroneopterin aldolase [Staphylococcus ca...   250   3e-64
+ref|WP_026583163.1| hypothetical protein [Bacillus sp. J33]           250   3e-64
+ref|WP_026682221.1| hypothetical protein [Bacillus megaterium]        249   3e-64
+ref|WP_006675544.1| hypothetical protein [Paenibacillus dendriti...   249   3e-64
+gb|EHI78285.1| hypothetical protein HMPREF9093_01456, partial [F...   249   3e-64
+ref|WP_007756819.1| pyridine nucleotide-disulfide oxidoreductase...   249   3e-64
+ref|WP_008825760.1| CoA-disulfide reductase [Haloplasma contract...   249   3e-64
+ref|WP_013487926.1| hypothetical protein [Bacillus cellulosilyti...   249   4e-64
+ref|WP_042185932.1| CoA-disulfide reductase [Paenibacillus sp. F...   249   4e-64
+ref|WP_040047583.1| hypothetical protein [Bacillaceae bacterium ...   249   4e-64
+ref|WP_041055184.1| hypothetical protein [Jeotgalibacillus campi...   249   4e-64
+ref|WP_032834254.1| pyridine nucleotide-disulfide oxidoreductase...   249   4e-64
+ref|WP_028403563.1| hypothetical protein [Bacillus sp. J13]           249   5e-64
+ref|WP_047504980.1| dihydroneopterin aldolase, partial [Staphylo...   249   5e-64
+gb|AFC28575.1| YrkE [Paenibacillus mucilaginosus 3016]                249   5e-64
+ref|WP_033141183.1| pyridine nucleotide-disulfide oxidoreductase...   249   5e-64
+ref|WP_017726111.1| hypothetical protein [Bacillus ligniniphilus]     248   5e-64
+ref|WP_031534654.1| MULTISPECIES: hypothetical protein [Bacillus]     248   5e-64
+ref|WP_046824960.1| pyridine nucleotide-disulfide oxidoreductase...   248   5e-64
+gb|ERI09726.1| hypothetical protein HMPREF0083_02182 [Aneuriniba...   248   7e-64
+ref|WP_034626695.1| hypothetical protein [Bacillus okhensis] >gi...   248   7e-64
+emb|CDD82964.1| pyridine nucleotide-disulfide oxidoreductase [Ba...   248   7e-64
+ref|WP_014624368.1| pyridine nucleotide-disulfide oxidoreductase...   248   7e-64
+ref|WP_006837197.1| hypothetical protein [Bacillus sp. SG-1] >gi...   248   8e-64
+ref|WP_049742896.1| hypothetical protein [Brevibacillus reuszeri...   248   8e-64
+ref|WP_035665843.1| hypothetical protein [Bacillus akibai] >gi|5...   248   8e-64
+ref|WP_002559126.1| hypothetical protein [Bacteroides sp. HPS004...   248   8e-64
+ref|WP_038569429.1| CoA-disulfide reductase [Paenibacillus odori...   248   8e-64
+ref|WP_026801779.1| hypothetical protein [Pontibacillus halophil...   248   9e-64
+ref|WP_034639339.1| hypothetical protein [Bacillus manliponensis...   248   1e-63
+ref|WP_036637495.1| hypothetical protein [Paenibacillus sp. FSL ...   248   1e-63
+emb|CCX67727.1| coA-disulfide reductase [Prevotella sp. CAG:1058]     247   1e-63
+ref|WP_008404134.1| MULTISPECIES: hypothetical protein [Bacillal...   247   1e-63
+ref|WP_028775782.1| hypothetical protein [Shimazuella kribbensis]     247   2e-63
+ref|WP_025026111.1| hypothetical protein [Bacillus mannanilyticus]    247   2e-63
+gb|KKR18267.1| FAD-dependent pyridine nucleotide-disulfide oxido...   247   2e-63
+ref|WP_024994018.1| pyridine nucleotide-disulfide oxidoreductase...   247   2e-63
+ref|WP_016204400.1| MULTISPECIES: hypothetical protein [Bacillus...   247   2e-63
+ref|WP_035347605.1| hypothetical protein [Bacillus hemicellulosi...   247   2e-63
+ref|WP_029284562.1| MULTISPECIES: hypothetical protein [Bacillus...   247   2e-63
+ref|WP_029332498.1| hypothetical protein [Exiguobacterium oxidot...   247   2e-63
+ref|WP_040948977.1| CoA-disulfide reductase [Gorillibacterium ma...   247   2e-63
+ref|WP_048019557.1| hypothetical protein [Bacillus aryabhattai] ...   247   2e-63
+ref|WP_019416191.1| hypothetical protein [Paenisporosarcina sp. ...   247   2e-63
+ref|WP_011082564.1| dihydroneopterin aldolase [Staphylococcus ep...   247   2e-63
+ref|WP_014270479.1| pyridine nucleotide-disulfide oxidoreductase...   247   2e-63
+gb|KKR36180.1| FAD-dependent pyridine nucleotide-disulfide oxido...   247   2e-63
+gb|KIL49243.1| hypothetical protein KP78_07110 [Jeotgalibacillus...   246   3e-63
+emb|CQR47923.1| DsrE/DsrF-like family protein [Paraliobacillus s...   246   3e-63
+ref|WP_012859604.1| CoA-disulfide reductase [Sebaldella termitid...   246   3e-63
+ref|WP_050351619.1| hypothetical protein [Virgibacillus pantothe...   246   4e-63
+ref|WP_042128056.1| hypothetical protein [Paenibacillus sp. FSL ...   246   4e-63
+ref|WP_026858971.1| hypothetical protein [Jeotgalicoccus psychro...   245   4e-63
+ref|WP_014645167.1| hypothetical protein [Halobacillus halophilu...   245   5e-63
+ref|WP_026569505.1| MULTISPECIES: hypothetical protein [Bacillac...   245   5e-63
+ref|WP_027956739.1| hypothetical protein [Halobacillus kuroshime...   245   5e-63
+ref|WP_041964868.1| hypothetical protein [Bacillus selenatarsena...   245   5e-63
+ref|WP_020613141.1| pyridine nucleotide-disulfide oxidoreductase...   245   6e-63
+ref|WP_037576272.1| dihydroneopterin aldolase [Staphylococcus ch...   245   6e-63
+ref|WP_000437715.1| hypothetical protein [Bacillus cereus] >gi|4...   245   6e-63
+ref|WP_046217371.1| hypothetical protein [Bacillus endophyticus]...   245   6e-63
+ref|WP_034551866.1| pyridine nucleotide-disulfide oxidoreductase...   245   6e-63
+ref|WP_008637832.1| MULTISPECIES: hypothetical protein [Bacillac...   245   6e-63
+ref|WP_036899981.1| pyridine nucleotide-disulfide oxidoreductase...   245   6e-63
+ref|WP_026791827.1| pyridine nucleotide-disulfide oxidoreductase...   245   6e-63
+ref|WP_041121392.1| hypothetical protein [Jeotgalibacillus alime...   245   7e-63
+ref|WP_013172145.1| hypothetical protein [[Bacillus] selenitired...   245   8e-63
+ref|WP_049670393.1| hypothetical protein [Bacillus sp. FJAT-2791...   245   9e-63
+ref|WP_029499680.1| hypothetical protein [Kurthia huakuii]            245   9e-63
+ref|WP_007505452.1| hypothetical protein [Caldalkalibacillus the...   245   1e-62
+ref|WP_009766522.1| hypothetical protein [Sporosarcina newyorken...   244   1e-62
+ref|WP_042352377.1| hypothetical protein [Bacillus sp. G2(2012b)]     244   1e-62
+gb|ETR68999.1| FAD-dependent pyridine nucleotide-disulfide oxido...   244   1e-62
+ref|WP_010289301.1| hypothetical protein [Kurthia massiliensis]       244   1e-62
+ref|WP_042519527.1| pyridine nucleotide-disulfide oxidoreductase...   244   1e-62
+ref|WP_042470183.1| hypothetical protein [Bacillus sp. FF3]           244   1e-62
+ref|WP_027445761.1| hypothetical protein [Pontibacillus marinus]...   244   1e-62
+ref|WP_024535247.1| hypothetical protein [Sporosarcina sp. EUR3 ...   244   1e-62
+gb|ENJ99598.1| hypothetical protein SYW_00616 [Staphylococcus au...   244   1e-62
+ref|WP_028545602.1| hypothetical protein [Paenibacillus taiwanen...   244   1e-62
+ref|WP_019243851.1| hypothetical protein [Bacillus massilioanore...   244   2e-62
+ref|WP_042351529.1| pyridine nucleotide-disulfide oxidoreductase...   244   2e-62
+ref|WP_019911051.1| hypothetical protein [Paenibacillus sp. HW567]    243   2e-62
+ref|WP_041284762.1| hypothetical protein [Desulfotomaculum gibso...   243   2e-62
+ref|WP_015747808.1| pyridine nucleotide-disulfide oxidoreductase...   243   2e-62
+ref|WP_048545738.1| hypothetical protein [Bacillus cereus] >gi|8...   243   2e-62
+gb|EEM97859.1| hypothetical protein bthur0013_7090 [Bacillus thu...   243   2e-62
+ref|WP_030004949.1| CoA-disulfide reductase [Acholeplasma brassi...   243   2e-62
+ref|WP_022794529.1| hypothetical protein [Marinococcus halotoler...   243   2e-62
+ref|WP_038184756.1| hypothetical protein [Viridibacillus arenosi...   243   2e-62
+ref|WP_019155083.1| hypothetical protein [Bacillus massilioseneg...   243   2e-62
+ref|WP_040105399.1| hypothetical protein [Salinicoccus roseus] >...   243   2e-62
+ref|WP_008589213.1| hypothetical protein [Salimicrobium jeotgali...   243   3e-62
+ref|WP_035810267.1| hypothetical protein [Jeotgalicoccus sp. 13M...   243   3e-62
+ref|WP_031894360.1| dihydroneopterin aldolase, partial [Staphylo...   243   3e-62
+ref|WP_046790829.1| hypothetical protein [Salinicoccus haloduran...   243   3e-62
+
+Searching..................................................done
+
+
+Results from round 2
+
+
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+Sequences used in model and found again:
+
+ref|WP_035163877.1| pyridine nucleotide-disulfide oxidoreductase...   292   5e-77
+ref|WP_050356016.1| hypothetical protein [[Clostridium] purinily...   290   1e-76
+ref|WP_027623704.1| hypothetical protein [Clostridium lundense]       288   7e-76
+ref|WP_035144998.1| hypothetical protein [Clostridium tetanomorp...   287   1e-75
+ref|WP_008789116.1| MULTISPECIES: CoA-disulfide reductase [Copro...   287   1e-75
+ref|WP_029161602.1| CoA-disulfide reductase [Clostridium scatolo...   287   1e-75
+ref|WP_035378483.1| pyridine nucleotide-disulfide oxidoreductase...   287   1e-75
+ref|WP_011989001.1| CoA-disulfide reductase [Clostridium kluyver...   287   2e-75
+ref|WP_035290970.1| hypothetical protein [Clostridium sp. KNHs214]    287   2e-75
+ref|WP_048571462.1| hypothetical protein [Clostridium cylindrosp...   286   3e-75
+ref|WP_014186494.1| CoA-disulfide reductase [Desulfosporosinus o...   285   5e-75
+ref|WP_021170900.1| pyridine nucleotide-disulfide oxidoreductase...   285   6e-75
+ref|WP_044353112.1| CoA-disulfide reductase [Paenibacillus sp. E...   285   7e-75
+ref|WP_019553760.1| hypothetical protein [Propionispira raffinos...   285   7e-75
+ref|WP_007064488.1| CoA-disulfide reductase [Clostridium carboxi...   285   7e-75
+ref|WP_027937485.1| pyridine nucleotide-disulfide oxidoreductase...   285   8e-75
+ref|WP_023483431.1| hypothetical protein [Paenibacillus larvae] ...   284   8e-75
+ref|WP_025529977.1| CoA-disulfide reductase [Hungatella hathewayi]    283   2e-74
+ref|WP_034601241.1| pyridine nucleotide-disulfide oxidoreductase...   283   2e-74
+ref|WP_012635199.1| CoA-disulfide reductase [Halothermothrix ore...   283   2e-74
+ref|WP_023162017.1| CoA-disulfide reductase [Clostridium autoeth...   283   3e-74
+emb|CDC36410.1| pyridine nucleotide-disulfide oxidoreductase [An...   283   3e-74
+ref|WP_031389005.1| hypothetical protein [Clostridium sp. KNHs209]    283   3e-74
+ref|WP_018671996.1| CoA-disulfide reductase [Brevibacillus later...   282   3e-74
+ref|WP_014825454.1| CoA-disulfide reductase [Desulfosporosinus a...   282   3e-74
+ref|WP_027309001.1| pyridine nucleotide-disulfide oxidoreductase...   282   4e-74
+ref|WP_002596774.1| hypothetical protein [Clostridium colicanis]...   282   4e-74
+ref|WP_042125342.1| CoA-disulfide reductase [Paenibacillus sp. F...   282   5e-74
+ref|WP_035304772.1| hypothetical protein [Clostridium sp. HMP27]...   282   6e-74
+ref|WP_024728682.1| pyridine nucleotide-disulfide oxidoreductase...   282   7e-74
+ref|WP_024614381.1| pyridine nucleotide-disulfide oxidoreductase...   281   7e-74
+ref|WP_021801762.1| pyridine nucleotide-disulfide oxidoreductase...   281   8e-74
+ref|WP_004455218.1| hypothetical protein [Clostridium pasteurian...   281   8e-74
+ref|WP_047808518.1| pyridine nucleotide-disulfide oxidoreductase...   281   8e-74
+ref|WP_009226181.1| CoA-disulfide reductase [Paenibacillus sp. o...   281   1e-73
+ref|WP_007960421.1| CoA-disulfide reductase [Pelosinus fermentan...   281   1e-73
+ref|WP_011879261.1| CoA-disulfide reductase [Desulfotomaculum re...   281   1e-73
+ref|WP_019230220.1| hypothetical protein [Sedimentibacter sp. B4]     281   1e-73
+ref|WP_005545655.1| CoA-disulfide reductase [Paenibacillus alvei...   281   1e-73
+ref|WP_025436699.1| pyridine nucleotide-disulfide oxidoreductase...   281   1e-73
+ref|WP_018755064.1| hypothetical protein [Paenibacillus terrigena]    281   1e-73
+ref|WP_010245420.1| CoA-disulfide reductase [Acetivibrio cellulo...   281   1e-73
+ref|WP_045516861.1| pyridine nucleotide-disulfide oxidoreductase...   281   1e-73
+ref|WP_014904019.1| CoA-disulfide reductase [Desulfosporosinus m...   280   1e-73
+ref|WP_038322047.1| pyridine nucleotide-disulfide oxidoreductase...   280   1e-73
+emb|CCZ61436.1| coA-disulfide reductase [Clostridium hathewayi C...   280   1e-73
+ref|WP_032122269.1| hypothetical protein [Clostridium sp. LF2]        280   1e-73
+ref|WP_044478744.1| hypothetical protein [Paenibacillus sp. GD11]     280   2e-73
+ref|WP_044898309.1| pyridine nucleotide-disulfide oxidoreductase...   280   2e-73
+ref|WP_043965669.1| pyridine nucleotide-disulfide oxidoreductase...   280   2e-73
+gb|ACJ32687.1| Multidomain redox protein (NAD(FAD)-dependent oxi...   280   2e-73
+ref|WP_008909989.1| CoA-disulfide reductase [Caloramator austral...   280   3e-73
+ref|WP_013757559.1| CoA-disulfide reductase [Treponema brennabor...   280   3e-73
+ref|WP_013779694.1| CoA-disulfide reductase [Mahella australiens...   279   3e-73
+ref|WP_026485805.1| pyridine nucleotide-disulfide oxidoreductase...   279   3e-73
+ref|WP_026882582.1| hypothetical protein [Clostridium akagii]         279   3e-73
+ref|WP_013787030.1| CoA-disulfide reductase [Thermoanaerobacteri...   279   3e-73
+ref|WP_031544341.1| hypothetical protein [Lachnospiraceae bacter...   279   4e-73
+ref|WP_003398586.1| CoA-disulfide reductase [Anoxybacillus flavi...   279   4e-73
+ref|WP_018248067.1| hypothetical protein [Orenia marismortui]         279   4e-73
+emb|CDE97881.1| coA-disulfide reductase / Disulfide bond regulat...   279   4e-73
+ref|WP_028829076.1| pyridine nucleotide-disulfide oxidoreductase...   279   5e-73
+ref|WP_023354627.1| pyridine nucleotide-disulfide oxidoreductase...   278   5e-73
+ref|WP_036713741.1| pyridine nucleotide-disulfide oxidoreductase...   278   6e-73
+ref|WP_028537575.1| CoA-disulfide reductase [Paenibacillus sp. J14]   278   6e-73
+ref|WP_014519515.1| CoA-disulfide reductase [Clostridium botulin...   278   7e-73
+ref|WP_013296803.1| CoA-disulfide reductase [Thermoanaerobacteri...   278   7e-73
+ref|WP_042206245.1| pyridine nucleotide-disulfide oxidoreductase...   278   8e-73
+ref|WP_009252465.1| MULTISPECIES: CoA-disulfide reductase [Clost...   278   8e-73
+ref|WP_045520133.1| pyridine nucleotide-disulfide oxidoreductase...   278   9e-73
+ref|WP_027400247.1| hypothetical protein [Anaerovorax odorimutans]    278   9e-73
+emb|CDD49466.1| putative uncharacterized protein [Bacteroides sp...   278   1e-72
+gb|ADU25715.1| FAD-dependent pyridine nucleotide-disulfide oxido...   278   1e-72
+dbj|BAQ12267.1| putative pyridine nucleotide-disulfide oxidoredu...   277   1e-72
+ref|WP_028610711.1| hypothetical protein [Paenibacillus harenae]      277   1e-72
+ref|WP_039774002.1| pyridine nucleotide-disulfide oxidoreductase...   277   1e-72
+ref|WP_036623092.1| CoA-disulfide reductase [Paenibacillus macer...   277   1e-72
+ref|WP_021874970.1| pyridine nucleotide-disulfide oxidoreductase...   277   1e-72
+emb|CCZ31571.1| coA-disulfide reductase [Coprobacillus sp. CAG:183]   277   1e-72
+ref|WP_015310789.1| NAD(FAD)-dependent dehydrogenase [Thermoanae...   277   1e-72
+ref|WP_026891998.1| hypothetical protein [[Clostridium] aerotole...   277   2e-72
+ref|WP_014116020.1| CoA-disulfide reductase [Oscillibacter valer...   277   2e-72
+dbj|GAP41048.1| NADPH-dependent 2,4-dienoyl-CoA reductase [Anaer...   277   2e-72
+ref|WP_042135719.1| pyridine nucleotide-disulfide oxidoreductase...   277   2e-72
+ref|WP_009170709.1| CoA-disulfide reductase [Clostridium sp. DL-...   277   2e-72
+ref|WP_008680429.1| CoA-disulfide reductase [Clostridium sp. 7_2...   277   2e-72
+ref|WP_031413338.1| pyridine nucleotide-disulfide oxidoreductase...   277   2e-72
+ref|WP_010238343.1| CoA-disulfide reductase [Clostridium arbusti]     277   2e-72
+ref|WP_025689184.1| pyridine nucleotide-disulfide oxidoreductase...   277   2e-72
+ref|WP_017416003.1| hypothetical protein [Clostridium tunisiense]     277   2e-72
+ref|WP_044877767.1| hypothetical protein [Paenibacillus sp. IHBB...   276   2e-72
+ref|WP_038261078.1| pyridine nucleotide-disulfide oxidoreductase...   276   3e-72
+ref|WP_009624938.1| CoA-disulfide reductase [Desulfosporosinus s...   276   3e-72
+ref|WP_033168050.1| hypothetical protein [Clostridium sp. KNHs205]    276   3e-72
+gb|EKN42666.1| pyridine nucleotide-disulfide oxidoreductase fami...   276   3e-72
+ref|WP_038668292.1| pyridine nucleotide-disulfide oxidoreductase...   276   3e-72
+gb|ACL75501.1| FAD-dependent pyridine nucleotide-disulphide oxid...   276   4e-72
+ref|WP_006844451.1| pyridine nucleotide-disulfide oxidoreductase...   276   4e-72
+gb|AAQ65412.1| pyridine nucleotide-disulphide oxidoreductase fam...   275   4e-72
+ref|WP_042235027.1| pyridine nucleotide-disulfide oxidoreductase...   275   5e-72
+ref|WP_025699413.1| pyridine nucleotide-disulfide oxidoreductase...   275   5e-72
+ref|WP_036654491.1| hypothetical protein [Paenibacillus wynnii] ...   275   5e-72
+ref|WP_038277156.1| pyridine nucleotide-disulfide oxidoreductase...   275   5e-72
+emb|CCZ06647.1| coA-disulfide reductase [Odoribacter sp. CAG:788]     275   5e-72
+ref|WP_006772345.1| CoA-disulfide reductase [Hungatella hatheway...   275   6e-72
+emb|CDF22875.1| pyridine nucleotide-disulfide oxidoreductase [Pr...   275   6e-72
+ref|WP_039293030.1| hypothetical protein [Paenibacillus sp. IHB ...   275   7e-72
+ref|WP_006781843.1| CoA-disulfide reductase [Hungatella hatheway...   275   7e-72
+ref|WP_013273802.1| CoA-disulfide reductase [[Clostridium] sacch...   275   8e-72
+ref|WP_021284040.1| hypothetical protein [Clostridium sp. BL8] >...   275   8e-72
+ref|WP_042212014.1| pyridine nucleotide-disulfide oxidoreductase...   275   8e-72
+emb|CRH91704.1| dihydrolipoamide dehydrogenase [Chlamydia tracho...   275   9e-72
+emb|CDC55111.1| putative uncharacterized protein [Bacteroides co...   275   9e-72
+ref|WP_015846445.1| CoA-disulfide reductase [Paenibacillus sp. J...   274   9e-72
+ref|WP_018752819.1| hypothetical protein [Paenibacillus sanguinis]    274   1e-71
+ref|WP_031424429.1| pyridine nucleotide-disulfide oxidoreductase...   274   1e-71
+gb|AGB42229.1| NAD(FAD)-dependent dehydrogenase [Halobacteroides...   274   1e-71
+ref|WP_039656988.1| pyridine nucleotide-disulfide oxidoreductase...   274   1e-71
+ref|WP_047772977.1| pyridine nucleotide-disulfide oxidoreductase...   274   1e-71
+ref|WP_004819321.1| CoA-disulfide reductase [Peptoniphilus indol...   274   1e-71
+ref|WP_047001881.1| pyridine nucleotide-disulfide oxidoreductase...   274   1e-71
+ref|WP_036725221.1| pyridine nucleotide-disulfide oxidoreductase...   273   2e-71
+ref|WP_024294016.1| MULTISPECIES: pyridine nucleotide-disulfide ...   273   2e-71
+ref|WP_046823116.1| pyridine nucleotide-disulfide oxidoreductase...   273   2e-71
+ref|WP_027631654.1| hypothetical protein [Clostridium hydrogenif...   273   2e-71
+ref|WP_007571689.1| pyridine nucleotide-disulfide oxidoreductase...   273   2e-71
+ref|WP_015614018.1| NAD(FAD)-dependent dehydrogenase [Clostridiu...   273   2e-71
+ref|WP_038589642.1| pyridine nucleotide-disulfide oxidoreductase...   273   2e-71
+ref|WP_021433360.1| coA-disulfide reductase [[Clostridium] bifer...   273   2e-71
+ref|WP_008425916.1| NAD(FAD)-dependent dehydrogenase [Clostridiu...   273   2e-71
+gb|EEU03996.1| pyridine nucleotide-disulfide oxidoreductase [Eub...   273   2e-71
+ref|WP_036702220.1| pyridine nucleotide-disulfide oxidoreductase...   273   2e-71
+ref|WP_038696003.1| CoA-disulfide reductase [Paenibacillus stell...   273   3e-71
+ref|WP_034863311.1| pyridine nucleotide-disulfide oxidoreductase...   273   3e-71
+ref|WP_046214046.1| CoA-disulfide reductase [Paenibacillus wulum...   272   3e-71
+ref|WP_039678729.1| pyridine nucleotide-disulfide oxidoreductase...   272   4e-71
+ref|WP_025705657.1| pyridine nucleotide-disulfide oxidoreductase...   272   4e-71
+ref|WP_042274724.1| pyridine nucleotide-disulfide oxidoreductase...   272   4e-71
+ref|WP_019420374.1| hypothetical protein [Paenibacillus sp. OSY-SE]   272   4e-71
+ref|WP_040210268.1| hypothetical protein [Clostridium sp. MS1]        272   4e-71
+ref|WP_028590232.1| CoA-disulfide reductase [Paenibacillus panac...   272   4e-71
+ref|WP_046234524.1| CoA-disulfide reductase [Paenibacillus algor...   272   5e-71
+ref|WP_044962694.1| pyridine nucleotide-disulfide oxidoreductase...   272   5e-71
+emb|CDC99551.1| pyridine nucleotide-disulfide oxidoreductase [Al...   272   5e-71
+gb|KKB54686.1| CoA-disulfide reductase [Parabacteroides goldstei...   272   6e-71
+ref|WP_027701237.1| pyridine nucleotide-disulfide oxidoreductase...   272   6e-71
+ref|WP_035118465.1| pyridine nucleotide-disulfide oxidoreductase...   272   6e-71
+ref|WP_024991729.1| pyridine nucleotide-disulfide oxidoreductase...   272   7e-71
+ref|WP_022774649.1| NAD(FAD)-dependent dehydrogenase [Candidatus...   272   7e-71
+ref|WP_029452460.1| hypothetical protein [Clostridium algidicarnis]   272   7e-71
+ref|WP_048695398.1| pyridine nucleotide-disulfide oxidoreductase...   271   8e-71
+ref|WP_026887429.1| pyridine nucleotide-disulfide oxidoreductase...   271   9e-71
+ref|WP_024633365.1| MULTISPECIES: CoA-disulfide reductase [Paeni...   271   1e-70
+emb|CDE07042.1| putative uncharacterized protein [Prevotella sp....   271   1e-70
+ref|WP_027095567.1| pyridine nucleotide-disulfide oxidoreductase...   271   1e-70
+ref|WP_047843090.1| CoA-disulfide reductase [Paenibacillus sp. V...   270   1e-70
+ref|WP_047374290.1| pyridine nucleotide-disulfide oxidoreductase...   270   1e-70
+ref|WP_046226489.1| CoA-disulfide reductase [Paenibacillus dauci]     270   2e-70
+ref|WP_041896380.1| pyridine nucleotide-disulfide oxidoreductase...   270   2e-70
+ref|WP_008422005.1| NAD(FAD)-dependent dehydrogenase [Clostridiu...   270   2e-70
+ref|WP_046148633.1| pyridine nucleotide-disulfide oxidoreductase...   270   2e-70
+ref|WP_006785298.1| CoA-disulfide reductase [Turicibacter sangui...   270   2e-70
+ref|WP_006255173.1| pyridine nucleotide-disulfide oxidoreductase...   270   2e-70
+ref|WP_045849581.1| pyridine nucleotide-disulfide oxidoreductase...   270   2e-70
+ref|WP_015393391.1| NAD(FAD)-dependent dehydrogenase [Clostridiu...   270   2e-70
+ref|WP_024836478.1| hypothetical protein [Clostridium sp. 12(A)]      270   2e-70
+emb|CCZ74467.1| uncharacterized protein BN535_00697 [Bacteroides...   270   2e-70
+ref|WP_046452010.1| pyridine nucleotide-disulfide oxidoreductase...   270   2e-70
+ref|WP_027108113.1| pyridine nucleotide-disulfide oxidoreductase...   270   3e-70
+ref|WP_027622530.1| pyridine nucleotide-disulfide oxidoreductase...   269   3e-70
+ref|WP_004609220.1| CoA-disulfide reductase [[Clostridium] spiro...   269   3e-70
+ref|WP_037284646.1| CoA-disulfide reductase [Saccharibacillus sa...   269   3e-70
+emb|CCZ70369.1| coA-disulfide reductase [Bacteroides sp. CAG:702]     269   3e-70
+ref|WP_020815394.1| CoA-disulfide reductase [[Clostridium] papyr...   269   3e-70
+ref|WP_025334417.1| pyridine nucleotide-disulfide oxidoreductase...   269   4e-70
+emb|CCX70281.1| uncharacterized protein BN567_01491 [Prevotella ...   269   4e-70
+emb|CDN44878.1| FAD-dependent pyridine nucleotide-disulphide oxi...   269   4e-70
+ref|WP_004616198.1| CoA-disulfide reductase [[Clostridium] papyr...   268   5e-70
+ref|WP_008155337.1| pyridine nucleotide-disulfide oxidoreductase...   268   5e-70
+ref|WP_036943734.1| pyridine nucleotide-disulfide oxidoreductase...   268   5e-70
+ref|WP_027099080.1| pyridine nucleotide-disulfide oxidoreductase...   268   6e-70
+ref|WP_018592256.1| CoA-disulfide reductase [Terrisporobacter gl...   268   6e-70
+ref|WP_042175481.1| CoA-disulfide reductase [Paenibacillus sp. F...   268   6e-70
+ref|WP_031369386.1| pyridine nucleotide-disulfide oxidoreductase...   268   6e-70
+ref|WP_041487316.1| pyridine nucleotide-disulfide oxidoreductase...   268   7e-70
+ref|WP_024995254.1| pyridine nucleotide-disulfide oxidoreductase...   268   7e-70
+ref|WP_028597209.1| hypothetical protein [Paenibacillus pasadene...   268   7e-70
+ref|WP_011340111.1| pyridine nucleotide-disulfide oxidoreductase...   268   7e-70
+ref|WP_035134446.1| pyridine nucleotide-disulfide oxidoreductase...   268   8e-70
+dbj|GAO30404.1| CoA-disulfide reductase [Geofilum rubicundum JCM...   268   9e-70
+ref|WP_022744780.1| CoA disulfide reductase [Clostridium sacchar...   268   1e-69
+ref|WP_021635812.1| pyridine nucleotide-disulfide oxidoreductase...   267   1e-69
+emb|CDB11784.1| pyridine nucleotide-disulfide oxidoreductase [Ba...   267   1e-69
+ref|WP_039872225.1| CoA-disulfide reductase [Paenibacillus sp. F...   267   1e-69
+ref|WP_039307972.1| pyridine nucleotide-disulfide oxidoreductase...   267   2e-69
+ref|WP_021657843.1| CoA-disulfide reductase [Clostridiales bacte...   267   2e-69
+gb|KIL79153.1| CoA-disulfide reductase [Bacillus badius]              267   2e-69
+ref|WP_015043666.1| MULTISPECIES: CoA-disulfide reductase [Dehal...   266   3e-69
+ref|WP_010074771.1| CoA-disulfide reductase [Clostridium cellulo...   266   3e-69
+ref|WP_048515085.1| pyridine nucleotide-disulfide oxidoreductase...   266   3e-69
+emb|CDE43300.1| coA-disulfide reductase / Disulfide bond regulat...   266   3e-69
+ref|WP_049661980.1| pyridine nucleotide-disulfide oxidoreductase...   265   4e-69
+ref|WP_044545289.1| pyridine nucleotide-disulfide oxidoreductase...   265   5e-69
+ref|WP_035019109.1| pyridine nucleotide-disulfide oxidoreductase...   265   5e-69
+gb|KFI85846.1| pyridine nucleotide-disulfide oxidoreductase fami...   265   5e-69
+ref|WP_036879520.1| pyridine nucleotide-disulfide oxidoreductase...   265   5e-69
+emb|CDE33649.1| pyridine nucleotide-disulfide oxidoreductase [Pr...   265   5e-69
+gb|EDO51770.1| pyridine nucleotide-disulfide oxidoreductase [Bac...   265   6e-69
+ref|WP_021646070.1| pyridine nucleotide-disulfide oxidoreductase...   265   8e-69
+ref|WP_036729024.1| pyridine nucleotide-disulfide oxidoreductase...   265   9e-69
+ref|WP_025830655.1| pyridine nucleotide-disulfide oxidoreductase...   264   1e-68
+ref|WP_006743999.1| pyridine nucleotide-disulfide oxidoreductase...   264   1e-68
+gb|EFB33671.1| pyridine nucleotide-disulfide oxidoreductase [Pre...   264   1e-68
+ref|WP_021311370.1| sulfurtransferase TusA [Bacteroidetes bacter...   264   1e-68
+ref|WP_043928384.1| hypothetical protein [Bacillus licheniformis]     264   1e-68
+emb|CCZ82217.1| putative uncharacterized protein [Odoribacter la...   264   1e-68
+ref|WP_032842705.1| pyridine nucleotide-disulfide oxidoreductase...   264   1e-68
+gb|EJP30674.1| hypothetical protein HMPREF1146_1073 [Prevotella ...   264   1e-68
+ref|WP_036878361.1| pyridine nucleotide-disulfide oxidoreductase...   264   1e-68
+ref|WP_024267150.1| CoA-disulfide reductase [Salinispira pacific...   264   1e-68
+ref|WP_026902264.1| pyridine nucleotide-disulfide oxidoreductase...   264   1e-68
+ref|WP_042201530.1| CoA-disulfide reductase [Paenibacillus sp. G4]    263   2e-68
+ref|WP_027939448.1| pyridine nucleotide-disulfide oxidoreductase...   263   2e-68
+ref|WP_031573626.1| hypothetical protein [Proteiniclasticum rumi...   263   2e-68
+emb|CCX61012.1| pyridine nucleotide-disulfide oxidoreductase [Ba...   263   2e-68
+ref|WP_046148754.1| pyridine nucleotide-disulfide oxidoreductase...   263   2e-68
+ref|WP_029599494.1| pyridine nucleotide-disulfide oxidoreductase...   263   2e-68
+ref|WP_014263241.1| CoA-disulfide reductase [Filifactor alocis] ...   263   2e-68
+ref|WP_045515168.1| pyridine nucleotide-disulfide oxidoreductase...   263   2e-68
+ref|WP_038350965.1| pyridine nucleotide-disulfide oxidoreductase...   263   2e-68
+emb|CDH98062.1| rhodanese domain-containing protein [Staphylococ...   263   3e-68
+ref|WP_029490851.1| pyridine nucleotide-disulfide oxidoreductase...   263   3e-68
+ref|WP_029495087.1| pyridine nucleotide-disulfide oxidoreductase...   263   3e-68
+emb|CCY64165.1| pyridine nucleotide-disulfide oxidoreductase [Pr...   263   3e-68
+ref|WP_041502095.1| pyridine nucleotide-disulfide oxidoreductase...   263   3e-68
+dbj|GAE20180.1| NADH dehydrogenase [Bacteroides pyogenes DSM 206...   263   3e-68
+ref|WP_013389059.1| CoA-disulfide reductase [Ilyobacter polytrop...   263   3e-68
+gb|EFR49812.1| hypothetical protein BBNG_00359 [Bifidobacterium ...   263   3e-68
+ref|WP_049868179.1| hypothetical protein [Paenibacillus sp. D9] ...   263   3e-68
+ref|WP_013605784.1| pyridine nucleotide-disulfide oxidoreductase...   262   5e-68
+ref|WP_036883304.1| pyridine nucleotide-disulfide oxidoreductase...   262   5e-68
+ref|WP_005972735.1| CoA-disulfide reductase [Fusobacterium perio...   262   6e-68
+ref|WP_029503226.1| pyridine nucleotide-disulfide oxidoreductase...   262   7e-68
+ref|WP_031920606.1| dihydroneopterin aldolase [Staphylococcus au...   261   8e-68
+ref|WP_018163703.1| CoA-disulfide reductase [Streptococcus henryi]    261   8e-68
+ref|WP_046230865.1| hypothetical protein [Paenibacillus algorifo...   261   1e-67
+ref|WP_027473057.1| pyridine nucleotide-disulfide oxidoreductase...   261   1e-67
+ref|WP_033493206.1| pyridine nucleotide-disulfide oxidoreductase...   261   1e-67
+emb|CDC98082.1| pyridine nucleotide-disulfide oxidoreductase [Pr...   261   1e-67
+ref|WP_019468540.1| dihydroneopterin aldolase [Staphylococcus sp...   261   1e-67
+ref|WP_036380641.1| pyridine nucleotide-disulfide oxidoreductase...   261   1e-67
+ref|WP_015050849.1| CoA-disulfide reductase [Thermacetogenium ph...   260   1e-67
+ref|WP_040193197.1| pyridine nucleotide-disulfide oxidoreductase...   260   1e-67
+ref|WP_024984354.1| hypothetical protein [Brevibacillus borstele...   260   1e-67
+ref|WP_007430469.1| hypothetical protein [Paenibacillus sp. Aloe...   260   2e-67
+ref|WP_026506950.1| hypothetical protein [Butyrivibrio sp. MC2013]    260   2e-67
+ref|WP_029193952.1| hypothetical protein [Paenibacillus alginoly...   260   2e-67
+ref|WP_049828400.1| hypothetical protein [Paenibacillus sp. UNCC...   260   2e-67
+ref|WP_016185054.1| hypothetical protein [Enterococcus sulfureus...   260   2e-67
+ref|WP_029468508.1| pyridine nucleotide-disulfide oxidoreductase...   260   2e-67
+ref|WP_046836307.1| dihydroneopterin aldolase [Staphylococcus su...   260   2e-67
+ref|WP_029493689.1| pyridine nucleotide-disulfide oxidoreductase...   260   2e-67
+ref|WP_027640015.1| pyridine nucleotide-disulfide oxidoreductase...   260   2e-67
+ref|WP_003399194.1| hypothetical protein [Anoxybacillus flavithe...   260   2e-67
+ref|WP_002500371.1| dihydroneopterin aldolase [Staphylococcus ep...   260   2e-67
+ref|WP_016999819.1| dihydroneopterin aldolase [Staphylococcus le...   260   2e-67
+ref|WP_008620233.1| pyridine nucleotide-disulfide oxidoreductase...   260   2e-67
+ref|WP_044291621.1| dihydroneopterin aldolase [Staphylococcus au...   260   3e-67
+ref|WP_013547503.1| pyridine nucleotide-disulfide oxidoreductase...   260   3e-67
+ref|WP_047911402.1| hypothetical protein [Paenibacillus sp. TCA2...   260   3e-67
+gb|ABX43821.1| FAD-dependent pyridine nucleotide-disulphide oxid...   259   3e-67
+ref|WP_046207533.1| dihydroneopterin aldolase [Staphylococcus co...   259   3e-67
+ref|WP_049825081.1| hypothetical protein [Paenibacillus sp. 1-18]     259   4e-67
+ref|WP_008796281.1| CoA-disulfide reductase [Fusobacterium nucle...   259   5e-67
+emb|CDD32054.1| putative uncharacterized protein [Bacteroides sp...   259   5e-67
+ref|WP_044232859.1| pyridine nucleotide-disulfide oxidoreductase...   258   5e-67
+ref|WP_021666283.1| pyridine nucleotide-disulfide oxidoreductase...   258   5e-67
+ref|WP_036864341.1| pyridine nucleotide-disulfide oxidoreductase...   258   6e-67
+ref|WP_002506436.1| dihydroneopterin aldolase [Staphylococcus sp...   258   7e-67
+ref|WP_027131991.1| CoA-disulfide reductase [Fusobacterium necro...   258   7e-67
+ref|WP_021664829.1| hypothetical protein, partial [Porphyromonas...   258   7e-67
+ref|WP_000192254.1| hypothetical protein [Streptococcus agalacti...   258   8e-67
+ref|WP_044634529.1| hypothetical protein [Treponema phagedenis] ...   258   8e-67
+ref|WP_010662784.1| pyridine nucleotide-disulfide oxidoreductase...   258   8e-67
+ref|WP_039067948.1| dihydroneopterin aldolase [Staphylococcus xy...   258   9e-67
+ref|WP_045026191.1| pyridine nucleotide-disulfide oxidoreductase...   258   1e-66
+ref|WP_026626432.1| pyridine nucleotide-disulfide oxidoreductase...   258   1e-66
+emb|CCZ51254.1| coA-disulfide reductase / Disulfide bond regulat...   258   1e-66
+ref|WP_045078449.1| pyridine nucleotide-disulfide oxidoreductase...   258   1e-66
+ref|WP_031463503.1| hypothetical protein [Paenibacillus polymyxa]     257   1e-66
+dbj|GAE22172.1| NADH dehydrogenase [Bacteroides pyogenes JCM 10003]   257   1e-66
+ref|WP_043853630.1| pyridine nucleotide-disulfide oxidoreductase...   257   1e-66
+ref|WP_021167701.1| CoA disulfide reductase [Sporomusa ovata] >g...   257   1e-66
+ref|WP_023511150.1| CoA-disulfide reductase [Sporolactobacillus ...   257   1e-66
+ref|WP_047035422.1| pyridine nucleotide-disulfide oxidoreductase...   257   1e-66
+ref|WP_010295643.1| CoA-disulfide reductase [Clostridium senegal...   257   1e-66
+ref|WP_024396977.1| pyridine nucleotide-disulfide oxidoreductase...   257   1e-66
+ref|WP_050215128.1| dihydroneopterin aldolase [Streptococcus pne...   257   2e-66
+ref|WP_023388136.1| CoA-disulfide reductase [Youngiibacter fragi...   257   2e-66
+ref|WP_009531229.1| CoA-disulfide reductase [Peptostreptococcace...   257   2e-66
+ref|WP_028397797.1| hypothetical protein [Bacillus sp. FJAT-14578]    257   2e-66
+ref|WP_027409845.1| hypothetical protein [Anoxybacillus tepidamans]   257   2e-66
+ref|WP_042214805.1| pyridine nucleotide-disulfide oxidoreductase...   257   2e-66
+ref|WP_017722249.1| dihydroneopterin aldolase [Staphylococcus xy...   256   3e-66
+ref|WP_019007350.1| hypothetical protein [Cohnella laeviribosi]       256   3e-66
+ref|WP_040030665.1| dihydroneopterin aldolase [Staphylococcus co...   256   3e-66
+ref|WP_046131602.1| hypothetical protein [Bacillus sp. TH008] >g...   256   3e-66
+ref|WP_040101365.1| hypothetical protein [Paenibacillus polymyxa...   256   3e-66
+ref|WP_047132603.1| dihydroneopterin aldolase [Staphylococcus co...   256   3e-66
+ref|WP_003252670.1| hypothetical protein [Geobacillus thermogluc...   256   4e-66
+gb|EEC95812.1| hypothetical protein PRABACTJOHN_02797 [Parabacte...   256   4e-66
+ref|WP_013044052.1| pyridine nucleotide-disulfide oxidoreductase...   255   4e-66
+ref|WP_044645887.1| hypothetical protein [Paenibacillus terrae] ...   255   5e-66
+ref|WP_023015611.1| hypothetical protein [Staphylococcus simulan...   255   5e-66
+ref|WP_013968998.1| pyridine nucleotide-disulfide oxidoreductase...   255   5e-66
+ref|WP_012656291.1| CoA-disulfide reductase [Macrococcus caseoly...   255   5e-66
+ref|WP_019687218.1| hypothetical protein [Paenibacillus polymyxa]     255   5e-66
+gb|AII68527.1| pyridine nucleotide-disulfide oxidoreductase [Bac...   255   5e-66
+ref|WP_038696170.1| hypothetical protein [Paenibacillus stellife...   255   5e-66
+ref|WP_009346875.1| pyridine nucleotide-disulfide oxidoreductase...   255   6e-66
+emb|CCY81138.1| uncharacterized protein BN473_01878 [Prevotella ...   255   6e-66
+ref|WP_002442014.1| dihydroneopterin aldolase [Staphylococcus ca...   255   6e-66
+ref|WP_047752937.1| hypothetical protein [Geobacillus sp. T6] >g...   255   6e-66
+ref|WP_023558961.1| hypothetical protein [Brevibacillus panacihu...   255   7e-66
+ref|WP_048311813.1| hypothetical protein [Anaerobacillus macyae]...   255   7e-66
+dbj|BAB83477.1| unnamed protein product [Staphylococcus hominis]      255   8e-66
+ref|WP_032603165.1| dihydroneopterin aldolase [Staphylococcus ep...   255   8e-66
+ref|WP_019539038.1| hypothetical protein [Proteiniphilum acetati...   255   8e-66
+ref|WP_029758530.1| pyridine nucleotide-disulfide oxidoreductase...   255   9e-66
+ref|WP_047969951.1| hypothetical protein [Bacillus sp. LL01] >gi...   255   9e-66
+ref|WP_028563400.1| hypothetical protein [Paenibacillus pinihumi]     254   9e-66
+ref|WP_038535306.1| hypothetical protein [Bacillus sp. X1(2014)]...   254   1e-65
+ref|WP_041963939.1| pyridine nucleotide-disulfide oxidoreductase...   254   1e-65
+ref|WP_009123893.1| pyridine nucleotide-disulfide oxidoreductase...   254   1e-65
+ref|WP_044747215.1| hypothetical protein [Bacillus alveayuensis]      254   1e-65
+ref|WP_036159160.1| hypothetical protein [Lysinibacillus odyssey...   254   1e-65
+ref|WP_042234330.1| hypothetical protein [Paenibacillus chitinol...   254   1e-65
+ref|WP_010754685.1| hypothetical protein [Enterococcus asini] >g...   254   2e-65
+emb|CDF14874.1| uncharacterized protein BN821_02324 [Bacteroides...   253   2e-65
+ref|WP_025862678.1| pyridine nucleotide-disulfide oxidoreductase...   253   2e-65
+ref|WP_013777390.1| CoA-disulfide reductase [Tepidanaerobacter a...   253   2e-65
+ref|WP_048823577.1| hypothetical protein [Bacillus sp. B-jedd] >...   253   2e-65
+ref|WP_035060424.1| pyridine nucleotide-disulfide oxidoreductase...   253   2e-65
+ref|WP_044395656.1| pyridine nucleotide-disulfide oxidoreductase...   253   3e-65
+ref|WP_048006889.1| hypothetical protein [Bacillus marisflavi] >...   253   3e-65
+ref|WP_002480194.1| hypothetical protein [Staphylococcus simulan...   252   4e-65
+dbj|GAF03549.1| sulfurtransferase TusA [Saccharicrinis fermentan...   252   4e-65
+emb|CPA34655.1| sirA-like family protein [Staphylococcus aureus]...   252   4e-65
+ref|WP_026582676.1| hypothetical protein [Bacillus sp. J33]           252   5e-65
+ref|WP_034289445.1| hypothetical protein [Bacillus sp. 72]            252   5e-65
+ref|WP_028552748.1| hypothetical protein [Paenibacillus sp. UNC4...   252   5e-65
+ref|WP_009132195.1| hypothetical protein [Bacteroides oleiciplen...   252   5e-65
+ref|WP_026688548.1| hypothetical protein [Bacillus aurantiacus]       252   5e-65
+ref|WP_018369474.1| CoA-disulfide reductase [Streptococcus marim...   252   6e-65
+ref|WP_006800276.1| pyridine nucleotide-disulfide oxidoreductase...   252   6e-65
+ref|WP_047832970.1| hypothetical protein [Robinsoniella sp. RHS]...   252   7e-65
+ref|WP_042455563.1| hypothetical protein [Bacillus sp. FF4]           252   7e-65
+ref|WP_032873032.1| MULTISPECIES: hypothetical protein [Bacillus...   252   8e-65
+emb|CRK81519.1| NADH dehydrogenase [Bacillus sp. LF1]                 252   8e-65
+ref|WP_028400528.1| hypothetical protein [Bacillus panaciterrae]      252   8e-65
+ref|WP_042224023.1| hypothetical protein [Oceanobacillus manasie...   251   8e-65
+ref|WP_025907964.1| hypothetical protein [Bacillus flexus]            251   9e-65
+ref|WP_005830548.1| MULTISPECIES: hypothetical protein [Bacillal...   251   1e-64
+ref|WP_047448821.1| pyridine nucleotide-disulfide oxidoreductase...   251   1e-64
+ref|WP_037550232.1| pyridine nucleotide-disulfide oxidoreductase...   251   1e-64
+ref|WP_027364104.1| hypothetical protein [Desulfotomaculum alcoh...   251   1e-64
+ref|WP_035326745.1| hypothetical protein [Bacillus firmus] >gi|5...   251   1e-64
+ref|WP_034746554.1| hypothetical protein [Bacillus wakoensis] >g...   251   1e-64
+ref|WP_021675709.1| CoA-disulfide reductase [Peptostreptococcace...   251   1e-64
+ref|WP_041544299.1| hypothetical protein [Oceanobacillus iheyensis]   250   1e-64
+ref|WP_048035536.1| hypothetical protein [Brevibacillus brevis] ...   250   2e-64
+ref|WP_006675544.1| hypothetical protein [Paenibacillus dendriti...   250   2e-64
+ref|WP_026678587.1| hypothetical protein [Fictibacillus gelatini]     250   2e-64
+ref|WP_026583163.1| hypothetical protein [Bacillus sp. J33]           250   2e-64
+ref|WP_040082387.1| hypothetical protein [Bacillus sp. A053] >gi...   250   2e-64
+ref|WP_044745590.1| hypothetical protein [Anoxybacillus sp. ATCC...   250   2e-64
+ref|WP_046403527.1| pyridine nucleotide-disulfide oxidoreductase...   250   2e-64
+ref|WP_010680585.1| CoA disulfide reductase [Fusobacterium gonid...   250   2e-64
+dbj|BAE06295.1| conserved hypothetical protein [Staphylococcus a...   250   2e-64
+ref|WP_044270197.1| pyridine nucleotide-disulfide oxidoreductase...   250   2e-64
+ref|WP_003108051.1| CoA-disulfide reductase [Streptococcus parau...   250   2e-64
+ref|WP_039643761.1| dihydroneopterin aldolase [Staphylococcus hy...   250   2e-64
+ref|WP_029597830.1| pyridine nucleotide-disulfide oxidoreductase...   250   2e-64
+ref|WP_008825760.1| CoA-disulfide reductase [Haloplasma contract...   250   2e-64
+ref|WP_028391132.1| hypothetical protein [Bacillus sp. FJAT-14515]    250   2e-64
+ref|WP_026682221.1| hypothetical protein [Bacillus megaterium]        250   2e-64
+ref|WP_026567379.1| hypothetical protein [Bacillus sp. UNC41MFS5]     250   2e-64
+ref|WP_046099577.1| dihydroneopterin aldolase [Staphylococcus ca...   250   2e-64
+ref|WP_022637245.1| pyridine nucleotide-disulfide oxidoreductase...   250   2e-64
+ref|WP_018930934.1| hypothetical protein [Gracilibacillus lacisa...   250   2e-64
+ref|WP_031534654.1| MULTISPECIES: hypothetical protein [Bacillus]     250   3e-64
+ref|WP_044654843.1| pyridine nucleotide-disulfide oxidoreductase...   250   3e-64
+ref|WP_013487926.1| hypothetical protein [Bacillus cellulosilyti...   250   3e-64
+ref|WP_015771882.1| pyridine nucleotide-disulfide oxidoreductase...   249   3e-64
+emb|CBK66843.1| Uncharacterized NAD(FAD)-dependent dehydrogenase...   249   3e-64
+gb|EFF50225.1| pyridine nucleotide-disulfide oxidoreductase [Bac...   249   3e-64
+ref|WP_019155558.1| hypothetical protein [Bacillus massilioseneg...   249   3e-64
+ref|WP_031775549.1| dihydroneopterin aldolase, partial [Staphylo...   249   4e-64
+gb|AFC28575.1| YrkE [Paenibacillus mucilaginosus 3016]                249   4e-64
+ref|WP_028403563.1| hypothetical protein [Bacillus sp. J13]           249   4e-64
+ref|WP_009134375.1| pyridine nucleotide-disulfide oxidoreductase...   249   4e-64
+ref|WP_026801779.1| hypothetical protein [Pontibacillus halophil...   249   4e-64
+ref|WP_037565723.1| dihydroneopterin aldolase [Staphylococcus ag...   249   4e-64
+ref|WP_017726111.1| hypothetical protein [Bacillus ligniniphilus]     249   4e-64
+ref|WP_035665843.1| hypothetical protein [Bacillus akibai] >gi|5...   249   4e-64
+ref|WP_049742896.1| hypothetical protein [Brevibacillus reuszeri...   249   4e-64
+ref|WP_035940621.1| pyridine nucleotide-disulfide oxidoreductase...   249   4e-64
+ref|WP_006837197.1| hypothetical protein [Bacillus sp. SG-1] >gi...   249   5e-64
+emb|CCZ13626.1| pyridine nucleotide-disulfide oxidoreductase fam...   249   5e-64
+gb|ERI09726.1| hypothetical protein HMPREF0083_02182 [Aneuriniba...   249   5e-64
+ref|WP_013657550.1| CoA-disulfide reductase [Cellulosilyticum le...   248   5e-64
+ref|WP_034626695.1| hypothetical protein [Bacillus okhensis] >gi...   248   6e-64
+gb|EKE03052.1| hypothetical protein ACD_20C00279G0001 [unculture...   248   6e-64
+ref|WP_040047583.1| hypothetical protein [Bacillaceae bacterium ...   248   7e-64
+emb|CDD88578.1| putative uncharacterized protein [Tannerella sp....   248   7e-64
+emb|CCY50209.1| uncharacterized protein BN523_02371 [Bacteroides...   248   7e-64
+ref|WP_041055184.1| hypothetical protein [Jeotgalibacillus campi...   248   7e-64
+ref|WP_042185932.1| CoA-disulfide reductase [Paenibacillus sp. F...   248   7e-64
+ref|WP_008404134.1| MULTISPECIES: hypothetical protein [Bacillal...   248   8e-64
+ref|WP_047504980.1| dihydroneopterin aldolase, partial [Staphylo...   248   8e-64
+ref|WP_033141183.1| pyridine nucleotide-disulfide oxidoreductase...   248   8e-64
+ref|WP_028775782.1| hypothetical protein [Shimazuella kribbensis]     248   8e-64
+ref|WP_035356496.1| pyridine nucleotide-disulfide oxidoreductase...   248   9e-64
+ref|WP_037544071.1| dihydroneopterin aldolase [Staphylococcus ps...   248   9e-64
+ref|WP_014355438.1| CoA-disulfide reductase [Acetobacterium wood...   248   1e-63
+ref|WP_035347605.1| hypothetical protein [Bacillus hemicellulosi...   248   1e-63
+ref|WP_016204400.1| MULTISPECIES: hypothetical protein [Bacillus...   248   1e-63
+ref|WP_007756819.1| pyridine nucleotide-disulfide oxidoreductase...   248   1e-63
+ref|WP_029069268.1| pyridine nucleotide-disulfide oxidoreductase...   247   1e-63
+ref|WP_034639339.1| hypothetical protein [Bacillus manliponensis...   247   1e-63
+ref|WP_038569429.1| CoA-disulfide reductase [Paenibacillus odori...   247   1e-63
+gb|EHI78285.1| hypothetical protein HMPREF9093_01456, partial [F...   247   1e-63
+ref|WP_019416191.1| hypothetical protein [Paenisporosarcina sp. ...   247   1e-63
+ref|WP_029284562.1| MULTISPECIES: hypothetical protein [Bacillus...   247   1e-63
+ref|WP_032834254.1| pyridine nucleotide-disulfide oxidoreductase...   247   1e-63
+ref|WP_025026111.1| hypothetical protein [Bacillus mannanilyticus]    247   1e-63
+ref|WP_036637495.1| hypothetical protein [Paenibacillus sp. FSL ...   247   1e-63
+emb|CDD82964.1| pyridine nucleotide-disulfide oxidoreductase [Ba...   247   2e-63
+ref|WP_047552986.1| dihydroneopterin aldolase [Staphylococcus au...   247   2e-63
+ref|WP_014645167.1| hypothetical protein [Halobacillus halophilu...   247   2e-63
+emb|CQR47923.1| DsrE/DsrF-like family protein [Paraliobacillus s...   247   2e-63
+ref|WP_042128056.1| hypothetical protein [Paenibacillus sp. FSL ...   247   2e-63
+ref|WP_014624368.1| pyridine nucleotide-disulfide oxidoreductase...   247   2e-63
+ref|WP_008637832.1| MULTISPECIES: hypothetical protein [Bacillac...   247   2e-63
+ref|WP_027956739.1| hypothetical protein [Halobacillus kuroshime...   247   2e-63
+ref|WP_002559126.1| hypothetical protein [Bacteroides sp. HPS004...   247   3e-63
+ref|WP_050351619.1| hypothetical protein [Virgibacillus pantothe...   246   3e-63
+ref|WP_048019557.1| hypothetical protein [Bacillus aryabhattai] ...   246   3e-63
+ref|WP_046824960.1| pyridine nucleotide-disulfide oxidoreductase...   246   3e-63
+ref|WP_026569505.1| MULTISPECIES: hypothetical protein [Bacillac...   246   3e-63
+ref|WP_049670393.1| hypothetical protein [Bacillus sp. FJAT-2791...   246   3e-63
+gb|KIL49243.1| hypothetical protein KP78_07110 [Jeotgalibacillus...   246   4e-63
+ref|WP_029332498.1| hypothetical protein [Exiguobacterium oxidot...   246   4e-63
+ref|WP_013172145.1| hypothetical protein [[Bacillus] selenitired...   246   4e-63
+emb|CCX67727.1| coA-disulfide reductase [Prevotella sp. CAG:1058]     246   4e-63
+ref|WP_041121392.1| hypothetical protein [Jeotgalibacillus alime...   246   4e-63
+ref|WP_011082564.1| dihydroneopterin aldolase [Staphylococcus ep...   246   4e-63
+ref|WP_040948977.1| CoA-disulfide reductase [Gorillibacterium ma...   246   4e-63
+ref|WP_000437715.1| hypothetical protein [Bacillus cereus] >gi|4...   245   5e-63
+ref|WP_007505452.1| hypothetical protein [Caldalkalibacillus the...   245   5e-63
+ref|WP_046217371.1| hypothetical protein [Bacillus endophyticus]...   245   5e-63
+ref|WP_029499680.1| hypothetical protein [Kurthia huakuii]            245   5e-63
+gb|KKR36180.1| FAD-dependent pyridine nucleotide-disulfide oxido...   245   5e-63
+gb|KKR18267.1| FAD-dependent pyridine nucleotide-disulfide oxido...   245   6e-63
+ref|WP_026858971.1| hypothetical protein [Jeotgalicoccus psychro...   245   7e-63
+ref|WP_042470183.1| hypothetical protein [Bacillus sp. FF3]           245   7e-63
+ref|WP_012859604.1| CoA-disulfide reductase [Sebaldella termitid...   245   7e-63
+ref|WP_028545602.1| hypothetical protein [Paenibacillus taiwanen...   245   8e-63
+ref|WP_024994018.1| pyridine nucleotide-disulfide oxidoreductase...   245   8e-63
+ref|WP_027445761.1| hypothetical protein [Pontibacillus marinus]...   245   8e-63
+ref|WP_010289301.1| hypothetical protein [Kurthia massiliensis]       245   9e-63
+ref|WP_041964868.1| hypothetical protein [Bacillus selenatarsena...   245   9e-63
+ref|WP_037576272.1| dihydroneopterin aldolase [Staphylococcus ch...   244   1e-62
+ref|WP_034551866.1| pyridine nucleotide-disulfide oxidoreductase...   244   1e-62
+ref|WP_009766522.1| hypothetical protein [Sporosarcina newyorken...   244   1e-62
+ref|WP_038184756.1| hypothetical protein [Viridibacillus arenosi...   244   1e-62
+ref|WP_024535247.1| hypothetical protein [Sporosarcina sp. EUR3 ...   244   1e-62
+ref|WP_042352377.1| hypothetical protein [Bacillus sp. G2(2012b)]     244   1e-62
+ref|WP_041284762.1| hypothetical protein [Desulfotomaculum gibso...   244   1e-62
+gb|EEM97859.1| hypothetical protein bthur0013_7090 [Bacillus thu...   244   1e-62
+ref|WP_048545738.1| hypothetical protein [Bacillus cereus] >gi|8...   244   1e-62
+ref|WP_036899981.1| pyridine nucleotide-disulfide oxidoreductase...   243   2e-62
+ref|WP_019243851.1| hypothetical protein [Bacillus massilioanore...   243   2e-62
+ref|WP_022794529.1| hypothetical protein [Marinococcus halotoler...   243   2e-62
+ref|WP_020613141.1| pyridine nucleotide-disulfide oxidoreductase...   243   2e-62
+ref|WP_018782359.1| MULTISPECIES: hypothetical protein [Bacillus...   243   2e-62
+ref|WP_014270479.1| pyridine nucleotide-disulfide oxidoreductase...   243   2e-62
+ref|WP_019155083.1| hypothetical protein [Bacillus massilioseneg...   243   2e-62
+ref|WP_019911051.1| hypothetical protein [Paenibacillus sp. HW567]    243   2e-62
+ref|WP_041072715.1| hypothetical protein [Bacillus sp. OxB-1]         243   3e-62
+ref|WP_012032896.1| hypothetical protein [Pelotomaculum thermopr...   243   3e-62
+ref|WP_008589213.1| hypothetical protein [Salimicrobium jeotgali...   243   3e-62
+ref|WP_042519527.1| pyridine nucleotide-disulfide oxidoreductase...   243   3e-62
+ref|WP_040105399.1| hypothetical protein [Salinicoccus roseus] >...   243   3e-62
+gb|ENJ99598.1| hypothetical protein SYW_00616 [Staphylococcus au...   243   3e-62
+ref|WP_030004949.1| CoA-disulfide reductase [Acholeplasma brassi...   242   4e-62
+ref|WP_048798324.1| pyridine nucleotide-disulfide oxidoreductase...   242   4e-62
+ref|WP_026791827.1| pyridine nucleotide-disulfide oxidoreductase...   242   4e-62
+ref|WP_035810267.1| hypothetical protein [Jeotgalicoccus sp. 13M...   242   4e-62
+ref|WP_015747808.1| pyridine nucleotide-disulfide oxidoreductase...   242   4e-62
+
+Sequences not found previously or not previously below threshold:
+
+Searching..................................................done
+
+
+Results from round 3
+
+
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+Sequences used in model and found again:
+
+ref|WP_035163877.1| pyridine nucleotide-disulfide oxidoreductase...   289   3e-76
+ref|WP_050356016.1| hypothetical protein [[Clostridium] purinily...   288   7e-76
+ref|WP_027623704.1| hypothetical protein [Clostridium lundense]       285   4e-75
+ref|WP_008789116.1| MULTISPECIES: CoA-disulfide reductase [Copro...   285   6e-75
+ref|WP_035378483.1| pyridine nucleotide-disulfide oxidoreductase...   285   8e-75
+ref|WP_035144998.1| hypothetical protein [Clostridium tetanomorp...   285   8e-75
+ref|WP_029161602.1| CoA-disulfide reductase [Clostridium scatolo...   284   9e-75
+ref|WP_035290970.1| hypothetical protein [Clostridium sp. KNHs214]    284   1e-74
+ref|WP_011989001.1| CoA-disulfide reductase [Clostridium kluyver...   284   1e-74
+ref|WP_048571462.1| hypothetical protein [Clostridium cylindrosp...   283   2e-74
+ref|WP_014186494.1| CoA-disulfide reductase [Desulfosporosinus o...   283   3e-74
+ref|WP_021170900.1| pyridine nucleotide-disulfide oxidoreductase...   282   4e-74
+ref|WP_044353112.1| CoA-disulfide reductase [Paenibacillus sp. E...   282   4e-74
+ref|WP_007064488.1| CoA-disulfide reductase [Clostridium carboxi...   282   4e-74
+ref|WP_023483431.1| hypothetical protein [Paenibacillus larvae] ...   282   4e-74
+ref|WP_027937485.1| pyridine nucleotide-disulfide oxidoreductase...   282   5e-74
+ref|WP_019553760.1| hypothetical protein [Propionispira raffinos...   282   5e-74
+ref|WP_025529977.1| CoA-disulfide reductase [Hungatella hathewayi]    281   9e-74
+ref|WP_012635199.1| CoA-disulfide reductase [Halothermothrix ore...   281   1e-73
+ref|WP_034601241.1| pyridine nucleotide-disulfide oxidoreductase...   281   1e-73
+ref|WP_031389005.1| hypothetical protein [Clostridium sp. KNHs209]    280   1e-73
+emb|CDC36410.1| pyridine nucleotide-disulfide oxidoreductase [An...   280   1e-73
+ref|WP_023162017.1| CoA-disulfide reductase [Clostridium autoeth...   280   2e-73
+ref|WP_014825454.1| CoA-disulfide reductase [Desulfosporosinus a...   280   2e-73
+ref|WP_018671996.1| CoA-disulfide reductase [Brevibacillus later...   280   2e-73
+ref|WP_027309001.1| pyridine nucleotide-disulfide oxidoreductase...   280   2e-73
+ref|WP_002596774.1| hypothetical protein [Clostridium colicanis]...   279   3e-73
+ref|WP_042125342.1| CoA-disulfide reductase [Paenibacillus sp. F...   279   3e-73
+ref|WP_024728682.1| pyridine nucleotide-disulfide oxidoreductase...   279   3e-73
+ref|WP_021801762.1| pyridine nucleotide-disulfide oxidoreductase...   279   3e-73
+ref|WP_035304772.1| hypothetical protein [Clostridium sp. HMP27]...   279   4e-73
+ref|WP_047808518.1| pyridine nucleotide-disulfide oxidoreductase...   279   4e-73
+ref|WP_019230220.1| hypothetical protein [Sedimentibacter sp. B4]     278   5e-73
+ref|WP_009226181.1| CoA-disulfide reductase [Paenibacillus sp. o...   278   5e-73
+ref|WP_004455218.1| hypothetical protein [Clostridium pasteurian...   278   5e-73
+ref|WP_024614381.1| pyridine nucleotide-disulfide oxidoreductase...   278   6e-73
+ref|WP_025436699.1| pyridine nucleotide-disulfide oxidoreductase...   278   6e-73
+ref|WP_018755064.1| hypothetical protein [Paenibacillus terrigena]    278   6e-73
+ref|WP_005545655.1| CoA-disulfide reductase [Paenibacillus alvei...   278   6e-73
+ref|WP_007960421.1| CoA-disulfide reductase [Pelosinus fermentan...   278   6e-73
+ref|WP_010245420.1| CoA-disulfide reductase [Acetivibrio cellulo...   278   7e-73
+ref|WP_014904019.1| CoA-disulfide reductase [Desulfosporosinus m...   278   8e-73
+emb|CCZ61436.1| coA-disulfide reductase [Clostridium hathewayi C...   278   8e-73
+ref|WP_011879261.1| CoA-disulfide reductase [Desulfotomaculum re...   278   8e-73
+ref|WP_044478744.1| hypothetical protein [Paenibacillus sp. GD11]     278   8e-73
+ref|WP_032122269.1| hypothetical protein [Clostridium sp. LF2]        278   9e-73
+ref|WP_045516861.1| pyridine nucleotide-disulfide oxidoreductase...   278   1e-72
+ref|WP_038322047.1| pyridine nucleotide-disulfide oxidoreductase...   278   1e-72
+ref|WP_008909989.1| CoA-disulfide reductase [Caloramator austral...   277   1e-72
+ref|WP_044898309.1| pyridine nucleotide-disulfide oxidoreductase...   277   1e-72
+ref|WP_013757559.1| CoA-disulfide reductase [Treponema brennabor...   277   1e-72
+ref|WP_043965669.1| pyridine nucleotide-disulfide oxidoreductase...   277   1e-72
+gb|ACJ32687.1| Multidomain redox protein (NAD(FAD)-dependent oxi...   277   1e-72
+ref|WP_013787030.1| CoA-disulfide reductase [Thermoanaerobacteri...   277   2e-72
+ref|WP_018248067.1| hypothetical protein [Orenia marismortui]         277   2e-72
+ref|WP_026882582.1| hypothetical protein [Clostridium akagii]         277   2e-72
+ref|WP_026485805.1| pyridine nucleotide-disulfide oxidoreductase...   277   2e-72
+ref|WP_013779694.1| CoA-disulfide reductase [Mahella australiens...   277   2e-72
+ref|WP_031544341.1| hypothetical protein [Lachnospiraceae bacter...   277   2e-72
+ref|WP_023354627.1| pyridine nucleotide-disulfide oxidoreductase...   277   2e-72
+ref|WP_003398586.1| CoA-disulfide reductase [Anoxybacillus flavi...   276   3e-72
+emb|CDE97881.1| coA-disulfide reductase / Disulfide bond regulat...   276   3e-72
+ref|WP_028537575.1| CoA-disulfide reductase [Paenibacillus sp. J14]   276   3e-72
+ref|WP_036713741.1| pyridine nucleotide-disulfide oxidoreductase...   276   3e-72
+ref|WP_042206245.1| pyridine nucleotide-disulfide oxidoreductase...   276   4e-72
+ref|WP_028829076.1| pyridine nucleotide-disulfide oxidoreductase...   276   4e-72
+ref|WP_009252465.1| MULTISPECIES: CoA-disulfide reductase [Clost...   276   4e-72
+ref|WP_013296803.1| CoA-disulfide reductase [Thermoanaerobacteri...   276   4e-72
+emb|CCZ31571.1| coA-disulfide reductase [Coprobacillus sp. CAG:183]   275   4e-72
+ref|WP_027400247.1| hypothetical protein [Anaerovorax odorimutans]    275   5e-72
+gb|ADU25715.1| FAD-dependent pyridine nucleotide-disulfide oxido...   275   5e-72
+ref|WP_014519515.1| CoA-disulfide reductase [Clostridium botulin...   275   5e-72
+ref|WP_045520133.1| pyridine nucleotide-disulfide oxidoreductase...   275   5e-72
+ref|WP_015310789.1| NAD(FAD)-dependent dehydrogenase [Thermoanae...   275   6e-72
+ref|WP_036623092.1| CoA-disulfide reductase [Paenibacillus macer...   275   7e-72
+dbj|BAQ12267.1| putative pyridine nucleotide-disulfide oxidoredu...   275   7e-72
+ref|WP_028610711.1| hypothetical protein [Paenibacillus harenae]      275   7e-72
+ref|WP_039774002.1| pyridine nucleotide-disulfide oxidoreductase...   275   7e-72
+ref|WP_021874970.1| pyridine nucleotide-disulfide oxidoreductase...   275   7e-72
+emb|CDD49466.1| putative uncharacterized protein [Bacteroides sp...   275   8e-72
+ref|WP_026891998.1| hypothetical protein [[Clostridium] aerotole...   275   8e-72
+ref|WP_014116020.1| CoA-disulfide reductase [Oscillibacter valer...   275   8e-72
+ref|WP_009170709.1| CoA-disulfide reductase [Clostridium sp. DL-...   275   9e-72
+ref|WP_008680429.1| CoA-disulfide reductase [Clostridium sp. 7_2...   274   1e-71
+ref|WP_031413338.1| pyridine nucleotide-disulfide oxidoreductase...   274   1e-71
+dbj|GAP41048.1| NADPH-dependent 2,4-dienoyl-CoA reductase [Anaer...   274   1e-71
+ref|WP_025689184.1| pyridine nucleotide-disulfide oxidoreductase...   274   1e-71
+ref|WP_042135719.1| pyridine nucleotide-disulfide oxidoreductase...   274   1e-71
+ref|WP_017416003.1| hypothetical protein [Clostridium tunisiense]     274   1e-71
+ref|WP_010238343.1| CoA-disulfide reductase [Clostridium arbusti]     274   1e-71
+ref|WP_044877767.1| hypothetical protein [Paenibacillus sp. IHBB...   274   1e-71
+ref|WP_038261078.1| pyridine nucleotide-disulfide oxidoreductase...   273   2e-71
+ref|WP_038668292.1| pyridine nucleotide-disulfide oxidoreductase...   273   2e-71
+ref|WP_009624938.1| CoA-disulfide reductase [Desulfosporosinus s...   273   2e-71
+gb|EKN42666.1| pyridine nucleotide-disulfide oxidoreductase fami...   273   2e-71
+ref|WP_025699413.1| pyridine nucleotide-disulfide oxidoreductase...   273   2e-71
+ref|WP_006844451.1| pyridine nucleotide-disulfide oxidoreductase...   273   2e-71
+ref|WP_033168050.1| hypothetical protein [Clostridium sp. KNHs205]    273   2e-71
+gb|AAQ65412.1| pyridine nucleotide-disulphide oxidoreductase fam...   273   2e-71
+ref|WP_006772345.1| CoA-disulfide reductase [Hungatella hatheway...   273   3e-71
+gb|ACL75501.1| FAD-dependent pyridine nucleotide-disulphide oxid...   273   3e-71
+ref|WP_042235027.1| pyridine nucleotide-disulfide oxidoreductase...   273   3e-71
+emb|CCZ06647.1| coA-disulfide reductase [Odoribacter sp. CAG:788]     273   3e-71
+emb|CDF22875.1| pyridine nucleotide-disulfide oxidoreductase [Pr...   273   3e-71
+ref|WP_038277156.1| pyridine nucleotide-disulfide oxidoreductase...   273   3e-71
+emb|CRH91704.1| dihydrolipoamide dehydrogenase [Chlamydia tracho...   272   3e-71
+ref|WP_006781843.1| CoA-disulfide reductase [Hungatella hatheway...   272   3e-71
+ref|WP_042212014.1| pyridine nucleotide-disulfide oxidoreductase...   272   4e-71
+ref|WP_036654491.1| hypothetical protein [Paenibacillus wynnii] ...   272   4e-71
+ref|WP_013273802.1| CoA-disulfide reductase [[Clostridium] sacch...   272   4e-71
+ref|WP_015846445.1| CoA-disulfide reductase [Paenibacillus sp. J...   272   5e-71
+ref|WP_039293030.1| hypothetical protein [Paenibacillus sp. IHB ...   272   5e-71
+emb|CDC55111.1| putative uncharacterized protein [Bacteroides co...   272   5e-71
+ref|WP_021284040.1| hypothetical protein [Clostridium sp. BL8] >...   272   5e-71
+ref|WP_004819321.1| CoA-disulfide reductase [Peptoniphilus indol...   272   5e-71
+ref|WP_047772977.1| pyridine nucleotide-disulfide oxidoreductase...   272   6e-71
+ref|WP_018752819.1| hypothetical protein [Paenibacillus sanguinis]    272   6e-71
+ref|WP_031424429.1| pyridine nucleotide-disulfide oxidoreductase...   272   6e-71
+gb|AGB42229.1| NAD(FAD)-dependent dehydrogenase [Halobacteroides...   272   6e-71
+ref|WP_047001881.1| pyridine nucleotide-disulfide oxidoreductase...   272   7e-71
+ref|WP_036725221.1| pyridine nucleotide-disulfide oxidoreductase...   271   9e-71
+ref|WP_039656988.1| pyridine nucleotide-disulfide oxidoreductase...   271   9e-71
+ref|WP_038589642.1| pyridine nucleotide-disulfide oxidoreductase...   271   9e-71
+ref|WP_024294016.1| MULTISPECIES: pyridine nucleotide-disulfide ...   271   9e-71
+ref|WP_007571689.1| pyridine nucleotide-disulfide oxidoreductase...   271   1e-70
+ref|WP_046823116.1| pyridine nucleotide-disulfide oxidoreductase...   271   1e-70
+gb|EEU03996.1| pyridine nucleotide-disulfide oxidoreductase [Eub...   271   1e-70
+ref|WP_021433360.1| coA-disulfide reductase [[Clostridium] bifer...   271   1e-70
+ref|WP_015614018.1| NAD(FAD)-dependent dehydrogenase [Clostridiu...   271   1e-70
+ref|WP_008425916.1| NAD(FAD)-dependent dehydrogenase [Clostridiu...   270   1e-70
+ref|WP_027631654.1| hypothetical protein [Clostridium hydrogenif...   270   1e-70
+ref|WP_034863311.1| pyridine nucleotide-disulfide oxidoreductase...   270   1e-70
+ref|WP_038696003.1| CoA-disulfide reductase [Paenibacillus stell...   270   1e-70
+ref|WP_036702220.1| pyridine nucleotide-disulfide oxidoreductase...   270   2e-70
+ref|WP_046214046.1| CoA-disulfide reductase [Paenibacillus wulum...   270   2e-70
+ref|WP_019420374.1| hypothetical protein [Paenibacillus sp. OSY-SE]   270   2e-70
+ref|WP_044962694.1| pyridine nucleotide-disulfide oxidoreductase...   270   2e-70
+ref|WP_039678729.1| pyridine nucleotide-disulfide oxidoreductase...   270   2e-70
+ref|WP_042274724.1| pyridine nucleotide-disulfide oxidoreductase...   270   2e-70
+ref|WP_022774649.1| NAD(FAD)-dependent dehydrogenase [Candidatus...   270   2e-70
+ref|WP_025705657.1| pyridine nucleotide-disulfide oxidoreductase...   270   2e-70
+ref|WP_028590232.1| CoA-disulfide reductase [Paenibacillus panac...   270   2e-70
+ref|WP_040210268.1| hypothetical protein [Clostridium sp. MS1]        270   3e-70
+emb|CDC99551.1| pyridine nucleotide-disulfide oxidoreductase [Al...   270   3e-70
+gb|KKB54686.1| CoA-disulfide reductase [Parabacteroides goldstei...   269   3e-70
+ref|WP_024991729.1| pyridine nucleotide-disulfide oxidoreductase...   269   3e-70
+ref|WP_027701237.1| pyridine nucleotide-disulfide oxidoreductase...   269   3e-70
+ref|WP_048695398.1| pyridine nucleotide-disulfide oxidoreductase...   269   3e-70
+ref|WP_035118465.1| pyridine nucleotide-disulfide oxidoreductase...   269   4e-70
+ref|WP_046234524.1| CoA-disulfide reductase [Paenibacillus algor...   269   4e-70
+ref|WP_024633365.1| MULTISPECIES: CoA-disulfide reductase [Paeni...   269   5e-70
+ref|WP_029452460.1| hypothetical protein [Clostridium algidicarnis]   268   5e-70
+ref|WP_026887429.1| pyridine nucleotide-disulfide oxidoreductase...   268   5e-70
+ref|WP_047843090.1| CoA-disulfide reductase [Paenibacillus sp. V...   268   5e-70
+emb|CDE07042.1| putative uncharacterized protein [Prevotella sp....   268   6e-70
+ref|WP_047374290.1| pyridine nucleotide-disulfide oxidoreductase...   268   6e-70
+ref|WP_027095567.1| pyridine nucleotide-disulfide oxidoreductase...   268   6e-70
+ref|WP_006785298.1| CoA-disulfide reductase [Turicibacter sangui...   268   6e-70
+ref|WP_006255173.1| pyridine nucleotide-disulfide oxidoreductase...   268   8e-70
+ref|WP_046148633.1| pyridine nucleotide-disulfide oxidoreductase...   268   8e-70
+ref|WP_046226489.1| CoA-disulfide reductase [Paenibacillus dauci]     268   8e-70
+ref|WP_041896380.1| pyridine nucleotide-disulfide oxidoreductase...   268   8e-70
+ref|WP_008422005.1| NAD(FAD)-dependent dehydrogenase [Clostridiu...   268   9e-70
+emb|CCZ74467.1| uncharacterized protein BN535_00697 [Bacteroides...   268   9e-70
+ref|WP_015393391.1| NAD(FAD)-dependent dehydrogenase [Clostridiu...   268   1e-69
+ref|WP_024836478.1| hypothetical protein [Clostridium sp. 12(A)]      267   1e-69
+ref|WP_046452010.1| pyridine nucleotide-disulfide oxidoreductase...   267   1e-69
+ref|WP_045849581.1| pyridine nucleotide-disulfide oxidoreductase...   267   1e-69
+ref|WP_004609220.1| CoA-disulfide reductase [[Clostridium] spiro...   267   1e-69
+ref|WP_037284646.1| CoA-disulfide reductase [Saccharibacillus sa...   267   1e-69
+ref|WP_027622530.1| pyridine nucleotide-disulfide oxidoreductase...   267   1e-69
+ref|WP_027108113.1| pyridine nucleotide-disulfide oxidoreductase...   267   1e-69
+ref|WP_025334417.1| pyridine nucleotide-disulfide oxidoreductase...   267   2e-69
+emb|CCZ70369.1| coA-disulfide reductase [Bacteroides sp. CAG:702]     267   2e-69
+emb|CCX70281.1| uncharacterized protein BN567_01491 [Prevotella ...   267   2e-69
+ref|WP_024995254.1| pyridine nucleotide-disulfide oxidoreductase...   267   2e-69
+emb|CDN44878.1| FAD-dependent pyridine nucleotide-disulphide oxi...   267   2e-69
+ref|WP_020815394.1| CoA-disulfide reductase [[Clostridium] papyr...   267   2e-69
+ref|WP_036943734.1| pyridine nucleotide-disulfide oxidoreductase...   266   3e-69
+ref|WP_042175481.1| CoA-disulfide reductase [Paenibacillus sp. F...   266   3e-69
+ref|WP_008155337.1| pyridine nucleotide-disulfide oxidoreductase...   266   3e-69
+ref|WP_004616198.1| CoA-disulfide reductase [[Clostridium] papyr...   266   3e-69
+ref|WP_027099080.1| pyridine nucleotide-disulfide oxidoreductase...   266   3e-69
+ref|WP_018592256.1| CoA-disulfide reductase [Terrisporobacter gl...   266   3e-69
+ref|WP_035134446.1| pyridine nucleotide-disulfide oxidoreductase...   266   4e-69
+ref|WP_031369386.1| pyridine nucleotide-disulfide oxidoreductase...   266   4e-69
+ref|WP_028597209.1| hypothetical protein [Paenibacillus pasadene...   266   4e-69
+ref|WP_041487316.1| pyridine nucleotide-disulfide oxidoreductase...   265   4e-69
+ref|WP_011340111.1| pyridine nucleotide-disulfide oxidoreductase...   265   4e-69
+ref|WP_022744780.1| CoA disulfide reductase [Clostridium sacchar...   265   5e-69
+ref|WP_039872225.1| CoA-disulfide reductase [Paenibacillus sp. F...   265   5e-69
+emb|CDB11784.1| pyridine nucleotide-disulfide oxidoreductase [Ba...   265   5e-69
+dbj|GAO30404.1| CoA-disulfide reductase [Geofilum rubicundum JCM...   265   6e-69
+ref|WP_039307972.1| pyridine nucleotide-disulfide oxidoreductase...   265   7e-69
+ref|WP_021635812.1| pyridine nucleotide-disulfide oxidoreductase...   265   8e-69
+ref|WP_021657843.1| CoA-disulfide reductase [Clostridiales bacte...   264   1e-68
+ref|WP_010074771.1| CoA-disulfide reductase [Clostridium cellulo...   264   1e-68
+ref|WP_015043666.1| MULTISPECIES: CoA-disulfide reductase [Dehal...   264   1e-68
+gb|KIL79153.1| CoA-disulfide reductase [Bacillus badius]              263   2e-68
+ref|WP_036879520.1| pyridine nucleotide-disulfide oxidoreductase...   263   2e-68
+ref|WP_048515085.1| pyridine nucleotide-disulfide oxidoreductase...   263   2e-68
+emb|CDE33649.1| pyridine nucleotide-disulfide oxidoreductase [Pr...   263   2e-68
+emb|CDE43300.1| coA-disulfide reductase / Disulfide bond regulat...   263   2e-68
+ref|WP_044545289.1| pyridine nucleotide-disulfide oxidoreductase...   263   2e-68
+gb|EDO51770.1| pyridine nucleotide-disulfide oxidoreductase [Bac...   263   3e-68
+gb|KFI85846.1| pyridine nucleotide-disulfide oxidoreductase fami...   263   3e-68
+ref|WP_035019109.1| pyridine nucleotide-disulfide oxidoreductase...   263   3e-68
+ref|WP_049661980.1| pyridine nucleotide-disulfide oxidoreductase...   263   3e-68
+ref|WP_021646070.1| pyridine nucleotide-disulfide oxidoreductase...   263   3e-68
+ref|WP_036729024.1| pyridine nucleotide-disulfide oxidoreductase...   262   4e-68
+ref|WP_006743999.1| pyridine nucleotide-disulfide oxidoreductase...   262   4e-68
+ref|WP_025830655.1| pyridine nucleotide-disulfide oxidoreductase...   262   4e-68
+emb|CCZ82217.1| putative uncharacterized protein [Odoribacter la...   262   5e-68
+gb|EFB33671.1| pyridine nucleotide-disulfide oxidoreductase [Pre...   262   5e-68
+ref|WP_021311370.1| sulfurtransferase TusA [Bacteroidetes bacter...   262   6e-68
+ref|WP_036878361.1| pyridine nucleotide-disulfide oxidoreductase...   262   6e-68
+ref|WP_042201530.1| CoA-disulfide reductase [Paenibacillus sp. G4]    262   6e-68
+ref|WP_043928384.1| hypothetical protein [Bacillus licheniformis]     262   7e-68
+ref|WP_014263241.1| CoA-disulfide reductase [Filifactor alocis] ...   262   7e-68
+gb|EJP30674.1| hypothetical protein HMPREF1146_1073 [Prevotella ...   262   7e-68
+ref|WP_032842705.1| pyridine nucleotide-disulfide oxidoreductase...   262   7e-68
+ref|WP_026902264.1| pyridine nucleotide-disulfide oxidoreductase...   262   7e-68
+ref|WP_024267150.1| CoA-disulfide reductase [Salinispira pacific...   261   8e-68
+ref|WP_045515168.1| pyridine nucleotide-disulfide oxidoreductase...   261   8e-68
+ref|WP_027939448.1| pyridine nucleotide-disulfide oxidoreductase...   261   8e-68
+ref|WP_046148754.1| pyridine nucleotide-disulfide oxidoreductase...   261   9e-68
+emb|CCX61012.1| pyridine nucleotide-disulfide oxidoreductase [Ba...   261   1e-67
+ref|WP_038350965.1| pyridine nucleotide-disulfide oxidoreductase...   261   1e-67
+ref|WP_029599494.1| pyridine nucleotide-disulfide oxidoreductase...   261   1e-67
+emb|CCY64165.1| pyridine nucleotide-disulfide oxidoreductase [Pr...   261   1e-67
+ref|WP_013389059.1| CoA-disulfide reductase [Ilyobacter polytrop...   261   1e-67
+ref|WP_031573626.1| hypothetical protein [Proteiniclasticum rumi...   261   1e-67
+dbj|GAE20180.1| NADH dehydrogenase [Bacteroides pyogenes DSM 206...   261   1e-67
+emb|CDH98062.1| rhodanese domain-containing protein [Staphylococ...   260   1e-67
+ref|WP_029490851.1| pyridine nucleotide-disulfide oxidoreductase...   260   1e-67
+gb|EFR49812.1| hypothetical protein BBNG_00359 [Bifidobacterium ...   260   2e-67
+ref|WP_029495087.1| pyridine nucleotide-disulfide oxidoreductase...   260   2e-67
+ref|WP_049868179.1| hypothetical protein [Paenibacillus sp. D9] ...   260   2e-67
+ref|WP_041502095.1| pyridine nucleotide-disulfide oxidoreductase...   260   2e-67
+ref|WP_013605784.1| pyridine nucleotide-disulfide oxidoreductase...   260   2e-67
+ref|WP_036883304.1| pyridine nucleotide-disulfide oxidoreductase...   260   2e-67
+ref|WP_005972735.1| CoA-disulfide reductase [Fusobacterium perio...   259   3e-67
+ref|WP_029503226.1| pyridine nucleotide-disulfide oxidoreductase...   259   4e-67
+ref|WP_031920606.1| dihydroneopterin aldolase [Staphylococcus au...   259   4e-67
+emb|CDC98082.1| pyridine nucleotide-disulfide oxidoreductase [Pr...   259   4e-67
+ref|WP_027473057.1| pyridine nucleotide-disulfide oxidoreductase...   259   5e-67
+ref|WP_046230865.1| hypothetical protein [Paenibacillus algorifo...   258   5e-67
+ref|WP_036380641.1| pyridine nucleotide-disulfide oxidoreductase...   258   6e-67
+ref|WP_033493206.1| pyridine nucleotide-disulfide oxidoreductase...   258   6e-67
+ref|WP_019468540.1| dihydroneopterin aldolase [Staphylococcus sp...   258   6e-67
+ref|WP_040193197.1| pyridine nucleotide-disulfide oxidoreductase...   258   6e-67
+ref|WP_015050849.1| CoA-disulfide reductase [Thermacetogenium ph...   258   7e-67
+ref|WP_029468508.1| pyridine nucleotide-disulfide oxidoreductase...   258   7e-67
+ref|WP_024984354.1| hypothetical protein [Brevibacillus borstele...   258   7e-67
+ref|WP_018163703.1| CoA-disulfide reductase [Streptococcus henryi]    258   7e-67
+ref|WP_046836307.1| dihydroneopterin aldolase [Staphylococcus su...   258   8e-67
+ref|WP_007430469.1| hypothetical protein [Paenibacillus sp. Aloe...   258   8e-67
+ref|WP_026506950.1| hypothetical protein [Butyrivibrio sp. MC2013]    258   1e-66
+ref|WP_029193952.1| hypothetical protein [Paenibacillus alginoly...   258   1e-66
+ref|WP_049828400.1| hypothetical protein [Paenibacillus sp. UNCC...   258   1e-66
+ref|WP_029493689.1| pyridine nucleotide-disulfide oxidoreductase...   257   1e-66
+ref|WP_027640015.1| pyridine nucleotide-disulfide oxidoreductase...   257   1e-66
+ref|WP_003399194.1| hypothetical protein [Anoxybacillus flavithe...   257   1e-66
+ref|WP_047911402.1| hypothetical protein [Paenibacillus sp. TCA2...   257   1e-66
+ref|WP_002500371.1| dihydroneopterin aldolase [Staphylococcus ep...   257   1e-66
+ref|WP_013547503.1| pyridine nucleotide-disulfide oxidoreductase...   257   1e-66
+ref|WP_016999819.1| dihydroneopterin aldolase [Staphylococcus le...   257   1e-66
+ref|WP_008620233.1| pyridine nucleotide-disulfide oxidoreductase...   257   1e-66
+ref|WP_044291621.1| dihydroneopterin aldolase [Staphylococcus au...   257   2e-66
+emb|CDD32054.1| putative uncharacterized protein [Bacteroides sp...   257   2e-66
+gb|ABX43821.1| FAD-dependent pyridine nucleotide-disulphide oxid...   257   2e-66
+ref|WP_049825081.1| hypothetical protein [Paenibacillus sp. 1-18]     257   2e-66
+ref|WP_016185054.1| hypothetical protein [Enterococcus sulfureus...   257   2e-66
+ref|WP_046207533.1| dihydroneopterin aldolase [Staphylococcus co...   257   2e-66
+ref|WP_008796281.1| CoA-disulfide reductase [Fusobacterium nucle...   256   2e-66
+ref|WP_044232859.1| pyridine nucleotide-disulfide oxidoreductase...   256   3e-66
+ref|WP_036864341.1| pyridine nucleotide-disulfide oxidoreductase...   256   3e-66
+ref|WP_021666283.1| pyridine nucleotide-disulfide oxidoreductase...   256   3e-66
+ref|WP_021664829.1| hypothetical protein, partial [Porphyromonas...   256   3e-66
+ref|WP_010662784.1| pyridine nucleotide-disulfide oxidoreductase...   256   3e-66
+ref|WP_044634529.1| hypothetical protein [Treponema phagedenis] ...   256   3e-66
+dbj|GAE22172.1| NADH dehydrogenase [Bacteroides pyogenes JCM 10003]   256   4e-66
+ref|WP_002506436.1| dihydroneopterin aldolase [Staphylococcus sp...   256   4e-66
+ref|WP_045026191.1| pyridine nucleotide-disulfide oxidoreductase...   255   5e-66
+ref|WP_045078449.1| pyridine nucleotide-disulfide oxidoreductase...   255   5e-66
+ref|WP_039067948.1| dihydroneopterin aldolase [Staphylococcus xy...   255   5e-66
+ref|WP_027131991.1| CoA-disulfide reductase [Fusobacterium necro...   255   5e-66
+ref|WP_043853630.1| pyridine nucleotide-disulfide oxidoreductase...   255   5e-66
+ref|WP_047035422.1| pyridine nucleotide-disulfide oxidoreductase...   255   5e-66
+ref|WP_000192254.1| hypothetical protein [Streptococcus agalacti...   255   5e-66
+ref|WP_026626432.1| pyridine nucleotide-disulfide oxidoreductase...   255   6e-66
+ref|WP_023511150.1| CoA-disulfide reductase [Sporolactobacillus ...   255   6e-66
+ref|WP_031463503.1| hypothetical protein [Paenibacillus polymyxa]     255   6e-66
+ref|WP_021167701.1| CoA disulfide reductase [Sporomusa ovata] >g...   255   7e-66
+emb|CCZ51254.1| coA-disulfide reductase / Disulfide bond regulat...   255   7e-66
+ref|WP_023388136.1| CoA-disulfide reductase [Youngiibacter fragi...   255   8e-66
+ref|WP_050215128.1| dihydroneopterin aldolase [Streptococcus pne...   255   9e-66
+ref|WP_010295643.1| CoA-disulfide reductase [Clostridium senegal...   255   9e-66
+ref|WP_024396977.1| pyridine nucleotide-disulfide oxidoreductase...   254   1e-65
+ref|WP_027409845.1| hypothetical protein [Anoxybacillus tepidamans]   254   1e-65
+ref|WP_009531229.1| CoA-disulfide reductase [Peptostreptococcace...   254   1e-65
+ref|WP_028397797.1| hypothetical protein [Bacillus sp. FJAT-14578]    254   1e-65
+ref|WP_042214805.1| pyridine nucleotide-disulfide oxidoreductase...   254   1e-65
+ref|WP_040030665.1| dihydroneopterin aldolase [Staphylococcus co...   254   1e-65
+ref|WP_047132603.1| dihydroneopterin aldolase [Staphylococcus co...   254   1e-65
+ref|WP_019007350.1| hypothetical protein [Cohnella laeviribosi]       254   1e-65
+ref|WP_003252670.1| hypothetical protein [Geobacillus thermogluc...   254   2e-65
+ref|WP_017722249.1| dihydroneopterin aldolase [Staphylococcus xy...   254   2e-65
+ref|WP_046131602.1| hypothetical protein [Bacillus sp. TH008] >g...   254   2e-65
+ref|WP_040101365.1| hypothetical protein [Paenibacillus polymyxa...   253   2e-65
+gb|EEC95812.1| hypothetical protein PRABACTJOHN_02797 [Parabacte...   253   2e-65
+ref|WP_013044052.1| pyridine nucleotide-disulfide oxidoreductase...   253   2e-65
+emb|CCY81138.1| uncharacterized protein BN473_01878 [Prevotella ...   253   2e-65
+ref|WP_038696170.1| hypothetical protein [Paenibacillus stellife...   253   2e-65
+ref|WP_044645887.1| hypothetical protein [Paenibacillus terrae] ...   253   2e-65
+ref|WP_013968998.1| pyridine nucleotide-disulfide oxidoreductase...   253   2e-65
+gb|AII68527.1| pyridine nucleotide-disulfide oxidoreductase [Bac...   253   3e-65
+ref|WP_047752937.1| hypothetical protein [Geobacillus sp. T6] >g...   253   3e-65
+ref|WP_009346875.1| pyridine nucleotide-disulfide oxidoreductase...   253   3e-65
+ref|WP_023015611.1| hypothetical protein [Staphylococcus simulan...   253   3e-65
+ref|WP_019687218.1| hypothetical protein [Paenibacillus polymyxa]     253   3e-65
+ref|WP_012656291.1| CoA-disulfide reductase [Macrococcus caseoly...   253   3e-65
+ref|WP_002442014.1| dihydroneopterin aldolase [Staphylococcus ca...   253   3e-65
+ref|WP_023558961.1| hypothetical protein [Brevibacillus panacihu...   253   3e-65
+ref|WP_028563400.1| hypothetical protein [Paenibacillus pinihumi]     252   4e-65
+ref|WP_048311813.1| hypothetical protein [Anaerobacillus macyae]...   252   4e-65
+ref|WP_032603165.1| dihydroneopterin aldolase [Staphylococcus ep...   252   4e-65
+ref|WP_009123893.1| pyridine nucleotide-disulfide oxidoreductase...   252   4e-65
+dbj|BAB83477.1| unnamed protein product [Staphylococcus hominis]      252   4e-65
+ref|WP_038535306.1| hypothetical protein [Bacillus sp. X1(2014)]...   252   5e-65
+ref|WP_042234330.1| hypothetical protein [Paenibacillus chitinol...   252   5e-65
+ref|WP_019539038.1| hypothetical protein [Proteiniphilum acetati...   252   5e-65
+ref|WP_047969951.1| hypothetical protein [Bacillus sp. LL01] >gi...   252   5e-65
+ref|WP_029758530.1| pyridine nucleotide-disulfide oxidoreductase...   252   5e-65
+ref|WP_036159160.1| hypothetical protein [Lysinibacillus odyssey...   252   6e-65
+ref|WP_013777390.1| CoA-disulfide reductase [Tepidanaerobacter a...   252   6e-65
+ref|WP_044747215.1| hypothetical protein [Bacillus alveayuensis]      252   6e-65
+emb|CDF14874.1| uncharacterized protein BN821_02324 [Bacteroides...   252   6e-65
+ref|WP_041963939.1| pyridine nucleotide-disulfide oxidoreductase...   252   7e-65
+ref|WP_035060424.1| pyridine nucleotide-disulfide oxidoreductase...   252   8e-65
+ref|WP_010754685.1| hypothetical protein [Enterococcus asini] >g...   251   8e-65
+ref|WP_048823577.1| hypothetical protein [Bacillus sp. B-jedd] >...   251   8e-65
+ref|WP_025862678.1| pyridine nucleotide-disulfide oxidoreductase...   251   9e-65
+ref|WP_048006889.1| hypothetical protein [Bacillus marisflavi] >...   251   1e-64
+ref|WP_002480194.1| hypothetical protein [Staphylococcus simulan...   250   2e-64
+ref|WP_044395656.1| pyridine nucleotide-disulfide oxidoreductase...   250   2e-64
+ref|WP_034289445.1| hypothetical protein [Bacillus sp. 72]            250   2e-64
+dbj|GAF03549.1| sulfurtransferase TusA [Saccharicrinis fermentan...   250   2e-64
+ref|WP_028552748.1| hypothetical protein [Paenibacillus sp. UNC4...   250   2e-64
+ref|WP_009132195.1| hypothetical protein [Bacteroides oleiciplen...   250   2e-64
+emb|CPA34655.1| sirA-like family protein [Staphylococcus aureus]...   250   2e-64
+ref|WP_047832970.1| hypothetical protein [Robinsoniella sp. RHS]...   250   2e-64
+ref|WP_026582676.1| hypothetical protein [Bacillus sp. J33]           250   3e-64
+ref|WP_026688548.1| hypothetical protein [Bacillus aurantiacus]       250   3e-64
+ref|WP_006800276.1| pyridine nucleotide-disulfide oxidoreductase...   249   3e-64
+ref|WP_021675709.1| CoA-disulfide reductase [Peptostreptococcace...   249   3e-64
+ref|WP_028400528.1| hypothetical protein [Bacillus panaciterrae]      249   4e-64
+ref|WP_018369474.1| CoA-disulfide reductase [Streptococcus marim...   249   4e-64
+ref|WP_042224023.1| hypothetical protein [Oceanobacillus manasie...   249   4e-64
+ref|WP_042455563.1| hypothetical protein [Bacillus sp. FF4]           249   4e-64
+ref|WP_035326745.1| hypothetical protein [Bacillus firmus] >gi|5...   249   5e-64
+emb|CRK81519.1| NADH dehydrogenase [Bacillus sp. LF1]                 249   5e-64
+ref|WP_032873032.1| MULTISPECIES: hypothetical protein [Bacillus...   249   5e-64
+ref|WP_047448821.1| pyridine nucleotide-disulfide oxidoreductase...   249   5e-64
+ref|WP_005830548.1| MULTISPECIES: hypothetical protein [Bacillal...   249   5e-64
+ref|WP_034746554.1| hypothetical protein [Bacillus wakoensis] >g...   249   5e-64
+ref|WP_037550232.1| pyridine nucleotide-disulfide oxidoreductase...   248   5e-64
+ref|WP_025907964.1| hypothetical protein [Bacillus flexus]            248   5e-64
+ref|WP_027364104.1| hypothetical protein [Desulfotomaculum alcoh...   248   5e-64
+ref|WP_048035536.1| hypothetical protein [Brevibacillus brevis] ...   248   6e-64
+ref|WP_008825760.1| CoA-disulfide reductase [Haloplasma contract...   248   7e-64
+ref|WP_006675544.1| hypothetical protein [Paenibacillus dendriti...   248   7e-64
+ref|WP_044270197.1| pyridine nucleotide-disulfide oxidoreductase...   248   8e-64
+ref|WP_040082387.1| hypothetical protein [Bacillus sp. A053] >gi...   248   8e-64
+ref|WP_041544299.1| hypothetical protein [Oceanobacillus iheyensis]   248   8e-64
+dbj|BAE06295.1| conserved hypothetical protein [Staphylococcus a...   248   8e-64
+ref|WP_044745590.1| hypothetical protein [Anoxybacillus sp. ATCC...   248   8e-64
+ref|WP_010680585.1| CoA disulfide reductase [Fusobacterium gonid...   248   9e-64
+ref|WP_026678587.1| hypothetical protein [Fictibacillus gelatini]     248   9e-64
+ref|WP_046099577.1| dihydroneopterin aldolase [Staphylococcus ca...   248   9e-64
+ref|WP_026583163.1| hypothetical protein [Bacillus sp. J33]           248   9e-64
+ref|WP_044654843.1| pyridine nucleotide-disulfide oxidoreductase...   248   1e-63
+ref|WP_046403527.1| pyridine nucleotide-disulfide oxidoreductase...   248   1e-63
+ref|WP_029597830.1| pyridine nucleotide-disulfide oxidoreductase...   248   1e-63
+ref|WP_003108051.1| CoA-disulfide reductase [Streptococcus parau...   248   1e-63
+ref|WP_039643761.1| dihydroneopterin aldolase [Staphylococcus hy...   248   1e-63
+gb|AFC28575.1| YrkE [Paenibacillus mucilaginosus 3016]                247   1e-63
+ref|WP_031534654.1| MULTISPECIES: hypothetical protein [Bacillus]     247   1e-63
+ref|WP_022637245.1| pyridine nucleotide-disulfide oxidoreductase...   247   1e-63
+ref|WP_026682221.1| hypothetical protein [Bacillus megaterium]        247   1e-63
+ref|WP_028391132.1| hypothetical protein [Bacillus sp. FJAT-14515]    247   1e-63
+emb|CBK66843.1| Uncharacterized NAD(FAD)-dependent dehydrogenase...   247   1e-63
+ref|WP_026567379.1| hypothetical protein [Bacillus sp. UNC41MFS5]     247   1e-63
+gb|EFF50225.1| pyridine nucleotide-disulfide oxidoreductase [Bac...   247   1e-63
+ref|WP_018930934.1| hypothetical protein [Gracilibacillus lacisa...   247   1e-63
+ref|WP_013487926.1| hypothetical protein [Bacillus cellulosilyti...   247   1e-63
+ref|WP_015771882.1| pyridine nucleotide-disulfide oxidoreductase...   247   2e-63
+ref|WP_031775549.1| dihydroneopterin aldolase, partial [Staphylo...   247   2e-63
+ref|WP_028403563.1| hypothetical protein [Bacillus sp. J13]           247   2e-63
+emb|CCZ13626.1| pyridine nucleotide-disulfide oxidoreductase fam...   247   2e-63
+gb|ERI09726.1| hypothetical protein HMPREF0083_02182 [Aneuriniba...   246   2e-63
+ref|WP_019155558.1| hypothetical protein [Bacillus massilioseneg...   246   2e-63
+ref|WP_009134375.1| pyridine nucleotide-disulfide oxidoreductase...   246   2e-63
+ref|WP_049742896.1| hypothetical protein [Brevibacillus reuszeri...   246   2e-63
+ref|WP_026801779.1| hypothetical protein [Pontibacillus halophil...   246   2e-63
+ref|WP_033141183.1| pyridine nucleotide-disulfide oxidoreductase...   246   2e-63
+emb|CCY50209.1| uncharacterized protein BN523_02371 [Bacteroides...   246   2e-63
+ref|WP_017726111.1| hypothetical protein [Bacillus ligniniphilus]     246   2e-63
+gb|EKE03052.1| hypothetical protein ACD_20C00279G0001 [unculture...   246   2e-63
+ref|WP_035940621.1| pyridine nucleotide-disulfide oxidoreductase...   246   2e-63
+ref|WP_035665843.1| hypothetical protein [Bacillus akibai] >gi|5...   246   3e-63
+ref|WP_037565723.1| dihydroneopterin aldolase [Staphylococcus ag...   246   3e-63
+emb|CDD88578.1| putative uncharacterized protein [Tannerella sp....   246   3e-63
+ref|WP_006837197.1| hypothetical protein [Bacillus sp. SG-1] >gi...   246   3e-63
+ref|WP_034626695.1| hypothetical protein [Bacillus okhensis] >gi...   246   3e-63
+ref|WP_013657550.1| CoA-disulfide reductase [Cellulosilyticum le...   246   3e-63
+ref|WP_008404134.1| MULTISPECIES: hypothetical protein [Bacillal...   246   3e-63
+ref|WP_042185932.1| CoA-disulfide reductase [Paenibacillus sp. F...   246   4e-63
+ref|WP_041055184.1| hypothetical protein [Jeotgalibacillus campi...   246   4e-63
+ref|WP_040047583.1| hypothetical protein [Bacillaceae bacterium ...   246   4e-63
+ref|WP_028775782.1| hypothetical protein [Shimazuella kribbensis]     246   4e-63
+ref|WP_047504980.1| dihydroneopterin aldolase, partial [Staphylo...   246   4e-63
+ref|WP_035356496.1| pyridine nucleotide-disulfide oxidoreductase...   245   5e-63
+ref|WP_007756819.1| pyridine nucleotide-disulfide oxidoreductase...   245   5e-63
+ref|WP_035347605.1| hypothetical protein [Bacillus hemicellulosi...   245   5e-63
+ref|WP_014355438.1| CoA-disulfide reductase [Acetobacterium wood...   245   5e-63
+ref|WP_019416191.1| hypothetical protein [Paenisporosarcina sp. ...   245   5e-63
+ref|WP_037544071.1| dihydroneopterin aldolase [Staphylococcus ps...   245   5e-63
+ref|WP_029284562.1| MULTISPECIES: hypothetical protein [Bacillus...   245   5e-63
+ref|WP_016204400.1| MULTISPECIES: hypothetical protein [Bacillus...   245   6e-63
+ref|WP_038569429.1| CoA-disulfide reductase [Paenibacillus odori...   245   6e-63
+ref|WP_025026111.1| hypothetical protein [Bacillus mannanilyticus]    245   6e-63
+emb|CDD82964.1| pyridine nucleotide-disulfide oxidoreductase [Ba...   245   7e-63
+ref|WP_034639339.1| hypothetical protein [Bacillus manliponensis...   245   7e-63
+ref|WP_032834254.1| pyridine nucleotide-disulfide oxidoreductase...   245   7e-63
+ref|WP_008637832.1| MULTISPECIES: hypothetical protein [Bacillac...   245   7e-63
+gb|EHI78285.1| hypothetical protein HMPREF9093_01456, partial [F...   245   8e-63
+ref|WP_002559126.1| hypothetical protein [Bacteroides sp. HPS004...   245   8e-63
+ref|WP_029069268.1| pyridine nucleotide-disulfide oxidoreductase...   245   8e-63
+ref|WP_036637495.1| hypothetical protein [Paenibacillus sp. FSL ...   245   8e-63
+ref|WP_027956739.1| hypothetical protein [Halobacillus kuroshime...   245   9e-63
+ref|WP_042128056.1| hypothetical protein [Paenibacillus sp. FSL ...   245   9e-63
+ref|WP_047552986.1| dihydroneopterin aldolase [Staphylococcus au...   244   1e-62
+ref|WP_014645167.1| hypothetical protein [Halobacillus halophilu...   244   1e-62
+emb|CQR47923.1| DsrE/DsrF-like family protein [Paraliobacillus s...   244   1e-62
+ref|WP_049670393.1| hypothetical protein [Bacillus sp. FJAT-2791...   244   1e-62
+ref|WP_050351619.1| hypothetical protein [Virgibacillus pantothe...   244   1e-62
+ref|WP_013172145.1| hypothetical protein [[Bacillus] selenitired...   244   1e-62
+ref|WP_014624368.1| pyridine nucleotide-disulfide oxidoreductase...   244   1e-62
+ref|WP_046824960.1| pyridine nucleotide-disulfide oxidoreductase...   244   1e-62
+gb|KKR36180.1| FAD-dependent pyridine nucleotide-disulfide oxido...   244   1e-62
+ref|WP_029332498.1| hypothetical protein [Exiguobacterium oxidot...   244   1e-62
+ref|WP_026569505.1| MULTISPECIES: hypothetical protein [Bacillac...   244   1e-62
+ref|WP_000437715.1| hypothetical protein [Bacillus cereus] >gi|4...   244   2e-62
+ref|WP_048019557.1| hypothetical protein [Bacillus aryabhattai] ...   243   2e-62
+ref|WP_041121392.1| hypothetical protein [Jeotgalibacillus alime...   243   2e-62
+ref|WP_007505452.1| hypothetical protein [Caldalkalibacillus the...   243   2e-62
+gb|KIL49243.1| hypothetical protein KP78_07110 [Jeotgalibacillus...   243   2e-62
+emb|CCX67727.1| coA-disulfide reductase [Prevotella sp. CAG:1058]     243   2e-62
+gb|KKR18267.1| FAD-dependent pyridine nucleotide-disulfide oxido...   243   2e-62
+ref|WP_011082564.1| dihydroneopterin aldolase [Staphylococcus ep...   243   2e-62
+ref|WP_029499680.1| hypothetical protein [Kurthia huakuii]            243   2e-62
+ref|WP_040948977.1| CoA-disulfide reductase [Gorillibacterium ma...   243   2e-62
+ref|WP_046217371.1| hypothetical protein [Bacillus endophyticus]...   243   3e-62
+ref|WP_028545602.1| hypothetical protein [Paenibacillus taiwanen...   243   3e-62
+ref|WP_042470183.1| hypothetical protein [Bacillus sp. FF3]           243   3e-62
+ref|WP_026858971.1| hypothetical protein [Jeotgalicoccus psychro...   243   4e-62
+ref|WP_041964868.1| hypothetical protein [Bacillus selenatarsena...   243   4e-62
+ref|WP_010289301.1| hypothetical protein [Kurthia massiliensis]       242   4e-62
+ref|WP_027445761.1| hypothetical protein [Pontibacillus marinus]...   242   4e-62
+ref|WP_024994018.1| pyridine nucleotide-disulfide oxidoreductase...   242   4e-62
+ref|WP_012859604.1| CoA-disulfide reductase [Sebaldella termitid...   242   5e-62
+ref|WP_009766522.1| hypothetical protein [Sporosarcina newyorken...   242   5e-62
+ref|WP_038184756.1| hypothetical protein [Viridibacillus arenosi...   242   5e-62
+ref|WP_024535247.1| hypothetical protein [Sporosarcina sp. EUR3 ...   242   5e-62
+gb|EEM97859.1| hypothetical protein bthur0013_7090 [Bacillus thu...   242   5e-62
+ref|WP_041284762.1| hypothetical protein [Desulfotomaculum gibso...   242   5e-62
+ref|WP_042352377.1| hypothetical protein [Bacillus sp. G2(2012b)]     242   5e-62
+ref|WP_048545738.1| hypothetical protein [Bacillus cereus] >gi|8...   242   5e-62
+ref|WP_037576272.1| dihydroneopterin aldolase [Staphylococcus ch...   242   6e-62
+ref|WP_034551866.1| pyridine nucleotide-disulfide oxidoreductase...   242   6e-62
+ref|WP_036899981.1| pyridine nucleotide-disulfide oxidoreductase...   241   7e-62
+ref|WP_020613141.1| pyridine nucleotide-disulfide oxidoreductase...   241   8e-62
+ref|WP_019243851.1| hypothetical protein [Bacillus massilioanore...   241   8e-62
+ref|WP_018782359.1| MULTISPECIES: hypothetical protein [Bacillus...   241   9e-62
+ref|WP_022794529.1| hypothetical protein [Marinococcus halotoler...   241   1e-61
+ref|WP_030004949.1| CoA-disulfide reductase [Acholeplasma brassi...   241   1e-61
+ref|WP_019155083.1| hypothetical protein [Bacillus massilioseneg...   241   1e-61
+ref|WP_012032896.1| hypothetical protein [Pelotomaculum thermopr...   241   1e-61
+ref|WP_019911051.1| hypothetical protein [Paenibacillus sp. HW567]    241   1e-61
+ref|WP_042519527.1| pyridine nucleotide-disulfide oxidoreductase...   240   1e-61
+gb|ENJ99598.1| hypothetical protein SYW_00616 [Staphylococcus au...   240   1e-61
+ref|WP_014270479.1| pyridine nucleotide-disulfide oxidoreductase...   240   1e-61
+ref|WP_041072715.1| hypothetical protein [Bacillus sp. OxB-1]         240   2e-61
+ref|WP_048798324.1| pyridine nucleotide-disulfide oxidoreductase...   240   2e-61
+ref|WP_022819315.1| CoA disulfide reductase [Fusobacterium russii]    240   2e-61
+ref|WP_042351529.1| pyridine nucleotide-disulfide oxidoreductase...   240   2e-61
+ref|WP_040105399.1| hypothetical protein [Salinicoccus roseus] >...   240   2e-61
+gb|EGG36665.1| rhodanese-like family protein [Paenibacillus sp. ...   240   2e-61
+ref|WP_008589213.1| hypothetical protein [Salimicrobium jeotgali...   240   2e-61
+
+Sequences not found previously or not previously below threshold:
+
+
+CONVERGED!
+  Database: nr90
+    Posted date:  Nov 5, 2015 10:28 PM
+  Number of letters in database: 999,998,773
+  Number of sequences in database:  482,770
+  
+  Database: /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/d
+  atabases/NR_new/nr90.01
+    Posted date:  Nov 5, 2015 10:29 PM
+  Number of letters in database: 999,999,541
+  Number of sequences in database:  894,931
+  
+  Database: /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/d
+  atabases/NR_new/nr90.02
+    Posted date:  Nov 5, 2015 10:31 PM
+  Number of letters in database: 999,999,627
+  Number of sequences in database:  1,177,638
+  
+  Database: /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/d
+  atabases/NR_new/nr90.03
+    Posted date:  Nov 5, 2015 10:32 PM
+  Number of letters in database: 999,999,825
+  Number of sequences in database:  1,444,113
+  
+  Database: /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/d
+  atabases/NR_new/nr90.04
+    Posted date:  Nov 5, 2015 10:34 PM
+  Number of letters in database: 999,999,865
+  Number of sequences in database:  1,713,948
+  
+  Database: /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/d
+  atabases/NR_new/nr90.05
+    Posted date:  Nov 5, 2015 10:37 PM
+  Number of letters in database: 999,999,739
+  Number of sequences in database:  1,976,345
+  
+  Database: /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/d
+  atabases/NR_new/nr90.06
+    Posted date:  Nov 5, 2015 10:39 PM
+  Number of letters in database: 999,999,587
+  Number of sequences in database:  2,239,464
+  
+  Database: /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/d
+  atabases/NR_new/nr90.07
+    Posted date:  Nov 5, 2015 10:42 PM
+  Number of letters in database: 999,999,938
+  Number of sequences in database:  2,527,875
+  
+  Database: /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/d
+  atabases/NR_new/nr90.08
+    Posted date:  Nov 5, 2015 10:44 PM
+  Number of letters in database: 999,999,933
+  Number of sequences in database:  2,879,054
+  
+  Database: /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/d
+  atabases/NR_new/nr90.09
+    Posted date:  Nov 5, 2015 10:47 PM
+  Number of letters in database: 999,999,931
+  Number of sequences in database:  3,290,239
+  
+  Database: /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/d
+  atabases/NR_new/nr90.10
+    Posted date:  Nov 5, 2015 10:51 PM
+  Number of letters in database: 999,999,905
+  Number of sequences in database:  3,867,839
+  
+  Database: /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/d
+  atabases/NR_new/nr90.11
+    Posted date:  Nov 5, 2015 10:55 PM
+  Number of letters in database: 999,999,928
+  Number of sequences in database:  4,823,489
+  
+  Database: /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/d
+  atabases/NR_new/nr90.12
+    Posted date:  Nov 5, 2015 11:01 PM
+  Number of letters in database: 999,999,905
+  Number of sequences in database:  6,958,937
+  
+  Database: /home/cluster/users/siditom/aux/DeepCNF_SS_v1.02_release/d
+  atabases/NR_new/nr90.13
+    Posted date:  Nov 5, 2015 11:07 PM
+  Number of letters in database: 518,135,859
+  Number of sequences in database:  6,929,485
+  
+Lambda     K      H
+   0.318    0.214    0.808 
+
+Lambda     K      H
+   0.267   0.0654    0.140 
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Number of Hits to DB: 25,768,620,610
+Number of Sequences: 41206127
+Number of extensions: 1939554172
+Number of successful extensions: 4170218
+Number of sequences better than 10.0: 500
+Number of HSP's better than 10.0 without gapping: 5257
+Number of HSP's successfully gapped in prelim test: 1795
+Number of HSP's that attempted gapping in prelim test: 4135949
+Number of HSP's gapped (non-prelim): 21422
+length of query: 159
+length of database: 13,518,132,356
+effective HSP length: 120
+effective length of query: 39
+effective length of database: 12,868,364,412
+effective search space: 501866212068
+effective search space used: 501866212068
+T: 11
+A: 40
+X1: 16 ( 7.3 bits)
+X2: 38 (14.6 bits)
+X3: 64 (24.7 bits)
+S1: 41 (21.0 bits)
+S2: 83 (35.9 bits)

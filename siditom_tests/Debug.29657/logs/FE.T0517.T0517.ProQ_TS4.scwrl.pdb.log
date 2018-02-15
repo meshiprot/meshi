@@ -1,0 +1,514 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+[3;J[H[2J+++++++++++++++++++++++++++++++++++
++ /tmp/siditom    : EXIST.
++ DISPLAY NOT SET
++ Permission is           : [1mdrwx--x--x
+[0m+--------------------------------------
++              .rhosts :
++   +@hosts
++++++++++++++++++++++++++++++++++++++++
+pwd=/home/cluster/users/siditom/data/meshi_db_v2.0
+  PID TTY      STAT   TIME COMMAND
+18083 ?        Ss     0:00 -csh /opt/sge/default/spool/sgecs10/job_scripts/3619342 /home/cluster/users/siditom/data/meshi_db_v2.0/MESHI_DB.v2.0/T0517/scwrl4/ /home/cluster/users/siditom/code/MESHIdb_Gen/data/commands3 7723 T0517 T0517.ProQ_TS4.scwrl.pdb /home/cluster/users/siditom/data/meshi_db_v2.0/MESHI_DB.v2.0/T0517/xml/
+CHANGED TO ---> classPath=/home/cluster/users/siditom/code/MESHIdb_Gen/bin/classPath_Auto
+classPath=/home/cluster/users/siditom/code/MESHIdb_Gen/bin/classPath_Auto
+date
+/home/cluster/users/siditom/data/meshi_db_v2.0/MESHI_DB.v2.0/T0517/scwrl4
+commands = /home/cluster/users/siditom/code/MESHIdb_Gen/data/commands3
+seed = 7723
+inName = T0517.ProQ_TS4.scwrl.pdb
+dsspFile = /home/cluster/users/siditom/data/meshi_db_v2.0/MESHI_DB.v2.0/T0517/dssp/T0517.ProQ_TS4.scwrl.dssp
+outName = /home/cluster/users/siditom/data/meshi_db_v2.0/MESHI_DB.v2.0/T0517/xml//T0517.ProQ_TS4.scwrl.out.7723.pdb
+native = T0517.N.scwrl.pdb
+date
+/home/cluster/users/siditom/data/meshi_db_v2.0/MESHI_DB.v2.0/T0517/xml//T0517.ProQ_TS4.scwrl.out.7723.pdb
+/home/cluster/users/siditom/data/meshi_db_v2.0/MESHI_DB.v2.0/T0517/xml//T0517.ProQ_TS4.scwrl.out.7723.pdb.xml
+--------------------------  Starting run  number  1  -------------------------------------
+seed = 17723
+java -Xmx4000m programs.Optimize -commands=/home/cluster/users/siditom/code/MESHIdb_Gen/data/commands3 -inFileName=T0517.ProQ_TS4.scwrl.pdb -dsspFile=/home/cluster/users/siditom/data/meshi_db_v2.0/MESHI_DB.v2.0/T0517/dssp/T0517.ProQ_TS4.scwrl.dssp -nativeFileName=T0517.N.scwrl.pdb -outFileName=/home/cluster/users/siditom/data/meshi_db_v2.0/MESHI_DB.v2.0/T0517/xml//T0517.ProQ_TS4.scwrl.out.7723.pdb -seed=17723
+seed 17723
+Verbose mode ON
+Cannot identify Atom type for ATOM      9 1HZ  LYS A   4      43.492  29.007  99.201  1.00                 H  
+Cannot identify Atom type for ATOM     10 2HZ  LYS A   4      43.572  30.419  99.533  1.00                 H  
+Cannot identify Atom type for ATOM     11 3HZ  LYS A   4      44.725  29.558  99.739  1.00                 H  
+Cannot identify Atom type for ATOM     91  HG  SER A  12      22.895  28.747  93.959  1.00                 H  
+Cannot identify Atom type for ATOM    114  HH  TYR A  15      14.132  31.560  98.465  1.00                 H  
+Cannot identify Atom type for ATOM    239 1HH1 ARG A  29      41.957  45.246  95.736  1.00                 H  
+Cannot identify Atom type for ATOM    240 2HH1 ARG A  29      41.159  45.429  94.492  1.00                 H  
+Cannot identify Atom type for ATOM    242 1HH2 ARG A  29      39.260  42.748  94.830  1.00                 H  
+Cannot identify Atom type for ATOM    243 2HH2 ARG A  29      39.523  43.914  93.942  1.00                 H  
+Cannot identify Atom type for ATOM    307  HG1 THR A  36      40.578  35.626  88.802  1.00                 H  
+Cannot identify Atom type for ATOM    362 1HB  TRP A  42      22.493  31.938  90.219  1.00                 H  
+Cannot identify Atom type for ATOM    363 2HB  TRP A  42      23.424  30.794  89.183  1.00                 H  
+=-=->  parameters /home/cluster/users/siditom/aux/meshi/parameters
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/bondEnergyParameters.dat
+=-=->  parameters /home/cluster/users/siditom/aux/meshi/parameters
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/angleEnergyParameters.dat
+longestAxes: 46.49448606017707
+ATOM    462  OE1 GLU A  98      53.054 -86.462 -40.045  1.00  0.00              
+ATOM    922  NZ  LYS A 148       6.559 -86.462 -40.045  1.00  0.00              
+=-=->  parameters /home/cluster/users/siditom/aux/meshi/parameters
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/bondEnergyParameters.dat
+=-=->  parameters /home/cluster/users/siditom/aux/meshi/parameters
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/angleEnergyParameters.dat
+=-=->  parameters /home/cluster/users/siditom/aux/meshi/parameters
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/bondEnergyParameters.dat
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/angleEnergyParameters.dat
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/planeEnergyParameters.dat
+Molecular System 1      Creating new DistanceMatrix because: The first distance matrix for this molecular system.
+largest grid size 336
+largest grid size 567
+Molecular System 1      Creating new DistanceMatrix because: Some atoms might have gone to nowhere
+Created TotalEnergy - relaxEnergy and made it current
+====>  bondEnergy weight 100
+---->  bondEnergy weight 100
+weight = 100.0
+=-=->  parameters /home/cluster/users/siditom/aux/meshi/parameters
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/bondEnergyParameters.dat
+====>  angleEnergy weight 40
+---->  angleEnergy weight 40
+weight = 40.0
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/angleEnergyParameters.dat
+====>  tetherAll weight 1.0
+---->  tetherAll weight 1.0
+weight = 1.0
+====>  tetherEnergy weight 1
+---->  tetherEnergy weight 1
+weight = 1.0
+#        E total Bond     Angle    Tether   Tether   meanF    radius   #NB     #Eeval  Time    
+200      1647.06  16.1726  1621.26  4.8150   4.8150   45.038 13.3217 11112    310          1651
+400      855.183  7.6284   833.701  6.9265   6.9265   19.077 13.3217 11117    626          2622
+600      604.510  5.9156   582.143  8.2258   8.2258   13.412 13.3217 11128    943          3821
+800      474.475  4.4582   451.675  9.1707   9.1707   9.9699 13.3216 11131    1260         4802
+1000     391.093  3.8636   367.367  9.9311   9.9311   8.8779 13.3216 11137    1578         5535
+nAtoms 1018
+nResidues 111
+Molecular System 1      Creating new DistanceMatrix because: Some getAtoms melted. You must instantiate a new TotalEnergy.
+No manual SS assignment
+secondary structure 1: 
+COIL  
+COIL  SHEET  SHEET  SHEET  SHEET  SHEET  COIL  COIL  COIL  COIL  
+COIL  COIL  COIL  HELIX  HELIX  HELIX  HELIX  HELIX  HELIX  HELIX  
+HELIX  HELIX  HELIX  HELIX  HELIX  HELIX  HELIX  COIL  COIL  COIL  
+SHEET  SHEET  SHEET  SHEET  SHEET  COIL  HELIX  HELIX  HELIX  HELIX  
+HELIX  COIL  COIL  SHEET  COIL  COIL  COIL  COIL  COIL  COIL  
+COIL  COIL  COIL  COIL  HELIX  HELIX  HELIX  HELIX  HELIX  HELIX  
+HELIX  HELIX  HELIX  HELIX  COIL  COIL  COIL  SHEET  SHEET  SHEET  
+SHEET  SHEET  HELIX  HELIX  HELIX  HELIX  HELIX  HELIX  COIL  COIL  
+COIL  COIL  COIL  COIL  COIL  SHEET  COIL  COIL  COIL  SHEET  
+SHEET  SHEET  SHEET  COIL  HELIX  HELIX  HELIX  HELIX  HELIX  HELIX  
+HELIX  HELIX  HELIX  HELIX  COIL  COIL  SHEET  SHEET  SHEET  COIL  
+
+=-=->  conserved 9999
+Molecular System 1      Creating new DistanceMatrix because: Some atoms might have gone to nowhere
+Created TotalEnergy - perturbationEnergy1 and made it current
+====>  distanceConstraints weight 1
+---->  distanceConstraints weight 1
+weight = 1.0
+====>  bondEnergy weight 100
+---->  bondEnergy weight 100
+weight = 100.0
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/bondEnergyParameters.dat
+====>  angleEnergy weight 40
+---->  angleEnergy weight 40
+weight = 40.0
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/angleEnergyParameters.dat
+====>  planeEnergy weight 1000.0
+---->  planeEnergy weight 1000.0
+weight = 1000.0
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/planeEnergyParameters.dat
+====>  outOfPlaneEnergy weight 1000.0
+---->  outOfPlaneEnergy weight 1000.0
+weight = 1000.0
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/outOfPlaneEnergyParameters.dat
+====>  ramachandran weight 1
+---->  ramachandran weight 1
+weight = 1.0
+Loading [] parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/CompositePropensity2D_withPP.dat
+====>  ramachandranSidechain weight 3
+---->  ramachandranSidechain weight 3
+weight = 3.0
+====>  cooperativeZRamachandranSidechain weight 0.00001
+---->  cooperativeZRamachandranSidechain weight 0.00001
+weight = 1.0E-5
+=-=->  parameters /home/cluster/users/siditom/aux/meshi/parameters
+=-=->  cooperativeZRamachandranSidechainFile zScoresRamachOfResidueTypes.dat
+CooperativeZRamachandranParametersFile: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/zScoresRamachOfResidueTypes.dat
+====>  cooperativeZstdRamachandranSidechain weight 0.00001
+---->  cooperativeZstdRamachandranSidechain weight 0.00001
+weight = 1.0E-5
+====>  compositePropensity weight 0.01
+---->  compositePropensity weight 0.01
+weight = 0.01
+====>  cooperativeZPropensity weight 0.01
+---->  cooperativeZPropensity weight 0.01
+weight = 0.01
+=-=->  parameters /home/cluster/users/siditom/aux/meshi/parameters
+=-=->  cooperativeZPropensityFile zScoresPropenOfResidueTypes.dat
+CooperativeZPropensityParametersFile: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/zScoresPropenOfResidueTypes.dat
+====>  cooperativeZstdPropensity  weight 0.01
+---->  cooperativeZstdPropensity  weight 0.01
+weight = 0.01
+====>  atomicPairwisePMFSumma weight 1
+---->  atomicPairwisePMFSumma weight 1
+weight = 1.0
+=-=->  parameters /home/cluster/users/siditom/aux/meshi/parameters
+====>  excludedVolume weight 0.1
+---->  excludedVolume weight 0.1
+weight = 0.1
+Loading [] parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/ExcludedVolumeParameters.dat
+====>  cooperativeZSumma weight 10
+====>  cooperativeZSumma     cooperativeZSummaNonPolar 1
+====>  cooperativeZSumma     cooperativeZSummaPolar 1
+====>  cooperativeZSumma     cooperativeZSummaNeutral 1
+====>  cooperativeZSumma     cooperativeZSummaBackboneNNOO 1
+====>  cooperativeZSumma     cooperativeZSummaBackbone 0.01
+---->  cooperativeZSumma weight 10
+weight = 10.0
+=-=->  parameters /home/cluster/users/siditom/aux/meshi/parameters
+=-=->  cooperativeZSummaFile zScoresMixModSummaMeanPerType_3picks_ResNum3before.txt
+CooperativeZSummaParametersFile: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/zScoresMixModSummaMeanPerType_3picks_ResNum3before.txt
+====>  cooperativeZSumma weight 10
+====>  cooperativeZSumma     cooperativeZSummaNonPolar 1
+====>  cooperativeZSumma     cooperativeZSummaPolar 1
+====>  cooperativeZSumma     cooperativeZSummaNeutral 1
+====>  cooperativeZSumma     cooperativeZSummaBackboneNNOO 1
+====>  cooperativeZSumma     cooperativeZSummaBackbone 0.01
+---->  cooperativeZSumma     cooperativeZSummaNonPolar 1
+====>  cooperativeZSumma weight 10
+====>  cooperativeZSumma     cooperativeZSummaNonPolar 1
+====>  cooperativeZSumma     cooperativeZSummaPolar 1
+====>  cooperativeZSumma     cooperativeZSummaNeutral 1
+====>  cooperativeZSumma     cooperativeZSummaBackboneNNOO 1
+====>  cooperativeZSumma     cooperativeZSummaBackbone 0.01
+---->  cooperativeZSumma     cooperativeZSummaPolar 1
+====>  cooperativeZSumma weight 10
+====>  cooperativeZSumma     cooperativeZSummaNonPolar 1
+====>  cooperativeZSumma     cooperativeZSummaPolar 1
+====>  cooperativeZSumma     cooperativeZSummaNeutral 1
+====>  cooperativeZSumma     cooperativeZSummaBackboneNNOO 1
+====>  cooperativeZSumma     cooperativeZSummaBackbone 0.01
+---->  cooperativeZSumma     cooperativeZSummaNeutral 1
+====>  cooperativeZSumma weight 10
+====>  cooperativeZSumma     cooperativeZSummaNonPolar 1
+====>  cooperativeZSumma     cooperativeZSummaPolar 1
+====>  cooperativeZSumma     cooperativeZSummaNeutral 1
+====>  cooperativeZSumma     cooperativeZSummaBackboneNNOO 1
+====>  cooperativeZSumma     cooperativeZSummaBackbone 0.01
+---->  cooperativeZSumma     cooperativeZSummaBackboneNNOO 1
+====>  cooperativeZSumma weight 10
+====>  cooperativeZSumma     cooperativeZSummaNonPolar 1
+====>  cooperativeZSumma     cooperativeZSummaPolar 1
+====>  cooperativeZSumma     cooperativeZSummaNeutral 1
+====>  cooperativeZSumma     cooperativeZSummaBackboneNNOO 1
+====>  cooperativeZSumma     cooperativeZSummaBackbone 0.01
+---->  cooperativeZSumma     cooperativeZSummaBackbone 0.01
+====>  cooperativeZstdSumma weight 5
+---->  cooperativeZstdSumma weight 5
+weight = 5.0
+====>  cooperativeZSumma weight 10
+====>  cooperativeZSumma     cooperativeZSummaNonPolar 1
+====>  cooperativeZSumma     cooperativeZSummaPolar 1
+====>  cooperativeZSumma     cooperativeZSummaNeutral 1
+====>  cooperativeZSumma     cooperativeZSummaBackboneNNOO 1
+====>  cooperativeZSumma     cooperativeZSummaBackbone 0.01
+---->  cooperativeZSumma     cooperativeZSummaNonPolar 1
+====>  cooperativeZSumma weight 10
+====>  cooperativeZSumma     cooperativeZSummaNonPolar 1
+====>  cooperativeZSumma     cooperativeZSummaPolar 1
+====>  cooperativeZSumma     cooperativeZSummaNeutral 1
+====>  cooperativeZSumma     cooperativeZSummaBackboneNNOO 1
+====>  cooperativeZSumma     cooperativeZSummaBackbone 0.01
+---->  cooperativeZSumma     cooperativeZSummaPolar 1
+====>  cooperativeZSumma weight 10
+====>  cooperativeZSumma     cooperativeZSummaNonPolar 1
+====>  cooperativeZSumma     cooperativeZSummaPolar 1
+====>  cooperativeZSumma     cooperativeZSummaNeutral 1
+====>  cooperativeZSumma     cooperativeZSummaBackboneNNOO 1
+====>  cooperativeZSumma     cooperativeZSummaBackbone 0.01
+---->  cooperativeZSumma     cooperativeZSummaNeutral 1
+====>  cooperativeZSumma weight 10
+====>  cooperativeZSumma     cooperativeZSummaNonPolar 1
+====>  cooperativeZSumma     cooperativeZSummaPolar 1
+====>  cooperativeZSumma     cooperativeZSummaNeutral 1
+====>  cooperativeZSumma     cooperativeZSummaBackboneNNOO 1
+====>  cooperativeZSumma     cooperativeZSummaBackbone 0.01
+---->  cooperativeZSumma     cooperativeZSummaBackboneNNOO 1
+====>  cooperativeZSumma weight 10
+====>  cooperativeZSumma     cooperativeZSummaNonPolar 1
+====>  cooperativeZSumma     cooperativeZSummaPolar 1
+====>  cooperativeZSumma     cooperativeZSummaNeutral 1
+====>  cooperativeZSumma     cooperativeZSummaBackboneNNOO 1
+====>  cooperativeZSumma     cooperativeZSummaBackbone 0.01
+---->  cooperativeZSumma     cooperativeZSummaBackbone 0.01
+====>  solvationEnergy weight 20.0
+====>  solvationEnergy solvationSCpolar   1 
+====>  solvationEnergy solvationSCcarbon   0.5
+====>  solvationEnergy solvationBBpolar     0
+====>  solvationEnergy solvationBBcarbon     1
+====>  solvationEnergy solvationHB      0
+====>  solvationEnergy solvationSTD     0.1
+---->  solvationEnergy weight 20.0
+weight = 20.0
+====>  solvationEnergy weight 20.0
+====>  solvationEnergy solvationSCpolar   1 
+====>  solvationEnergy solvationSCcarbon   0.5
+====>  solvationEnergy solvationBBpolar     0
+====>  solvationEnergy solvationBBcarbon     1
+====>  solvationEnergy solvationHB      0
+====>  solvationEnergy solvationSTD     0.1
+---->  solvationEnergy solvationSCpolar   1 
+====>  solvationEnergy weight 20.0
+====>  solvationEnergy solvationSCpolar   1 
+====>  solvationEnergy solvationSCcarbon   0.5
+====>  solvationEnergy solvationBBpolar     0
+====>  solvationEnergy solvationBBcarbon     1
+====>  solvationEnergy solvationHB      0
+====>  solvationEnergy solvationSTD     0.1
+---->  solvationEnergy solvationSCcarbon   0.5
+====>  solvationEnergy weight 20.0
+====>  solvationEnergy solvationSCpolar   1 
+====>  solvationEnergy solvationSCcarbon   0.5
+====>  solvationEnergy solvationBBpolar     0
+====>  solvationEnergy solvationBBcarbon     1
+====>  solvationEnergy solvationHB      0
+====>  solvationEnergy solvationSTD     0.1
+---->  solvationEnergy solvationBBpolar     0
+====>  solvationEnergy weight 20.0
+====>  solvationEnergy solvationSCpolar   1 
+====>  solvationEnergy solvationSCcarbon   0.5
+====>  solvationEnergy solvationBBpolar     0
+====>  solvationEnergy solvationBBcarbon     1
+====>  solvationEnergy solvationHB      0
+====>  solvationEnergy solvationSTD     0.1
+---->  solvationEnergy solvationBBcarbon     1
+====>  solvationEnergy weight 20.0
+====>  solvationEnergy solvationSCpolar   1 
+====>  solvationEnergy solvationSCcarbon   0.5
+====>  solvationEnergy solvationBBpolar     0
+====>  solvationEnergy solvationBBcarbon     1
+====>  solvationEnergy solvationHB      0
+====>  solvationEnergy solvationSTD     0.1
+---->  solvationEnergy solvationSTD     0.1
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateCend.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateCp1.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateCp2.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateCvalAtp1.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateCvalAtp2.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateForMinimizeHBend.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateForMinimizeHBp1.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateForMinimizeHBp2.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateForMinimizeHBvalAtp1.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateForMinimizeHBvalAtp2.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateMESHI2Tsai.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvationSplineParameters.dat
+====>  atomEnvironmentEnergy weight 1
+---->  atomEnvironmentEnergy weight 1
+weight = 1.0
+=-=->  atomEnvironmentParameters   /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/atomEnvironmentAll.xml
+====>  atomEnvironmentEnergySS weight 1
+---->  atomEnvironmentEnergySS weight 1
+weight = 1.0
+=-=->  atomEnvironmentParametersHelix  /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/atomEnvironmentHelix.xml
+=-=->  atomEnvironmentParametersSheet   /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/atomEnvironmentSheet.xml
+=-=->  atomEnvironmentParametersCoil   /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/atomEnvironmentCoil.xml
+====>  solvateEnergy weight 20
+====>  solvateEnergy solvateSCpolar  0.5
+====>  solvateEnergy solvateSCcarbon   1
+====>  solvateEnergy solvateBBpolar     0
+====>  solvateEnergy solvatePolarCarbon     1
+====>  solvateEnergy solvateHB      0
+====>  solvateEnergy solvateSTD     0.1
+---->  solvateEnergy weight 20
+weight = 20.0
+====>  solvateEnergy weight 20
+====>  solvateEnergy solvateSCpolar  0.5
+====>  solvateEnergy solvateSCcarbon   1
+====>  solvateEnergy solvateBBpolar     0
+====>  solvateEnergy solvatePolarCarbon     1
+====>  solvateEnergy solvateHB      0
+====>  solvateEnergy solvateSTD     0.1
+---->  solvateEnergy solvateSCpolar  0.5
+====>  solvateEnergy weight 20
+====>  solvateEnergy solvateSCpolar  0.5
+====>  solvateEnergy solvateSCcarbon   1
+====>  solvateEnergy solvateBBpolar     0
+====>  solvateEnergy solvatePolarCarbon     1
+====>  solvateEnergy solvateHB      0
+====>  solvateEnergy solvateSTD     0.1
+---->  solvateEnergy solvateSCcarbon   1
+====>  solvateEnergy weight 20
+====>  solvateEnergy solvateSCpolar  0.5
+====>  solvateEnergy solvateSCcarbon   1
+====>  solvateEnergy solvateBBpolar     0
+====>  solvateEnergy solvatePolarCarbon     1
+====>  solvateEnergy solvateHB      0
+====>  solvateEnergy solvateSTD     0.1
+---->  solvateEnergy solvateBBpolar     0
+====>  solvateEnergy weight 20
+====>  solvateEnergy solvateSCpolar  0.5
+====>  solvateEnergy solvateSCcarbon   1
+====>  solvateEnergy solvateBBpolar     0
+====>  solvateEnergy solvatePolarCarbon     1
+====>  solvateEnergy solvateHB      0
+====>  solvateEnergy solvateSTD     0.1
+---->  solvateEnergy solvateHB      0
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateCend.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateCp1.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateCp2.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateCvalAtp1.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateCvalAtp2.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateForMinimizeHBend.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateForMinimizeHBp1.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateForMinimizeHBp2.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateForMinimizeHBvalAtp1.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateForMinimizeHBvalAtp2.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateMESHI2Tsai.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvatePolarSideChainSplines.dat
+Reading solvate parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvateCarbonSideChainSplines.dat
+Reading solvation parameter file: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/SolvatePolarBackboneSplines.dat
+====>  hydrogenBonds weight 2
+====>  hydrogenBonds width 10
+---->  hydrogenBonds weight 2
+weight = 2.0
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/LennardJonesParameters.dat
+====>  hydrogenBonds weight 2
+====>  hydrogenBonds width 10
+---->  hydrogenBonds width 10
+====>  hydrogenBondsPairs weight 10
+---->  hydrogenBondsPairs weight 10
+weight = 10.0
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/HydrogenBondsHelixParameters.dat
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/HydrogenBondsBetaParameters.dat
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/HydrogenBondsHelixBackgroundParameters.dat
+Loading parameters from /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/HydrogenBondsBetaBackgroundParameters.dat
+=-=->  hydrogenBonds weight 2
+HBP punihs: 10.0 HBP hPunish: 30.0OOPunish = 100*punish   width=2.0
+====>  hydrogenBondsAnglesHOC weight 10
+---->  hydrogenBondsAnglesHOC weight 10
+weight = 10.0
+====>  hydrogenBondsAnglesOHN weight 10
+---->  hydrogenBondsAnglesOHN weight 10
+weight = 10.0
+====>  contactsAndSASA weight 1
+---->  contactsAndSASA weight 1
+weight = 1.0
+====>  rg weight 0.00001
+====>  rg rgLogaritmicWeight 1
+====>  rg rgRatioWeight 1
+====>  rg rgPolarWeight -0.1
+====>  rg rgNonPolarWeight 10
+====>  rg rgBackboneWeight 10
+---->  rg weight 0.00001
+weight = 1.0E-5
+====>  rg weight 0.00001
+====>  rg rgLogaritmicWeight 1
+====>  rg rgRatioWeight 1
+====>  rg rgPolarWeight -0.1
+====>  rg rgNonPolarWeight 10
+====>  rg rgBackboneWeight 10
+---->  rg rgLogaritmicWeight 1
+====>  rg weight 0.00001
+====>  rg rgLogaritmicWeight 1
+====>  rg rgRatioWeight 1
+====>  rg rgPolarWeight -0.1
+====>  rg rgNonPolarWeight 10
+====>  rg rgBackboneWeight 10
+---->  rg rgRatioWeight 1
+====>  rg weight 0.00001
+====>  rg rgLogaritmicWeight 1
+====>  rg rgRatioWeight 1
+====>  rg rgPolarWeight -0.1
+====>  rg rgNonPolarWeight 10
+====>  rg rgBackboneWeight 10
+---->  rg rgPolarWeight -0.1
+====>  rg weight 0.00001
+====>  rg rgLogaritmicWeight 1
+====>  rg rgRatioWeight 1
+====>  rg rgPolarWeight -0.1
+====>  rg rgNonPolarWeight 10
+====>  rg rgBackboneWeight 10
+---->  rg rgNonPolarWeight 10
+====>  rg weight 0.00001
+====>  rg rgLogaritmicWeight 1
+====>  rg rgRatioWeight 1
+====>  rg rgPolarWeight -0.1
+====>  rg rgNonPolarWeight 10
+====>  rg rgBackboneWeight 10
+---->  rg rgBackboneWeight 10
+====>  goap weight 1
+---->  goap weight 1
+weight = 1.0
+=-=->  parameters /home/cluster/users/siditom/aux/meshi/parameters
+checkup 13.7.15, parametersPath: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/GOAP/
+line: 1683360 , inside loop. inside index: 5
+checkup 13.7.15, filename: /home/cluster/users/siditom/aux/meshi/parameters/meshiPotential/GOAP/side_geometry.dat
+====>  conservationContacts8 weight 1
+---->  conservationContacts8 weight 1
+weight = 1.0
+====>  conservationContacts11 weight 1
+---->  conservationContacts11 weight 1
+weight = 1.0
+====>  conservationContacts15 weight 1
+---->  conservationContacts15 weight 1
+weight = 1.0
+====>  conservationContactsHr weight 1
+---->  conservationContactsHr weight 1
+weight = 1.0
+====>  inflateEnergy weight 1
+====>  inflateEnergy RmsTarget 0.5
+---->  inflateEnergy weight 1
+weight = 1.0
+segment [LYS_4_SS:COIL_Access:ACCESSIBLE_chain:A, LYS_5_SS:COIL_Access:ACCESSIBLE_chain:A]
+segment [MET_6_SS:SHEET_Access:BURIED_chain:A, ASN_7_SS:SHEET_Access:BURIED_chain:A, LEU_8_SS:SHEET_Access:BURIED_chain:A, LEU_9_SS:SHEET_Access:BURIED_chain:A, LEU_10_SS:SHEET_Access:BURIED_chain:A]
+segment [PHE_11_SS:COIL_Access:ACCESSIBLE_chain:A, SER_12_SS:COIL_Access:BURIED_chain:A, GLY_13_SS:COIL_Access:BURIED_chain:A, ASP_14_SS:COIL_Access:ACCESSIBLE_chain:A, TYR_15_SS:COIL_Access:ACCESSIBLE_chain:A, ASP_16_SS:COIL_Access:ACCESSIBLE_chain:A, LYS_17_SS:COIL_Access:ACCESSIBLE_chain:A]
+segment [ALA_18_SS:HELIX_Access:BURIED_chain:A, LEU_19_SS:HELIX_Access:BURIED_chain:A, ALA_20_SS:HELIX_Access:BURIED_chain:A, SER_21_SS:HELIX_Access:BURIED_chain:A, LEU_22_SS:HELIX_Access:BURIED_chain:A, ILE_23_SS:HELIX_Access:ACCESSIBLE_chain:A, ILE_24_SS:HELIX_Access:BURIED_chain:A, ALA_25_SS:HELIX_Access:BURIED_chain:A, ASN_26_SS:HELIX_Access:BURIED_chain:A, ALA_27_SS:HELIX_Access:BURIED_chain:A, ALA_28_SS:HELIX_Access:BURIED_chain:A, ARG_29_SS:HELIX_Access:BURIED_chain:A, GLU_30_SS:HELIX_Access:ACCESSIBLE_chain:A, MET_31_SS:HELIX_Access:ACCESSIBLE_chain:A]
+segment [GLU_32_SS:COIL_Access:ACCESSIBLE_chain:A, ILE_33_SS:COIL_Access:BURIED_chain:A, GLU_34_SS:COIL_Access:ACCESSIBLE_chain:A]
+segment [VAL_35_SS:SHEET_Access:BURIED_chain:A, THR_36_SS:SHEET_Access:BURIED_chain:A, ILE_37_SS:SHEET_Access:BURIED_chain:A, PHE_38_SS:SHEET_Access:BURIED_chain:A, CYS_39_SS:SHEET_Access:BURIED_chain:A]
+segment [ALA_40_SS:COIL_Access:BURIED_chain:A]
+segment [PHE_41_SS:HELIX_Access:BURIED_chain:A, TRP_42_SS:HELIX_Access:BURIED_chain:A, GLY_43_SS:HELIX_Access:BURIED_chain:A, LEU_44_SS:HELIX_Access:BURIED_chain:A, LEU_45_SS:HELIX_Access:BURIED_chain:A]
+segment [LEU_46_SS:COIL_Access:BURIED_chain:A, LEU_47_SS:COIL_Access:BURIED_chain:A]
+segment [ARG_48_SS:SHEET_Access:ACCESSIBLE_chain:A]
+segment [ASP_49_SS:COIL_Access:BURIED_chain:A, PRO_50_SS:COIL_Access:ACCESSIBLE_chain:A, GLU_51_SS:COIL_Access:BURIED_chain:A, LYS_52_SS:COIL_Access:ACCESSIBLE_chain:A]
+segment [GLU_97_SS:COIL_Access:BURIED_chain:A, GLU_98_SS:COIL_Access:ACCESSIBLE_chain:A, LYS_99_SS:COIL_Access:ACCESSIBLE_chain:A, ALA_100_SS:COIL_Access:ACCESSIBLE_chain:A, PRO_101_SS:COIL_Access:ACCESSIBLE_chain:A, LYS_102_SS:COIL_Access:BURIED_chain:A]
+segment [LEU_103_SS:HELIX_Access:BURIED_chain:A, SER_104_SS:HELIX_Access:BURIED_chain:A, ASP_105_SS:HELIX_Access:BURIED_chain:A, LEU_106_SS:HELIX_Access:BURIED_chain:A, LEU_107_SS:HELIX_Access:BURIED_chain:A, SER_108_SS:HELIX_Access:BURIED_chain:A, GLY_109_SS:HELIX_Access:BURIED_chain:A, ALA_110_SS:HELIX_Access:BURIED_chain:A, ARG_111_SS:HELIX_Access:BURIED_chain:A, LYS_112_SS:HELIX_Access:ACCESSIBLE_chain:A]
+segment [LYS_113_SS:COIL_Access:BURIED_chain:A, GLU_114_SS:COIL_Access:ACCESSIBLE_chain:A, VAL_115_SS:COIL_Access:BURIED_chain:A]
+segment [LYS_116_SS:SHEET_Access:BURIED_chain:A, PHE_117_SS:SHEET_Access:BURIED_chain:A, TYR_118_SS:SHEET_Access:BURIED_chain:A, ALA_119_SS:SHEET_Access:BURIED_chain:A, CYS_120_SS:SHEET_Access:BURIED_chain:A]
+segment [GLN_121_SS:HELIX_Access:BURIED_chain:A, LEU_122_SS:HELIX_Access:ACCESSIBLE_chain:A, SER_123_SS:HELIX_Access:BURIED_chain:A, VAL_124_SS:HELIX_Access:BURIED_chain:A, GLU_125_SS:HELIX_Access:BURIED_chain:A, ILE_126_SS:HELIX_Access:ACCESSIBLE_chain:A]
+segment [MET_127_SS:COIL_Access:BURIED_chain:A, GLY_128_SS:COIL_Access:ACCESSIBLE_chain:A, PHE_129_SS:COIL_Access:BURIED_chain:A, LYS_130_SS:COIL_Access:BURIED_chain:A, LYS_131_SS:COIL_Access:ACCESSIBLE_chain:A, GLU_132_SS:COIL_Access:ACCESSIBLE_chain:A, GLU_133_SS:COIL_Access:ACCESSIBLE_chain:A]
+segment [LEU_134_SS:SHEET_Access:BURIED_chain:A]
+segment [PHE_135_SS:COIL_Access:BURIED_chain:A, PRO_136_SS:COIL_Access:BURIED_chain:A, GLU_137_SS:COIL_Access:BURIED_chain:A]
+segment [VAL_138_SS:SHEET_Access:BURIED_chain:A, GLN_139_SS:SHEET_Access:ACCESSIBLE_chain:A, ILE_140_SS:SHEET_Access:BURIED_chain:A, MET_141_SS:SHEET_Access:BURIED_chain:A]
+segment [ASP_142_SS:COIL_Access:BURIED_chain:A]
+segment [VAL_143_SS:HELIX_Access:BURIED_chain:A, LYS_144_SS:HELIX_Access:ACCESSIBLE_chain:A, GLU_145_SS:HELIX_Access:BURIED_chain:A, TYR_146_SS:HELIX_Access:BURIED_chain:A, LEU_147_SS:HELIX_Access:ACCESSIBLE_chain:A, LYS_148_SS:HELIX_Access:ACCESSIBLE_chain:A, ASN_149_SS:HELIX_Access:BURIED_chain:A, ALA_150_SS:HELIX_Access:BURIED_chain:A, LEU_151_SS:HELIX_Access:ACCESSIBLE_chain:A, GLU_152_SS:HELIX_Access:ACCESSIBLE_chain:A]
+segment [SER_153_SS:COIL_Access:BURIED_chain:A, ASP_154_SS:COIL_Access:ACCESSIBLE_chain:A]
+segment [LEU_155_SS:SHEET_Access:BURIED_chain:A, GLN_156_SS:SHEET_Access:ACCESSIBLE_chain:A, LEU_157_SS:SHEET_Access:ACCESSIBLE_chain:A]
+segment [PHE_158_SS:COIL_Access:BURIED_chain:A]
+====>  inflateEnergy weight 1
+====>  inflateEnergy RmsTarget 0.5
+---->  inflateEnergy RmsTarget 0.5
+====>  flatRamachEnergy weight 0.01
+---->  flatRamachEnergy weight 0.01
+weight = 0.01
+Loading [] parameters
+====>  ssCompatibility weight 1
+---->  ssCompatibility weight 1
+weight = 1.0
+=-=->  predictedSsFileName  ../aux/secondaryStructurePrediction
+=-=->  predictedAccFileName ../aux/sasaPrediction
+Calculating ssCompatibility, alignment = 
+Score: 78.5
+KKMNLLLFSGDYDKALASLIIANAAREMEIEVTIFCAFWGLLLLRDPEKASQEDKSLYEQAFSSLTPREAEELPLSKMNLGGIGKKMLLEMMKEEKAPKLSDLLSGARKKEVKFYACQLSVEIMGFKKEELFPEVQIMDVKEYLKNALESDLQLFI*
+KKMNLLLFSGDYDKALASLIIANAAREMEIEVTIFCAFWGLLLLRDPEK--------------------------------------------EEKAPKLSDLLSGARKKEVKFYACQLSVEIMGFKKEELFPEVQIMDVKEYLKNALESDLQLF-*
+
+Calculating ssCompatibility, alignment = 
+Score: 78.5
+KKMNLLLFSGDYDKALASLIIANAAREMEIEVTIFCAFWGLLLLRDPEKASQEDKSLYEQAFSSLTPREAEELPLSKMNLGGIGKKMLLEMMKEEKAPKLSDLLSGARKKEVKFYACQLSVEIMGFKKEELFPEVQIMDVKEYLKNALESDLQLFI*
+KKMNLLLFSGDYDKALASLIIANAAREMEIEVTIFCAFWGLLLLRDPEK--------------------------------------------EEKAPKLSDLLSGARKKEVKFYACQLSVEIMGFKKEELFPEVQIMDVKEYLKNALESDLQLF-*
+
+====>  deepCNF3Compatibility weight -99999999.9999
+---->  deepCNF3Compatibility weight -99999999.9999
+weight = -9.99999999999E7
+=-=->  deepCNF3FileName ../aux/ss3DeepCNF
+=-=->  deepCNF8FileName ../aux/ss8DeepCNF

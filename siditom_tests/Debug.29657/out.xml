@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<ProteinInfoList name="Failure report for Protein: T0517.ProQ_TS4.scwrl.pdb">
+<ProteinInfo  value="MCM_END" step="0" time="0" fileName="scwrl4/T0517.ProQ_TS4.scwrl.pdb" >
+<Exception>
+java.lang.NullPointerException
+</Exception>
+</ProteinInfo>
+</ProteinInfoList>
+
