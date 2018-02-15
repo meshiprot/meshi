@@ -2,4 +2,4 @@ meshi*.jar
 *.class
 test/
 meshi/energy/goap/fromTomer
-./parameters/
+./parameters_backup/
