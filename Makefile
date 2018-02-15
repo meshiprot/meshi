@@ -1,4 +1,4 @@
-PreFLAGS = -classpath /home/cluster/users/siditom/aux/meshi/
+PreFLAGS = -classpath $(CURDIR)
 PostFLAGS = -Xlint:unchecked
 JC = javac
 .SUFFIXES: .java .class
