@@ -82,7 +82,7 @@ public enum InfoType {
     SECONDARY_STRUCTURE_COMPATIBILITY("ssCompatibility"), SASA_COMPATIBILITY("sasaCompatibility"),SATURATED_SECONDARY_STRUCTURE_COMPATIBILITY("SaturatedSsCompatibility"), SATURATED_SASA_COMPATIBILITY("saturatedSasaCompatibility"), HELIX_COMPATIBILITY("helixCompatibility"),  SHEET_COMPATIBILITY("SheetCompatibility"),
 
     //DeepCNF Features
-    SS_COMPATIBILITY_DEEPCNF3("deepCNF3Compatibility"),SS_COMPATIBILITY_DEEPCNF8("deepCNF3Compatibility"),
+    SS_COMPATIBILITY_DEEPCNF3("deepCNF3Compatibility"),SS_COMPATIBILITY_DEEPCNF8("deepCNF8Compatibility"),
 
 
     //Secondary structure - Native DSSP as the prediction
