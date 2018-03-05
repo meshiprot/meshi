@@ -40,17 +40,17 @@ public class GoapCreator extends EnergyCreator{
             parametersPath = commands.firstWord(KeyWords.PARAMETERS_DIRECTORY).secondWord() + "/meshiPotential/GOAP/";
             Utils.println("checkup 13.7.15, parametersPath: " + parametersPath);
             try {
-                //fort21 = getFort21();// siditom change 15.2.2018 - read object from memory instead of text file.
+                fort21 = getFort21();// siditom change 15.2.2018 - read object from memory instead of text file.
                 Utils.println("checkup 15.2.18, fort21");
-                fort21 = getFort21Object();
+                //fort21 = getFort21Object();
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
 
             try {
                 Utils.println("checkup 15.2.18, fort31");
-                //fort31 = getFort31(); // siditom change 15.2.2018 - read object from memory instead of text file.
-                fort31 = getFort31Object();
+                fort31 = getFort31(); // siditom change 15.2.2018 - read object from memory instead of text file.
+                //fort31 = getFort31Object();
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
@@ -156,6 +156,9 @@ public class GoapCreator extends EnergyCreator{
 
     public  Fort31 getFort31() throws IOException {
         FortranArray7Dim_cnttheta cnttheta_unknown = new FortranArray7Dim_cnttheta();
+        // chen 5.3.2018
+        Goap.setAll(cnttheta_unknown.cnttheta, 9999);
+        //
         //		        open(unit=21,file=base(1:ips)//'/fort.31_g72_noshift5_new',
 //		     &               status='old')
         MeshiLineReader data_from_fort31Reader_21 =
@@ -182,8 +185,6 @@ public class GoapCreator extends EnergyCreator{
             map_unknown[i] = scanner.nextInt();
             scanner.close();
         }
-
-
 
 //
 //
@@ -305,6 +306,10 @@ public class GoapCreator extends EnergyCreator{
 
 
         }
+// chen 5.3.2018
+        Goap.trim(cnttheta_unknown.cnttheta,9999);
+        Goap.replaceAll(cnttheta_unknown.cnttheta,9999,0);
+        //
 
 
 
@@ -383,6 +388,10 @@ public class GoapCreator extends EnergyCreator{
 
         FortranArray5Dim_pot pot_potential = new FortranArray5Dim_pot();
 
+        // chen 5.3.2018
+        Goap.setAll(pot_potential.potential_pot, 9999);
+        //
+
         lineFromFortReader=data_from_fort21Reader_20.readLine();
         while(lineFromFortReader!=null){
             scanner = new Scanner(lineFromFortReader);
@@ -404,6 +413,12 @@ public class GoapCreator extends EnergyCreator{
             lineFromFortReader=data_from_fort21Reader_20.readLine();
         }
         data_from_fort21Reader_20.close();
+
+        // chen 5.3.2018
+        Goap.trim(pot_potential.potential_pot,9999);
+        Goap.replaceAll(pot_potential.potential_pot,9999,0);
+        //
+
         return new Fort21(map_unknown, pot_potential);
     }
 

@@ -608,6 +608,8 @@ public class TMscore {
 
         //21
         public ScoreFun(boolean debug) {
+            if (n_ali < 10)
+                throw new RuntimeException("n_ali < 10 ; "+n_ali);
             double score_sum = 0;
             n_cut = 0; //number of residue-pairs dis<d, for iteration
             while ((n_cut <= 3) & (n_ali > 3)) {

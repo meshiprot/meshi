@@ -17,7 +17,7 @@ import meshi.util.Utils;
  * To change this template use File | Settings | File Templates.
  */
 public class DpMatrix {
-    MeshiSequence sequence1, sequence2; // One dimensional sequenceAlignments
+    protected MeshiSequence sequence1, sequence2; // One dimensional sequenceAlignments
 	private double minScore;
     public final CellScorer cellScorer;
     public final static int asciiA=65;
@@ -108,12 +108,17 @@ public class DpMatrix {
 			ex.printStackTrace();
 			throw new RuntimeException(ex);
 		}
+
 	}
 
 	public SequenceAlignment backTrack(Cell cell, double minScore) {
         SequenceAlignment inverseAlignment;
         inverseAlignment=DpMatrix.inverseAlignment(cell, minScore, sequence1, sequence2);
-         
+		AlignmentColumn column = inverseAlignment.get(0);
+		while (column.cell0().gap() | column.cell1().gap()) {
+			inverseAlignment.remove(column);
+			column = inverseAlignment.get(0);
+		}
  		return DpMatrix.reverseAlignment(inverseAlignment);
 
     }

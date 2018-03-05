@@ -57,7 +57,7 @@ public class SubstitutionScorer implements CellScorer {
             /*System.out.println("internalScore: "+internalScore+", firstScore:"+firstScore+
             		", cell.rowNumber: "+cell.rowNumber+", cell.colNumber: "+cell.colNumber);*/
 			scores[UP] = 0;
-			scores[LEFT] = inGapPenalty + left.scoreLeft;
+			scores[LEFT] = left.scoreLeft;
 			scores[DIAGONAL] = 0;
 			scores[MAX] = scores[LEFT]+internalScore;
 			//  scores = zeroScores //modified 23.9.14 Tommer
@@ -78,14 +78,20 @@ public class SubstitutionScorer implements CellScorer {
 		}
 
 		double leftLeft,leftUp,leftDiagonal;
-		leftLeft=inGapPenalty + left.scoreLeft;
+		if (!cell.bottom)
+			leftLeft=inGapPenalty + left.scoreLeft;
+		else
+			leftLeft=left.scoreLeft;
 		leftUp=gapStartPenalty + left.scoreUp;
 		leftDiagonal=gapStartPenalty + left.scoreDiagonal;
 		double arrayLeft[]={leftLeft, leftUp,leftDiagonal};
 		double scoreLeft = maxMultiple(arrayLeft);//maximal score from left
 
 		double upLeft,upUp,upDiagonal;
-		upUp=inGapPenalty + up.scoreUp;
+		if (!cell.rightmost)
+			upUp=inGapPenalty + up.scoreUp;
+		else
+			upUp=up.scoreUp;
 		upLeft=gapStartPenalty + up.scoreLeft;
 		upDiagonal=gapStartPenalty + up.scoreDiagonal;
 		double arrayUp[]={upLeft, upUp,upDiagonal};
