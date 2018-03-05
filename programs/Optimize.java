@@ -423,11 +423,13 @@ public class Optimize extends MeshiProgram implements KeyWords {
                                   CommandList commands,
                                   ResidueList conservedResidues) throws UpdateableException,EvaluationException {
         Score optimizationScore = null;
-        for (Score score:scoreFunctions)
-            if (score.toString().equals("optimizationScore"))  {
-                optimizationScore = score;
-                break;
-            }
+        if (scoreFunctions != null) {
+            for (Score score:scoreFunctions)
+                if (score.toString().equals("optimizationScore"))  {
+                    optimizationScore = score;
+                    break;
+                }
+        }
         if (optimizationScore == null)
             throw new RuntimeException("No optimization score.");
 
@@ -723,23 +725,24 @@ public class Optimize extends MeshiProgram implements KeyWords {
             analyzer.setEnergy(energy);
              long time = (new Date()).getTime() - energy.startTime;
             MeshiInfo infoList = energy.energyInfo();
-            for (Score scoreFunction : scoreFunctions) {
-                Utils.println(" Calculating score "+scoreFunction);
+            if (scoreFunctions != null) {
+                for (Score scoreFunction : scoreFunctions) {
+                    Utils.println(" Calculating score " + scoreFunction);
 
 
-                double rmsFromOriginal;
-                try {
-                    rmsFromOriginal = Rms.rms(originalModel, model,ResidueAlignmentMethod.IDENTITY);
+                    double rmsFromOriginal;
+                    try {
+                        rmsFromOriginal = Rms.rms(originalModel, model, ResidueAlignmentMethod.IDENTITY);
+                    } catch (Exception ex) {
+                        writeFailureXml(model, ex);
+                        ex.printStackTrace();
+                        throw new RuntimeException(ex);
+                    }
+                    ((CombinedEnergyScore) scoreFunction).setChangeElement(rmsFromOriginal);
+                    MeshiInfo scores = scoreFunction.score(infoList);
+                    for (MeshiInfo score : scores.flatten())
+                        label = label + "\" " + scoreFunction.toString() + "_" + score.type.tag + "=\"" + score.getValue() + " ";
                 }
-                catch (Exception ex) {
-                    writeFailureXml(model, ex);
-                    ex.printStackTrace();
-                    throw new RuntimeException(ex);
-                }
-                ((CombinedEnergyScore) scoreFunction).setChangeElement(rmsFromOriginal);
-                MeshiInfo scores = scoreFunction.score(infoList);
-                for (MeshiInfo score : scores.flatten())
-                    label = label + "\" "+scoreFunction.toString()+"_"+score.type.tag+"=\""+score.getValue()+" ";
             }
  	        if (Utils.verbose() || label.startsWith("MCM_END") || label.startsWith("BEGINNING"))
  	            log(label+"\" time=\""+time, true, chainsInfo);

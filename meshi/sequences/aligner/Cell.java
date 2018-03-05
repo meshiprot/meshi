@@ -12,6 +12,7 @@ package meshi.sequences.aligner;
  * To change this template use File | Settings | File Templates.
  */
 public class Cell {
+    public final boolean bottom, rightmost;
     public final int rowNumber;
     public final int colNumber;
     public final static int UP=0, LEFT=1, DIAGONAL=2, MAX=3;
@@ -45,6 +46,15 @@ public class Cell {
         } else {
             leftCell = dpMatrix.getCell(rowNumber, colNumber - 1);
         }
+
+        if (i == dpMatrix.sequence1.size()-1)
+            bottom = true;
+        else bottom = false;
+
+        if (j == dpMatrix.sequence2.size()-1)
+            rightmost = true;
+        else rightmost = false;
+
         //the score for the cell
         dpMatrix.cellScorer.getScores(this, bestRoutes, scores);
         scoreUp =scores[UP];

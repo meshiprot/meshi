@@ -1,25 +1,23 @@
 package meshi.energy.goap;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Scanner;
-
 import meshi.energy.*;
 import meshi.molecularElements.Chain;
 import meshi.molecularElements.Protein;
 import meshi.molecularElements.Residue;
-import meshi.molecularElements.ResidueList;
 import meshi.molecularElements.atoms.Atom;
 import meshi.util.ResidueData;
 import meshi.util.Updateable;
 import meshi.util.Utils;
 import meshi.util.file.MeshiLineReader;
-import meshi.util.file.MeshiWriter;
 import meshi.util.info.ChainsInfo;
 import meshi.util.info.DoubleInfoElement;
 import meshi.util.info.InfoType;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * The Goap class is a strict (manual, thanks to Tommer Argaman) Java translation of the original Fortran
@@ -466,8 +464,8 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
                 for(int axisInd=1;axisInd<=3;axisInd++){
 //			           xn(k,l)=xn1(l)
 //			           xd(k,l)=xd1(l)
-                    xn_vectorList[k_lineInFileIndex_inResidue][axisInd]=Variables.xn1_Vz_unnormalized[axisInd];
-                    xd_vectorList[k_lineInFileIndex_inResidue][axisInd]=Variables.xd1_Vx_unnormalized[axisInd];
+                    xn_vectorList[k_lineInFileIndex_inResidue][axisInd]= Variables.xn1_Vz_unnormalized[axisInd];
+                    xd_vectorList[k_lineInFileIndex_inResidue][axisInd]= Variables.xd1_Vx_unnormalized[axisInd];
 
 //			           enddo   //ChenDebug loop3 ends
                 }// create a list of all acquaired xn1, xd1's.
@@ -769,9 +767,9 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
                                         xxh_unknown[3]=xp_xCoordinate[k_lineInRes];
                                         yyh_unknown[3]=yp_yCoordinate[k_lineInRes];
                                         zzh_unknown[3]=zp_zCoordinate[k_lineInRes];
-                                        xxh_unknown[4]=xp_xCoordinate[k_lineInRes]+Variables.xn1_Vz_unnormalized[1];
-                                        yyh_unknown[4]=yp_yCoordinate[k_lineInRes]+Variables.xn1_Vz_unnormalized[2];
-                                        zzh_unknown[4]=zp_zCoordinate[k_lineInRes]+Variables.xn1_Vz_unnormalized[3];
+                                        xxh_unknown[4]=xp_xCoordinate[k_lineInRes]+ Variables.xn1_Vz_unnormalized[1];
+                                        yyh_unknown[4]=yp_yCoordinate[k_lineInRes]+ Variables.xn1_Vz_unnormalized[2];
+                                        zzh_unknown[4]=zp_zCoordinate[k_lineInRes]+ Variables.xn1_Vz_unnormalized[3];
 //
 
 
@@ -1050,9 +1048,9 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
 
 //		cfil  The output  : 	ect is DFIRE, ect2 is GOAP_AG
 //		c              GOAP=DFIRE+GOAP_AG
-//   	c	all inputs are at /gpfs1/active/hzhou2/fold/dplanedfire/ 
+//   	c	all inputs are at /gpfs1/active/hzhou2/fold/dplanedfire/
 //		c       which was set in variable base
-//		c	 basic flow:  (1) read in structure list 
+//		c	 basic flow:  (1) read in structure list
 //		c                     (2) read in potential data
 //		c	              (3) loop over each structure
 //		c	       inside the loop: (a) read in structure
@@ -1071,7 +1069,7 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
 //		     &        itgt(maxres),iatyp(maxa),iu(natyp,natyp),
 //		     &        mutmap(ntyp,12),ind1(maxa),ind2(maxa),
 //		     &        map(500),ibk(maxres,15),ianum(20),ib0(maxa)
-//		      real*8 xp(maxa),yp(maxa),zp(maxa),ddg(maxres),resdep(maxres),  
+//		      real*8 xp(maxa),yp(maxa),zp(maxa),ddg(maxres),resdep(maxres),
 //		     &        hd(20),asa(20),qq(maxa),rco(maxres),ele(maxa),aa
 //		      real*8 xpn(maxa),ypn(maxa),zpn(maxa),atmdep(maxa),hvnum(ntyp),
 //		     &       icnt(50),pot(20,15,20,15,ibin),rrme(ibin),rghist(1000),
@@ -1105,7 +1103,7 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
 //
 //
 //		      data hvnum/2,4,7,4,4,3,10,8,1,0,
-//		     &           3,2,5,4,5,4,6,7,5,3/               
+//		     &           3,2,5,4,5,4,6,7,5,3/
 //
 //		      data pol/1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1,1,0/
 //
@@ -1116,14 +1114,14 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
 //
 //		      data entropy/-0.55,-1.61,-0.58,-0.89,-0.78,-0.51,-0.97,-0.98,
 //		     & 0.0,0.0,-1.63,-1.71,-2.11,-1.57,-1.80,-1.25,-0.96,-2.03,
-//		     & -1.94,0.0/            
+//		     & -1.94,0.0/
 //
 //		      data vdwradi,pi/2.0,1.85,1.70,2.0,0.,3.1415926/
 //
 //		      data resn/'CYS','MET','PHE','ILE','LEU','VAL','TRP','TYR',
 //		     &          'ALA','GLY','THR','SER','GLN','ASN','GLU','ASP',
 //		     &          'HIS','ARG','LYS','PRO'/
-//		   
+//
 //
 //		      common /ddd/icnt
 //
@@ -1141,7 +1139,7 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
 //		          read(*,'(a70)') base
 //
 //		c chen a loop that reads an input file into an array of characters "afil", input file names, see readme.
-//		        i=1 
+//		        i=1
 //		c!!!        open(unit=20,file='pdbfile.list',status='old')
 //		 2001   read(*,*,end=2000) afil(i)
 //		        i=i+1
@@ -1262,6 +1260,8 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
         }
 
         FortranArray5Dim_pot pot_potential = new FortranArray5Dim_pot();
+        // chen 5.3.2018
+        //
 
         String lineFromFortReader=data_from_fort21Reader_20.readLine();
         while(lineFromFortReader!=null){
@@ -1294,7 +1294,7 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
 //		 3000   continue
 //		        close(20)
 //
-//		              
+//
 //		c tommer this puts zeros in all of cnttheta's entries.
 //		          do l1=1,20
 //		          do m1=1,15
@@ -1327,6 +1327,10 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
             }
         }
         FortranArray7Dim_cnttheta cnttheta_unknown=new FortranArray7Dim_cnttheta();
+        // chen 5.3.2018
+        setAll(cnttheta_unknown.cnttheta, 9999);
+        //
+        //
 
         //double[][][][][][][] cnttheta=new double[21][16][21][16][ibin+1][13][6];
 
@@ -1482,6 +1486,10 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
 
 
         }
+        // chen 5.3.2018
+        trim(cnttheta_unknown.cnttheta,9999);
+        replaceAll(cnttheta_unknown.cnttheta,9999,0);
+        //
 
 
 
@@ -1969,8 +1977,8 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
                     for(int axisInd=1;axisInd<=3;axisInd++){
 //			           xn(k,l)=xn1(l)
 //			           xd(k,l)=xd1(l)
-                        xn_vectorList[k_lineInFileIndex_inResidue][axisInd]=Variables.xn1_Vz_unnormalized[axisInd];
-                        xd_vectorList[k_lineInFileIndex_inResidue][axisInd]=Variables.xd1_Vx_unnormalized[axisInd];
+                        xn_vectorList[k_lineInFileIndex_inResidue][axisInd]= Variables.xn1_Vz_unnormalized[axisInd];
+                        xd_vectorList[k_lineInFileIndex_inResidue][axisInd]= Variables.xd1_Vx_unnormalized[axisInd];
 
 //			           enddo 
                     }// create a list of all acquaired xn1, xd1's.
@@ -2231,9 +2239,9 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
                                             xxh_unknown[3]=xp_xCoordinate[k_lineInRes];
                                             yyh_unknown[3]=yp_yCoordinate[k_lineInRes];
                                             zzh_unknown[3]=zp_zCoordinate[k_lineInRes];
-                                            xxh_unknown[4]=xp_xCoordinate[k_lineInRes]+Variables.xn1_Vz_unnormalized[1];
-                                            yyh_unknown[4]=yp_yCoordinate[k_lineInRes]+Variables.xn1_Vz_unnormalized[2];
-                                            zzh_unknown[4]=zp_zCoordinate[k_lineInRes]+Variables.xn1_Vz_unnormalized[3];
+                                            xxh_unknown[4]=xp_xCoordinate[k_lineInRes]+ Variables.xn1_Vz_unnormalized[1];
+                                            yyh_unknown[4]=yp_yCoordinate[k_lineInRes]+ Variables.xn1_Vz_unnormalized[2];
+                                            zzh_unknown[4]=zp_zCoordinate[k_lineInRes]+ Variables.xn1_Vz_unnormalized[3];
 //
 
 
@@ -2597,16 +2605,16 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
         Variables.xd1_Vx_unnormalized=xdot_vectorMult(v1_Vy_unnormalized, Variables.xn1_Vz_unnormalized);
 
 
-        double norm_xd=Math.sqrt(Variables.xd1_Vx_unnormalized[1]*Variables.xd1_Vx_unnormalized[1]+
-                Variables.xd1_Vx_unnormalized[2]*Variables.xd1_Vx_unnormalized[2]+
-                Variables.xd1_Vx_unnormalized[3]*Variables.xd1_Vx_unnormalized[3]);
-        double norm_xn=Math.sqrt(Variables.xn1_Vz_unnormalized[1]*Variables.xn1_Vz_unnormalized[1]+
-                Variables.xn1_Vz_unnormalized[2]*Variables.xn1_Vz_unnormalized[2]+
-                Variables.xn1_Vz_unnormalized[3]*Variables.xn1_Vz_unnormalized[3]);
+        double norm_xd=Math.sqrt(Variables.xd1_Vx_unnormalized[1]* Variables.xd1_Vx_unnormalized[1]+
+                Variables.xd1_Vx_unnormalized[2]* Variables.xd1_Vx_unnormalized[2]+
+                Variables.xd1_Vx_unnormalized[3]* Variables.xd1_Vx_unnormalized[3]);
+        double norm_xn=Math.sqrt(Variables.xn1_Vz_unnormalized[1]* Variables.xn1_Vz_unnormalized[1]+
+                Variables.xn1_Vz_unnormalized[2]* Variables.xn1_Vz_unnormalized[2]+
+                Variables.xn1_Vz_unnormalized[3]* Variables.xn1_Vz_unnormalized[3]);
 
         for(int axisInd=1;axisInd<=3;axisInd++){
-            Variables.xd1_Vx_unnormalized[axisInd]=Variables.xd1_Vx_unnormalized[axisInd]/norm_xd;
-            Variables.xn1_Vz_unnormalized[axisInd]=Variables.xn1_Vz_unnormalized[axisInd]/norm_xn;
+            Variables.xd1_Vx_unnormalized[axisInd]= Variables.xd1_Vx_unnormalized[axisInd]/norm_xd;
+            Variables.xn1_Vz_unnormalized[axisInd]= Variables.xn1_Vz_unnormalized[axisInd]/norm_xn;
         }
         return ibb_previousAtomLine;
 
@@ -2798,16 +2806,16 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
         Variables.xd1_Vx_unnormalized=xdot_vectorMult(v1_Vy_unnormalized, Variables.xn1_Vz_unnormalized);
 
 
-        double norm_xd=Math.sqrt(Variables.xd1_Vx_unnormalized[1]*Variables.xd1_Vx_unnormalized[1]+
-                Variables.xd1_Vx_unnormalized[2]*Variables.xd1_Vx_unnormalized[2]+
-                Variables.xd1_Vx_unnormalized[3]*Variables.xd1_Vx_unnormalized[3]);
-        double norm_xn=Math.sqrt(Variables.xn1_Vz_unnormalized[1]*Variables.xn1_Vz_unnormalized[1]+
-                Variables.xn1_Vz_unnormalized[2]*Variables.xn1_Vz_unnormalized[2]+
-                Variables.xn1_Vz_unnormalized[3]*Variables.xn1_Vz_unnormalized[3]);
+        double norm_xd=Math.sqrt(Variables.xd1_Vx_unnormalized[1]* Variables.xd1_Vx_unnormalized[1]+
+                Variables.xd1_Vx_unnormalized[2]* Variables.xd1_Vx_unnormalized[2]+
+                Variables.xd1_Vx_unnormalized[3]* Variables.xd1_Vx_unnormalized[3]);
+        double norm_xn=Math.sqrt(Variables.xn1_Vz_unnormalized[1]* Variables.xn1_Vz_unnormalized[1]+
+                Variables.xn1_Vz_unnormalized[2]* Variables.xn1_Vz_unnormalized[2]+
+                Variables.xn1_Vz_unnormalized[3]* Variables.xn1_Vz_unnormalized[3]);
 
         for(int axisInd=1;axisInd<=3;axisInd++){
-            Variables.xd1_Vx_unnormalized[axisInd]=Variables.xd1_Vx_unnormalized[axisInd]/norm_xd;
-            Variables.xn1_Vz_unnormalized[axisInd]=Variables.xn1_Vz_unnormalized[axisInd]/norm_xn;
+            Variables.xd1_Vx_unnormalized[axisInd]= Variables.xd1_Vx_unnormalized[axisInd]/norm_xd;
+            Variables.xn1_Vz_unnormalized[axisInd]= Variables.xn1_Vz_unnormalized[axisInd]/norm_xn;
         }
         return ibb_previousAtomLine;
 
@@ -3106,4 +3114,115 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
     }
 
 
-}
+    //*******************************************************************************************************************//
+    public static void setAll(float[][][][][][][] cnttheta, float value) {
+        for (int i0 = 0; i0 < cnttheta.length; i0++) {
+            float[][][][][][] a0 = cnttheta[i0];
+            for (int i1 = 0; i1 < a0.length; i1++) {
+                float[][][][][] a1 = a0[i1];
+                setAll(a1, value);
+            }
+        }
+    }
+
+    public static void setAll(float[][][][][] a1, float value) {
+        for (int i2 = 0; i2 < a1.length; i2++) {
+            float[][][][] a2 = a1[i2];
+            for (int i3 = 0; i3 < a2.length; i3++) {
+                float[][][] a3 = a2[i3];
+                for (int i4 = 0; i4 < a3.length; i4++) {
+                    float[][] a4 = a3[i4];
+                    for (int i5 = 0; i5 < a4.length; i5++) {
+                        float[] a5 = a4[i5];
+                        for (int i6 = 0; i6 < a5.length; i6++) {
+                            a5[i6] = value;
+                        }
+                    }
+                }
+            }
+        }
+     }
+
+    public static void replaceAll(float[][][][][][][] cnttheta, float from, float to) {
+        for (int i0 = 0; i0 < cnttheta.length; i0++) {
+            float[][][][][][] a0 = cnttheta[i0];
+            for (int i1 = 0; i1 < a0.length; i1++) {
+                float[][][][][] a1 = a0[i1];
+                replaceAll(a1, from, to);
+            }
+        }
+    }
+
+    public static void replaceAll(float[][][][][] a1, float from, float to) {
+        for (int i2 = 0; i2 < a1.length; i2++) {
+            float[][][][] a2 = a1[i2];
+            for (int i3 = 0; i3 < a2.length; i3++) {
+                float[][][] a3 = a2[i3];
+                for (int i4 = 0; i4 < a3.length; i4++) {
+                    float[][] a4 = a3[i4];
+                    if (a4 != null) {
+                        for (int i5 = 0; i5 < a4.length; i5++) {
+                            float[] a5 = a4[i5];
+                            if (a5 != null) {
+                                for (int i6 = 0; i6 < a5.length; i6++) {
+                                    if (a5[i6] == from)
+                                        a5[i6] = to;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    static int count5 = 0;
+    static int count4 = 0;
+
+    public static void trim(float[][][][][][][] cnttheta, float value) {
+        Utils.printDebug("Enter Trim7", " yyyyyyyyyyyyyyyyyyy");
+        for (int i0 = 0; i0 < cnttheta.length; i0++) {
+            float[][][][][][] a0 = cnttheta[i0];
+            for (int i1 = 0; i1 < a0.length; i1++) {
+                float[][][][][] a1 = a0[i1];
+                trim(a1, value);
+            }
+        }
+    }
+
+    public static void trim(float[][][][][] a1, float value) {
+        for (int i2 = 0; i2 < a1.length; i2++) {
+            float[][][][] a2 = a1[i2];
+            for (int i3 = 0; i3 < a2.length; i3++) {
+                float[][][] a3 = a2[i3];
+                for (int i4 = 0; i4 < a3.length; i4++) {
+                    float[][] a4 = a3[i4];
+                    boolean found4 = false;
+                    for (int i5 = 0; i5 < a4.length; i5++) {
+                        boolean found5 = false;
+                        float[] a5 = a4[i5];
+                        for (int i6 = 0; i6 < a5.length; i6++) {
+                            if (a5[i6] != value)
+                                found5 = true;
+                        }
+                        if (!found5) {
+                            a4[i5] = null;
+                            count5++;
+                            if (count5 % 100 == 0)
+                                Utils.printDebug("Trim4 ", "Not found " + count5 + " " + i2 + " " + i3 + " " + i4 + " " + i5);
+                        } else {
+                            if (count5 % 100 == 0)
+                                Utils.printDebug("Trim4 ", "found " + count5 + " " + i2 + " " + i3 + " " + i4 + " " + i5 + " ");
+                            found4 = true;
+                        }
+                    }
+                    if (!found4) {
+                        a3[i4] = null;
+                        count4++;
+                        if (count4 % 10 == 0)
+                            Utils.printDebug("Trim3 ", "Not found " + count4 + " " + i2 + " " + i3 + " " + i4);
+                    }
+                }
+            }
+        }
+    }
+ }
