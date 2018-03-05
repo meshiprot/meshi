@@ -13,10 +13,16 @@ public class PdbLineIterator implements Iterator<PdbLine> {
     private Filter filter;
     private PdbReader reader;
     private PdbLine nextLine;
+
+    protected PdbLineIterator(){
+
+    }
+
     public PdbLineIterator(PdbReader reader){
         this.reader = reader;
         this.filter = null;
         nextLine = reader.readPdbLine();
+
     }
 
     public PdbLineIterator(PdbReader reader, Filter pdbFilter){
@@ -26,10 +32,16 @@ public class PdbLineIterator implements Iterator<PdbLine> {
         while (nextLine!=null && !this.filter.accept(nextLine)) nextLine = reader.readPdbLine();
     }
 
+    protected PdbLine getLine(){
+        return this.nextLine;
+    }
+
     public PdbLine next() {
         PdbLine out = nextLine;
         nextLine = reader.readPdbLine();
-        while (this.filter != null && nextLine!=null && !this.filter.accept(nextLine)) nextLine = reader.readPdbLine();
+        while (this.filter != null && nextLine!=null && !this.filter.accept(nextLine)) {
+            nextLine = reader.readPdbLine();
+        }
         return out;
     }
     public boolean hasNext() {

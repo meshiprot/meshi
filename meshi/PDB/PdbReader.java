@@ -12,6 +12,7 @@ import meshi.util.file.MeshiLineReader;
 import meshi.util.filters.Filter;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
@@ -27,7 +28,10 @@ public class PdbReader extends MeshiLineReader {
     public PdbReader(String name) {
         super(getPdbFile(name));
     }
-
+    public PdbReader(String name,long loc) throws IOException {
+        super(getPdbFile(name));
+        this.skip(loc);
+    }
     public PdbReader(String dir, String name) {
         super(getPdbFile(dir, name));
     }
