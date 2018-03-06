@@ -52,7 +52,8 @@ public class ProteinGeneratorTest extends MeshiProgram implements KeyWords {
             model.printAtomsToFile("test"+i+".pdb");
             model = null;
             try {
-                ExternalFeatureExtractor.getExternals(commands, pg.getPdbAsString());
+                String[] outs = ExternalFeatureExtractor.getExternals(commands, pg.getPdbAsString());
+		System.out.println(outs[0]);
             }catch(Exception e){
                 System.err.println(e);
                 System.err.println(e.getStackTrace());
