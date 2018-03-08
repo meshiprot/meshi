@@ -19,6 +19,7 @@ import meshi.util.externalProgExec.DsspExec;
 import meshi.util.externalProgExec.ExternalProgExecutioner;
 import meshi.util.externalProgExec.ScwrlExec;
 import meshi.util.file.MeshiLineReader;
+import java.nio.file.Paths;
 
 import java.io.File;
 import java.io.IOException;
@@ -56,8 +57,8 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
         for (int i=0;i<nModels; i++) {
 
             //Step1 - Create tmp folder
-            String tmp = tmpPath+tmpPath+"Meshi." + iMGroup + "." + inFileName+File.separator;
-            new File(tmp).mkdirs();
+            String tmp = tmpPath+tmpPath+"Meshi." + iMGroup + "." + Paths.get(inFileName).getFileName().toString()+File.separator;
+	    new File(tmp).mkdirs();
 
             //Step1.a - generate a single pdb file for the current model
             ProteinGenerator pg = new ProteinGenerator(inFileName, loc, nModels, new PdbLineMultipleModelsFilter());
