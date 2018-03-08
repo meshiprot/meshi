@@ -1,6 +1,5 @@
 package programs;
 
-import meshi.PDB.pdbFilters.PdbLineMultipleModelsFilter;
 import meshi.energy.EvaluationException;
 import meshi.energy.simpleEnergyTerms.angle.AngleParametersList;
 import meshi.energy.simpleEnergyTerms.bond.BondParametersList;
@@ -9,7 +8,6 @@ import meshi.geometry.putH.PutHpos;
 import meshi.geometry.putH.PutHposLog;
 import meshi.molecularElements.Protein;
 import meshi.molecularElements.atoms.Atom;
-import meshi.molecularElements.extendedAtoms.ResidueExtendedAtomsCreator;
 import meshi.molecularElements.loops.AtomFinding;
 import meshi.optimizers.OptimizerException;
 import meshi.parameters.MeshiPotential;
@@ -21,10 +19,10 @@ import meshi.util.externalProgExec.ScwrlExec;
 import meshi.util.file.MeshiLineReader;
 import meshi.util.file.MeshiWriter;
 
-import java.nio.file.Paths;
-
 import java.io.File;
 import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.file.Paths;
 
 /**
  * Created by siditom on 08/03/2018.
@@ -67,15 +65,9 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
 	        new File(tmp).mkdirs();
 
             //Step1.a - generate a single pdb file for the current model
-            ProteinGenerator pg = new ProteinGenerator(inFileName, loc, nModels, new PdbLineMultipleModelsFilter());
-            model = pg.getProtein(commands, ResidueExtendedAtomsCreator.creator, Utils.defaultExceptionHandler);
-            Utils.alignToX(model);
-            addAtoms(model, commands);
-            model.resetBonds();
 
-            MeshiWriter mw = new MeshiWriter(modelFilePath+".pdb");
-            mw.print(pg.getPdbAsString());
-            mw.close();
+            seperateModel(inFileName,loc,modelFilePath+".pdb");
+
             //model.printAtomsToFile(modelFilePath+".pdb");
 
             //Step1.b - generate scwrl4 files - pdb and log (scwrl score).
@@ -91,7 +83,7 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
             //Step2 - activate Meshi Optimize with the generated scwrl4 and dssp files.
             //String[] keys = {"commands", "inFileName", "dsspFile", "nativeFileName", "outFileName", "seed"};
             outFileName=modelFilePath+".out.pdb";
-            Optimize.main(new String[]{argv[0],"inFileName="+modelFilePath,"-dsspFile="+dsspFilePath,"-nativeFileName=NONE","-outFileName="+outFileName,"-seed="+seed});
+            Optimize.main(new String[]{argv[0],"inFileName="+modelFilePath+".pdb","-dsspFile="+dsspFilePath,"-nativeFileName=NONE","-outFileName="+outFileName,"-seed="+seed});
             //Step3 - copy the meshi result files - pdb and xml - to the out directory.
             //Step4 - Delete the tmp folder (dssp, and scwrl file will be lost).
         }
@@ -109,9 +101,6 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
         loc = 0; //TODO
         nModels = 1;//TODO
         seed = Integer.parseInt(arguments[3]);
-        System.out.println("seed " + seed);
-        initRandom(seed);
-
 
         if (commands.keyExists("verbose")) Utils.verboseOn();
         else Utils.verboseOff();
@@ -141,5 +130,26 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
         }
         AtomFinding.finalFindAtoms(model,bondParametersList,angleParametersList,planeParametersList);
 
+    }
+
+    private static void seperateModel(String filepath,Long fLoc,String outPdb) {
+        try {
+            MeshiWriter mw = new MeshiWriter(outPdb);
+            RandomAccessFile raf = new RandomAccessFile(filepath, "r");//Open our file with read/write access
+
+            raf.seek(fLoc);
+            String line = "";
+            line = raf.readLine();
+            while (line != null && !line.contains("END MODEL")) {
+                mw.println(line);
+                line = raf.readLine();
+            }
+            if (line !=null) mw.println(line);
+
+            raf.close();
+            mw.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
