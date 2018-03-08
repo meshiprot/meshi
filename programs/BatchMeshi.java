@@ -44,6 +44,7 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
     private static Protein model, originalModel;
     private static CommandList commands;
     private static String parentString;
+    private static String modelFilePath,dsspFilePath,scwrlPdbFilePath;
 
     public static void main(String[] argv) throws IOException, OptimizerException, UpdateableException, EvaluationException, AlignmentException {
         init(argv);
@@ -60,7 +61,9 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
 
             //Step1 - Create tmp folder
             String tmp = tmpPath+tmpPath+"Meshi." + iMGroup + "." + Paths.get(inFileName).getFileName().toString()+File.separator;
-            String modelFilePath=tmp+"MODEL."+iMGroup+"." + i;
+            modelFilePath=tmp+"MODEL."+iMGroup+"." + i;
+            dsspFilePath= modelFilePath+".scwrl.pdb.dssp";
+            scwrlPdbFilePath=modelFilePath+".scwrl.pdb";
 	        new File(tmp).mkdirs();
 
             //Step1.a - generate a single pdb file for the current model
@@ -86,6 +89,9 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
             }
 
             //Step2 - activate Meshi Optimize with the generated scwrl4 and dssp files.
+            //String[] keys = {"commands", "inFileName", "dsspFile", "nativeFileName", "outFileName", "seed"};
+            outFileName=modelFilePath+".out.pdb";
+            Optimize.main(new String[]{argv[0],argv[1],dsspFilePath,"-nativeFileName=NONE","-outFileName="+outFileName,"-seed="+seed});
             //Step3 - copy the meshi result files - pdb and xml - to the out directory.
             //Step4 - Delete the tmp folder (dssp, and scwrl file will be lost).
         }
