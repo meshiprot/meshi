@@ -9,18 +9,18 @@ import java.io.*;
  */
 public class ExternalFeatureExtractor {
     private static final String[] execs = {"dsspExecPath"};
-    private static final String[] args = {" --"};
+    private static final String[] args = {"--"};
 
 
     public static String[] getExternals(CommandList commands, String pdbFile) throws InterruptedException, IOException {
         String[] outputs = new String[execs.length];
         for (int i = 0; i < execs.length; i++) {
-            String executionString = commands.firstWord(execs[i]).secondWord() + " " + args[i];
-            String res = execProg(executionString,pdbFile);
+            String[] executionString = {commands.firstWord(execs[i]).secondWord(), args[i]};
+            outputs[i] = execProg(executionString,pdbFile);
         }
         return outputs;
     }
-    public static String execProg(String executionString, String pdbFile)throws IOException,InterruptedException{
+    public static String execProg(String[] executionString, String pdbFile)throws IOException,InterruptedException{
         ProcessBuilder pb = new ProcessBuilder(executionString);
         pb.redirectErrorStream(true);
         Process process = pb.start();
