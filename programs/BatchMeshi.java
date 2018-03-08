@@ -19,6 +19,8 @@ import meshi.util.externalProgExec.DsspExec;
 import meshi.util.externalProgExec.ExternalProgExecutioner;
 import meshi.util.externalProgExec.ScwrlExec;
 import meshi.util.file.MeshiLineReader;
+import meshi.util.file.MeshiWriter;
+
 import java.nio.file.Paths;
 
 import java.io.File;
@@ -58,7 +60,8 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
 
             //Step1 - Create tmp folder
             String tmp = tmpPath+tmpPath+"Meshi." + iMGroup + "." + Paths.get(inFileName).getFileName().toString()+File.separator;
-	    new File(tmp).mkdirs();
+            String modelFilePath=tmp+"MODEL."+iMGroup+"." + i;
+	        new File(tmp).mkdirs();
 
             //Step1.a - generate a single pdb file for the current model
             ProteinGenerator pg = new ProteinGenerator(inFileName, loc, nModels, new PdbLineMultipleModelsFilter());
@@ -67,8 +70,11 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
             addAtoms(model, commands);
             model.resetBonds();
 
-            String modelFilePath=tmp+"MODEL."+iMGroup+"." + i;
-            model.printAtomsToFile(modelFilePath+".pdb");
+            MeshiWriter mw = new MeshiWriter(modelFilePath+".pdb");
+            mw.print(pg.getPdbAsString());
+            mw.close();
+            //model.printAtomsToFile(modelFilePath+".pdb");
+
             //Step1.b - generate scwrl4 files - pdb and log (scwrl score).
             //Step1.b - generate the model's dssp file.
             try {
