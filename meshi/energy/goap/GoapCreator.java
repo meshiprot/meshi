@@ -40,17 +40,17 @@ public class GoapCreator extends EnergyCreator{
             parametersPath = commands.firstWord(KeyWords.PARAMETERS_DIRECTORY).secondWord() + "/meshiPotential/GOAP/";
             Utils.println("checkup 13.7.15, parametersPath: " + parametersPath);
             try {
-                fort21 = getFort21();// siditom change 15.2.2018 - read object from memory instead of text file.
+                //fort21 = getFort21();// siditom change 15.2.2018 - read object from memory instead of text file.
                 Utils.println("checkup 15.2.18, fort21");
-                //fort21 = getFort21Object();
+                fort21 = getFort21Object();
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
 
             try {
                 Utils.println("checkup 15.2.18, fort31");
-                fort31 = getFort31(); // siditom change 15.2.2018 - read object from memory instead of text file.
-                //fort31 = getFort31Object();
+                //fort31 = getFort31(); // siditom change 15.2.2018 - read object from memory instead of text file.
+                fort31 = getFort31Object();
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
