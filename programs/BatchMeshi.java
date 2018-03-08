@@ -16,7 +16,6 @@ import meshi.parameters.MeshiPotential;
 import meshi.sequences.AlignmentException;
 import meshi.util.*;
 import meshi.util.externalProgExec.DsspExec;
-import meshi.util.externalProgExec.ExternalFeatureExtractor;
 import meshi.util.externalProgExec.ExternalProgExecutioner;
 import meshi.util.externalProgExec.ScwrlExec;
 import meshi.util.file.MeshiLineReader;
@@ -84,38 +83,18 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
             //Step4 - Delete the tmp folder (dssp, and scwrl file will be lost).
         }
 
-        ProteinGenerator pg = new ProteinGenerator(inFileName, loc, nModels, new PdbLineMultipleModelsFilter());
-        for (int i=0;i<nModels; i++) {
-            model = pg.getProtein(commands, ResidueExtendedAtomsCreator.creator, Utils.defaultExceptionHandler);
-            Utils.alignToX(model);
-            addAtoms(model, commands);
-            model.resetBonds();
-            model.printAtomsToFile(tmpPath+"test"+i+".pdb");
-            model = null;
-            try {
-                ExternalFeatureExtractor.getExternals(commands, pg.getPdbAsString());
-            }catch(Exception e){
-                System.err.println(e);
-                System.err.println(e.getStackTrace());
-            }
-        }
-
-
-
-
-
     }
 
     private static void init(String[] argv) {
         //                 0            1            2            3                4              5
-        String[] keys = {"commands", "inFileName","inx","seed"};
+        String[] keys = {"commands", "inFileName","iGroup","seed"};
         String[] arguments = getArguments(keys, argv);
 
         commands = new CommandList(arguments[0]);
         inFileName = arguments[1];
         iMGroup = Integer.parseInt(arguments[2]);
         loc = 0; //TODO
-        nModels = 2;//TODO
+        nModels = 1;//TODO
         seed = Integer.parseInt(arguments[3]);
         System.out.println("seed " + seed);
         initRandom(seed);
