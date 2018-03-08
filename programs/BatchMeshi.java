@@ -22,7 +22,9 @@ import meshi.util.file.MeshiWriter;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 /**
  * Created by siditom on 08/03/2018.
@@ -41,7 +43,7 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
     private static long loc;
     private static Protein model, originalModel;
     private static CommandList commands;
-    private static String parentString;
+    private static String outPath;
     private static String modelFilePath,dsspFilePath,scwrlPdbFilePath;
 
     public static void main(String[] argv) throws IOException, OptimizerException, UpdateableException, EvaluationException, AlignmentException {
@@ -84,15 +86,21 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
             //String[] keys = {"commands", "inFileName", "dsspFile", "nativeFileName", "outFileName", "seed"};
             outFileName=modelFilePath+".out.pdb";
             Optimize.main(new String[]{argv[0],"-inFileName="+modelFilePath+".pdb","-dsspFile="+dsspFilePath,"-nativeFileName=NONE","-outFileName="+outFileName,"-seed="+seed});
+
             //Step3 - copy the meshi result files - pdb and xml - to the out directory.
+            new File(outPath).mkdirs();
+            Files.move(Paths.get(outFileName),Paths.get(outPath+Paths.get(outFileName).getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
+            Files.move(Paths.get(outFileName+".xml"),Paths.get(outPath+Paths.get(outFileName+".xml").getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
+
             //Step4 - Delete the tmp folder (dssp, and scwrl file will be lost).
+            Files.delete(Paths.get(tmpPath));
         }
 
     }
 
     private static void init(String[] argv) {
         //                 0            1            2            3                4              5
-        String[] keys = {"commands", "inFileName","iGroup","seed"};
+        String[] keys = {"commands", "inFileName","iGroup","seed","out"};
         String[] arguments = getArguments(keys, argv);
 
         commands = new CommandList(arguments[0]);
@@ -101,6 +109,7 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
         loc = 0; //TODO
         nModels = 1;//TODO
         seed = Integer.parseInt(arguments[3]);
+        outPath=arguments[4];
 
         if (commands.keyExists("verbose")) Utils.verboseOn();
         else Utils.verboseOff();
