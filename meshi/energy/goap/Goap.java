@@ -3175,11 +3175,8 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
             }
         }
     }
-    static int count5 = 0;
-    static int count4 = 0;
 
     public static void trim(float[][][][][][][] cnttheta, float value) {
-        Utils.printDebug("Enter Trim7", " yyyyyyyyyyyyyyyyyyy");
         for (int i0 = 0; i0 < cnttheta.length; i0++) {
             float[][][][][][] a0 = cnttheta[i0];
             for (int i1 = 0; i1 < a0.length; i1++) {
@@ -3206,20 +3203,12 @@ public class Goap extends AbstractEnergy implements EvaluatesResidues{
                         }
                         if (!found5) {
                             a4[i5] = null;
-                            count5++;
-                            if (count5 % 100 == 0)
-                                Utils.printDebug("Trim4 ", "Not found " + count5 + " " + i2 + " " + i3 + " " + i4 + " " + i5);
                         } else {
-                            if (count5 % 100 == 0)
-                                Utils.printDebug("Trim4 ", "found " + count5 + " " + i2 + " " + i3 + " " + i4 + " " + i5 + " ");
                             found4 = true;
                         }
                     }
                     if (!found4) {
                         a3[i4] = null;
-                        count4++;
-                        if (count4 % 10 == 0)
-                            Utils.printDebug("Trim3 ", "Not found " + count4 + " " + i2 + " " + i3 + " " + i4);
                     }
                 }
             }
