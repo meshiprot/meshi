@@ -121,6 +121,7 @@ public class ResidueSsPrediction implements MeshiAttribute{
         else if (secondaryStructure == DsspLocalStructureLetter.BETABRIDGE) return probs[5];
         else if (secondaryStructure == DsspLocalStructureLetter.TURN) return probs[6];
         else if (secondaryStructure == DsspLocalStructureLetter.BEND) return probs[7];
+        else if (secondaryStructure == DsspLocalStructureLetter.UNK) return 0.0;
         else throw new RuntimeException("Error - ResidueSsPrediction - getProbabilityOf - Unknown DsspLocalStructureLetter.");
     }
 
