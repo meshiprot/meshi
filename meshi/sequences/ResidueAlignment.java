@@ -114,6 +114,14 @@ public class ResidueAlignment extends ArrayList<ResidueAlignmentColumn> {
                 }
             }
         }
+        if (alignmentMethod == ResidueAlignmentMethod.IDENTITY) {
+            Iterator<ResidueAlignmentColumn> columnIterator = iterator();
+            while (columnIterator.hasNext()) {
+                ResidueAlignmentColumn column = columnIterator.next();
+                if (column.residue0().type != column.residue1().type)
+                    columnIterator.remove();
+            }
+        }
     }
     
     
