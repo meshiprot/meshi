@@ -40,7 +40,7 @@ public class ResidueAlignment extends ArrayList<ResidueAlignmentColumn> {
      */
     public ResidueAlignment(Chain chain1, String name1,//is this constructor needed?? Tommer 24.9.14
                             Chain chain2, String name2,
-                            ResidueAlignmentMethod alignmentMethod) throws AlignmentException{
+                            ResidueAlignmentMethod alignmentMethod) {
         this(new ChainList(chain1), name1, new ChainList(chain2), name2, alignmentMethod);
 
     }
@@ -50,7 +50,7 @@ public class ResidueAlignment extends ArrayList<ResidueAlignmentColumn> {
          */
     public ResidueAlignment(ChainList chains1, String name1,//is this constructor needed?? Tommer 24.9.14
                             ChainList chains2, String name2,
-                            ResidueAlignmentMethod alignmentMethod) throws AlignmentException{
+                            ResidueAlignmentMethod alignmentMethod) {
         this();
         if (chains1.size() != chains2.size())
             throw new RuntimeException("Current version can only handle proteins with the same number of chains");

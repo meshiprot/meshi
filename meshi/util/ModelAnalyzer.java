@@ -60,7 +60,7 @@ public class ModelAnalyzer {
         return analyze(comment, null);
     }
 
-    public ProteinInfoOLd analyze(String comment, ChainsInfo chainsInfo) throws AlignmentException{
+    public ProteinInfoOLd analyze(String comment, ChainsInfo chainsInfo) {
 
             ProteinInfoOLd out = new ProteinInfoOLd(comment, model.sourceFile(), model.name(), model);
         if (nativeStructure != null) {

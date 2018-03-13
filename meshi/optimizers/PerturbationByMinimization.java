@@ -31,7 +31,7 @@ public class PerturbationByMinimization implements KeyWords, Perturbation {
 
     public PerturbationByMinimization(TotalEnergy energy, CommandList commands, Protein protein,
                                                                                       ResidueList conservedResidues,
-                                                                                      String comment) throws UpdateableException {
+                                                                                      String comment)  {
         this.energy = energy;
         perturbationTerm = (InflateBySegments) energy.getEnergyTerm(new InflateBySegments());
         if (perturbationTerm == null)

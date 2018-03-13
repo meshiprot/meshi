@@ -319,12 +319,12 @@ public class Evaluate extends MeshiProgram implements KeyWords {
                     throw new RuntimeException(ex);
                 }
                 try {
-                    print(output);
+                    print(output, true);
                 } catch (IOException ex) {
                     Utils.throwException(this,ex,"failed to print");
                 }
                 try {
-                    print(info);
+                    print(info, true);
                 } catch (IOException ex) {
                     Utils.throwException(this,ex,"failed to print");
                 }
@@ -356,7 +356,7 @@ public class Evaluate extends MeshiProgram implements KeyWords {
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
-                print(output);
+                print(output, true);
                 print(info);
                 energy.on();
                 try {

@@ -7,7 +7,7 @@ package meshi.sequences;
  * Time: 15:36
  * To change this template use File | Settings | File Templates.
  */
-public class AlignmentException extends Exception {
+public class AlignmentException extends RuntimeException {
     public AlignmentException(String string) {
         super(string);
     }

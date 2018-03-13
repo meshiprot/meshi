@@ -494,13 +494,13 @@ public class DsspAlphabetExploration2 extends MeshiProgram implements KeyWords {
                     throw new RuntimeException(ex);
                 }
                 try {
-                    print(output);
+                    print(output, true);
                 } catch (IOException ex) {
                     writeFailureXml(model, ex);
                     Utils.throwException(this,ex,"failed to print");
                 }
                 try {
-                    print(info);
+                    print(info, true);
                 } catch (IOException ex) {
                     writeFailureXml(model, ex);
                     Utils.throwException(this,ex,"failed to print");
@@ -536,7 +536,7 @@ public class DsspAlphabetExploration2 extends MeshiProgram implements KeyWords {
                     writeFailureXml(model, ex);
                     throw new RuntimeException(ex);
                 }
-                print(output);
+                print(output, true);
                 print(info);
                 energy.on();
                 try {
