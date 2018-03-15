@@ -22,7 +22,6 @@ import meshi.util.file.MeshiWriter;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
@@ -118,15 +117,17 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
                 infoLiner.close();
 
             } catch (IOException e){
+
                 System.err.println(e.getMessage());
-                System.err.println(e.getStackTrace());
+                System.err.println(e.getStackTrace().toString());
                 System.err.println("BatchMeshi failed in step 3, copying info files.");
             }
             //Step4 - Delete the tmp folder (dssp, and scwrl file will be lost).
             try {
-                Files.delete(Paths.get(tmp));
 
-            } catch (IOException e){
+                deleteDir(new File(tmp));
+
+            } catch (Exception e){
                 System.err.println(e.getMessage());
                 System.err.println(e.getStackTrace());
                 System.err.println("BatchMeshi failed in step 4, deleting tmp files.");
@@ -134,6 +135,17 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
         }
         appender.close();
 
+    }
+    public static boolean deleteDir(File dir)
+    {
+        if (dir.isDirectory())
+        {
+            String[] children = dir.list();
+            for (int i=0; i<children.length; i++)
+                return deleteDir(new File(dir, children[i]));
+        }
+        // The directory is now empty or this is a file so delete it
+        return dir.delete();
     }
 
     private static void init(String[] argv) {
