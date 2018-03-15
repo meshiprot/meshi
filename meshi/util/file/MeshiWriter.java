@@ -4,10 +4,10 @@
 
 package meshi.util.file;
 
-import java.io.*;
-import java.util.*;
+import meshi.util.CommandList;
+import meshi.util.Key;
 
-import meshi.util.*;
+import java.io.*;
 
 public class MeshiWriter extends PrintWriter {
     private String path = "unknown";
@@ -15,9 +15,15 @@ public class MeshiWriter extends PrintWriter {
     public MeshiWriter(String fileName) throws IOException {
         super(new BufferedWriter(new FileWriter(fileName)));
     }
+    public MeshiWriter(String fileName,boolean b) throws IOException {
+        super(new BufferedWriter(new FileWriter(fileName, b)));
+    }
     public MeshiWriter(File file) throws IOException {
             super(new BufferedWriter(new FileWriter(file)));
         }
+    public MeshiWriter(File file, boolean b) throws IOException {
+        super(new BufferedWriter(new FileWriter(file,b)));
+    }
 
     public MeshiWriter(CommandList commands, Key patheKey, Key nameKey) throws Exception {
         super(getFile(commands, patheKey, nameKey));

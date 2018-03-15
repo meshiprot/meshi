@@ -24,7 +24,6 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 
 /**
  * Created by siditom on 08/03/2018.
@@ -61,6 +60,8 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
         //TODO - add options: (5-incorparate rosetta and voronoi score in the meshi optimization process).
         ExternalProgExecutioner dsspExec = new DsspExec(commands);
         ExternalProgExecutioner scwrlExec = new ScwrlExec(commands);
+        MeshiWriter appender = new MeshiWriter(outPath+ File.separatorChar+"info."+iMGroup+".csv", true);
+        boolean isInfoHeaderExists = false;
         for (int i=0;i<nModels; i++) {
             String modelName="MODEL."+iMGroup+"." + i+".pdb";
             System.out.println(modelName);
@@ -101,9 +102,21 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
             try {
                 new File(outPath).mkdirs();
 
-                Files.move(Paths.get(outFileName),Paths.get(outPath+Paths.get(outFileName).getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
-                Files.move(Paths.get(outFileName+".info.xml"),Paths.get(outPath+ File.separatorChar+Paths.get(outFileName+".info.xml").getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
-                Files.move(Paths.get(outFileName+".info.csv"),Paths.get(outPath+File.separatorChar+Paths.get(outFileName+".info.csv").getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
+                //Files.move(Paths.get(outFileName),Paths.get(outPath+Paths.get(outFileName).getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
+                //Files.move(Paths.get(outFileName+".info.xml"),Paths.get(outPath+ File.separatorChar+Paths.get(outFileName+".info.xml").getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
+                //Files.move(Paths.get(outFileName+".info.csv"),Paths.get(outPath+File.separatorChar+Paths.get(outFileName+".info.csv").getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
+
+
+                MeshiLineReader infoLiner = new MeshiLineReader(outFileName+".info.csv");
+                String infoLine = infoLiner.readLine();
+                if (!isInfoHeaderExists) {
+                    appender.println(infoLine);
+                    isInfoHeaderExists = true;
+                }
+                infoLine = infoLiner.readLine();
+                appender.println(infoLine);
+                infoLiner.close();
+
 
             //Step4 - Delete the tmp folder (dssp, and scwrl file will be lost).
                 Files.delete(Paths.get(tmp));
@@ -114,6 +127,7 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
                 System.err.println("BatchMeshi failed in steps 3 or 4, copying output files to output directory.");
             }
         }
+        appender.close();
 
     }
 
