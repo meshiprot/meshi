@@ -99,7 +99,7 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
 
 
             //Step3 - copy the meshi result files - pdb and xml - to the out directory.
-            try {
+            try{
                 new File(outPath).mkdirs();
 
                 //Files.move(Paths.get(outFileName),Paths.get(outPath+Paths.get(outFileName).getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
@@ -117,14 +117,19 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
                 appender.println(infoLine);
                 infoLiner.close();
 
-
+            } catch (IOException e){
+                System.err.println(e.getMessage());
+                System.err.println(e.getStackTrace());
+                System.err.println("BatchMeshi failed in step 3, copying info files.");
+            }
             //Step4 - Delete the tmp folder (dssp, and scwrl file will be lost).
+            try {
                 Files.delete(Paths.get(tmp));
 
             } catch (IOException e){
                 System.err.println(e.getMessage());
                 System.err.println(e.getStackTrace());
-                System.err.println("BatchMeshi failed in steps 3 or 4, copying output files to output directory.");
+                System.err.println("BatchMeshi failed in step 4, deleting tmp files.");
             }
         }
         appender.close();
