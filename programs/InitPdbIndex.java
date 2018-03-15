@@ -144,12 +144,12 @@ public class InitPdbIndex extends MeshiProgram{
 
     private static void init(String[] argv) {
         //                 0            1            2            3                4              5
-        String[] keys = {"inFileName","nModels","out"};
+        String[] keys = {"inFileName","nModels"};
         String[] arguments = getArguments(keys, argv);
 
         inFileName = arguments[0];
         nModels = Integer.parseInt(arguments[1]);
-        outPath=arguments[2];
+        outPath=arguments[0]+".inx";
 
     }
 }
