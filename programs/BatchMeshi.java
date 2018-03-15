@@ -94,7 +94,8 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
             //Step3 - copy the meshi result files - pdb and xml - to the out directory.
             new File(outPath).mkdirs();
             Files.move(Paths.get(outFileName),Paths.get(outPath+Paths.get(outFileName).getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
-            Files.move(Paths.get(outFileName+".xml"),Paths.get(outPath+Paths.get(outFileName+".xml").getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
+            Files.move(Paths.get(outFileName+"info.xml"),Paths.get(outPath+Paths.get(outFileName+"info.xml").getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
+            Files.move(Paths.get(outFileName+"info.csv"),Paths.get(outPath+Paths.get(outFileName+"info.csv").getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
 
             //Step4 - Delete the tmp folder (dssp, and scwrl file will be lost).
             Files.delete(Paths.get(tmpPath));
