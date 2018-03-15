@@ -65,7 +65,7 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
             String modelName="MODEL."+iMGroup+"." + i+".pdb";
             System.out.println(modelName);
             //Step1 - Create tmp folder
-            String tmp = tmpPath+tmpPath+"Meshi." + iMGroup + "." + Paths.get(inFileName).getFileName().toString()+File.separator;
+            String tmp = tmpPath+"Meshi." + iMGroup + "." + Paths.get(inFileName).getFileName().toString()+File.separator;
             modelFilePath=tmp+"MODEL."+iMGroup+"." + i;
             dsspFilePath= modelFilePath+".scwrl.pdb.dssp";
             scwrlPdbFilePath=modelFilePath+".scwrl.pdb";
@@ -90,15 +90,29 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
             //Step2 - activate Meshi Optimize with the generated scwrl4 and dssp files.
             //String[] keys = {"commands", "inFileName", "dsspFile", "nativeFileName", "outFileName", "seed"};
             outFileName=modelFilePath+".out.pdb";
-            OptimizeNew.main(new String[]{argv[0],"-inFileName="+modelFilePath+".pdb","-dsspFile="+dsspFilePath,"-nativeFileName=NONE","-outFileName="+outFileName,"-seed="+seed});
+            try {
+                OptimizeNew.main(new String[]{argv[0], "-inFileName=" + modelFilePath + ".pdb", "-dsspFile=" + dsspFilePath, "-nativeFileName=NONE", "-outFileName=" + outFileName, "-seed=" + seed});
+            }catch (Exception e){
+                System.err.println(e.getStackTrace() + "\n"+ e.getMessage()+"\n"+ "Meshi Optimize failed for model - "+modelName);
+            }
+
+
             //Step3 - copy the meshi result files - pdb and xml - to the out directory.
-            new File(outPath).mkdirs();
-            Files.move(Paths.get(outFileName),Paths.get(outPath+Paths.get(outFileName).getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
-            Files.move(Paths.get(outFileName+".info.xml"),Paths.get(outPath+Paths.get(outFileName+".info.xml").getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
-            Files.move(Paths.get(outFileName+".info.csv"),Paths.get(outPath+Paths.get(outFileName+".info.csv").getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
+            try {
+                new File(outPath).mkdirs();
+
+                Files.move(Paths.get(outFileName),Paths.get(outPath+Paths.get(outFileName).getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
+                Files.move(Paths.get(outFileName+".info.xml"),Paths.get(outPath+Paths.get(outFileName+".info.xml").getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
+                Files.move(Paths.get(outFileName+".info.csv"),Paths.get(outPath+Paths.get(outFileName+".info.csv").getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
 
             //Step4 - Delete the tmp folder (dssp, and scwrl file will be lost).
-            Files.delete(Paths.get(tmpPath));
+                Files.delete(Paths.get(tmp));
+
+            } catch (IOException e){
+                System.err.println(e.getMessage());
+                System.err.println(e.getStackTrace());
+                System.err.println("BatchMeshi failed in steps 3 or 4, copying output files to output directory.");
+            }
         }
 
     }
