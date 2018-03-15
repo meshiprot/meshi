@@ -492,7 +492,7 @@ public class FullDsspNativesPsiPredStatistics extends MeshiProgram implements Ke
                     throw new RuntimeException(ex);
                 }
                 try {
-                    print(output);
+                    print(output, true);
                 } catch (IOException ex) {
                     writeFailureXml(model, ex);
                     Utils.throwException(this,ex,"failed to print");
@@ -534,7 +534,7 @@ public class FullDsspNativesPsiPredStatistics extends MeshiProgram implements Ke
                     writeFailureXml(model, ex);
                     throw new RuntimeException(ex);
                 }
-                print(output);
+                print(output, true);
                 print(info);
                 energy.on();
                 try {

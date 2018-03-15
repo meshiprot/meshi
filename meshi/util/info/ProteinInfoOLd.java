@@ -72,7 +72,7 @@ public class ProteinInfoOLd extends MeshiInfoElementList {
     public String header() {
         String out = F("name");
         for (MeshiInfoElement element : this)
-            out += F(element.type.toString());
+            out += " , "+F(element.type.toString());
         out += "comment";
         return out;
     }
@@ -83,13 +83,13 @@ public class ProteinInfoOLd extends MeshiInfoElementList {
             if (!(element instanceof ResidueInfo)) {
                 switch (element.valueType()) {
                     case INTEGER:
-                        out += F(new Integer(((IntInfoElement) element).value()).toString());
+                        out += " , "+F(new Integer(((IntInfoElement) element).value()).toString());
                         break;
                     case DOUBLE:
-                        out += F(new Double(((DoubleInfoElement) element).value()).toString());
+                        out += " , "+F(new Double(((DoubleInfoElement) element).value()).toString());
                         break;
                     case STRING:
-                        out += F(((StringInfoElement) element).value());
+                        out += " , "+F(((StringInfoElement) element).value());
                         break;
                     default:
                         throw new RuntimeException("Do not know how to handle " + element + "of value type" + element.valueType());

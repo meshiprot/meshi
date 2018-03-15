@@ -51,7 +51,7 @@ public class TMscore {
     static int nseqB;
     static double d0, d0_search;
 
-    public TMscore(Protein model, Protein nativeStructure) throws AlignmentException {
+    public TMscore(Protein model, Protein nativeStructure)  {
 
         int L1 = model.chain().numberOfNonDummyResidues();
         nseqA = L1;

@@ -19,9 +19,9 @@ public class ProteinInfoListOld extends ArrayList<ProteinInfoOLd> {
         this.name = name;
     }
 
-    public void print() throws IOException {
+    public void print(boolean allFlag) throws IOException {
         MeshiWriter writer = new MeshiWriter(name + ".pil");
-        print(writer);
+        print(writer, allFlag);
         writer.close();
     }
 
@@ -64,7 +64,7 @@ public class ProteinInfoListOld extends ArrayList<ProteinInfoOLd> {
             add(info);
     }
 
-    public void print(MeshiWriter writer) throws IOException {
+    public void print(MeshiWriter writer, boolean allFlag) throws IOException {
         if (size() == 0) {
             System.out.println("Empty list " + this);
             return;
@@ -72,13 +72,15 @@ public class ProteinInfoListOld extends ArrayList<ProteinInfoOLd> {
         String header = get(0).header();
         writer.println(header);
         for (ProteinInfoOLd proteinInfoOLd : this) {
-            if (proteinInfoOLd.on()) {
-                if (!proteinInfoOLd.header().equals(header)) {
-                    header = proteinInfoOLd.header();
-                    writer.println("%" + header);
+            if (allFlag | proteinInfoOLd.name().startsWith("MCM_END")) {
+                if (proteinInfoOLd.on()) {
+                    if (!proteinInfoOLd.header().equals(header) & allFlag) {
+                        header = proteinInfoOLd.header();
+                        writer.println("%" + header);
+                    }
+                    writer.println(proteinInfoOLd.values());
+                    writer.flush();
                 }
-                writer.println(proteinInfoOLd.values());
-                writer.flush();
             }
         }
     }

@@ -674,7 +674,7 @@ public class MeshiScore extends MeshiProgram implements KeyWords {
                     throw new RuntimeException(ex);
                 }
                 try {
-                    print(output);
+                    print(output, true);
                 } catch (IOException ex) {
                     writeFailureXml(model, ex);
                     Utils.throwException(this,ex,"failed to print");

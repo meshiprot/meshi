@@ -86,7 +86,6 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
             //String[] keys = {"commands", "inFileName", "dsspFile", "nativeFileName", "outFileName", "seed"};
             outFileName=modelFilePath+".out.pdb";
             Optimize.main(new String[]{argv[0],"-inFileName="+modelFilePath+".pdb","-dsspFile="+dsspFilePath,"-nativeFileName=NONE","-outFileName="+outFileName,"-seed="+seed});
-
             //Step3 - copy the meshi result files - pdb and xml - to the out directory.
             new File(outPath).mkdirs();
             Files.move(Paths.get(outFileName),Paths.get(outPath+Paths.get(outFileName).getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);

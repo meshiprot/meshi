@@ -433,6 +433,7 @@ public class Optimize extends MeshiProgram implements KeyWords {
         if (optimizationScore == null)
             throw new RuntimeException("No optimization score.");
 
+
         return getMCM(model,minimizationEnergy,scoreFunctions,optimizationScore,
                                          perturbationEnergy1,perturbationEnergy2,perturbationEnergy3,perturbationEnergy4,
                                          commands, conservedResidues, MCM.mcmMode.OPTIMIZATION);
@@ -688,7 +689,7 @@ public class Optimize extends MeshiProgram implements KeyWords {
                     throw new RuntimeException(ex);
                 }
                 try {
-                    print(output);
+                    print(output, true);
                 } catch (IOException ex) {
                     writeFailureXml(model, ex);
                     Utils.throwException(this,ex,"failed to print");
