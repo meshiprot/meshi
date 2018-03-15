@@ -80,7 +80,9 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
             //Step1.b - generate scwrl4 files - pdb and log (scwrl score).
             //Step1.b - generate the model's dssp file.
             try {
+                Utils.println("Creating scwrl model for model: "+modelFilePath);
                 scwrlExec.exec(new String[]{modelFilePath+".pdb",modelFilePath+".scwrl.pdb"});
+                Utils.println("Creating dssp model for model: "+modelFilePath+".scwrl.pdb");
                 dsspExec.exec(new String[]{modelFilePath+".scwrl.pdb",modelFilePath+".scwrl.pdb.dssp"});
             }catch(Exception e){
                 System.err.println(e);
@@ -91,6 +93,7 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
             //String[] keys = {"commands", "inFileName", "dsspFile", "nativeFileName", "outFileName", "seed"};
             outFileName=modelFilePath+".out.pdb";
             try {
+                Utils.println("Activating Meshi Optimize proceure for args: "+argv[0]+ " -inFileName=" + modelFilePath + ".pdb" +" -dsspFile=" + dsspFilePath+ " -nativeFileName=NONE"+ " -outFileName=" + outFileName+ " -seed=" + seed);
                 OptimizeNew.main(new String[]{argv[0], "-inFileName=" + modelFilePath + ".pdb", "-dsspFile=" + dsspFilePath, "-nativeFileName=NONE", "-outFileName=" + outFileName, "-seed=" + seed});
             }catch (Exception e){
                 System.err.println(e.getStackTrace() + "\n"+ e.getMessage()+"\n"+ "Meshi Optimize failed for model - "+modelName);
@@ -105,7 +108,7 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
                 //Files.move(Paths.get(outFileName+".info.xml"),Paths.get(outPath+ File.separatorChar+Paths.get(outFileName+".info.xml").getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
                 //Files.move(Paths.get(outFileName+".info.csv"),Paths.get(outPath+File.separatorChar+Paths.get(outFileName+".info.csv").getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
 
-
+                Utils.println("Appending info data for model: "+modelName);
                 MeshiLineReader infoLiner = new MeshiLineReader(outFileName+".info.csv");
                 String infoLine = infoLiner.readLine();
                 if (!isInfoHeaderExists) {
@@ -124,7 +127,7 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
             }
             //Step4 - Delete the tmp folder (dssp, and scwrl file will be lost).
             try {
-
+                Utils.println("Deleting tmp folder: "+tmp);
                 deleteDir(new File(tmp));
 
             } catch (Exception e){

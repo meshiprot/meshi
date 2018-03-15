@@ -54,8 +54,8 @@ public class OptimizeNew extends MeshiProgram implements OptimizeConstants{
 
         int seed = Integer.parseInt(arguments[5]);
         try {
-            System.out.println("seed " + seed);
             initRandom(seed);
+            System.out.println("seed " + seed);
         } catch (RuntimeException e){
             Utils.println(e.getMessage() + "\n seed wasn't updated.\n Continue...");
         }
