@@ -1,0 +1,162 @@
+distanceConstraints weight 1
+
+
+conserved 9999
+
+parameters D:/workspace/meshi/parameters/
+
+verbose
+
+# Weights for the energy terms
+bondEnergy weight 100
+angleEnergy weight 40
+planeEnergy weight 1000.0
+flatRamachEnergy weight 0.01
+propensityTorsionEnergy weight 0.0
+outOfPlaneEnergy weight 1000.0
+hydrogenBonds weight 2
+hydrogenBondsPairs weight 10
+hydrogenBonds width 10
+hydrogenBondsPlane weight 2
+hydrogenBondsPlane weight 2
+hydrogenBondsAnglesHOC weight 10
+hydrogenBondsAnglesOHN weight 10
+excludedVolume weight 0.1
+cAlphaHydrogenBonds weight 0.0
+cAlphaHOtorsins weight 0.0
+secondaryStructureFraction weight 1
+GOAP weight 1
+
+ssCompatibility weight 1
+deepCNF3Compatibility weight -999999999.9999
+predictedSsFileName  aux_/secondaryStructurePrediction
+nativeDsspFileName   aux_/nativeDssp.dssp
+deepCNF3FileName   aux_/DeepCNF.ss3
+deepCNF8FileName   aux_/DeepCNF.ss8
+predictedAccFileName aux_/sasaPrediction
+atomEnvironmentEnergySS weight 1
+atomEnvironmentEnergy weight 1
+atomEnvironmentParameters   D:/workspace/meshi/parameters//meshiPotential/atomEnvironmentAll.xml
+atomEnvironmentParametersHelix  D:/workspace/meshi/parameters//meshiPotential/atomEnvironmentHelix.xml
+atomEnvironmentParametersSheet   D:/workspace/meshi/parameters//meshiPotential/atomEnvironmentSheet.xml
+atomEnvironmentParametersCoil   D:/workspace/meshi/parameters//meshiPotential/atomEnvironmentCoil.xml
+goap weight 1
+#TETHER BB
+tetherEnergy weight 1
+residueTether allCa
+#TETHER all atoms
+tetherAll weight 1.0
+#
+templateEnergy weight 10.0
+electrostatics weight 0.1
+electrostatics dielectricConstant 4
+
+rg weight 0.00001
+rg rgLogaritmicWeight 1
+rg rgRatioWeight 1
+rg rgPolarWeight -0.1
+rg rgNonPolarWeight 10
+rg rgBackboneWeight 10
+
+
+ramachandran weight 1
+#
+# RAMACHANDRAN
+ramachandranSidechain weight 3
+ramachandranCore weight 5
+ramachandranCore ss ON
+#
+#
+cooperativeZRamachandranSidechain weight 0.00001
+cooperativeZRamachandranSidechainFile zScoresRamachOfResidueTypes.dat
+cooperativeZstdRamachandranSidechain weight 0.00001
+
+atomicPairwisePMFSumma weight 1
+cooperativeZSumma weight 10
+cooperativeZSumma     cooperativeZSummaNonPolar 1
+cooperativeZSumma     cooperativeZSummaPolar 1
+cooperativeZSumma     cooperativeZSummaNeutral 1
+cooperativeZSumma     cooperativeZSummaBackboneNNOO 1
+cooperativeZSumma     cooperativeZSummaBackbone 0.01
+#cooperativeZSummaFile zScoresSummaMeanPerTypeNonPolarNewArrangedbefore.txt
+cooperativeZSummaFile zScoresMixModSummaMeanPerType_3picks_ResNum3before.txt
+cooperativeZstdSumma weight 5
+
+
+compositePropensity weight 0.01
+cooperativeZPropensity weight 0.01
+cooperativeZPropensityFile zScoresPropenOfResidueTypes.dat
+cooperativeZstdPropensity  weight 0.01
+
+solvationEnergy weight 20.0
+solvationEnergy solvationSCpolar   1 
+solvationEnergy solvationSCcarbon   0.5
+solvationEnergy solvationBBpolar     0
+solvationEnergy solvationBBcarbon     1
+solvationEnergy solvationHB      0
+solvationEnergy solvationSTD     0.1
+solvateEnergy weight 20
+solvateEnergy solvateSCpolar  0.5
+solvateEnergy solvateSCcarbon   1
+solvateEnergy solvateBBpolar     0
+solvateEnergy solvatePolarCarbon     1
+solvateEnergy solvateHB      0
+solvateEnergy solvateSTD     0.1
+
+
+cooperativeZSolvate weight 0
+cooperativeZSolvateFile  zScoresSolvateOfAtomTypes.dat
+
+contactsAndSASA weight 1
+
+# scoring function weights
+#not found: CONSTANT 0.355778
+
+# Minimization parameters - full minimization
+minimize maxSteps 10000
+minimize tolerance 0.5
+minimize reportEvery 500
+
+# Minimization parameters - short relaxation
+relax tolerance 0.5
+relax maxSteps 6000
+relax reportEvery 500
+
+# MCM parameters
+mcmPerturbation tolerance 0.5
+mcmPerturbation maxSteps 20000
+mcmPerturbation reportEvery 500
+MCM initialTemperature 0.0001
+MCM finalTemperature 0.00001
+MCM maxSteps 1
+# Inflate parameters
+inflateEnergy weight 1
+inflateEnergy RmsTarget 0.5
+
+
+# This command tels the program to use our approximated arcCosinus which is ~4 times
+# faster than the one in the StrictMath library.
+#useFastArcCos
+dresserFragments fragments5.txt
+rotamerLibrary bbdep02.May.sortlib
+
+#Misc.
+seed 4
+corpusFileName parameters/finalCorpus.txt
+maxRunTime 10000
+
+samudralaEnergy weight 1
+rapdfoutputfile  D:/workspace/meshi/parameters//meshiPotential/SamudralaParametersAstralNotWeighted.dat
+samudralaEnergy1  weight 1
+conservationContacts8 weight 1
+conservationContacts11 weight 1
+conservationContacts15 weight 1
+
+conservationContactsHr weight 1
+
+
+
+
+
+
+

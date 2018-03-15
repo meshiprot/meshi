@@ -16,7 +16,6 @@ import meshi.util.info.ChainsInfo;
 import meshi.util.info.MeshiInfo;
 import meshi.util.info.MeshiInfoXMLwriter;
 import meshi.util.info.ProteinInfoListOld;
-import programs.Optimize;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ public class OptimizeLogger extends ProteinInfoListOld implements Logger , Optim
         this.model = model;
         this.originalModel = Utils.getProtein(commands, files.modelIn.getAbsolutePath(), ResidueExtendedAtomsCreator.creator, Utils.defaultExceptionHandler);;
         this.files = files;
-        if (!(files.nativeStructure.getAbsolutePath().equals("NONE") || files.nativeStructure.getAbsolutePath().equals("none"))) {
+        if (!(files.nativeStructure.getName().equals("NONE") || files.nativeStructure.getName().equals("none"))) {
             nativeStructure = Utils.getProtein(commands, files.nativeStructure.getAbsolutePath(), ResidueExtendedAtoms.creator, Utils.defaultExceptionHandler);
             if (nativeStructure.chains().size() > 1)
                 throw new RuntimeException("Current version does not allow complexes in the native structure");

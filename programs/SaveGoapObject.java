@@ -1,5 +1,6 @@
 package programs;
 
+import meshi.energy.goap.Fort21;
 import meshi.energy.goap.Fort31;
 import meshi.energy.goap.GoapCreator;
 
@@ -17,25 +18,30 @@ public class SaveGoapObject {
     public static void main(String[] argv) throws Exception {
         SaveGoapObject.save();
         SaveGoapObject.load();
+        //float[][][][][][][] cnttheta=new float[20][15][20][15][GoapCreator.ibin_unknown][5][12];
+        //System.out.println("Hello");
+        //System.out.println("Hello");
+
     }
     public static void save() throws Exception {
 
         GoapCreator goapCreator = new GoapCreator();
-        goapCreator.parametersPath="D:\\workspace\\meshi\\parameters\\meshiPotential\\GOAP\\";
-        Fort31 fort31 = goapCreator.getFort31();
-        System.out.println(fort31);
+        //goapCreator.parametersPath="D:\\workspace\\meshi\\parameters\\meshiPotential\\GOAP\\";
+        goapCreator.parametersPath="D:\\workspace\\meshi\\parameters_backup\\";
+        Fort21 fort21 = goapCreator.getFort21();
+        System.out.println(fort21);
         FileOutputStream fos = new
-                FileOutputStream("fort31_db");
+                FileOutputStream("parameters/meshiPotential/GOAP/fort21_db");
         GZIPOutputStream gz = new GZIPOutputStream(fos);
         ObjectOutputStream oos = new ObjectOutputStream(gz);
-        oos.writeObject(fort31);
+        oos.writeObject(fort21);
         oos.flush();
         oos.close();
         fos.close();
     }
     public static void load() throws Exception{
 
-        FileInputStream fis = new FileInputStream("fort31_db");
+        FileInputStream fis = new FileInputStream("D:\\workspace\\meshi\\parameters\\meshiPotential\\GOAP\\fort31_db");
         GZIPInputStream gs = new GZIPInputStream(fis);
         ObjectInputStream ois = new ObjectInputStream(gs);
         Fort31 fort31 = (Fort31) ois.readObject();
