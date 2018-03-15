@@ -70,33 +70,33 @@ public class ProteinInfoOLd extends MeshiInfoElementList {
     }
 
     public String header() {
-        String out = F("name");
+        String out = F("name").trim();
         for (MeshiInfoElement element : this)
-            out += " , "+F(element.type.toString());
-        out += "comment";
+            out += ","+F(element.type.toString()).trim();
+        out += ",comment";
         return out;
     }
 
     public String values() {
-        String out = F(name);
+        String out = F(name).trim();
         for (MeshiInfoElement element : this) {
             if (!(element instanceof ResidueInfo)) {
                 switch (element.valueType()) {
                     case INTEGER:
-                        out += " , "+F(new Integer(((IntInfoElement) element).value()).toString());
+                        out += ","+F(new Integer(((IntInfoElement) element).value()).toString()).trim();
                         break;
                     case DOUBLE:
-                        out += " , "+F(new Double(((DoubleInfoElement) element).value()).toString());
+                        out += ","+F(new Double(((DoubleInfoElement) element).value()).toString()).trim();
                         break;
                     case STRING:
-                        out += " , "+F(((StringInfoElement) element).value());
+                        out += ","+F(((StringInfoElement) element).value().trim());
                         break;
                     default:
                         throw new RuntimeException("Do not know how to handle " + element + "of value type" + element.valueType());
                 }
             }
         }
-        out += comment;
+        out += ","+comment;
         out = out.replaceAll("\"","");
         return out;
     }

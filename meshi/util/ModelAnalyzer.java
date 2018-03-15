@@ -62,7 +62,7 @@ public class ModelAnalyzer {
 
     public ProteinInfoOLd analyze(String comment, ChainsInfo chainsInfo) {
 
-            ProteinInfoOLd out = new ProteinInfoOLd(comment, model.sourceFile(), model.name(), model);
+            ProteinInfoOLd out = new ProteinInfoOLd(comment.substring(0,comment.indexOf(' ')), model.sourceFile(), model.name(), model);
         if (nativeStructure != null) {
             double[] gdt_ts;
             gdt_ts = Rms.gdt(nativeStructure, model);
