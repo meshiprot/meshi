@@ -62,7 +62,8 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
         ExternalProgExecutioner dsspExec = new DsspExec(commands);
         ExternalProgExecutioner scwrlExec = new ScwrlExec(commands);
         for (int i=0;i<nModels; i++) {
-
+            String modelName="MODEL."+iMGroup+"." + i+".pdb";
+            System.out.println(modelName);
             //Step1 - Create tmp folder
             String tmp = tmpPath+tmpPath+"Meshi." + iMGroup + "." + Paths.get(inFileName).getFileName().toString()+File.separator;
             modelFilePath=tmp+"MODEL."+iMGroup+"." + i;
