@@ -5,13 +5,13 @@ import meshi.energy.EvaluationException;
 import meshi.energy.TotalEnergy;
 import meshi.energy.simpleEnergyTerms.tether.TetherEnergy;
 import meshi.geometry.ArcCos;
-import meshi.geometry.DistanceMatrix;
 import meshi.molecularElements.Protein;
 import meshi.molecularElements.atoms.Atom;
-import meshi.molecularElements.extendedAtoms.ResidueExtendedAtoms;
 import meshi.molecularElements.extendedAtoms.ResidueExtendedAtomsCreator;
-import meshi.optimizers.*;
-import meshi.scoringFunctions.Score;
+import meshi.optimizers.LBFGS;
+import meshi.optimizers.MCM;
+import meshi.optimizers.OptimizerException;
+import meshi.optimizers.SteepestDecent;
 import meshi.sequences.AlignmentException;
 import meshi.util.CommandList;
 import meshi.util.MeshiProgram;
@@ -20,8 +20,6 @@ import meshi.util.Utils;
 import meshi.util.info.ChainsInfo;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Random;
 
 import static meshi.util.KeyWords.RELAX;
 
@@ -55,8 +53,12 @@ public class OptimizeNew extends MeshiProgram implements OptimizeConstants{
         String[] arguments = OptimizeUtils.getArguments(keys, argv);
 
         int seed = Integer.parseInt(arguments[5]);
-        System.out.println("seed " + seed);
-        initRandom(seed);
+        try {
+            System.out.println("seed " + seed);
+            initRandom(seed);
+        } catch (RuntimeException e){
+            Utils.println(e.getMessage() + "\n seed wasn't updated.\n Continue...");
+        }
 
         commands = new CommandList(arguments[0]);
         files = new OptimizeFiles(arguments[1], arguments[2], arguments[3],arguments[4]);//inFileName dsspFile  nativeFileName outFileName

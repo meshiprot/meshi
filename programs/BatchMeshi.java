@@ -38,9 +38,9 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
     public static final String NAME = "BatchMeshi";
     private static int seed;
     private static String tmpPath="/tmp/";
-    private static String inFileName, nativeFileName, outFileName,dsspFile;
+    private static String inFileName, inxFile , nativeFileName, outFileName,dsspFile;
     private static int nModels,iMGroup;
-    private static long loc;
+    private static long[] inx;
     private static Protein model, originalModel;
     private static CommandList commands;
     private static String outPath;
@@ -48,6 +48,10 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
 
     public static void main(String[] argv) throws IOException, OptimizerException, UpdateableException, EvaluationException, AlignmentException {
         init(argv);
+
+        inx = InitPdbIndex.getGroup(inxFile,iMGroup);
+        nModels = inx.length;
+
         model = null;
 
         //TODO - add options: (1-save dssp and scwrl files)
@@ -68,7 +72,7 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
 
             //Step1.a - generate a single pdb file for the current model
 
-            seperateModel(inFileName,loc,modelFilePath+".pdb");
+            seperateModel(inFileName,inx[i],modelFilePath+".pdb");
 
             //model.printAtomsToFile(modelFilePath+".pdb");
 
@@ -85,7 +89,7 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
             //Step2 - activate Meshi Optimize with the generated scwrl4 and dssp files.
             //String[] keys = {"commands", "inFileName", "dsspFile", "nativeFileName", "outFileName", "seed"};
             outFileName=modelFilePath+".out.pdb";
-            Optimize.main(new String[]{argv[0],"-inFileName="+modelFilePath+".pdb","-dsspFile="+dsspFilePath,"-nativeFileName=NONE","-outFileName="+outFileName,"-seed="+seed});
+            OptimizeNew.main(new String[]{argv[0],"-inFileName="+modelFilePath+".pdb","-dsspFile="+dsspFilePath,"-nativeFileName=NONE","-outFileName="+outFileName,"-seed="+seed});
             //Step3 - copy the meshi result files - pdb and xml - to the out directory.
             new File(outPath).mkdirs();
             Files.move(Paths.get(outFileName),Paths.get(outPath+Paths.get(outFileName).getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
@@ -104,9 +108,11 @@ public class BatchMeshi extends MeshiProgram implements KeyWords {
 
         commands = new CommandList(arguments[0]);
         inFileName = arguments[1];
+        inxFile = arguments[1] + ".inx";
+
         iMGroup = Integer.parseInt(arguments[2]);
-        loc = 0; //TODO
-        nModels = 1;//TODO
+
+
         seed = Integer.parseInt(arguments[3]);
         outPath=arguments[4];
 
