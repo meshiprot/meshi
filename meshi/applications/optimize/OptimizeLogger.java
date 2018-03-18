@@ -30,7 +30,7 @@ public class OptimizeLogger extends ProteinInfoListOld implements Logger , Optim
 
 
     public OptimizeLogger(Protein model,
-                          OptimizeFiles files, TotalEnergy energy, String parentString, CommandList commands) {
+                          OptimizeFiles files, TotalEnergy energy, ArrayList<Score> scoreFunctions, String parentString, CommandList commands) {
         super("Optimization history of " + model);
         this.model = model;
         this.originalModel = Utils.getProtein(commands, files.modelIn.getAbsolutePath(), ResidueExtendedAtomsCreator.creator, Utils.defaultExceptionHandler);;
@@ -42,7 +42,7 @@ public class OptimizeLogger extends ProteinInfoListOld implements Logger , Optim
         } else {
             nativeStructure = null;
         }
-        analyzer = new ModelAnalyzer(model, nativeStructure, originalModel, energy, ResidueAlignmentMethod.IDENTITY);
+        analyzer = new ModelAnalyzer(model, nativeStructure, originalModel, energy,scoreFunctions, ResidueAlignmentMethod.IDENTITY);
         this.parentString = parentString;
         this.energy = energy;
     }
@@ -124,8 +124,6 @@ public class OptimizeLogger extends ProteinInfoListOld implements Logger , Optim
         if (scoreFunctions != null) {
             for (Score scoreFunction : scoreFunctions) {
                 Utils.println(" Calculating score " + scoreFunction);
-
-
                 double rmsFromOriginal;
                 try {
                     rmsFromOriginal = Rms.rms(originalModel, model, ResidueAlignmentMethod.IDENTITY);
@@ -137,11 +135,11 @@ public class OptimizeLogger extends ProteinInfoListOld implements Logger , Optim
                 ((CombinedEnergyScore) scoreFunction).setChangeElement(rmsFromOriginal);
                 MeshiInfo scores = scoreFunction.score(infoList);
                 for (MeshiInfo score : scores.flatten())
-                    label = label + "\" " + scoreFunction.toString() + "_" + score.type.tag + "=\"" + score.getValue() + " ";
+                    label = label + " " + scoreFunction.toString() + "_" + score.type.tag + "=\"" + score.getValue() + " ";
             }
         }
         if (Utils.verbose() || label.startsWith("MCM_END") || label.startsWith("BEGINNING"))
-            log(label+"\" time=\""+time, true, chainsInfo);
+            log(label+" time=\""+time, true, chainsInfo);
     }
 
     public void mcm(ArrayList<Score> scoreFunctions,
@@ -156,7 +154,7 @@ public class OptimizeLogger extends ProteinInfoListOld implements Logger , Optim
                     MCM.mcmStepResult mcmStepResult,
                     ChainsInfo chainsInfo)  throws AlignmentException{
         //           mcm(optimizationScore, selectionScore, energy, "MCM\"  step=\""+i+"\" score=\""+score.score()+"\" result=\""+mcmStepResult+"\"  lastSuccess=\""+mcmStepResult.lastSuccess());
-        mcm(scoreFunctions, energy, "MCM\"  step=\""+i+"\" result=\""+
+        mcm(scoreFunctions, energy, "MCM  step=\""+i+"\" result=\""+
                 mcmStepResult+"\"  lastSuccess=\""+mcmStepResult.lastSuccess(), chainsInfo);
     }
 }

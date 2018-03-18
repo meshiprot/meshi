@@ -73,7 +73,7 @@ public class OptimizeNew extends MeshiProgram implements OptimizeConstants{
         OptimizeEnergies energies = new OptimizeEnergies(model, commands);
         energies.minimizationEnergy.setCurrent();
         LBFGS lbfgs = Utils.getLBFGS(energies.minimizationEnergy, commands, RELAX);
-        OptimizeLogger log = new OptimizeLogger(model, files, energies.minimizationEnergy, parentString, commands);
+        OptimizeLogger log = new OptimizeLogger(model, files, energies.minimizationEnergy, energies.scoreFunctions, parentString, commands);
         ChainsInfo chainsInfo = new ChainsInfo(model);
         try {
             log.mcm(energies.scoreFunctions, energies.minimizationEnergy, "BEGINNING", null);  //the null is for residue info list
@@ -83,7 +83,7 @@ public class OptimizeNew extends MeshiProgram implements OptimizeConstants{
             MCM mcm = OptimizeUtils.getMCM(model, energies.minimizationEnergy, energies.scoreFunctions, energies.perturbationEnergy1,
                     energies.perturbationEnergy2, energies.perturbationEnergy3, energies.perturbationEnergy3, commands);
             mcm.run(log);
-            log.mcm(energies.scoreFunctions, energies.minimizationEnergy, "MCM_END\" step=\"" + mcm.maxSteps, chainsInfo);
+            log.mcm(energies.scoreFunctions, energies.minimizationEnergy, "MCM_END step=\"" + mcm.maxSteps, chainsInfo);
         } catch (RuntimeException ex) {
             OptimizeUtils.writeFailureXml(model,ex, files);
             ex.printStackTrace();

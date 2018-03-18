@@ -71,8 +71,12 @@ public class ProteinInfoOLd extends MeshiInfoElementList {
 
     public String header() {
         String out = F("name").trim();
-        for (MeshiInfoElement element : this)
-            out += ","+F(element.type.toString()).trim();
+        for (MeshiInfoElement element : this) {
+            if ((element.type == InfoType.WEIGHTED_MEDIAN_SCORE) | (element.type == InfoType.INTERDECILE))
+                out += "," + F(element.comment).trim();
+            else
+                out += "," + F(element.type.tag).trim();
+        }
         out += ",comment";
         return out;
     }

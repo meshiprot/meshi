@@ -650,7 +650,7 @@ public class Optimize extends MeshiProgram implements KeyWords {
             } else {
                 nativeStructure = null;
             }
-            analyzer = new ModelAnalyzer(model, nativeStructure, originalModel, energy, ResidueAlignmentMethod.IDENTITY);
+            analyzer = new ModelAnalyzer(model, nativeStructure, originalModel, energy, scoreFunctions, ResidueAlignmentMethod.IDENTITY);
             this.outFileName = outFileName;
             this.parentString = parentString;
             infoFileName = outFileName + ".xml";
@@ -855,7 +855,7 @@ public class Optimize extends MeshiProgram implements KeyWords {
         } catch (IOException ex) {throw  new RuntimeException("Cannot write failure XML file after exception:\n"+exception+"\n"+"Due to "+ex);}
         writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?> ");
         writer.println("<ProteinInfoList name=\"Failure report for Protein: " + model.sourceFile() + "\">");
-        writer.print("<ProteinInfo  value=\"MCM_END\" step=\"0\" ");
+        writer.print("<ProteinInfo  value=\"MCM_END step=\"0\" ");
         if (scoreFunctions!=null){
             for (Score scoreFunction : scoreFunctions) {
                 writer.print(scoreFunction.toString()+"_weightedMedianScore=\"0.05\" "+scoreFunction.toString()+"_interdecile=\"0\" ");

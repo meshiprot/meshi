@@ -248,7 +248,7 @@ public class FullDsspNativesPsiPredStatistics extends MeshiProgram implements Ke
 
             log = new OptimizeLogger(model, originalModel, nativeFileName, outFileName, minimizationEnergy, parentString);
             log.mcm(scoreFunctions, minimizationEnergy, "BEGINNING");
-            log.mcm(scoreFunctions, minimizationEnergy, "MCM_END\" step=\"" + 0);
+            log.mcm(scoreFunctions, minimizationEnergy, "MCM_END step=\"" + 0);
             //log.log("BEGINNING", true);
 
     }
@@ -456,7 +456,7 @@ public class FullDsspNativesPsiPredStatistics extends MeshiProgram implements Ke
             } else {
                 nativeStructure = null;
             }
-            analyzer = new ModelAnalyzer(model, nativeStructure, originalModel, energy, ResidueAlignmentMethod.IDENTITY);
+            analyzer = new ModelAnalyzer(model, nativeStructure, originalModel, energy, scoreFunctions, ResidueAlignmentMethod.IDENTITY);
             this.outFileName = outFileName;
             this.parentString = parentString;
             infoFileName = outFileName + ".xml";

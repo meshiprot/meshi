@@ -4,10 +4,13 @@
 
 package meshi.util;
 
+import meshi.applications.optimize.OptimizeUtils;
 import meshi.energy.*;
 import meshi.molecularElements.*;
 import meshi.molecularElements.atoms.Atom;
 import meshi.parameters.ResidueType;
+import meshi.scoringFunctions.CombinedEnergyScore;
+import meshi.scoringFunctions.Score;
 import meshi.sequences.AlignmentException;
 import meshi.sequences.ResidueAlignment;
 import meshi.sequences.ResidueAlignmentColumn;
@@ -22,6 +25,7 @@ import java.util.ArrayList;
 public class ModelAnalyzer {
     public final Protein nativeStructure, model, originalModel;
     private TotalEnergy energy;
+    private ArrayList<Score> scoreFunctions;
     private ResidueAlignmentMethod residueAlignmentMethod;
     private enum ContactsMode {CA,CB}
 
@@ -33,11 +37,13 @@ public class ModelAnalyzer {
                          Protein nativeStructure,
                          Protein originalModel,
                          TotalEnergy energy,
+                         ArrayList<Score> scoreFunctions,
                          ResidueAlignmentMethod residueAlignmentMethod) {
         this.nativeStructure = nativeStructure;
         this.model = model;
         this.originalModel = originalModel;
         this.energy = energy;
+        this.scoreFunctions = scoreFunctions;
         this.residueAlignmentMethod = residueAlignmentMethod;
     }
 
@@ -120,6 +126,15 @@ public class ModelAnalyzer {
             }
         }
 
+        MeshiInfo infoList = energy.energyInfo();
+        if (scoreFunctions != null) {
+            for (Score scoreFunction : scoreFunctions) {
+                Utils.println(" Calculating score " + scoreFunction);
+                MeshiInfo scores = scoreFunction.score(infoList);
+                for (MeshiInfo score : scores.flatten())
+                    out.add(new DoubleInfoElement(score));
+            }
+        }
         if (chainsInfo != null)
             for (ChainInfo chainInfo : chainsInfo) {
                 for (ResidueInfo residueInfo : chainInfo)

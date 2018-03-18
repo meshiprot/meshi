@@ -458,7 +458,7 @@ public class DsspAlphabetExploration2 extends MeshiProgram implements KeyWords {
             } else {
                 nativeStructure = null;
             }
-            analyzer = new ModelAnalyzer(model, nativeStructure, originalModel, energy, ResidueAlignmentMethod.IDENTITY);
+            analyzer = new ModelAnalyzer(model, nativeStructure, originalModel, energy, scoreFunctions, ResidueAlignmentMethod.IDENTITY);
             this.outFileName = outFileName;
             this.parentString = parentString;
             infoFileName = outFileName + ".xml";

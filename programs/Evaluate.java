@@ -197,7 +197,7 @@ public class Evaluate extends MeshiProgram implements KeyWords {
             Utils.setSS(model, commands);
             scoreFunctions = GdtScore.getScoreFunctions(commands);
             energy = new TotalEnergy(model,energyCreators, commands, "My energy");
-            ModelAnalyzer analyzer = new ModelAnalyzer(model, null, originalModel, energy, ResidueAlignmentMethod.IDENTITY);
+            ModelAnalyzer analyzer = new ModelAnalyzer(model, null, originalModel, energy, scoreFunctions, ResidueAlignmentMethod.IDENTITY);
             ProteinInfoOLd proteinInfoOLd = analyzer.analyze("DATA");
             MeshiInfoElement gdt_ha_element = new DoubleInfoElement(InfoType.GDT_HA, "gdt_ha",gdt_ha);
             proteinInfoOLd.add(gdt_ha_element);
@@ -294,7 +294,7 @@ public class Evaluate extends MeshiProgram implements KeyWords {
         public EvaluateLogger(Protein model, String outFileName, TotalEnergy energy) {
             super("Optimization history of " + model);
             Protein nativeStructure;
-            analyzer = new ModelAnalyzer(model, null, originalModel, energy, ResidueAlignmentMethod.IDENTITY);
+            analyzer = new ModelAnalyzer(model, null, originalModel, energy, scoreFunctions, ResidueAlignmentMethod.IDENTITY);
             this.outFileName = outFileName;
             this.parentString = parentString;
             infoFileName = outFileName + ".xml";
