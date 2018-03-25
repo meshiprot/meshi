@@ -3,9 +3,11 @@ distanceConstraints weight 1
 
 conserved 9999
 
-parameters /fastspace/users/siditom/sidi/code/meshi/parameters/
+parameters /home/cluster/users/siditom/test/meshi/parameters
+dsspExecPath /home/cluster/users/siditom/test/meshi/aux/dssp/dsspcmbi
+scwrlExecPath /home/cluster/users/siditom/test/meshi/aux/scwrl4/Scwrl4
 
-verbose
+# verbose
 
 # Weights for the energy terms
 bondEnergy weight 100
@@ -18,7 +20,6 @@ hydrogenBonds weight 2
 hydrogenBondsPairs weight 10
 hydrogenBonds width 10
 hydrogenBondsPlane weight 2
-hydrogenBondsPlane weight 2
 hydrogenBondsAnglesHOC weight 10
 hydrogenBondsAnglesOHN weight 10
 excludedVolume weight 0.1
@@ -28,18 +29,18 @@ secondaryStructureFraction weight 1
 GOAP weight 1
 
 ssCompatibility weight 1
-deepCNF3Compatibility weight -999999999.9999
-predictedSsFileName  aux_/secondaryStructurePrediction
-nativeDsspFileName   aux_/nativeDssp.dssp
-deepCNF3FileName   aux_/DeepCNF.ss3
-deepCNF8FileName   aux_/DeepCNF.ss8
-predictedAccFileName aux_/sasaPrediction
+deepCNF3Compatibility weight -99999999.9999
+deepCNF3FileName aux/ss3DeepCNF
+deepCNF8FileName aux/ss8DeepCNF
+predictedSsFileName  aux/secondaryStructurePrediction
+nativeDsspFileName   aux/native.dssp
+predictedAccFileName aux/sasaPrediction
 atomEnvironmentEnergySS weight 1
 atomEnvironmentEnergy weight 1
-atomEnvironmentParameters   /fastspace/users/siditom/sidi/code/meshi/parameters//meshiPotential/atomEnvironmentAll.xml
-atomEnvironmentParametersHelix  /fastspace/users/siditom/sidi/code/meshi/parameters//meshiPotential/atomEnvironmentHelix.xml
-atomEnvironmentParametersSheet   /fastspace/users/siditom/sidi/code/meshi/parameters//meshiPotential/atomEnvironmentSheet.xml
-atomEnvironmentParametersCoil   /fastspace/users/siditom/sidi/code/meshi/parameters//meshiPotential/atomEnvironmentCoil.xml
+atomEnvironmentParameters /home/cluster/users/siditom/test/meshi/parameters/meshiPotential/atomEnvironmentAll.xml
+atomEnvironmentParametersHelix /home/cluster/users/siditom/test/meshi/parameters/meshiPotential/atomEnvironmentHelix.xml
+atomEnvironmentParametersSheet /home/cluster/users/siditom/test/meshi/parameters/meshiPotential/atomEnvironmentSheet.xml
+atomEnvironmentParametersCoil /home/cluster/users/siditom/test/meshi/parameters/meshiPotential/atomEnvironmentCoil.xml
 goap weight 1
 #TETHER BB
 tetherEnergy weight 1
@@ -146,7 +147,7 @@ corpusFileName parameters/finalCorpus.txt
 maxRunTime 10000
 
 samudralaEnergy weight 1
-rapdfoutputfile  /fastspace/users/siditom/sidi/code/meshi/parameters//meshiPotential/SamudralaParametersAstralNotWeighted.dat
+rapdfoutputfile /home/cluster/users/siditom/test/meshi/parameters/meshiPotential/SamudralaParametersAstralNotWeighted.dat
 samudralaEnergy1  weight 1
 conservationContacts8 weight 1
 conservationContacts11 weight 1
@@ -154,16 +155,8 @@ conservationContacts15 weight 1
 
 conservationContactsHr weight 1
 
-
-
-selectionScore /fastspace/users/siditom/sidi/code/meshi/score_functions/ScoreF_WeightedEvaluationFunction+GOAP.xml score1
-selectionScore /fastspace/users/siditom/sidi/code/meshi/score_functions/ScoreF_WeightedEvaluationFunction.xml optimizationScore
-selectionScore /fastspace/users/siditom/sidi/code/MESHIdb_Gen/data/score_functions/score.xml score2
-metaSelectionScore /fastspace/users/siditom/sidi/code/meshi/score_functions/MESHI_Score.xml MeshiScore
-
-
-
-
-
+selectionScore /home/cluster/users/siditom/test/meshi/score_functions/CASP13_LegacyScore.xml    MESHI.LEGACY
+selectionScore /home/cluster/users/siditom/test/meshi/score_functions/CASP13_Score.xml    MESHI.SERVER
+# metaSelectionScore /home/cluster/users/siditom/test/meshi/score_functions/CASP12_score.xml MESHI.SERVER
 
 
