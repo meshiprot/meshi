@@ -21,7 +21,7 @@ public class Overlap {
 
     private double[][] coor;
     private double[][] coor2;
-    private double[][] temp;
+    private double[][] newCoordinates;
     private String comment;
     private String comment2;
     private int npt;
@@ -34,10 +34,13 @@ public class Overlap {
     private double rms;
 
     public Overlap(double[][] co, double[][] co2) {
-        initiateFields(co, co2, co[0].length, "", "");
+        initiateFields(co, co2, null, co[0].length, "", "");
     }
     public Overlap(double[][] co, double[][] co2, int n, String com, String com2) {
-        initiateFields(co, co2, n, com, com2);
+        this(co, co2, null, n, com, com2);
+    }
+    public Overlap(double[][] co, double[][] co2, double[][] newCoordinates, int n, String com, String com2) {
+        initiateFields(co, co2, newCoordinates, n, com, com2);
         gravityCenter();
         double[] a = calcCharPol(createP());
         double[] b = findEigenval(a);
@@ -60,12 +63,13 @@ public class Overlap {
      * A function that initializes all the class fields so that<BR> all the other functions can use them
      */
 
-    private void initiateFields(double[][] co, double[][] co2, int n, String com, String com2) {
+    private void initiateFields(double[][] co, double[][] co2, double[][] newCoordinates, int n, String com, String com2) {
         coor = co;
         coor2 = co2;
         comment = com;
         comment2 = com2;
         npt = n;//align.length()
+        this.newCoordinates = newCoordinates;
 
 
     }//initialFields
@@ -680,18 +684,19 @@ public class Overlap {
     }//createUmatrix
 
 
-    public void calculateRms() {
-        temp = new double[3][npt];
+    public void calculateRms () {
+        if (newCoordinates == null)
+            newCoordinates = new double[3][npt];
 
 
         /*we multiply the second protein in U and then caculate the rms */
         // double rms;
         for (int i = 0; i < npt; i++) {
-            temp[0][i] = (Umatrix[0][0] * coor2[0][i]) + (Umatrix[0][1] * coor2[1][i]) + (Umatrix[0][2] * coor2[2][i]);
-            temp[1][i] = (Umatrix[1][0] * coor2[0][i]) + (Umatrix[1][1] * coor2[1][i]) + (Umatrix[1][2] * coor2[2][i]);
-            temp[2][i] = (Umatrix[2][0] * coor2[0][i]) + (Umatrix[2][1] * coor2[1][i]) + (Umatrix[2][2] * coor2[2][i]);
+            newCoordinates[0][i] = (Umatrix[0][0] * coor2[0][i]) + (Umatrix[0][1] * coor2[1][i]) + (Umatrix[0][2] * coor2[2][i]);
+            newCoordinates[1][i] = (Umatrix[1][0] * coor2[0][i]) + (Umatrix[1][1] * coor2[1][i]) + (Umatrix[1][2] * coor2[2][i]);
+            newCoordinates[2][i] = (Umatrix[2][0] * coor2[0][i]) + (Umatrix[2][1] * coor2[1][i]) + (Umatrix[2][2] * coor2[2][i]);
         }
-        coor2 = temp;
+        coor2 = newCoordinates;
 
         double d = 0;
         for (int j = 0; j < npt; j++) {
@@ -779,7 +784,7 @@ public class Overlap {
         CenterOfMass2[0] /= partListLength;
         CenterOfMass2[1] /= partListLength;
         CenterOfMass2[2] /= partListLength;
-        initiateFields(C1, C2, C1[0].length, null, null);
+        initiateFields(C1, C2, null, C1[0].length, null, null);
         gravityCenter();
         double[] a = calcCharPol(createP());
         double[] b = findEigenval(a);
@@ -797,17 +802,17 @@ public class Overlap {
             coor2[2][i] = coor2[2][i] - CenterOfMass2[2];
         }
 
-        temp = new double[3][j];
+        newCoordinates = new double[3][j];
         for (i = 0; i < j; i++) {
-            temp[0][i] = (Umatrix[0][0] * coor2[0][i]) + (Umatrix[0][1] * coor2[1][i]) + (Umatrix[0][2] * coor2[2][i]);
-            temp[1][i] = (Umatrix[1][0] * coor2[0][i]) + (Umatrix[1][1] * coor2[1][i]) + (Umatrix[1][2] * coor2[2][i]);
-            temp[2][i] = (Umatrix[2][0] * coor2[0][i]) + (Umatrix[2][1] * coor2[1][i]) + (Umatrix[2][2] * coor2[2][i]);
+            newCoordinates[0][i] = (Umatrix[0][0] * coor2[0][i]) + (Umatrix[0][1] * coor2[1][i]) + (Umatrix[0][2] * coor2[2][i]);
+            newCoordinates[1][i] = (Umatrix[1][0] * coor2[0][i]) + (Umatrix[1][1] * coor2[1][i]) + (Umatrix[1][2] * coor2[2][i]);
+            newCoordinates[2][i] = (Umatrix[2][0] * coor2[0][i]) + (Umatrix[2][1] * coor2[1][i]) + (Umatrix[2][2] * coor2[2][i]);
         }
 
         for (i = 0; i < j; i++) {
-            coor2[0][i] = temp[0][i];
-            coor2[1][i] = temp[1][i];
-            coor2[2][i] = temp[2][i];
+            coor2[0][i] = newCoordinates[0][i];
+            coor2[1][i] = newCoordinates[1][i];
+            coor2[2][i] = newCoordinates[2][i];
         }
 
         for (i = 0; i < j; i++) {
@@ -856,7 +861,7 @@ public class Overlap {
         CenterOfMass2[0] /= partListLength;
         CenterOfMass2[1] /= partListLength;
         CenterOfMass2[2] /= partListLength;
-        initiateFields(C1, C2, C1[0].length, null, null);
+        initiateFields(C1, C2, null, C1[0].length, null, null);
         gravityCenter();
         double[] a = calcCharPol(createP());
         double[] b = findEigenval(a);
@@ -873,17 +878,17 @@ public class Overlap {
             coor2[2][i] = coor2[2][i] - CenterOfMass2[2];
         }
 
-        temp = new double[3][j];
+        newCoordinates = new double[3][j];
         for (i = 0; i < j; i++) {
-            temp[0][i] = (Umatrix[0][0] * coor2[0][i]) + (Umatrix[0][1] * coor2[1][i]) + (Umatrix[0][2] * coor2[2][i]);
-            temp[1][i] = (Umatrix[1][0] * coor2[0][i]) + (Umatrix[1][1] * coor2[1][i]) + (Umatrix[1][2] * coor2[2][i]);
-            temp[2][i] = (Umatrix[2][0] * coor2[0][i]) + (Umatrix[2][1] * coor2[1][i]) + (Umatrix[2][2] * coor2[2][i]);
+            newCoordinates[0][i] = (Umatrix[0][0] * coor2[0][i]) + (Umatrix[0][1] * coor2[1][i]) + (Umatrix[0][2] * coor2[2][i]);
+            newCoordinates[1][i] = (Umatrix[1][0] * coor2[0][i]) + (Umatrix[1][1] * coor2[1][i]) + (Umatrix[1][2] * coor2[2][i]);
+            newCoordinates[2][i] = (Umatrix[2][0] * coor2[0][i]) + (Umatrix[2][1] * coor2[1][i]) + (Umatrix[2][2] * coor2[2][i]);
         }
 
         for (i = 0; i < j; i++) {
-            coor2[0][i] = temp[0][i];
-            coor2[1][i] = temp[1][i];
-            coor2[2][i] = temp[2][i];
+            coor2[0][i] = newCoordinates[0][i];
+            coor2[1][i] = newCoordinates[1][i];
+            coor2[2][i] = newCoordinates[2][i];
         }
 
         for (i = 0; i < j; i++) {

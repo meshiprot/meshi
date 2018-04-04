@@ -5,10 +5,11 @@
 package meshi.sequences.aligner;
 
 import meshi.sequences.*;
+import meshi.util.Utils;
+import org.omg.PortableInterceptor.INACTIVE;
 
 public class SubstitutionScorer implements CellScorer {
 	public final static int asciiA=65, numAminoAcids=20, numWildChars=3, numEnglishLetters=26;
-	public final static int UP=0, LEFT=1, DIAGONAL=2, MAX=3,numDirections=3, numScores=4;
     private double gapStartPenalty;//added/modified by Tommer, 2.9.14
     private double inGapPenalty;//modified by Tommer, 2.9.14
     private int substitutionMatrix[][]=new int[numAminoAcids+numWildChars][numAminoAcids+numWildChars];//added 1.9.14
@@ -23,169 +24,91 @@ public class SubstitutionScorer implements CellScorer {
     }
 
     
-    public void getScores(Cell cell, Cell[] bestRoutes, double[] scores) {
-
+    public void getScores(Cell cell) {
         DpMatrix matrix = cell.dpMatrix;
-        
-        if (bestRoutes.length!=numDirections)
-        	throw new RuntimeException("cell array needs to be of length 3");
-        if (scores.length!=numScores)
-        	throw new RuntimeException("scores array needs to be of length 4");
-        	
-        double internalScore=internalScore(matrix, cell, substitutionMatrix, letterToIndex);     
-        
-        Cell up = cell.upCell;
-        Cell left = cell.leftCell;
-        Cell diagonal = cell.diagonalCell;
 
-        double firstScore=Math.max(0, internalScore);
-        double[] zeroScores={firstScore,firstScore,firstScore,firstScore};
-        if ((up == null) &&(left == null)) {//modified Tommer 9.9.14
-            cell.setBack(null, null);
-            cell.setBestRoutes(null, null, null);
-            /*System.out.println("internalScore: "+internalScore+", firstScore:"+firstScore+
-            		", cell.rowNumber: "+cell.rowNumber+", cell.colNumber: "+cell.colNumber);*/
-            for (int iScore = 0; iScore < zeroScores.length; iScore++)
-                scores[iScore] = zeroScores[iScore];
-                //  scores = zeroScores //modified 23.9.14 Tommer
-            return;//Tommer 23.9.14
-        }
-
-		if (up == null) {//modified Chen
-			cell.setBack(left, left.leftCell);
-			cell.setBestRoutes(left.leftCell, left.leftCell, left.leftCell);
-            /*System.out.println("internalScore: "+internalScore+", firstScore:"+firstScore+
-            		", cell.rowNumber: "+cell.rowNumber+", cell.colNumber: "+cell.colNumber);*/
-			scores[UP] = 0;
-			scores[LEFT] = left.scoreLeft;
-			scores[DIAGONAL] = 0;
-			scores[MAX] = scores[LEFT]+internalScore;
-			//  scores = zeroScores //modified 23.9.14 Tommer
-			return;//chen
+		cell.startPenalty = gapStartPenalty;
+        cell.inPenalty    = inGapPenalty;
+		cell.internalScore =internalScore(matrix, cell, substitutionMatrix, letterToIndex);
+        if (cell.type != Cell.Type.NORMAL) {
+			cell.startPenalty = cell.inPenalty = 0;
+			cell.internalScore = 0;
 		}
 
-		if (left == null) {//modified Chen
-			cell.setBack(up, up.upCell);
-			cell.setBestRoutes(up.upCell, up.upCell,up.upCell);
-            /*System.out.println("internalScore: "+internalScore+", firstScore:"+firstScore+
-            		", cell.rowNumber: "+cell.rowNumber+", cell.colNumber: "+cell.colNumber);*/
-			scores[UP] = inGapPenalty + up.scoreUp;
-			scores[LEFT] = 0;
-			scores[DIAGONAL] = 0;
-			scores[MAX] = scores[UP]+internalScore;
-			//  scores = zeroScores //modified 23.9.14 Tommer
-			return;//chen
-		}
 
-		double leftLeft,leftUp,leftDiagonal;
-		if (!cell.bottom)
-			leftLeft=inGapPenalty + left.scoreLeft;
-		else
-			leftLeft=left.scoreLeft;
-		leftUp=gapStartPenalty + left.scoreUp;
-		leftDiagonal=gapStartPenalty + left.scoreDiagonal;
-		double arrayLeft[]={leftLeft, leftUp,leftDiagonal};
-		double scoreLeft = maxMultiple(arrayLeft);//maximal score from left
 
-		double upLeft,upUp,upDiagonal;
-		if (!cell.rightmost)
-			upUp=inGapPenalty + up.scoreUp;
-		else
-			upUp=up.scoreUp;
-		upLeft=gapStartPenalty + up.scoreLeft;
-		upDiagonal=gapStartPenalty + up.scoreDiagonal;
-		double arrayUp[]={upLeft, upUp,upDiagonal};
-		double scoreUp = maxMultiple(arrayUp);//maximal score from above
+		double scoreLeft     = getScoreLeft(cell);
+		double scoreUp       = getScoreUp(cell);
+		double scoreDiagonal = getScoreDiagonal(cell);
+		cell.neighborScore = maxMultiple(scoreLeft, scoreUp, scoreDiagonal);
+		cell.neighborScore = maxMultiple(scoreLeft, scoreUp, scoreDiagonal);
+		if (cell.type == Cell.Type.LEFT)
+			cell.back = cell.upCell;
+		else if (cell.type == Cell.Type.TOP)
+			cell.back = cell.leftCell;
+		else if (cell.neighborScore == scoreDiagonal) {
+			cell.back = cell.diagonalCell;
+		} else if (cell.neighborScore == scoreLeft) {
+			cell.back = cell.leftCell;
+		}else if (cell.neighborScore == scoreUp) {
+			cell.back = cell.upCell;
+		} else throw  new RuntimeException("This is weird");
 
-		double diagonalLeft,diagonalUp,diagonalDiagonal;
-		diagonalUp=diagonal.scoreUp + internalScore;
-		diagonalLeft=diagonal.scoreLeft + internalScore;
-		diagonalDiagonal=diagonal.scoreDiagonal + internalScore;
-		double arrayDiagonal[]={diagonalLeft, diagonalUp,diagonalDiagonal,0,internalScore};
-		double scoreDiagonal = maxMultiple(arrayDiagonal);//maximal score from diagonal
+		if (cell.back != null)
+			cell.nextBack = cell.back.back;
+		else cell.nextBack = null;
 
-		double arrayMax[]={scoreUp, scoreLeft, scoreDiagonal};
-        double max = maxMultiple(arrayMax);
-        
-        
-		if (upUp == scoreUp) {
-			bestRoutes[UP] = up.upCell;
-		} else {
-			if (upLeft == scoreUp) {
-				bestRoutes[UP] = up.leftCell;
-			} else {
-				bestRoutes[UP] = up.diagonalCell;
-			}
-		}
-		//System.out.println(bestRoutes[0]);
 
-		if (leftUp == scoreLeft) {
-			bestRoutes[LEFT] = left.upCell;
-		} else {
-			if (leftLeft == scoreLeft) {
-				bestRoutes[LEFT] = left.leftCell;
-			} else {
-				bestRoutes[LEFT] = left.diagonalCell;
-			}
-		}
-		
-		if (diagonalUp == scoreDiagonal) {
-			bestRoutes[DIAGONAL] = diagonal.upCell;
-		} else {
-			if (diagonalLeft == scoreDiagonal) {
-				bestRoutes[DIAGONAL] = diagonal.leftCell;
-			} else {
-				if (diagonalDiagonal == scoreDiagonal){
-					bestRoutes[DIAGONAL] = diagonal.diagonalCell;
-				}
-
-			}
-		}
-		
-		cell.setBestRoutes(bestRoutes[UP], bestRoutes[LEFT], bestRoutes[DIAGONAL]);
-
-        if (scoreUp == max){
-        	if (upUp == max)
-        		cell.setBack(up,up.upCell);
-        	else
-        		if (upLeft == max)
-        			cell.setBack(up,up.leftCell);
-        		else
-        			cell.setBack(up,up.diagonalCell);
-        }
-        else if (scoreLeft == max){
-        	if (leftUp == max)
-        		cell.setBack(left,left.upCell);
-        	else
-        		if (leftLeft == max)
-        			cell.setBack(left,left.leftCell);
-        		else
-        			cell.setBack(left,left.diagonalCell);
-        }
-        else if (scoreDiagonal == max){
-        	if (diagonalUp == max)
-        		cell.setBack(diagonal,diagonal.upCell);
-        	else
-        		if (diagonalLeft == max)
-        			cell.setBack(diagonal,diagonal.leftCell);
-        		else
-        			cell.setBack(diagonal,diagonal.diagonalCell);
-        }
-        
-        /*if (cell.rowNumber-cell.colNumber<5&&cell.rowNumber-cell.colNumber>-5&&
-        		bestRoutes[0]!=null&&bestRoutes[1]!=null&&bestRoutes[2]!=null){ 
-        	
-        }*/
-        
-        scores[UP]=scoreUp;
-        scores[LEFT]=scoreLeft;
-        scores[DIAGONAL]=scoreDiagonal;
-        scores[MAX]=max;//the numbers are odd here...
-       // return new double[] {max,scoreUp,scoreLeft,scoreDiagonal}; // new needs to be ELIMINATED!!! Tommer 21.9.14
-        
     }
-    
-    public double maxMultiple(double[] array){
+
+    private double getScoreLeft(Cell cell) {
+    	if ((cell.type == Cell.Type.FIRST ) | (cell.type == Cell.Type.LEFT ))
+    		return 0;
+    	Cell left = cell.leftCell; // cannot be null now
+		double out = left.neighborScore;
+		if (left.back != null) {
+			if (left.back == left.leftCell)
+				out += cell.inPenalty;
+			else if (left.back == left.upCell)
+				out += cell.startPenalty;
+			else if (left.back == left.diagonalCell)
+				out += cell.startPenalty;
+			else throw new RuntimeException("This is weird");
+		}
+    	return out;
+	}
+
+	private double getScoreUp(Cell cell) {
+		if ((cell.type == Cell.Type.FIRST ) | (cell.type == Cell.Type.TOP ))
+			return 0;
+		Cell up = cell.upCell; // cannot be null now
+		double out = up.neighborScore;
+		if (up.back != null) {
+			if (up.back == up.leftCell)
+				out += cell.startPenalty;
+			else if (up.back == up.upCell)
+				out += cell.inPenalty;
+			else if (up.back == up.diagonalCell)
+				out += cell.startPenalty;
+			else throw new RuntimeException("This is weird");
+		}
+		return out;
+	}
+	private double getScoreDiagonal(Cell cell) {
+		if ((cell.type == Cell.Type.FIRST ) | (cell.type == Cell.Type.TOP ) | (cell.type == Cell.Type.LEFT ))
+			return 0;
+		Cell diagonal = cell.diagonalCell; // cannot be null now
+		double out = diagonal.neighborScore + diagonal.internalScore;
+		if (diagonal.back != diagonal.diagonalCell)
+			out += cell.startPenalty;
+		return out;
+	}
+
+	public double maxMultiple(double d1, double d2, double d3){
+		double[] arr = {d1, d2, d3};
+		return maxMultiple(arr);
+	}
+	public double maxMultiple(double[] array){
     	try{
     	if (array==null||array.length<1){
     		throw new RuntimeException("null array or empty array"); 
@@ -203,6 +126,8 @@ public class SubstitutionScorer implements CellScorer {
     }
     
     public static double internalScore(DpMatrix matrix, Cell cell, int[][] subMat, int[]revOrder){
+    	if ((cell.rowNumber == 0) | (cell.colNumber == 0) | (cell.rowNumber == matrix.sequence1.size()+1) | (cell.colNumber == matrix.sequence2.size() + 1))
+			return 0;
     	char rowChar = matrix.rowChar(cell.rowNumber);
         char columnChar = matrix.columnChar(cell.colNumber);
         

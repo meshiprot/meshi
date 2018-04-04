@@ -1,9 +1,6 @@
 package meshi.energy.secondaryStructureAlphabet;
 
-import meshi.energy.AbstractEnergy;
-import meshi.energy.EnergyInfoElement;
-import meshi.energy.EnergyType;
-import meshi.energy.TotalEnergy;
+import meshi.energy.*;
 import meshi.molecularElements.Chain;
 import meshi.molecularElements.Protein;
 import meshi.molecularElements.Residue;
@@ -13,6 +10,8 @@ import meshi.parameters.LocalStructureAlphabetType;
 import meshi.sequences.*;
 import meshi.util.MeshiAttribute;
 import meshi.util.filters.Filter;
+import meshi.util.info.ChainsInfo;
+import meshi.util.info.DoubleInfoElement;
 import meshi.util.info.InfoType;
 
 import java.util.Random;
@@ -20,7 +19,7 @@ import java.util.Random;
 /**
  * Created by chen on 23/03/2016.
  */
-public class DeepCNF_ssCompatibilityFeature extends AbstractEnergy {
+public class DeepCNF_ssCompatibilityFeature extends AbstractEnergy implements EvaluatesResidues{
 
     private static final Filter NON_GAP = new NonGapFilter();
     private static final Filter SS = new SsFilter();
@@ -30,9 +29,8 @@ public class DeepCNF_ssCompatibilityFeature extends AbstractEnergy {
     MeshiSequence sequenceWithPrediction3;
     MeshiSequence sequenceWithPrediction8;
     ResidueSequence residueSequence;
-
-
-    public DeepCNF_ssCompatibilityFeature(Protein model, MeshiSequence sequenceWithPrediction3,MeshiSequence sequenceWithPrediction8) {
+    public DeepCNF_ssCompatibilityFeature(Protein model, MeshiSequence sequenceWithPrediction3,
+                                          MeshiSequence sequenceWithPrediction8) {
         super(toArray(), new StaticFeaturesInfo(), EnergyType.NON_DIFFERENTIAL);
 
         if (model.chains().size() > 1)
@@ -49,23 +47,30 @@ public class DeepCNF_ssCompatibilityFeature extends AbstractEnergy {
             ss3Alignment.addAll(SequenceAlignment.identityAlignment(sequenceWithPrediction3, residueSequence));
             ss8Alignment.addAll(SequenceAlignment.identityAlignment(sequenceWithPrediction8, residueSequence));
         }
+        if (ss3Alignment.size() != ss8Alignment.size())
+            throw new RuntimeException("This is weird");
         evaluate();
     }
 
     public EnergyInfoElement evaluate() {
-        info.setValue(ssCometability(ss3Alignment,LocalStructureAlphabetType.DSSP3));
-        //((StaticFeaturesInfo) info).ss3.setValue(ssCometability(ss3Alignment,LocalStructureAlphabetType.DSSP3));
-        ((StaticFeaturesInfo) info).ss8.setValue(ssCometability(ss8Alignment,LocalStructureAlphabetType.DSSP7));
-
+        evaluateResidues(null);
         return info;
     }
+        public void evaluateResidues(ChainsInfo chainsInfo) {
+            info.setValue(ssCometability(ss3Alignment,LocalStructureAlphabetType.DSSP3, chainsInfo));
+        //((StaticFeaturesInfo) info).ss3.setValue(ssCometability(ss3Alignment,LocalStructureAlphabetType.DSSP3));
+        ((StaticFeaturesInfo) info).ss8.setValue(ssCometability(ss8Alignment,LocalStructureAlphabetType.DSSP7, chainsInfo));
 
-    private static double ssCometability(SequenceAlignment alignment, LocalStructureAlphabetType localStructureAlphabetType)   {
+    }
+
+    private static double ssCometability(SequenceAlignment alignment,
+                                         LocalStructureAlphabetType localStructureAlphabetType, ChainsInfo chainsInfo)   {
         double sumPredicted = 0;
         double sumObserved  = 0;
-	Random rnd = new Random();
-	double num = rnd.nextDouble();
+	    Random rnd = new Random();
+	    double num = rnd.nextDouble();
 
+        int index = 0;
         for (SequenceAlignmentColumn column : alignment) {
             ResidueSsPrediction prediction = (ResidueSsPrediction) column.cell0().getAttribute(MeshiAttribute.SECONDARY_STRUCTURE_ATTRIBUTE);
             Residue residue = (Residue) column.cell1().getAttribute(MeshiAttribute.RESIDUE_ATTRIBUTE);
@@ -76,13 +81,19 @@ public class DeepCNF_ssCompatibilityFeature extends AbstractEnergy {
                 double predicted = prediction.highestProbability;
                 sumObserved += observed;
                 sumPredicted += predicted;
+                if (chainsInfo != null) {
+                    int chainI = residue.getChainNumber();
+                    int number = residue.number();
+                    InfoType infoType = null;
+                    if (localStructureAlphabetType == LocalStructureAlphabetType.DSSP7)
+                        infoType = InfoType.SS_COMPATIBILITY_DEEPCNF8;
+                    else if (localStructureAlphabetType == LocalStructureAlphabetType.DSSP3)
+                        infoType = InfoType.SS_COMPATIBILITY_DEEPCNF3;
+                    else throw new RuntimeException("This is weird");
+                    DoubleInfoElement element = new DoubleInfoElement(infoType,"DeepCNF compatebility",observed/predicted);
+                    chainsInfo.get(chainI).get(number).add(element);
+                }
             }
-            /*else {
-                String errorMessage = "Something is wrong about the secondary structure prediction. Apparently it has holes in it.\n" +
-                        "Residue is " + residue;
-                if (Utils.isStrict()) throw new RuntimeException(errorMessage);
-                else Utils.println(errorMessage);
-            }*/
         }
             return sumObserved/sumPredicted;
 
@@ -111,9 +122,9 @@ public class DeepCNF_ssCompatibilityFeature extends AbstractEnergy {
     public void evaluateAtoms(){}
     public void test(TotalEnergy energy, Atom atom) {}
 
-
-
-
+   public boolean evaluatesResidues(){
+        return true;
+    }
 
     private static class StaticFeaturesInfo extends EnergyInfoElement{
         public EnergyInfoElement ss3,ss8;
@@ -126,5 +137,6 @@ public class DeepCNF_ssCompatibilityFeature extends AbstractEnergy {
             //getChildren().add(ss3);
         }
     }
+
 
 }

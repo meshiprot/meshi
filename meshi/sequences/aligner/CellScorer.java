@@ -5,5 +5,5 @@
 package meshi.sequences.aligner;
 
 public interface CellScorer {
-    public void getScores(Cell cell, Cell[] bestRoutes, double[] scores);
+    public void getScores(Cell cell);
 }

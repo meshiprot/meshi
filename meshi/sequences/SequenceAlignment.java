@@ -101,7 +101,11 @@ public class SequenceAlignment extends ArrayList<SequenceAlignmentColumn> {
         DpMatrix matrix = new DpMatrix(sequence1, sequence2, new SubstitutionScorer(substitutionMatrix) ,substitutionMatrix.minScore());//Edited by Tommer 1.9.14, gap penalty was -0.2
       //signature changed for Identity Tommer 1.9.14
         SequenceAlignment out = matrix.backTrack(method);
-
+        for (Iterator<SequenceAlignmentColumn> iter = out.iterator(); iter.hasNext();) {
+            SequenceAlignmentColumn column = iter.next();
+            if (column.cell0().gap() && column.cell1().gap())
+                iter.remove();
+        }
         return out;
     }
 

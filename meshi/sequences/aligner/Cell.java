@@ -12,74 +12,65 @@ package meshi.sequences.aligner;
  * To change this template use File | Settings | File Templates.
  */
 public class Cell {
-    public final boolean bottom, rightmost;
+    protected enum Type {NORMAL, TOP, BOTTOM, LEFT, RIGHT, FIRST, LAST}
+    public final static int UP=0, LEFT=1, DIAGONAL=2, MAX=3, INTERNAL = 4;
     public final int rowNumber;
     public final int colNumber;
-    public final static int UP=0, LEFT=1, DIAGONAL=2, MAX=3;
     public final Cell upCell, diagonalCell, leftCell;//the next cell will be either the cell in the right of this cell or the cell in bottom of this one
-    protected Cell back, nextBack;//nextBack added by Tommer 4.9.14
-    public final double maxScore, scoreUp, scoreLeft, scoreDiagonal;
     public final DpMatrix dpMatrix;
-    protected Cell[] bestRoutes;
-    private double[] scores;
-    Cell(int i, int j, DpMatrix mat) {
-        rowNumber = i;
-        colNumber = j;
+    public final Type type;
+
+    protected double startPenalty, inPenalty;
+    protected Cell back, nextBack;//nextBack added by Tommer 4.9.14
+    protected double neighborScore, internalScore;
+
+    public Cell(int rowNumber, int colNumber, DpMatrix mat) {
+        this.rowNumber = rowNumber;
+        this.colNumber = colNumber;
         dpMatrix = mat;
-        bestRoutes=mat.bestRoutesMatrix()[i][j];
-        scores=mat.scoresMatrix()[i][j];
-        //the initation of the neighbour cells
-        if (rowNumber == 0) {
-            upCell = null;
-        } else {
-            upCell = dpMatrix.getCell(rowNumber - 1, colNumber);
-        }
-
-        if (rowNumber == 0 || colNumber == 0) {
-            diagonalCell = null;
-        } else {
-            diagonalCell = dpMatrix.getCell(rowNumber - 1, colNumber - 1);
-        }
-
-        if (colNumber == 0) {
-            leftCell = null;
-        } else {
-            leftCell = dpMatrix.getCell(rowNumber, colNumber - 1);
-        }
-
-        if (i == dpMatrix.sequence1.size()-1)
-            bottom = true;
-        else bottom = false;
-
-        if (j == dpMatrix.sequence2.size()-1)
-            rightmost = true;
-        else rightmost = false;
-
+        type = getType(rowNumber, colNumber);
+        upCell       = dpMatrix.getCell(rowNumber - 1, colNumber);
+        leftCell     = dpMatrix.getCell(rowNumber, colNumber - 1);
+        diagonalCell = dpMatrix.getCell(rowNumber - 1, colNumber -1);
         //the score for the cell
-        dpMatrix.cellScorer.getScores(this, bestRoutes, scores);
-        scoreUp =scores[UP];
-        scoreLeft = scores[LEFT];
-        scoreDiagonal = scores[DIAGONAL];//modified Tommer 4.9.14
-        maxScore=scores[MAX];
+        dpMatrix.cellScorer.getScores(this);
+    }
+
+    private Type getType(int row, int column) {
+        if (row == 0) {
+            if (column == 0) return Type.FIRST;
+            else return Type.TOP;
+        }
+        if (column == 0) return Type.LEFT;
+        if (row == dpMatrix.sequence1.size() + 1) {
+            if (column == dpMatrix.sequence2.size() + 1)
+                return Type.LAST;
+            else return Type.BOTTOM;
+        }
+        if (column == dpMatrix.sequence2.size() + 1)
+            return Type.RIGHT;
+        return Type.NORMAL;
     }
 
     public void setBack(Cell back, Cell nextBack) {//modified Tommer 4.9.14
+//        if ((back != null) &&(nextBack != back.back))
+//            throw new RuntimeException("This is weird "+back+" ; "+back.back+" ; " + nextBack);
         this.back = back;
         this.nextBack=nextBack;
     }
     
-    public void setBestRoutes(Cell upNextBack, Cell leftNextBack, Cell diagonalNextBack){//created Tommer 4.9.14
-    	bestRoutes[UP]=upNextBack;
-    	bestRoutes[LEFT]=leftNextBack;
-    	bestRoutes[DIAGONAL]=diagonalNextBack;
-    }
 
     public Cell getBack() {
         return back;
     }
 
     public String toString() {
-        return "cell " + rowNumber + " " + colNumber + " " + maxScore;
+        String backString = "";
+        if (back != null)
+            backString += " ("+back.rowNumber+" , "+back.colNumber+")";
+        else backString = " (null)";
+        return "cell " + rowNumber + " " + colNumber + " " +
+                neighborScore + " " + internalScore + " " + (neighborScore + internalScore) + backString;
     }
 
 }

@@ -565,6 +565,7 @@ public class Protein implements Attributable {
         return out;
     }
 
+
 //---------------------- attributable ----------------------------------------
     private AttributesRack attributes = new AttributesRack();
 

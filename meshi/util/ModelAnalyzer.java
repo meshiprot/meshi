@@ -16,6 +16,7 @@ import meshi.sequences.ResidueAlignment;
 import meshi.sequences.ResidueAlignmentColumn;
 import meshi.sequences.ResidueAlignmentMethod;
 import meshi.util.info.*;
+import meshi.util.overlap.Overlap;
 
 import java.util.ArrayList;
 
@@ -28,7 +29,6 @@ public class ModelAnalyzer {
     private ArrayList<Score> scoreFunctions;
     private ResidueAlignmentMethod residueAlignmentMethod;
     private enum ContactsMode {CA,CB}
-
     public void setEnergy(TotalEnergy energy) {
         this.energy = energy;
     }
@@ -45,6 +45,7 @@ public class ModelAnalyzer {
         this.energy = energy;
         this.scoreFunctions = scoreFunctions;
         this.residueAlignmentMethod = residueAlignmentMethod;
+
     }
 
     public double rms() throws Exception{
@@ -67,7 +68,6 @@ public class ModelAnalyzer {
     }
 
     public ProteinInfoOLd analyze(String comment, ChainsInfo chainsInfo) {
-
             ProteinInfoOLd out = new ProteinInfoOLd(comment.substring(0,comment.indexOf(' ')), model.sourceFile(), model.name(), model);
         if (nativeStructure != null) {
             double[] gdt_ts;
@@ -135,11 +135,13 @@ public class ModelAnalyzer {
                     out.add(new DoubleInfoElement(score));
             }
         }
-        if (chainsInfo != null)
+        if (chainsInfo != null) {
+            getDisplaecment(nativeStructure, model, chainsInfo);
             for (ChainInfo chainInfo : chainsInfo) {
                 for (ResidueInfo residueInfo : chainInfo)
                     out.add(residueInfo);
             }
+        }
         return out;
     }
 
@@ -160,8 +162,7 @@ public class ModelAnalyzer {
     public static double getContacts(Protein nativeStructure, Protein model, double threshold, ContactsMode contactsMode) {
         return getContacts(nativeStructure, model, threshold, contactsMode, null);
     }
-    public static double getContacts(Protein nativeStructure, Protein model, double threshold, ContactsMode contactsMode, ChainsInfo chainsInfo) {
-        Atom atomInative, atomImodel, atomJnative, atomJmodel;
+    public static ResidueAlignment getResidueAlignment(Protein nativeStructure, Protein model) {
         ResidueAlignment residueAlignment = null;
         try {
             ChainList chains0 = nativeStructure.chains();
@@ -172,6 +173,12 @@ public class ModelAnalyzer {
         } catch (AlignmentException ex) {
             Utils.throwException("Static function Rms.gdt", ex, "Failed to align " + nativeStructure + " and " + model);
         }
+        return residueAlignment;
+    }
+
+    public static double getContacts(Protein nativeStructure, Protein model, double threshold, ContactsMode contactsMode, ChainsInfo chainsInfo) {
+        Atom atomInative, atomImodel, atomJnative, atomJmodel;
+        ResidueAlignment residueAlignment = getResidueAlignment(nativeStructure, model);
 
         ChainList chains = model.chains();
         ArrayList<int[]> tp = new ArrayList();
@@ -305,13 +312,70 @@ public class ModelAnalyzer {
         return contactsSum;
     }
 
+    public static void getDisplaecment(Protein nativeStructure, Protein model, ChainsInfo chainsInfo) {
+        ResidueAlignment residueAlignment = getResidueAlignment(nativeStructure, model);
+        ChainList chains = model.chains();
+        double[][] displacements = new double[chains.size()][];
+        for (int i = 0; i < chains.size(); i++) {
+            Chain chain = chains.get(i);
+            displacements[i] = new double[chain.size()];
+            for (int j = 0; j < chain.size(); j++)
+                displacements[i][j] = -1;//Impossible displacement
+        }
+//        int nGood = 0;
+//        int[] goodIndices = new int residueAlignment.size();
+//        for (int i = 0; i < residueAlignment.size(); i++) {
+//            ResidueAlignmentColumn column = residueAlignment.get(i);
+//            Residue nativeResidue = column.residue0();
+//            Residue modelResidue  = column.residue1();
+//            if ((!modelResidue.dummy())
+//        }
+        double[][] nativeCoor = new double[3][residueAlignment.size()];
+        double[][] modelCoor  = new double[3][residueAlignment.size()];
+        double[][] newCoor    = new double[3][residueAlignment.size()]; // Model CA coordinates after overlap transformation
+        overlap(residueAlignment, nativeCoor, modelCoor, newCoor);
+        for (int i = 0; i < residueAlignment.size(); i++) {
+            ResidueAlignmentColumn column = residueAlignment.get(i);
+            Residue modelResidue = column.residue1();
+            displacements[modelResidue.getChainNumber()][modelResidue.number()] = dis(nativeCoor, newCoor, i);
+        }
+        for (ChainInfo chainInfo : chainsInfo) {
+            for (ResidueInfo residueInfo : chainInfo) {
+                residueInfo.add(new DoubleInfoElement(InfoType.RESIDUE_DISPLACEMENT,
+                        "Residue displacement after superposition",
+                        displacements[residueInfo.chainNumber()][residueInfo.number()]));
+            }
+        }
+    }
+
+    private static double dis(double[][] coor1, double[][] coor2, int index){
+        double x1 = coor1[0][index];
+        double y1 = coor1[1][index];
+        double z1 = coor1[2][index];
+        double x2 = coor2[0][index];
+        double y2 = coor2[1][index];
+        double z2 = coor2[2][index];
+        return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) + (z1 - z2) * (z1 - z2));
+    }
+    private static void overlap(ResidueAlignment residueAlignment, double[][] nativeCoor, double[][] modelCoor, double[][] newCoor){
+        for (int i = 0; i < residueAlignment.size(); i++) {
+            ResidueAlignmentColumn column = residueAlignment.get(i);
+            nativeCoor[0][i] = column.residue0().ca().x();
+            nativeCoor[1][i] = column.residue0().ca().y();
+            nativeCoor[2][i] = column.residue0().ca().z();
+            modelCoor[0][i]  = column.residue1().ca().x();
+            modelCoor[1][i]  = column.residue1().ca().y();
+            modelCoor[2][i]  = column.residue1().ca().z();
+        }
+        new Overlap(nativeCoor, modelCoor, newCoor, nativeCoor[0].length,"nativeCoor","modelCoor");
+    }
+
     public static double matthewsCorrelationCoefficient(double tp, double fn, double fp, double tn)  {
         double sum = tp+fn+fp+tn;
-        if (sum == 0) return 1;
+        if (sum == 0) return -2; // meaningless number - Can not say anything without any observations.
         if (((tp + fp) == 0) & (fn > 0))  return 0;
         if ((tp+fp)*(tp+fn)*(tn+fn)*(tn + fn) == 0) return 0;
         double mcc = (tp*tn - fp*fn)/Math.sqrt((tp+fp)*(tp+fn)*(tn+fn)*(tn + fn));
-        if (mcc < 0) return 0;
         return mcc;
     }
 

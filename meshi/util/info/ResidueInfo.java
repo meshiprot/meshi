@@ -20,6 +20,8 @@ public class ResidueInfo extends MeshiInfoElement {
     }
 
     public void add(DoubleInfoElement element) {
+        if (data.contains(element))
+            throw new RuntimeException("This is weird.");
         data.add(element);
     }
     public String toString() {
