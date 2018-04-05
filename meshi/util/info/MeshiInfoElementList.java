@@ -57,8 +57,13 @@ public class MeshiInfoElementList extends ArrayList<MeshiInfoElement> {
         for (int i = 0; i < indentationTabs; i++)
             tabs += "\t";
         int i = 0;
+        boolean firstResidueInfo = true;
         for (Object element : this) {
             if (element instanceof ResidueInfo) {
+                if (firstResidueInfo) {
+                    out += "\n";
+                    firstResidueInfo = false;
+                }
                 out += tabs + element.toString()+"\n";
             }
             else {

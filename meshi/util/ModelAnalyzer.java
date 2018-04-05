@@ -53,6 +53,8 @@ public class ModelAnalyzer {
 
     }
     public double change() throws Exception{
+        if (originalModel == null)
+            return -1;
         return Rms.rms(originalModel, model, residueAlignmentMethod);
 
     }
@@ -77,7 +79,10 @@ public class ModelAnalyzer {
             out.add(new DoubleInfoElement(InfoType.GDT_TS2, "GDT_TS form native structure", gdt_ts[2]));
             out.add(new DoubleInfoElement(InfoType.GDT_TS4, "GDT_TS form native structure", gdt_ts[3]));
             out.add(new DoubleInfoElement(InfoType.GDT_TS8, "GDT_TS form native structure", gdt_ts[4]));
-            double[] originalGdt = Rms.gdt(nativeStructure, originalModel);
+            double[] originalGdt = {-1.0, -1.0, -1.0, -1.0, -1.0};
+            if (originalModel != null)
+                originalGdt = Rms.gdt(nativeStructure, originalModel);
+
             out.add(new DoubleInfoElement(InfoType.DELTA_GDT_TS, "delta GDT_TS with respect to the original unrefined", gdt_ts[0] - originalGdt[0]));
             double[] gdt_ha = Rms.gdt(nativeStructure, model,GDTcalculator.Type.HA);
             out.add(new DoubleInfoElement(InfoType.GDT_HA, "GDT_HA form native structure", gdt_ha[0]));
@@ -91,16 +96,22 @@ public class ModelAnalyzer {
             out.add(new DoubleInfoElement(InfoType.CB_CONTACTS6_MCC, "Matthews correlation coefficient of the predicted and native contact maps ", contacts[0]));
             out.add(new DoubleInfoElement(InfoType.CB_CONTACTS8_MCC, "Matthews correlation coefficient of the predicted and native contact maps ", contacts[1]));
             out.add(new DoubleInfoElement(InfoType.CB_CONTACTS10_MCC, "Matthews correlation coefficient of the predicted and native contact maps ", contacts[2]));
+            double[] originalGdtHa = {-1.0, -1.0, -1.0, -1.0, -1.0};
             try {
-                double[] originalGdtHa = Rms.gdt(nativeStructure, originalModel,GDTcalculator.Type.HA);
+                if (originalModel != null)
+                    originalGdtHa = Rms.gdt(nativeStructure, originalModel,GDTcalculator.Type.HA);
                 out.add(new DoubleInfoElement(InfoType.DELTA_GDT_HA, "delta GDT_HA with respect to the original unrefined", gdt_ha[0] - originalGdtHa[0]));
                 double rms = Rms.rms(nativeStructure, model, residueAlignmentMethod);
                 out.add(new DoubleInfoElement(InfoType.RMS, "RMS form native structure", rms));
-                double originalRms = Rms.rms(nativeStructure, originalModel, residueAlignmentMethod);
+                double originalRms = -1;
+                if (originalModel != null)
+                    originalRms = Rms.rms(nativeStructure, originalModel, residueAlignmentMethod);
                 out.add(new DoubleInfoElement(InfoType.DELTA_RMS, "delta RMS with respect to the original unrefined model", rms - originalRms));
                 double rmsHeavy = Rms.rmsHeavy(nativeStructure, model, residueAlignmentMethod);
                 out.add(new DoubleInfoElement(InfoType.RMS_HEAVY, "Heavy getAtoms RMS form native structure", rmsHeavy));
-                double originalRmsHeavy = Rms.rmsHeavy(nativeStructure, originalModel, residueAlignmentMethod);
+                double originalRmsHeavy = -1;
+                if (originalModel != null)
+                    originalRmsHeavy = Rms.rmsHeavy(nativeStructure, originalModel, residueAlignmentMethod);
                 out.add(new DoubleInfoElement(InfoType.DELTA_RMS_HEAVY, "delta RMS of heavy getAtoms with respect to the original unrefined model", rmsHeavy - originalRmsHeavy));
             }catch (Exception ex ) {
                 ex.printStackTrace();
@@ -109,7 +120,9 @@ public class ModelAnalyzer {
             }
             double rmsFromOriginal;
             try {
-                rmsFromOriginal = Rms.rms(originalModel, model, residueAlignmentMethod);
+                rmsFromOriginal = -1;
+                if (originalModel != null)
+                    rmsFromOriginal = Rms.rms(originalModel, model, residueAlignmentMethod);
         out.add(new DoubleInfoElement(InfoType.CHANGE, "structural change (in RMS) due to refinement", rmsFromOriginal));
             } catch (Exception ex ) {throw new RuntimeException(ex.getMessage());}
         }
