@@ -7,6 +7,7 @@ package meshi.energy.simpleEnergyTerms.bond;
 import meshi.molecularElements.atoms.*;
 import meshi.geometry.*;
 import meshi.energy.*;
+import meshi.util.Utils;
 
 public class BondEnergyElement extends EnergyElement {
     public static final double TOLERANCE_FACTOR = 4;
