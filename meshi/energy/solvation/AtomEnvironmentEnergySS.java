@@ -85,7 +85,8 @@ public class AtomEnvironmentEnergySS extends AbstractEnergy {
                 atomEnvironmentPropensityParameters = atomEnvironmentParametersPropensityCoil;
                 energyInfo = getInfo(info, InfoType.AEE_COIL);
                 propensityInfo = getInfo(info, InfoType.AEP_COIL);
-            } else throw new RuntimeException("This is weird");
+            }
+            else throw new RuntimeException("This is weird");
             atomEnvironmentEnergyParameters.getParameters(atomType).calc1(cncValue, hbcValue);
             atomEnvironmentPropensityParameters.getParameters(atomType).calc1(cncValue, hbcValue);
             e = atomEnvironmentEnergyParameters.getParameters(atomType).getValue();

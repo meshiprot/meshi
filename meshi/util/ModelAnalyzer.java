@@ -9,7 +9,6 @@ import meshi.energy.*;
 import meshi.molecularElements.*;
 import meshi.molecularElements.atoms.Atom;
 import meshi.parameters.ResidueType;
-import meshi.scoringFunctions.CombinedEnergyScore;
 import meshi.scoringFunctions.Score;
 import meshi.sequences.AlignmentException;
 import meshi.sequences.ResidueAlignment;
@@ -143,12 +142,12 @@ public class ModelAnalyzer {
         if (scoreFunctions != null) {
             for (Score scoreFunction : scoreFunctions) {
                 Utils.println(" Calculating score " + scoreFunction);
-                MeshiInfo scores = scoreFunction.score(infoList);
+ MeshiInfo scores = scoreFunction.score(infoList);
                 for (MeshiInfo score : scores.flatten())
                     out.add(new DoubleInfoElement(score));
             }
         }
-        if (chainsInfo != null) {
+        if ((chainsInfo != null) & (nativeStructure != null)) {
             getDisplaecment(nativeStructure, model, chainsInfo);
             for (ChainInfo chainInfo : chainsInfo) {
                 for (ResidueInfo residueInfo : chainInfo)

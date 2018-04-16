@@ -59,12 +59,15 @@ public abstract class MeshiInfoElement {
         if (type.name().contains("SsS_PARAM")){
             out = "<" + type.tag.replace('<','o').replace('>','c').replace('+','p').replace('-','m') + "  value=\"";
         }
+        if (comment.startsWith("sf_gdt"))
+            out = "<"+comment.substring(0,7) + "  value=\"";
         else if (type.tag.equals("weightedMedianScore")) {
             out = "<"+comment.substring(0,comment.indexOf('_')) + "  value=\"";
         }
         else out = "<" + type.tag + "  value=\"";
         //String out = "<" + type.tag + "  value=\"";
-        if (type == InfoType.SOLVATION_ENTROPY) {
+        if (type == InfoType.SIMPLE_SCORE) {
+            out = "<"+ comment.substring(0, comment.indexOf('-')) + "  value=\"";
         }
         switch (type.valueType) {
             case INTEGER:

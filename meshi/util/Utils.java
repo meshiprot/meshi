@@ -620,6 +620,9 @@ public class Utils implements MeshiPotential, KeyWords {
     }
 
 
+
+
+
     //----------------------------------- Proteins ----------------------------------------------------
 
     public static boolean addAtoms(Protein model,
