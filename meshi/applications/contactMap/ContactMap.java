@@ -153,9 +153,9 @@ public class ContactMap implements Serializable{
                 visited[nativeMap.getIndex(nativeResidueJ)] = true;
                 double nativeContact = nativeMap.getCell(nativeResidueI, nativeResidueJ).getProbabilty();
                 double modelContact = modelMap.getCell(modelResidueI, modelResidueJ).getProbabilty();
-                if (modelContact > threshold)
-                    modelContact = 1;
-                else modelContact = 0;
+//                if (modelContact > threshold)
+//                    modelContact = 1;
+//                else modelContact = 0;
                 tp += nativeContact * modelContact;
                 tn += (1 - nativeContact) * (1 - modelContact);
                 fp += (1 - nativeContact) * modelContact;

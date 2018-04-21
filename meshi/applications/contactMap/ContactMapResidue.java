@@ -2,6 +2,7 @@ package meshi.applications.contactMap;
 
 import meshi.molecularElements.Residue;
 import meshi.parameters.ResidueType;
+import meshi.util.Utils;
 
 import java.io.Serializable;
 
@@ -15,10 +16,18 @@ public class ContactMapResidue implements Serializable{
         type = residue.type();
         this.proteinName = proteinName;
         number = residue.number();
-        chain = residue.chain();
+        if (residue.chain().equals(" "))
+            chain = "A";
+        else chain = residue.chain();
+    }
+
+    @Override
+    public String toString() {
+        return "ContactMapResidue:" + proteinName + " " + type + " " + number + " " + chain;
     }
 
     public boolean equals(Object obj) {
+        //Utils.printDebug(this, "xxxx "+obj);
         if (!(obj instanceof ContactMapResidue)) return false;
         ContactMapResidue other = (ContactMapResidue) obj;
         if (((proteinName != null) & (other.proteinName != null)) && (!proteinName.equals(other.proteinName)))
