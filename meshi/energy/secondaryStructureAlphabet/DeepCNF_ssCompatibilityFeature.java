@@ -10,9 +10,7 @@ import meshi.parameters.LocalStructureAlphabetType;
 import meshi.sequences.*;
 import meshi.util.MeshiAttribute;
 import meshi.util.filters.Filter;
-import meshi.util.info.ChainsInfo;
-import meshi.util.info.DoubleInfoElement;
-import meshi.util.info.InfoType;
+import meshi.util.info.*;
 
 import java.util.Random;
 
@@ -92,6 +90,19 @@ public class DeepCNF_ssCompatibilityFeature extends AbstractEnergy implements Ev
                     else throw new RuntimeException("This is weird");
                     DoubleInfoElement element = new DoubleInfoElement(infoType,"DeepCNF compatebility",observed/predicted);
                     chainsInfo.get(chainI).get(number).add(element);
+
+                    if (localStructureAlphabetType == LocalStructureAlphabetType.DSSP7) {
+                        infoType = InfoType.SECONDARY_STRUCTURE;
+                        int ordinal = residue.getLocalStructure().getDSSP7Reduction().ordinal();
+                        if (ordinal == 7) //X
+                            ordinal = 8;
+                        if (ordinal == 24)// Unspecified coil
+                            ordinal = 7;
+                        if (ordinal >= 8)
+                            ordinal = 8;
+                        DoubleInfoElement ssElement = new DoubleInfoElement(infoType,"secondaryStructure", ordinal);
+                        chainsInfo.get(chainI).get(number).add(ssElement);
+                    }
                 }
             }
         }

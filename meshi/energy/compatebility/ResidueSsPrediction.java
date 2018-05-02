@@ -15,11 +15,16 @@ public class ResidueSsPrediction implements MeshiAttribute{
     double extendedProbability;
     double coilProbability;
     double highestProbability;
+    int number;
 
     public double getHighestProbability() {
         return highestProbability;
     }
     public ResidueType getResidueType() {return residueType;}
+
+    public int getNumber() {
+        return number;
+    }
 
     public double getProbabilityOf(SecondaryStructure secondaryStructure) {
         if (secondaryStructure == SecondaryStructure.HELIX) return helixProbability;
@@ -31,6 +36,7 @@ public class ResidueSsPrediction implements MeshiAttribute{
         String[] words;
         words = line.split("\\s+");
 
+        number              = Integer.valueOf(words[1]);
         residueType         = ResidueType.type(words[2]);
         secondaryStructure  = SecondaryStructure.secondaryStructure(words[3].charAt(0));
         coilProbability     = Double.valueOf(words[4]);

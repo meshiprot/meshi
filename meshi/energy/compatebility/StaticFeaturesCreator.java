@@ -28,8 +28,6 @@ public class StaticFeaturesCreator extends EnergyCreator{
 
     public StaticFeaturesCreator() {
         super(InfoType.SECONDARY_STRUCTURE_COMPATIBILITY);
-
-
     }
 
     public AbstractEnergy createEnergyTerm(Protein model, DistanceMatrix dm, CommandList commands) {
@@ -46,7 +44,7 @@ public class StaticFeaturesCreator extends EnergyCreator{
                 if (line.startsWith("#")) continue;
                 if (line.length() < 10) continue;
                 ResidueSsPrediction residueSsPrediction = new ResidueSsPrediction(line);
-                SequenceAlignmentCell cell = new SequenceAlignmentCell(residueSsPrediction.residueType.nameOneLetter().charAt(0), i);
+                SequenceAlignmentCell cell = new SequenceAlignmentCell(residueSsPrediction.residueType.nameOneLetter().charAt(0), residueSsPrediction.number);
                 i++;
                 SsSequence.add(cell);
                 cell.addAttribute(residueSsPrediction);

@@ -108,11 +108,9 @@ public class PdbATOMLine extends PdbLine {
         }
     }
 
-    public PdbATOMLine(String line, PdbHeader pdbHeader) {
-
+    public void setResidueNumber(int residueNumber) {
+        this.residueNumber = residueNumber;
     }
-
-
 
     public PdbATOMLine(int number, String name, String alternativeLocation, String residueName,
                        String chain, int residueNumber,

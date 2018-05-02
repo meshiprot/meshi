@@ -50,6 +50,17 @@ public class Overlap {
         calculateRms();
     }
 
+    public Overlap(double[][] co, double[][] co2, double[][] newCoordinates, double[] weight, int n, String com, String com2) {
+        initiateFields(co, co2, newCoordinates, n, com, com2);
+        gravityCenter(weight);
+        double[] a = calcCharPol(createP());
+        double[] b = findEigenval(a);
+        checkEigenval(b);
+        checkEigenVec();
+        createUmatrix(calcBvectors());
+        calculateRms();
+    }
+
     public double[][] rotationMatrix() {
         return Umatrix;
     }
@@ -80,27 +91,36 @@ public class Overlap {
      */
 
     public void gravityCenter() {
+        double[] weight = new double[npt];//this array contain the atom weights, at this point all the weights equal to 1 and the weight array should become a global data member.
+        for (int i = 0; i < npt; i++)
+            weight[i] = 1;
+        gravityCenter(weight);
+    }
+
+    public void gravityCenter(double[] weight) {
 
         double xcm1 = 0, ycm1 = 0, zcm1 = 0;
         double xcm2 = 0, ycm2 = 0, zcm2 = 0;
+        double sumWeight = 0;
 
 
         /*calculating xc1m , xcm2, ycm1, ycm2, zcm1, zcm2*/
         for (int i = 0; i < npt; i++) {
-            xcm1 = xcm1 + coor[0][i];
-            xcm2 = xcm2 + coor2[0][i];
-            ycm1 = ycm1 + coor[1][i];
-            ycm2 = ycm2 + coor2[1][i];
-            zcm1 = zcm1 + coor[2][i];
-            zcm2 = zcm2 + coor2[2][i];
+            xcm1 = xcm1 + coor[0][i]  * weight[i];
+            xcm2 = xcm2 + coor2[0][i] * weight[i];
+            ycm1 = ycm1 + coor[1][i]  * weight[i];
+            ycm2 = ycm2 + coor2[1][i] * weight[i];
+            zcm1 = zcm1 + coor[2][i]  * weight[i];
+            zcm2 = zcm2 + coor2[2][i] * weight[i];
+            sumWeight += weight[i];
         }
 
-        xcm1 = xcm1 / npt;
-        xcm2 = xcm2 / npt;
-        ycm1 = ycm1 / npt;
-        ycm2 = ycm2 / npt;
-        zcm1 = zcm1 / npt;
-        zcm2 = zcm2 / npt;
+        xcm1 = xcm1 / sumWeight;
+        xcm2 = xcm2 / sumWeight;
+        ycm1 = ycm1 / sumWeight;
+        ycm2 = ycm2 / sumWeight;
+        zcm1 = zcm1 / sumWeight;
+        zcm2 = zcm2 / sumWeight;
 
         /*finished calculating center of mass*/
         /*now we have to move the two proteins to the calculated center*/
@@ -121,12 +141,14 @@ public class Overlap {
      * at the Kabsch paper (1976)
      */
 
-    public double[][] createR() {
-        double[][] R = new double[3][3];
-        double[] weight = new double[npt];//this array contain the atom weights, at this point all the weights equal to 1 and the weight array should become a global data member.
+    public double[][] createR(){
+        double[] weight = new double[npt];
         for (int i = 0; i < npt; i++)
             weight[i] = 1;
-
+        return createR(weight);
+    }
+    public double[][] createR(double[] weight) {
+        double[][] R = new double[3][3];
         for (int i = 0; i < npt; i++) {
             R[0][0] = R[0][0] + coor2[0][i] * coor[0][i] * weight[i];
             R[0][1] = R[0][1] + coor2[0][i] * coor[1][i] * weight[i];
@@ -148,9 +170,15 @@ public class Overlap {
      */
 
     public double[][] createP() {
+        double[] weight = new double[npt];
+        for (int i = 0; i < npt; i++)
+            weight[i] = 1;
+        return createP(weight);
+    }
+        public double[][] createP(double[] weight) {
 
         double[][] P = new double[3][3];
-        double[][] temp = createR();
+        double[][] temp = createR(weight);
         double[][] Rt = new double[3][3];//calculating the transposed matrix
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++)
@@ -629,9 +657,16 @@ public class Overlap {
 
 
     public double[][] calcBvectors() {
+        double[] weight = new double[npt];
+        for (int i = 0; i < npt; i++)
+            weight[i] = 1;
+        return calcBvectors(weight);
+    }
+
+    public double[][] calcBvectors(double[] weight) {
 
         double[][] bVectors = new double[3][3];
-        double[][] r = createR();
+        double[][] r = createR(weight);
 
 
         for (int i = 0; i < 3; i++) {

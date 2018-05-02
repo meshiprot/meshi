@@ -18,6 +18,7 @@ import meshi.util.info.*;
 import meshi.util.overlap.Overlap;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
 
@@ -345,7 +346,7 @@ public class ModelAnalyzer {
         double[][] nativeCoor = new double[3][residueAlignment.size()];
         double[][] modelCoor  = new double[3][residueAlignment.size()];
         double[][] newCoor    = new double[3][residueAlignment.size()]; // Model CA coordinates after overlap transformation
-        overlap(residueAlignment, nativeCoor, modelCoor, newCoor);
+        overlap(residueAlignment, nativeCoor, modelCoor, newCoor, 0.9);
         for (int i = 0; i < residueAlignment.size(); i++) {
             ResidueAlignmentColumn column = residueAlignment.get(i);
             Residue modelResidue = column.residue1();
@@ -369,18 +370,34 @@ public class ModelAnalyzer {
         double z2 = coor2[2][index];
         return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) + (z1 - z2) * (z1 - z2));
     }
-    private static void overlap(ResidueAlignment residueAlignment, double[][] nativeCoor, double[][] modelCoor, double[][] newCoor){
+    private static void overlap(ResidueAlignment residueAlignment, double[][] nativeCoor, double[][] modelCoor, double[][] newCoor, double topFraction) {
         for (int i = 0; i < residueAlignment.size(); i++) {
             ResidueAlignmentColumn column = residueAlignment.get(i);
             nativeCoor[0][i] = column.residue0().ca().x();
             nativeCoor[1][i] = column.residue0().ca().y();
             nativeCoor[2][i] = column.residue0().ca().z();
-            modelCoor[0][i]  = column.residue1().ca().x();
-            modelCoor[1][i]  = column.residue1().ca().y();
-            modelCoor[2][i]  = column.residue1().ca().z();
+            modelCoor[0][i] = column.residue1().ca().x();
+            modelCoor[1][i] = column.residue1().ca().y();
+            modelCoor[2][i] = column.residue1().ca().z();
         }
-        new Overlap(nativeCoor, modelCoor, newCoor, nativeCoor[0].length,"nativeCoor","modelCoor");
+        new Overlap(nativeCoor, modelCoor, newCoor, nativeCoor[0].length, "nativeCoor", "modelCoor");
+        double[] displacements1 = new double[modelCoor[0].length];
+        double[] displacements2 = new double[modelCoor[0].length];
+        double[] weights = new double[modelCoor[0].length];
+        for (int i = 0; i < residueAlignment.size(); i++) {
+            ResidueAlignmentColumn column = residueAlignment.get(i);
+            displacements1[i] = displacements2[i] = dis(nativeCoor, newCoor, i);
+        }
+        Arrays.sort(displacements1);
+        double threshold = displacements1[(int) Math.round(displacements1.length * topFraction)];
+        for (int i = 0; i < residueAlignment.size(); i++) {
+            if (displacements2[i] <= threshold)
+                weights[i] = 1;
+            else weights[i] = 0;
+        }
+        new Overlap(nativeCoor, modelCoor, newCoor, weights, nativeCoor[0].length, "nativeCoor", "modelCoor");
     }
+
 
     public static double matthewsCorrelationCoefficient(double tp, double fn, double fp, double tn)  {
         double sum = tp+fn+fp+tn;

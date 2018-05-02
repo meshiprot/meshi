@@ -3,8 +3,10 @@ package programs;
 import meshi.applications.optimize.*;
 import meshi.energy.EvaluationException;
 import meshi.energy.TotalEnergy;
+import meshi.energy.compatebility.StaticFeatures;
 import meshi.energy.simpleEnergyTerms.tether.TetherEnergy;
 import meshi.geometry.ArcCos;
+import meshi.molecularElements.Chain;
 import meshi.molecularElements.Protein;
 import meshi.molecularElements.atoms.Atom;
 import meshi.molecularElements.extendedAtoms.ResidueExtendedAtomsCreator;
@@ -13,6 +15,8 @@ import meshi.optimizers.MCM;
 import meshi.optimizers.OptimizerException;
 import meshi.optimizers.SteepestDecent;
 import meshi.sequences.AlignmentException;
+import meshi.sequences.ResidueSequence;
+import meshi.sequences.SequenceAlignment;
 import meshi.util.CommandList;
 import meshi.util.MeshiProgram;
 import meshi.util.UpdateableException;
@@ -29,16 +33,6 @@ public class OptimizeNew extends MeshiProgram implements OptimizeConstants{
     private static OptimizeFiles files;
     private static String parentString = "N/A";
 
-//    private static MCM mcm = null;
-//    private static Relaxation relaxation = null;
-//    private static LBFGS lbfgs = null;
-//    private static String inFileName = null, nativeFileName = null, outFileName = null,dsspFile = null;
-//    private static Protein model = null, originalModel = null;
-//    private static Boolean OK = null;
-//        private static TotalEnergy minimizationEnergy = null;
-//    private static ArrayList<Score> scoreFunctions = null;
-//    private static DistanceMatrix distanceMatrix = null;
-//    private static OptimizeLogger log = null;
 
     public static void main(String[] argv) throws IOException, OptimizerException, UpdateableException, EvaluationException, AlignmentException {
         init(argv);
@@ -76,19 +70,24 @@ public class OptimizeNew extends MeshiProgram implements OptimizeConstants{
         OptimizeLogger log = new OptimizeLogger(model, files, energies.minimizationEnergy, energies.scoreFunctions, parentString, commands);
         ChainsInfo chainsInfo = new ChainsInfo(model);
         try {
-            log.mcm(energies.scoreFunctions, energies.minimizationEnergy, "BEGINNING", null);  //the null is for residue info list
+            log.mcm(energies.scoreFunctions, energies.minimizationEnergy, "BEGINNING", null, null);  //the nulls are for residue info list and secondary-structure-alignment
             OptimizeUtils.minimizeCassette(model, files, log, lbfgs, energies.minimizationEnergy, (TetherEnergy) tetherAllCreator.term());
 
             log.setEnergy(energies.minimizationEnergy);
             MCM mcm = OptimizeUtils.getMCM(model, energies.minimizationEnergy, energies.scoreFunctions, energies.perturbationEnergy1,
                     energies.perturbationEnergy2, energies.perturbationEnergy3, energies.perturbationEnergy3, commands);
             mcm.run(log);
-            log.mcm(energies.scoreFunctions, energies.minimizationEnergy, "MCM_END step=\"" + mcm.maxSteps, chainsInfo);
+            log.mcm(energies.scoreFunctions, energies.minimizationEnergy, "MCM_END step=\"" + mcm.maxSteps, chainsInfo, getSsAlignment(energies.minimizationEnergy));
         } catch (RuntimeException ex) {
             OptimizeUtils.writeFailureXml(model,ex, files);
             ex.printStackTrace();
             throw ex;
         }
+    }
+
+    private static SequenceAlignment getSsAlignment(TotalEnergy energy){
+        StaticFeatures staticFeatures = (StaticFeatures) energy.getEnergyTerm(new StaticFeatures());
+        return staticFeatures.getSsAlignment();
     }
 
     private static void firstRelax(Protein model) {

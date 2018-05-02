@@ -10,6 +10,7 @@ import meshi.scoringFunctions.CombinedEnergyScore;
 import meshi.scoringFunctions.Score;
 import meshi.sequences.AlignmentException;
 import meshi.sequences.ResidueAlignmentMethod;
+import meshi.sequences.SequenceAlignment;
 import meshi.util.*;
 import meshi.util.file.MeshiWriter;
 import meshi.util.info.ChainsInfo;
@@ -27,6 +28,7 @@ public class OptimizeLogger extends ProteinInfoListOld implements Logger , Optim
     private TotalEnergy energy;
     private Protein model, originalModel, nativeStructure;
     OptimizeFiles files;
+
 
 
     public OptimizeLogger(Protein model,
@@ -69,6 +71,9 @@ public class OptimizeLogger extends ProteinInfoListOld implements Logger , Optim
     }
 
     public void log(String comment, boolean printFlag, ChainsInfo chainsInfo)  {
+        log(comment, printFlag, chainsInfo, null);
+    }
+    public void log(String comment, boolean printFlag, ChainsInfo chainsInfo, SequenceAlignment ssAlignment)  {
         MeshiWriter output;
         MeshiWriter infoTable;
         MeshiInfoXMLwriter infoXML;
@@ -111,13 +116,17 @@ public class OptimizeLogger extends ProteinInfoListOld implements Logger , Optim
                 throw new RuntimeException("quiting");
             }
             Utils.colorByEnergy(model.atoms());
-            analyzer.model.atoms().print(output);
+            PdbWriter pdbWriter;
+            if (ssAlignment == null)
+                pdbWriter = new PdbWriter(output, analyzer.model);
+            else pdbWriter = new PdbAlignmentWriter(output, analyzer.model,ssAlignment);
+            pdbWriter.print();
             output.close();
             infoTable.close();
             infoXML.close();
         }
     }
-    public void mcm(ArrayList<Score> scoreFunctions, TotalEnergy energy, String label, ChainsInfo chainsInfo)  {
+    public void mcm(ArrayList<Score> scoreFunctions, TotalEnergy energy, String label, ChainsInfo chainsInfo, SequenceAlignment ssAlignment)  {
         analyzer.setEnergy(energy);
         long time = (new Date()).getTime() - energy.startTime;
         MeshiInfo infoList = energy.energyInfo();
@@ -138,23 +147,24 @@ public class OptimizeLogger extends ProteinInfoListOld implements Logger , Optim
                     label = label + " " + scoreFunction.toString() + "_" + score.type.tag + "=\"" + score.getValue() + " ";
             }
         }
-        if (Utils.verbose() || label.startsWith("MCM_END") || label.startsWith("BEGINNING"))
-            log(label+" time=\""+time, true, chainsInfo);
+        if (Utils.verbose() || label.startsWith("MCM_END") || label.startsWith("BEGINNING")) {
+            log(label + " time=\"" + time, true, chainsInfo, ssAlignment);
+        }
     }
 
     public void mcm(ArrayList<Score> scoreFunctions,
                     TotalEnergy energy,
                     int i,
                     MCM.mcmStepResult mcmStepResult)  throws AlignmentException{
-        mcm(scoreFunctions, energy, i, mcmStepResult, null);
+        mcm(scoreFunctions, energy, i, mcmStepResult, null, null);
     }
     public void mcm(ArrayList<Score> scoreFunctions,
                     TotalEnergy energy,
                     int i,
                     MCM.mcmStepResult mcmStepResult,
-                    ChainsInfo chainsInfo)  throws AlignmentException{
+                    ChainsInfo chainsInfo, SequenceAlignment ssAlignment)  throws AlignmentException{
         //           mcm(optimizationScore, selectionScore, energy, "MCM\"  step=\""+i+"\" score=\""+score.score()+"\" result=\""+mcmStepResult+"\"  lastSuccess=\""+mcmStepResult.lastSuccess());
         mcm(scoreFunctions, energy, "MCM  step=\""+i+"\" result=\""+
-                mcmStepResult+"\"  lastSuccess=\""+mcmStepResult.lastSuccess(), chainsInfo);
+                mcmStepResult+"\"  lastSuccess=\""+mcmStepResult.lastSuccess(), chainsInfo, ssAlignment);
     }
 }
