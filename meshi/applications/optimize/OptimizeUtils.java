@@ -92,9 +92,22 @@ public class OptimizeUtils implements OptimizeConstants, KeyWords{
         MeshiLineReader reader = new MeshiLineReader(fileName);
         String out;
         while ((out = reader.readLine()) != null) {
-            if (out.startsWith("PARENT"))
+            if (out.startsWith("PARENT")) {
+                reader.close();
                 return out;
+            }
         }
+        reader.close();
+        reader = new MeshiLineReader(fileName);
+        out = "PARENT ";
+        String line;
+        while ((line = reader.readLine()) != null) {
+            if (line.startsWith("REMARK   6 TEMPLATE:"))
+                out = out + line.substring(21,28)+" ";
+        }
+        reader.close();
+        if (!out.equals("PARENT "))
+            return out;
         return "PARENT N/A";
     }
 
