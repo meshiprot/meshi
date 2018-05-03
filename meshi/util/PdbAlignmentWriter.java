@@ -25,12 +25,13 @@ public class PdbAlignmentWriter extends PdbWriter {
         for (SequenceAlignmentColumn column : sequenceAlignment) {
             ResidueSsPrediction prediction         = (ResidueSsPrediction) column.cell0().getAttribute(MeshiAttribute.SECONDARY_STRUCTURE_ATTRIBUTE);
             Residue residue                        = (Residue)             column.cell1().getAttribute(MeshiAttribute.RESIDUE_ATTRIBUTE);
-            Utils.printDebug(this, "xxxxxxx "+column);
             if (residue != null) {
                 for (Atom atom : residue.getAtoms()) {
-                    PdbATOMLine line = new PdbATOMLine(atom.toString());
-                    line.setResidueNumber(prediction.getNumber());
-                    writer.println(line);
+                    String line = atom.toString();
+                    String numberS = "     "+prediction.getNumber();
+                    numberS = numberS.substring(numberS.length() - 4);
+                    String newLine = line.substring(0,22)+numberS+line.substring(26);
+                    writer.println(newLine);
                 }
             }
 
