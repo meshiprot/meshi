@@ -1,6 +1,5 @@
 package meshi.util;
 
-import javafx.scene.shape.Mesh;
 import meshi.molecularElements.Protein;
 import meshi.util.file.MeshiWriter;
 
