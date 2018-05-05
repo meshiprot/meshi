@@ -101,9 +101,12 @@ public class OptimizeUtils implements OptimizeConstants, KeyWords{
         reader = new MeshiLineReader(fileName);
         out = "PARENT ";
         String line;
-        while ((line = reader.readLine()) != null) {
-            if (line.startsWith("REMARK   6 TEMPLATE:"))
-                out = out + line.substring(21,28)+" ";
+        int counter = 0;
+        while (((line = reader.readLine()) != null) & (counter < 10)){  // The counter condition is a patch on an apparent bug in CASP format checker
+            if (line.startsWith("REMARK   6 TEMPLATE:")) {
+                out = out + line.substring(21, 28) + " ";
+                counter++;
+            }
         }
         reader.close();
         if (!out.equals("PARENT "))
