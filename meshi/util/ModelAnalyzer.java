@@ -361,7 +361,7 @@ public class ModelAnalyzer {
         }
     }
 
-    private static double dis(double[][] coor1, double[][] coor2, int index){
+    public static double dis(double[][] coor1, double[][] coor2, int index){
         double x1 = coor1[0][index];
         double y1 = coor1[1][index];
         double z1 = coor1[2][index];
@@ -370,7 +370,7 @@ public class ModelAnalyzer {
         double z2 = coor2[2][index];
         return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) + (z1 - z2) * (z1 - z2));
     }
-    private static void overlap(ResidueAlignment residueAlignment, double[][] nativeCoor, double[][] modelCoor, double[][] newCoor, double topFraction) {
+    public static void overlap(ResidueAlignment residueAlignment, double[][] nativeCoor, double[][] modelCoor, double[][] newCoor, double topFraction) {
         for (int i = 0; i < residueAlignment.size(); i++) {
             ResidueAlignmentColumn column = residueAlignment.get(i);
             nativeCoor[0][i] = column.residue0().ca().x();
@@ -386,7 +386,7 @@ public class ModelAnalyzer {
         double[] weights = new double[modelCoor[0].length];
         for (int i = 0; i < residueAlignment.size(); i++) {
             ResidueAlignmentColumn column = residueAlignment.get(i);
-            displacements1[i] = displacements2[i] = dis(nativeCoor, newCoor, i);
+            displacements1[i] += displacements2[i] = dis(nativeCoor, newCoor, i);
         }
         Arrays.sort(displacements1);
         double threshold = displacements1[(int) Math.round(displacements1.length * topFraction)];
