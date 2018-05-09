@@ -3,9 +3,9 @@ distanceConstraints weight 1
 
 conserved 9999
 
-parameters /home/cluster/users/siditom/test/meshi/parameters
-dsspExecPath /home/cluster/users/siditom/test/meshi/aux/dssp/dsspcmbi
-scwrlExecPath /home/cluster/users/siditom/test/meshi/aux/scwrl4/Scwrl4
+parameters /home/meshi/parameters
+dsspExecPath /home/meshi/aux/dssp/dsspcmbi
+scwrlExecPath /home/meshi/aux/scwrl4/Scwrl4
 
 # verbose
 
@@ -37,10 +37,10 @@ nativeDsspFileName   aux/native.dssp
 predictedAccFileName aux/sasaPrediction
 atomEnvironmentEnergySS weight 1
 atomEnvironmentEnergy weight 1
-atomEnvironmentParameters /home/cluster/users/siditom/test/meshi/parameters/meshiPotential/atomEnvironmentAll.xml
-atomEnvironmentParametersHelix /home/cluster/users/siditom/test/meshi/parameters/meshiPotential/atomEnvironmentHelix.xml
-atomEnvironmentParametersSheet /home/cluster/users/siditom/test/meshi/parameters/meshiPotential/atomEnvironmentSheet.xml
-atomEnvironmentParametersCoil /home/cluster/users/siditom/test/meshi/parameters/meshiPotential/atomEnvironmentCoil.xml
+atomEnvironmentParameters /home/meshi/parameters/meshiPotential/atomEnvironmentAll.xml
+atomEnvironmentParametersHelix /home/meshi/parameters/meshiPotential/atomEnvironmentHelix.xml
+atomEnvironmentParametersSheet /home/meshi/parameters/meshiPotential/atomEnvironmentSheet.xml
+atomEnvironmentParametersCoil /home/meshi/parameters/meshiPotential/atomEnvironmentCoil.xml
 goap weight 1
 #TETHER BB
 tetherEnergy weight 1
@@ -147,7 +147,7 @@ corpusFileName parameters/finalCorpus.txt
 maxRunTime 10000
 
 samudralaEnergy weight 1
-rapdfoutputfile /home/cluster/users/siditom/test/meshi/parameters/meshiPotential/SamudralaParametersAstralNotWeighted.dat
+rapdfoutputfile /home/meshiPotential/SamudralaParametersAstralNotWeighted.dat
 samudralaEnergy1  weight 1
 conservationContacts8 weight 1
 conservationContacts11 weight 1
@@ -155,8 +155,10 @@ conservationContacts15 weight 1
 
 conservationContactsHr weight 1
 
-selectionScore /home/cluster/users/siditom/test/meshi/score_functions/CASP13_LegacyScore.xml    MESHI.LEGACY
-selectionScore /home/cluster/users/siditom/test/meshi/score_functions/CASP13_Score.xml    MESHI.SERVER
-# metaSelectionScore /home/cluster/users/siditom/test/meshi/score_functions/CASP12_score.xml MESHI.SERVER
-
+selectionScore /home/meshi/score_functions/CASP13_LegacyScore.xml    MESHI.LEGACY
+selectionScore /home/meshi/score_functions/CASP13_Score.xml    MESHI.SERVER
+selectionScore /home/meshi/score_functions/ScoreF_WeightedEvaluationFunction.xml optimizationScore
+selectionScore /home/meshi/score_functions/CASP13_enr.xml MESHI.ENRICH
+selectionScore /home/meshi/score_functions/CASP13_err_corr.xml MESHI.CORR
+selectionScore /home/meshi/score_functions/contacts8cb_cv.xml MESHI.CONTACTS8CB
 
