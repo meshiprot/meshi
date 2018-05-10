@@ -35,23 +35,25 @@ public class ColorBySimilarity {
         try {
             MeshiWriter writer = new MeshiWriter(outDir.getAbsolutePath() + "/" + decoyAndMeta.decoy.name());
             for (String s : decoyAndMeta.meta)
-                writer.println(s);
+                if ((!s.startsWith("BEGIN")) & (!s.startsWith("MCM")) & (!s.startsWith("name")) )
+                    writer.println(s);
             decoyAndMeta.decoy.atoms().print(writer);
             writer.println("TER\nEND");
             writer.close();
         } catch (Exception ex) {throw new RuntimeException(ex);}
     }
     public static void color(Protein decoy, ArrayList<DecoyAndMeta> decoys) {
-        double[] displacements = new double[decoy.residues().size()+1];
+        double[] displacements = new double[decoy.residues().get(decoy.residues().size()-1).number()+1];
         int sum = 0;
-        for (DecoyAndMeta other : decoys) {
+        for (DecoyAndMeta other : decoys)  {
+            //Utils.printDebug(" colorBySimilarity ", decoy.name() +" "+other.decoy.name());
             if (decoy == other.decoy)
                 continue;
             ResidueAlignment residueAlignment = ModelAnalyzer.getResidueAlignment(decoy, other.decoy);
             double[][] decoyCoor = new double[3][residueAlignment.size()];
             double[][] otherCoor  = new double[3][residueAlignment.size()];
             double[][] newCoor    = new double[3][residueAlignment.size()]; // Model CA coordinates after overlap transformation
-            ModelAnalyzer.overlap(residueAlignment, decoyCoor, otherCoor, newCoor, 0.9);
+            ModelAnalyzer.overlap(residueAlignment, decoyCoor, otherCoor, newCoor, 0.8);
             for (int i = 0; i < residueAlignment.size(); i++) {
                 ResidueAlignmentColumn column = residueAlignment.get(i);
                 Residue decoyResidue = column.residue0();
@@ -73,6 +75,7 @@ public class ColorBySimilarity {
         ArrayList<DecoyAndMeta> decoys = new ArrayList<>();
         for (File file : inDir.listFiles()){
             if (file.getAbsolutePath().endsWith(".pdb")) {
+                System.out.println("loading "+file);
                 DecoyAndMeta decoy = new DecoyAndMeta(commands, file.getAbsolutePath());
                 decoys.add(decoy);
             }

@@ -89,7 +89,7 @@ public class OptimizeLogger extends ProteinInfoListOld implements Logger , Optim
                 throw new RuntimeException(ex);
             }
             try {
-                print(output, true);
+                //print(output, true);
                 print(infoTable, false);
             } catch (IOException ex) {
                 OptimizeUtils.writeFailureXml(model, ex, files);
