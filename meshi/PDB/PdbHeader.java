@@ -119,7 +119,7 @@ public class PdbHeader {
         while (i < this.residueSequence.size() && !this.residueSequence.get(i).chain.equals(c)){
             i++;
         }
-        if (i < this.residueSequence.size()) throw new RuntimeException("Error::PdbHeader::SEQRES:: No such chain name. Unable to retrieve sequence.");
+        if (i == this.residueSequence.size()) throw new RuntimeException("Error::PdbHeader::SEQRES:: No such chain name. Unable to retrieve sequence.");
         seqres = this.residueSequence.get(i);
 
         while (i < this.residueSequence.size() && seqres.chain.equals(c)){
