@@ -129,4 +129,8 @@ public class PdbReader extends MeshiLineReader {
         }
         return null;
     }
+    public String toStringSequenceHeader(){
+        if (pdbHeader != null) return pdbHeader.toStringSequence();
+        return "No Sequence Header";
+    }
 }

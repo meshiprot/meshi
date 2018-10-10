@@ -1,5 +1,7 @@
 package meshi.PDB.pdbLines;
 
+import meshi.parameters.ResidueType;
+
 /**
  * Created by user on 01/11/2017.
  */
@@ -8,6 +10,7 @@ public class PdbSEQRES {
     public int lineID;
     public String chain;
     public String residueExperimentName;
+    public ResidueType residueGenericType;
     public String residueGenericName;
 
     public PdbSEQRES(){
@@ -19,6 +22,7 @@ public class PdbSEQRES {
         this.lineID = lineID;
         this.residueInx = residueNum;
         this.residueGenericName = this.residueExperimentName;
+        this.residueGenericType = ResidueType.type(this.residueGenericName);
         this.chain = chain;
     }
     public boolean check(){

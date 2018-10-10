@@ -48,15 +48,17 @@ public class PdbHeader {
         if (seqres.getPdbLineType() != SEQRES) throw new RuntimeException("PdbHeader:addSequenceSnipet: Error - the added line is not a sequence identifier (SEQRES).");
         for (PdbSEQRES sr: seqres.residues) {
             if (sr.check()){
-                this.residueSequence.add(sr);
+                int i = this.residueSequence.size();
+                this.residueSequence.add(i,sr);
             }
         }
     }
 
     public void updateSequenceWithModifiedResidues(){
+
         for (PdbMODRESLine modifier:residueNameModifiers){
             PdbSEQRES seqres = residueSequence.get(modifier.residueInx -1 );
-            if (seqres.residueInx != modifier.residueInx) throw new RuntimeException("PdbHeader:updateSequenceWithModifiedResidues: Error - SEQRES index and MODRES index are different. "+seqres+" "+modifier);
+            if (seqres.residueInx != modifier.residueInx) throw new RuntimeException("PdbHeader:updateSequenceWithModifiedResidues: Error - SEQRES index and MODRES index are different. "+seqres.lineID+" "+modifier.residueInx);
             seqres.residueGenericName = modifier.residueGenericName;
         }
     }
@@ -70,5 +72,68 @@ public class PdbHeader {
             }
         }
         return null;
+    }
+
+    public ArrayList<String> getChainsIDs(){
+        ArrayList<String> chains = new ArrayList<String>();
+        PdbSEQRES seqres = this.residueSequence.get(1);
+
+        String currChain = seqres.chain;
+        String lastChain = currChain;
+        chains.add(currChain);
+        for (int i=1; i < this.residueSequence.size(); i++ ){
+            seqres = this.residueSequence.get(i);
+            currChain = seqres.chain;
+
+            if (!currChain.equals(lastChain)){
+                chains.add(currChain);
+                lastChain=currChain;
+            }
+        }
+        return chains;
+    }
+
+    public String toStringSequence(){
+        String str = "";
+        PdbSEQRES seqres;
+        for (int i=1; i < this.residueSequence.size(); i++ ){
+            seqres = this.residueSequence.get(i);
+            String chain = seqres.chain;
+            str += ">Chain"+chain+"\n";
+            str+=seqres.residueGenericType.nameOneLetter();
+            i++;
+            while (i < this.residueSequence.size() && chain.equals(seqres.chain)){
+                seqres = this.residueSequence.get(i);
+                str+=seqres.residueGenericType.nameOneLetter();
+                i++;
+            }
+            str+="\n";
+        }
+        return str;
+    }
+    public String toStringSequence(String c){
+        String str = "";
+        PdbSEQRES seqres;
+        int i=0;
+        seqres = this.residueSequence.get(i);
+        while (i < this.residueSequence.size() && !this.residueSequence.get(i).chain.equals(c)){
+            i++;
+        }
+        seqres = this.residueSequence.get(i);
+        str += ">Chain"+seqres.chain+"\n";
+        while (i < this.residueSequence.size() && seqres.chain.equals(c)){
+            //System.out.println("inx="+i+ " chain="+seqres.chain+" resID="+seqres.residueGenericType);
+            str += seqres.residueGenericType.nameOneLetter();
+            i++;
+            if (i < this.residueSequence.size()) seqres = this.residueSequence.get(i);
+
+
+
+
+
+        }
+        str+="\n";
+
+        return str;
     }
 }

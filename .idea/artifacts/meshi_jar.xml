@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact name="meshi:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/meshi_jar</output-path>
+    <root id="root">
+      <element id="archive" name="meshi.jar">
+        <element id="module-output" name="meshi" />
+      </element>
+    </root>
+  </artifact>
+</component>
