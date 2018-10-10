@@ -119,8 +119,9 @@ public class PdbHeader {
         while (i < this.residueSequence.size() && !this.residueSequence.get(i).chain.equals(c)){
             i++;
         }
+        if (i < this.residueSequence.size()) throw new RuntimeException("Error::PdbHeader::SEQRES:: No such chain name. Unable to retrieve sequence.");
         seqres = this.residueSequence.get(i);
-        str += ">Chain"+seqres.chain+"\n";
+
         while (i < this.residueSequence.size() && seqres.chain.equals(c)){
             //System.out.println("inx="+i+ " chain="+seqres.chain+" resID="+seqres.residueGenericType);
             str += seqres.residueGenericType.nameOneLetter();
@@ -132,7 +133,7 @@ public class PdbHeader {
 
 
         }
-        str+="\n";
+
 
         return str;
     }
