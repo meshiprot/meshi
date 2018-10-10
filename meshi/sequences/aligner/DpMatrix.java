@@ -33,11 +33,11 @@ public class DpMatrix {
         this.sequence2 = sequence2;
 		this.minScore = minScore;
         cellScorer = scrr;
-        cellMatrix = new Cell[sequence1.size()][sequence2.size()];
-        bestRoutesMatrix= new Cell[sequence1.size()][sequence2.size()][3];
-        scoresMatrix= new double[sequence1.size()][sequence2.size()][4];
-        for (int row = 0; row < sequence1.size(); row++) {
-            for (int col = 0; col < sequence2.size(); col++) {
+        cellMatrix = new Cell[sequence1.size() + 2][sequence2.size() + 2];
+        bestRoutesMatrix= new Cell[sequence1.size()+ 2][sequence2.size()+ 2][3];
+        scoresMatrix= new double[sequence1.size() + 2][sequence2.size()+ 2][5];
+        for (int row = 0; row < sequence1.size() + 2; row++) {
+            for (int col = 0; col < sequence2.size() + 2; col++) {
                 Cell newCell = new Cell(row, col, this);
                 setCell(row, col, newCell);
                 /*if (matrix[row][col].maxScore<10&&row<20&&col<20)
@@ -57,50 +57,19 @@ public class DpMatrix {
     }
 
     public Cell getCell(int rowNumber, int colNumber) {
+    	if ((rowNumber < 0) | (rowNumber > sequence1.size() + 1))
+    		return null;
+		if ((colNumber < 0) | (colNumber > sequence2.size() + 1))
+			return null;
         return cellMatrix[rowNumber][colNumber];
     }
-
-    
-//    public SequenceAlignment backTrack() {
-//        //sequence1.printAsLine();//check, Tommer
-//        //sequence2.printAsLine();
-//        double tempMax = 0;
-//        int rowMax = 0, colMax = 0;
-//        for (int i = 0; i < sequence1.size(); i++)
-//            for (int j = 0; j < sequence2.size(); j++) {
-//                if (cellMatrix[i][j].maxScore > tempMax) {
-//                    tempMax = cellMatrix[i][j].maxScore;
-//                    rowMax = i;
-//                    colMax = j;
-//                }
-//            }
-//        try {
-//            return backTrack(cellMatrix[rowMax][colMax]);
-//        } catch (Exception ex) {
-//            ex.printStackTrace();
-//            throw new RuntimeException(ex);
-//        }
-//    }
 
 	public SequenceAlignment backTrack(ResidueAlignmentMethod method) {
 		//sequence1.printAsLine();//check, Tommer
 		//sequence2.printAsLine();
 
-		int maxI = -1, maxJ = -1;
-		if (method != ResidueAlignmentMethod.IDENTITY) {
-			double max = -1000;
-			for (int i = 0; i < cellMatrix.length; i++)
-				for (int j = 0; j < cellMatrix[0].length; j++)
-					if (max < cellMatrix[i][j].maxScore) {
-						maxI = i;
-						maxJ = j;
-						max = cellMatrix[i][j].maxScore;
-					}
-		}
-		else {
-			maxI = cellMatrix.length - 1;
-			maxJ = cellMatrix[0].length - 1;
-		}
+		int maxI = cellMatrix.length - 1;
+		int maxJ = cellMatrix[0].length - 1;
 		try {
 			return backTrack(cellMatrix[maxI][maxJ], minScore);
 //			return backTrack(cellMatrix[cellMatrix.length-1][cellMatrix[0].length-1]);
@@ -114,11 +83,6 @@ public class DpMatrix {
 	public SequenceAlignment backTrack(Cell cell, double minScore) {
         SequenceAlignment inverseAlignment;
         inverseAlignment=DpMatrix.inverseAlignment(cell, minScore, sequence1, sequence2);
-		AlignmentColumn column = inverseAlignment.get(0);
-		while (column.cell0().gap() | column.cell1().gap()) {
-			inverseAlignment.remove(column);
-			column = inverseAlignment.get(0);
-		}
  		return DpMatrix.reverseAlignment(inverseAlignment);
 
     }
@@ -131,7 +95,7 @@ public class DpMatrix {
     
   //NEW METHOD, edited by Tommer 21.9.14
     public char rowChar(int index) {
-        return ((SequenceAlignmentCell) sequence1.get(index).cell(0)).getChar();
+        return ((SequenceAlignmentCell) sequence1.get(index - 1).cell(0)).getChar();
     }
 
     //OLD METHOD, replaced by Tommer 21.9.14
@@ -142,7 +106,7 @@ public class DpMatrix {
     
   //NEW METHOD, edited by Tommer 21.9.14
     public char columnChar(int index) {
-        return ((SequenceAlignmentCell) sequence2.get(index).cell(0)).getChar();
+        return ((SequenceAlignmentCell) sequence2.get(index - 1).cell(0)).getChar();
     }
 
     
@@ -195,97 +159,43 @@ public class DpMatrix {
 	}
 	
 	private static SequenceAlignment inverseAlignment(Cell from, double minScore, MeshiSequence sequence1, MeshiSequence sequence2){
-		Cell back = from.getBack();
-		Cell nextBack=from.nextBack;
-		Cell up = from.upCell;
-		Cell left = from.leftCell;
-		int rowNumber = from.rowNumber;
-		int colNumber = from.colNumber;
+		Cell back = from.back;
+		Cell prev = null;
+		int rowNumber;
+		int colNumber;
 		SequenceAlignmentColumn column;
 		SequenceAlignment inverseAlignment=new SequenceAlignment();
 		inverseAlignment.comments.add(sequence1.comment());
         inverseAlignment.comments.add(sequence2.comment());
-        inverseAlignment.setScore(from.maxScore);
+        inverseAlignment.setScore(from.neighborScore);
 
-		while((from != null) && (from.maxScore >= minScore)){
+		while((from != null)) {// (from.maxScore >= minScore)){
 			rowNumber = from.rowNumber;
     		colNumber = from.colNumber;
-			//Utils.printDebug("DpMatrix.inverseAlignment","**** "+cell+" "+sequence1.cell(rowNumber)+" "+sequence2.cell(colNumber));
-    		up = from.upCell;
-    		left = from.leftCell;
-//    		if(nextBack==null){
-//        		inverseAlignment.add(new SequenceAlignmentColumn(
-//    					(SequenceAlignmentCell) sequence1.cell(rowNumber),
-//    					(SequenceAlignmentCell) sequence2.cell(colNumber)));
-//        		break;
-//        	}
-    		
-    		//System.out.println(rowNumber+", "+ colNumber+(back != null));
-    		
-    		//System.out.println("up:  "+back.scoreUp+", left: "+back.scoreLeft+", diagonal: "+back.scoreDiagonal);
-    		//System.out.println("next up:  "+nextBack.scoreUp+", next left: "+nextBack.scoreLeft+", next diagonal: "+nextBack.scoreDiagonal);
-    		if ((back == up) && (back != null) ){
-    			column = new SequenceAlignmentColumn(//new! Eliminate!
-    					(SequenceAlignmentCell) sequence1.cell(rowNumber),
-    					new SequenceAlignmentCell());//new! Eliminate!
+ 			SequenceAlignmentCell cell1, cell2;
+			if (((rowNumber == 0) | (rowNumber == sequence1.size() + 1)) ||
+					((from == prev.leftCell) ))
+				cell1 = new SequenceAlignmentCell();
+			else cell1 = sequence1.cell(rowNumber - 1);
 
-    		} else if ((back == left) && (back != null) ) {
-    			column = new SequenceAlignmentColumn(new SequenceAlignmentCell(),//new! Eliminate!
-    					(SequenceAlignmentCell) sequence2.cell(colNumber));
-    			
-    		} else {
-    			column = new SequenceAlignmentColumn(//new! Eliminate!
-    					(SequenceAlignmentCell) sequence1.cell(rowNumber),
-    					(SequenceAlignmentCell) sequence2.cell(colNumber));
-    		}
-    		
-    		if (nextBack != null) {
-				if (nextBack == back.upCell) {
-					from=back;
-					back=nextBack;
-					nextBack=from.bestRoutes[UP];
+			if (((colNumber == 0) | (colNumber == sequence2.size() + 1)) ||
+					((from == prev.upCell) ))
+				cell2 = new SequenceAlignmentCell();
+			else cell2 = sequence2.cell(colNumber - 1);
 
-				} else if (nextBack == back.leftCell) {
+			column = new SequenceAlignmentColumn(cell1, cell2);
 
-					from=back;
-					back=nextBack;
-					nextBack=from.bestRoutes[LEFT];
-
-				} else {
-
-					from=back;
-					back=nextBack;
-					nextBack=from.bestRoutes[DIAGONAL];
-				}
-			}
-			else if (back != null) {
-				from = back;
-				back = null;
-			}
-            else from = null;
 
             inverseAlignment.add(column);//name modified Tommer 9.9.14
+
+			prev = from;
+			from = back;
+			if (from != null) {
+				back = from.back;
+			}
+			else {back = null;}
         }
 
-	/*	if (rowNumber == 0) {
-			while (colNumber > 0) {
-				colNumber--;
-				column = new SequenceAlignmentColumn(new SequenceAlignmentCell(),//new! Eliminate!
-						(SequenceAlignmentCell) sequence2.cell(colNumber));
-				inverseAlignment.add(column);
-			}
-		}
-		else if (colNumber == 0) {
-			while (rowNumber > 0) {
-				rowNumber--;
-				column = new SequenceAlignmentColumn((SequenceAlignmentCell) sequence1.cell(rowNumber),
-													  new SequenceAlignmentCell());
-				inverseAlignment.add(column);
-			}
-		}
-
-		inverseAlignment.print(); */
-       // System.out.print("current alignment (inside inverseAlignment): "+inverseAlignment);
         return inverseAlignment;
 
 	}
@@ -299,7 +209,15 @@ public class DpMatrix {
 	     out.setScore(prototype.score());
 	     return out;
 	}
-	
+
+	private void printMax() {
+		for (int i = 0; i < cellMatrix.length; i++){
+			for (int j = 0; j < cellMatrix[0].length; j++) {
+				System.out.print(cellMatrix[i][j].neighborScore + cellMatrix[i][j].internalScore + " ");
+			}
+			System.out.println();
+		}
+	}
 	
 }
 

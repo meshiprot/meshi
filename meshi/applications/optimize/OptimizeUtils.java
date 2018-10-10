@@ -15,6 +15,7 @@ import meshi.molecularElements.Protein;
 import meshi.molecularElements.Residue;
 import meshi.molecularElements.ResidueList;
 import meshi.molecularElements.atoms.Atom;
+import meshi.molecularElements.extendedAtoms.Pro;
 import meshi.molecularElements.extendedAtoms.ResidueExtendedAtomsCreator;
 import meshi.molecularElements.loops.AtomFinding;
 import meshi.optimizers.*;
@@ -24,6 +25,8 @@ import meshi.sequences.AlignmentException;
 import meshi.util.*;
 import meshi.util.file.MeshiLineReader;
 import meshi.util.file.MeshiWriter;
+import meshi.util.info.MeshiInfo;
+import meshi.util.info.ProteinInfo;
 import programs.Optimize;
 
 import java.io.IOException;
@@ -89,9 +92,25 @@ public class OptimizeUtils implements OptimizeConstants, KeyWords{
         MeshiLineReader reader = new MeshiLineReader(fileName);
         String out;
         while ((out = reader.readLine()) != null) {
-            if (out.startsWith("PARENT"))
+            if (out.startsWith("PARENT")) {
+                reader.close();
                 return out;
+            }
         }
+        reader.close();
+        reader = new MeshiLineReader(fileName);
+        out = "PARENT ";
+        String line;
+        int counter = 0;
+        while (((line = reader.readLine()) != null) & (counter < 10)){  // The counter condition is a patch on an apparent bug in CASP format checker
+            if (line.startsWith("REMARK   6 TEMPLATE:")) {
+                out = out + line.substring(21, 28) + " ";
+                counter++;
+            }
+        }
+        reader.close();
+        if (!out.equals("PARENT "))
+            return out;
         return "PARENT N/A";
     }
 
@@ -369,6 +388,5 @@ public class OptimizeUtils implements OptimizeConstants, KeyWords{
             return new Relaxation(minimizationEnergy, scoreFunctions, optimizationScore, minimizer, perturbation, temperatureGenerator, nSteps);
         return new MCM(minimizationEnergy, scoreFunctions, optimizationScore, minimizer, perturbation, temperatureGenerator, nSteps);
     }
-
 
 }

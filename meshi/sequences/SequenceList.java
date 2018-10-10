@@ -31,8 +31,7 @@ public class SequenceList extends ArrayList<MeshiSequence> implements KeyWords {
         SequenceAlignmentColumn firstColumn = alignment.get(0);
         int numberOfRows = firstColumn.size();
         for (int i = 0; i < numberOfRows; i++) {
-            MeshiSequence sequence = new MeshiSequence(alignment.comments.get(i),
-                    acceptAllChars);
+            MeshiSequence sequence = new MeshiSequence(alignment.comments.get(i), acceptAllChars);
             for (Iterator columns = alignment.iterator(); columns.hasNext();) {
                 SequenceAlignmentColumn column = (SequenceAlignmentColumn) columns.next();
                 sequence.add((SequenceAlignmentCell) column.cell(i));

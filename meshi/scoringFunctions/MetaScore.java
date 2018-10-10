@@ -23,7 +23,9 @@ public class MetaScore extends GdtScore {
             infos.add(score.score(energyInfo));
         }
         for (MeshiInfo info : infos) {
-            energyInfo.getChildren().add(info);
+            ArrayList<MeshiInfo> energyInfos = energyInfo.flatten();
+            if (!energyInfos.contains(info))
+                energyInfo.getChildren().add(info);
         }
         MeshiInfo out =super.score(energyInfo);
         for (MeshiInfo element : out.flatten())

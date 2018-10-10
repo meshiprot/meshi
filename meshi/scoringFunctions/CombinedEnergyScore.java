@@ -75,7 +75,7 @@ public class CombinedEnergyScore implements Score, KeyWords {
         }
         if (scoreFunctions.length == 1) {
             interdecileRange = 0;
-            out = new MeshiInfo(InfoType.SIMPLE_SCORE, scoreFunctions[0].getScore(), "A single predictor score.");
+            out = new MeshiInfo(InfoType.SIMPLE_SCORE, scoreFunctions[0].getScore(), name +" - A single predictor score.");
             return out;
         }
 

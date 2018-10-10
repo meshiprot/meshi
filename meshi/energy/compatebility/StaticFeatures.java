@@ -13,9 +13,7 @@ import meshi.util.MeshiAttribute;
 import meshi.util.Utils;
 import meshi.util.file.MeshiLineReader;
 import meshi.util.filters.Filter;
-import meshi.util.info.ChainsInfo;
-import meshi.util.info.DoubleInfoElement;
-import meshi.util.info.InfoType;
+import meshi.util.info.*;
 
 import java.io.File;
 
@@ -41,6 +39,8 @@ public class StaticFeatures  extends AbstractEnergy implements EvaluatesResidues
     String scwrlFilesDirectory;
     //String voromqaFileDirectory;
 
+    public StaticFeatures() { };
+
     public StaticFeatures(Protein model, MeshiSequence sequenceWithPrediction, MeshiSequence sequenceWithAccPrediction, String scwrlFilesDirectory, String voromqaFilesDirectory) {
         super(toArray(), new StaticFeaturesInfo(), EnergyType.NON_DIFFERENTIAL);
         if (! model.homoOligoMer())
@@ -60,6 +60,9 @@ public class StaticFeatures  extends AbstractEnergy implements EvaluatesResidues
         evaluate();
     }
 
+    public SequenceAlignment getSsAlignment() {
+        return ssAlignment;
+    }
 
 //    private static double getSSCoverage(SequenceAlignment alignment, MeshiSequence targetSequence) {
 //        int first = 0;
@@ -151,14 +154,21 @@ public class StaticFeatures  extends AbstractEnergy implements EvaluatesResidues
                 double relativeAccessinility = residue.getRelativeAccesibility();
                 if (relativeAccessinility > 1) relativeAccessinility = 1;
                 if (accPrediction == 'b') {
-                    if (chainsInfo != null)
-                        chainsInfo.get(residue.getChainNumber()).get(residue.number()).add(new DoubleInfoElement(InfoType.SASA_COMPATIBILITY, "sataCompatibility",1 - relativeAccessinility));
+                    if (chainsInfo != null) {
+                        ResidueInfo residueInfo = chainsInfo.get(residue.getChainNumber()).get(residue.number());
+                        residueInfo.add(new DoubleInfoElement(InfoType.SASA, "sasa", relativeAccessinility));
+                        residueInfo.add(new DoubleInfoElement(InfoType.SASA_COMPATIBILITY, "sasaCompatibility", 1 - relativeAccessinility));
+                    }
                     sum += 1 - relativeAccessinility;
+
                 }
                 else {
                     sum += relativeAccessinility;
-                    if (chainsInfo != null)
-                        chainsInfo.get(residue.getChainNumber()).get(residue.number()).add(new DoubleInfoElement(InfoType.SASA_COMPATIBILITY, "sataCompatibility",1 - relativeAccessinility));
+                    if (chainsInfo != null) {
+                        ResidueInfo residueInfo = chainsInfo.get(residue.getChainNumber()).get(residue.number());
+                        residueInfo.add(new DoubleInfoElement(InfoType.SASA, "sasa", relativeAccessinility));
+                        chainsInfo.get(residue.getChainNumber()).get(residue.number()).add(new DoubleInfoElement(InfoType.SASA_COMPATIBILITY, "sataCompatibility", relativeAccessinility));
+                    }
                 }
             }
         }

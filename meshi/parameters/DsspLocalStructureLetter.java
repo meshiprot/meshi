@@ -6,36 +6,36 @@ package meshi.parameters;
  */
 public enum DsspLocalStructureLetter {
 
-    HELIX("H"),
-    SHEET("E"),
-    BETABRIDGE("B"),
-    THREE10HELIX("G"),
-    PIHELIX("I"),
-    BEND("S"),
-    TURN("T"),
-    HB_OandN("X"),
-    HB_onlyO(">"),
-    HB_onlyN("<"),
-    BRACKET_3RES("3"),
-    BRACKET_4RES("4"),
-    BRACKET_5RES("5"),
-    CHIRALITY_NEGATIVE("-"),
-    CHIRALITY_POSITIVE("+"),
-    PARALLEL("a"),
-    ANTI_PARALLEL("A"),
-    GAP("_"),
-    UNK("!"),
+    HELIX("H"),         //0
+    SHEET("E"),         //1
+    BETABRIDGE("B"),    //2
+    THREE10HELIX("G"),  //3
+    PIHELIX("I"),       //4
+    BEND("S"),          //5
+    TURN("T"),          //6
+    HB_OandN("X"),      //7
+    HB_onlyO(">"),      //8
+    HB_onlyN("<"),      //9
+    BRACKET_3RES("3"),  //10
+    BRACKET_4RES("4"),  //11
+    BRACKET_5RES("5"),  //12
+    CHIRALITY_NEGATIVE("-"), //13
+    CHIRALITY_POSITIVE("+"), //14
+    PARALLEL("a"),       //15
+    ANTI_PARALLEL("A"),  //16
+    GAP("_"),            //17
+    UNK("!"),            //18
 
     // Reduction letters - additional semantic letters
     //STR2 additional letters
-    TWO_SIDED_PARALLEL_BETA("P"),
-    TWO_SIDED_ANTI_PARALLEL_BETA("A"),
-    TWO_SIDED_MIXED_BETA("M"),
-    ONE_SIDED_PARALLEL_BETA("Q"),
-    ONE_SIDED_ANTI_PARALLEL_BETA("Z"),
+    TWO_SIDED_PARALLEL_BETA("P"), //19
+    TWO_SIDED_ANTI_PARALLEL_BETA("A"), //20
+    TWO_SIDED_MIXED_BETA("M"), //21
+    ONE_SIDED_PARALLEL_BETA("Q"), //22
+    ONE_SIDED_ANTI_PARALLEL_BETA("Z"), //23
 
     //DSSP3 additional letters
-    COIL("C");
+    COIL("C"); //24
 
     public String getNameOneLetter() {
         return nameOneLetter;

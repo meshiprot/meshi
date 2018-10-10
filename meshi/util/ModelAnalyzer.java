@@ -9,15 +9,16 @@ import meshi.energy.*;
 import meshi.molecularElements.*;
 import meshi.molecularElements.atoms.Atom;
 import meshi.parameters.ResidueType;
-import meshi.scoringFunctions.CombinedEnergyScore;
 import meshi.scoringFunctions.Score;
 import meshi.sequences.AlignmentException;
 import meshi.sequences.ResidueAlignment;
 import meshi.sequences.ResidueAlignmentColumn;
 import meshi.sequences.ResidueAlignmentMethod;
 import meshi.util.info.*;
+import meshi.util.overlap.Overlap;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
 
@@ -28,7 +29,6 @@ public class ModelAnalyzer {
     private ArrayList<Score> scoreFunctions;
     private ResidueAlignmentMethod residueAlignmentMethod;
     private enum ContactsMode {CA,CB}
-
     public void setEnergy(TotalEnergy energy) {
         this.energy = energy;
     }
@@ -45,6 +45,7 @@ public class ModelAnalyzer {
         this.energy = energy;
         this.scoreFunctions = scoreFunctions;
         this.residueAlignmentMethod = residueAlignmentMethod;
+
     }
 
     public double rms() throws Exception{
@@ -52,6 +53,8 @@ public class ModelAnalyzer {
 
     }
     public double change() throws Exception{
+        if (originalModel == null)
+            return -1;
         return Rms.rms(originalModel, model, residueAlignmentMethod);
 
     }
@@ -67,7 +70,6 @@ public class ModelAnalyzer {
     }
 
     public ProteinInfoOLd analyze(String comment, ChainsInfo chainsInfo) {
-
             ProteinInfoOLd out = new ProteinInfoOLd(comment.substring(0,comment.indexOf(' ')), model.sourceFile(), model.name(), model);
         if (nativeStructure != null) {
             double[] gdt_ts;
@@ -77,7 +79,10 @@ public class ModelAnalyzer {
             out.add(new DoubleInfoElement(InfoType.GDT_TS2, "GDT_TS form native structure", gdt_ts[2]));
             out.add(new DoubleInfoElement(InfoType.GDT_TS4, "GDT_TS form native structure", gdt_ts[3]));
             out.add(new DoubleInfoElement(InfoType.GDT_TS8, "GDT_TS form native structure", gdt_ts[4]));
-            double[] originalGdt = Rms.gdt(nativeStructure, originalModel);
+            double[] originalGdt = {-1.0, -1.0, -1.0, -1.0, -1.0};
+            if (originalModel != null)
+                originalGdt = Rms.gdt(nativeStructure, originalModel);
+
             out.add(new DoubleInfoElement(InfoType.DELTA_GDT_TS, "delta GDT_TS with respect to the original unrefined", gdt_ts[0] - originalGdt[0]));
             double[] gdt_ha = Rms.gdt(nativeStructure, model,GDTcalculator.Type.HA);
             out.add(new DoubleInfoElement(InfoType.GDT_HA, "GDT_HA form native structure", gdt_ha[0]));
@@ -91,16 +96,22 @@ public class ModelAnalyzer {
             out.add(new DoubleInfoElement(InfoType.CB_CONTACTS6_MCC, "Matthews correlation coefficient of the predicted and native contact maps ", contacts[0]));
             out.add(new DoubleInfoElement(InfoType.CB_CONTACTS8_MCC, "Matthews correlation coefficient of the predicted and native contact maps ", contacts[1]));
             out.add(new DoubleInfoElement(InfoType.CB_CONTACTS10_MCC, "Matthews correlation coefficient of the predicted and native contact maps ", contacts[2]));
+            double[] originalGdtHa = {-1.0, -1.0, -1.0, -1.0, -1.0};
             try {
-                double[] originalGdtHa = Rms.gdt(nativeStructure, originalModel,GDTcalculator.Type.HA);
+                if (originalModel != null)
+                    originalGdtHa = Rms.gdt(nativeStructure, originalModel,GDTcalculator.Type.HA);
                 out.add(new DoubleInfoElement(InfoType.DELTA_GDT_HA, "delta GDT_HA with respect to the original unrefined", gdt_ha[0] - originalGdtHa[0]));
                 double rms = Rms.rms(nativeStructure, model, residueAlignmentMethod);
                 out.add(new DoubleInfoElement(InfoType.RMS, "RMS form native structure", rms));
-                double originalRms = Rms.rms(nativeStructure, originalModel, residueAlignmentMethod);
+                double originalRms = -1;
+                if (originalModel != null)
+                    originalRms = Rms.rms(nativeStructure, originalModel, residueAlignmentMethod);
                 out.add(new DoubleInfoElement(InfoType.DELTA_RMS, "delta RMS with respect to the original unrefined model", rms - originalRms));
                 double rmsHeavy = Rms.rmsHeavy(nativeStructure, model, residueAlignmentMethod);
                 out.add(new DoubleInfoElement(InfoType.RMS_HEAVY, "Heavy getAtoms RMS form native structure", rmsHeavy));
-                double originalRmsHeavy = Rms.rmsHeavy(nativeStructure, originalModel, residueAlignmentMethod);
+                double originalRmsHeavy = -1;
+                if (originalModel != null)
+                    originalRmsHeavy = Rms.rmsHeavy(nativeStructure, originalModel, residueAlignmentMethod);
                 out.add(new DoubleInfoElement(InfoType.DELTA_RMS_HEAVY, "delta RMS of heavy getAtoms with respect to the original unrefined model", rmsHeavy - originalRmsHeavy));
             }catch (Exception ex ) {
                 ex.printStackTrace();
@@ -109,7 +120,9 @@ public class ModelAnalyzer {
             }
             double rmsFromOriginal;
             try {
-                rmsFromOriginal = Rms.rms(originalModel, model, residueAlignmentMethod);
+                rmsFromOriginal = -1;
+                if (originalModel != null)
+                    rmsFromOriginal = Rms.rms(originalModel, model, residueAlignmentMethod);
         out.add(new DoubleInfoElement(InfoType.CHANGE, "structural change (in RMS) due to refinement", rmsFromOriginal));
             } catch (Exception ex ) {throw new RuntimeException(ex.getMessage());}
         }
@@ -130,16 +143,18 @@ public class ModelAnalyzer {
         if (scoreFunctions != null) {
             for (Score scoreFunction : scoreFunctions) {
                 Utils.println(" Calculating score " + scoreFunction);
-                MeshiInfo scores = scoreFunction.score(infoList);
+ MeshiInfo scores = scoreFunction.score(infoList);
                 for (MeshiInfo score : scores.flatten())
                     out.add(new DoubleInfoElement(score));
             }
         }
-        if (chainsInfo != null)
+        if ((chainsInfo != null) & (nativeStructure != null)) {
+            getDisplaecment(nativeStructure, model, chainsInfo);
             for (ChainInfo chainInfo : chainsInfo) {
                 for (ResidueInfo residueInfo : chainInfo)
                     out.add(residueInfo);
             }
+        }
         return out;
     }
 
@@ -160,8 +175,7 @@ public class ModelAnalyzer {
     public static double getContacts(Protein nativeStructure, Protein model, double threshold, ContactsMode contactsMode) {
         return getContacts(nativeStructure, model, threshold, contactsMode, null);
     }
-    public static double getContacts(Protein nativeStructure, Protein model, double threshold, ContactsMode contactsMode, ChainsInfo chainsInfo) {
-        Atom atomInative, atomImodel, atomJnative, atomJmodel;
+    public static ResidueAlignment getResidueAlignment(Protein nativeStructure, Protein model) {
         ResidueAlignment residueAlignment = null;
         try {
             ChainList chains0 = nativeStructure.chains();
@@ -172,6 +186,12 @@ public class ModelAnalyzer {
         } catch (AlignmentException ex) {
             Utils.throwException("Static function Rms.gdt", ex, "Failed to align " + nativeStructure + " and " + model);
         }
+        return residueAlignment;
+    }
+
+    public static double getContacts(Protein nativeStructure, Protein model, double threshold, ContactsMode contactsMode, ChainsInfo chainsInfo) {
+        Atom atomInative, atomImodel, atomJnative, atomJmodel;
+        ResidueAlignment residueAlignment = getResidueAlignment(nativeStructure, model);
 
         ChainList chains = model.chains();
         ArrayList<int[]> tp = new ArrayList();
@@ -305,13 +325,86 @@ public class ModelAnalyzer {
         return contactsSum;
     }
 
+    public static void getDisplaecment(Protein nativeStructure, Protein model, ChainsInfo chainsInfo) {
+        ResidueAlignment residueAlignment = getResidueAlignment(nativeStructure, model);
+        ChainList chains = model.chains();
+        double[][] displacements = new double[chains.size()][];
+        for (int i = 0; i < chains.size(); i++) {
+            Chain chain = chains.get(i);
+            displacements[i] = new double[chain.size()];
+            for (int j = 0; j < chain.size(); j++)
+                displacements[i][j] = -1;//Impossible displacement
+        }
+//        int nGood = 0;
+//        int[] goodIndices = new int residueAlignment.size();
+//        for (int i = 0; i < residueAlignment.size(); i++) {
+//            ResidueAlignmentColumn column = residueAlignment.get(i);
+//            Residue nativeResidue = column.residue0();
+//            Residue modelResidue  = column.residue1();
+//            if ((!modelResidue.dummy())
+//        }
+        double[][] nativeCoor = new double[3][residueAlignment.size()];
+        double[][] modelCoor  = new double[3][residueAlignment.size()];
+        double[][] newCoor    = new double[3][residueAlignment.size()]; // Model CA coordinates after overlap transformation
+        overlap(residueAlignment, nativeCoor, modelCoor, newCoor, 0.9);
+        for (int i = 0; i < residueAlignment.size(); i++) {
+            ResidueAlignmentColumn column = residueAlignment.get(i);
+            Residue modelResidue = column.residue1();
+            displacements[modelResidue.getChainNumber()][modelResidue.number()] = dis(nativeCoor, newCoor, i);
+        }
+        for (ChainInfo chainInfo : chainsInfo) {
+            for (ResidueInfo residueInfo : chainInfo) {
+                residueInfo.add(new DoubleInfoElement(InfoType.RESIDUE_DISPLACEMENT,
+                        "Residue displacement after superposition",
+                        displacements[residueInfo.chainNumber()][residueInfo.number()]));
+            }
+        }
+    }
+
+    public static double dis(double[][] coor1, double[][] coor2, int index){
+        double x1 = coor1[0][index];
+        double y1 = coor1[1][index];
+        double z1 = coor1[2][index];
+        double x2 = coor2[0][index];
+        double y2 = coor2[1][index];
+        double z2 = coor2[2][index];
+        return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) + (z1 - z2) * (z1 - z2));
+    }
+    public static void overlap(ResidueAlignment residueAlignment, double[][] nativeCoor, double[][] modelCoor, double[][] newCoor, double topFraction) {
+        for (int i = 0; i < residueAlignment.size(); i++) {
+            ResidueAlignmentColumn column = residueAlignment.get(i);
+            nativeCoor[0][i] = column.residue0().ca().x();
+            nativeCoor[1][i] = column.residue0().ca().y();
+            nativeCoor[2][i] = column.residue0().ca().z();
+            modelCoor[0][i] = column.residue1().ca().x();
+            modelCoor[1][i] = column.residue1().ca().y();
+            modelCoor[2][i] = column.residue1().ca().z();
+        }
+        new Overlap(nativeCoor, modelCoor, newCoor, nativeCoor[0].length, "nativeCoor", "modelCoor");
+        double[] displacements1 = new double[modelCoor[0].length];
+        double[] displacements2 = new double[modelCoor[0].length];
+        double[] weights = new double[modelCoor[0].length];
+        for (int i = 0; i < residueAlignment.size(); i++) {
+            ResidueAlignmentColumn column = residueAlignment.get(i);
+            displacements1[i] += displacements2[i] = dis(nativeCoor, newCoor, i);
+        }
+        Arrays.sort(displacements1);
+        double threshold = displacements1[(int) Math.round(displacements1.length * topFraction)];
+        for (int i = 0; i < residueAlignment.size(); i++) {
+            if (displacements2[i] <= threshold)
+                weights[i] = 1;
+            else weights[i] = 0;
+        }
+        new Overlap(nativeCoor, modelCoor, newCoor, weights, nativeCoor[0].length, "nativeCoor", "modelCoor");
+    }
+
+
     public static double matthewsCorrelationCoefficient(double tp, double fn, double fp, double tn)  {
         double sum = tp+fn+fp+tn;
-        if (sum == 0) return 1;
+        if (sum == 0) return -2; // meaningless number - Can not say anything without any observations.
         if (((tp + fp) == 0) & (fn > 0))  return 0;
         if ((tp+fp)*(tp+fn)*(tn+fn)*(tn + fn) == 0) return 0;
         double mcc = (tp*tn - fp*fn)/Math.sqrt((tp+fp)*(tp+fn)*(tn+fn)*(tn + fn));
-        if (mcc < 0) return 0;
         return mcc;
     }
 

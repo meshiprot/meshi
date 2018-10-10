@@ -37,6 +37,14 @@ public class MeshiInfo {
         }
     }
 
+    public boolean equals(Object other) {
+        if (! (other instanceof MeshiInfo)) return false;
+        boolean out = comment.equals(((MeshiInfo) other).comment) & (type == ((MeshiInfo) other).type);
+        if (out & (!value.equals(((MeshiInfo) other).value)))
+            throw new RuntimeException("This is weird.");
+        return out;
+    }
+
     public MeshiInfo(InfoType type, Object value,  String comment) {
         this(type, value, comment, null);
     }

@@ -7,6 +7,7 @@ package meshi.scoringFunctions;
 import meshi.energy.TotalEnergy;
 import meshi.molecularElements.Protein;
 import meshi.util.KeyWords;
+import meshi.util.Utils;
 import meshi.util.info.*;
 
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class NormalizedEnergyScore implements Comparable {
         double[] normalizerValues = getValues(energyInfo, configuration.normalizers);
         double tempScore = 0;
         for (int iField = 0; iField < fieldValues.length; iField++) {
-            double normalizationFactor = getNormalizationFactor(normalizerValues,configuration.exponentIndices[iField]);
+            double normalizationFactor = getNormalizationFactor(normalizerValues, configuration.exponentIndices[iField]);
             weightedValues[iField] = fieldValues[iField] *
                                      configuration.coefs[iField] *
                                      normalizationFactor;
@@ -92,6 +93,9 @@ public class NormalizedEnergyScore implements Comparable {
 
         private double[] getValues(ArrayList<MeshiInfo> energyInfo, String[] fields){
             double[] out = new double[fields.length];
+//            Utils.printDebug(this, "  xxxxxxxxx "+fields.length);
+//            if (fields.length < 10)
+//                Utils.printDebug(this, "  yyyy "+fields.length);
             for (int iField = 0; iField < fields.length; iField++) {
 
                 //*************** debug ***************

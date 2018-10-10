@@ -13,7 +13,7 @@ public enum InfoType {
     DELTA_GDT_TS, GDT_HA, START_GDT_HA, TM_SCORE, DELTA_GDT_HA, RMS, DELTA_RMS, RMS_HEAVY, DELTA_RMS_HEAVY, CHANGE,
     Z_GDT, Z_RMS,
     CONTACTS6_MCC, CONTACTS8_MCC, CONTACTS10_MCC, CB_CONTACTS6_MCC, CB_CONTACTS8_MCC, CB_CONTACTS10_MCC,
-    RESIDUE_CONTACTS8_MCC,
+    RESIDUE_CONTACTS8_MCC, RESIDUE_DISPLACEMENT,
     //properties
     SIZE(InfoValueType.INTEGER),
     NBL(InfoValueType.INTEGER),
@@ -79,7 +79,7 @@ public enum InfoType {
 
     //Secondary structure features
     SECONDARY_STRUCTURE_FRACTION("secondaryStructureFraction"), SATURATED_SECONDARY_STRUCTURE_FRACTION("saturatedSsFraction"), HELIX_FRACTION("HelixFraction"),SHEET_FRACTION("SheetFraction"),
-    SECONDARY_STRUCTURE_COMPATIBILITY("ssCompatibility"), SASA_COMPATIBILITY("sasaCompatibility"),SATURATED_SECONDARY_STRUCTURE_COMPATIBILITY("SaturatedSsCompatibility"), SATURATED_SASA_COMPATIBILITY("saturatedSasaCompatibility"), HELIX_COMPATIBILITY("helixCompatibility"),  SHEET_COMPATIBILITY("SheetCompatibility"),
+    SECONDARY_STRUCTURE_COMPATIBILITY("ssCompatibility"), SASA_COMPATIBILITY("sasaCompatibility"), SASA("sasa"),SATURATED_SECONDARY_STRUCTURE_COMPATIBILITY("SaturatedSsCompatibility"), SATURATED_SASA_COMPATIBILITY("saturatedSasaCompatibility"), HELIX_COMPATIBILITY("helixCompatibility"),  SHEET_COMPATIBILITY("SheetCompatibility"),
 
     //DeepCNF Features
     SS_COMPATIBILITY_DEEPCNF3("deepCNF3Compatibility"),SS_COMPATIBILITY_DEEPCNF8("deepCNF8Compatibility"),
@@ -87,6 +87,7 @@ public enum InfoType {
 
     //Secondary structure - Native DSSP as the prediction
     SECONDARY_STRUCTURE_DSSP3_COMPATIBILITY("ss3Compatibility"),SECONDARY_STRUCTURE_DSSP7_COMPATIBILITY("ss7Compatibility"),SECONDARY_STRUCTURE_STR2_COMPATIBILITY("ssSTR2Compatibility"),SECONDARY_STRUCTURE_DSSP33_COMPATIBILITY("ss33Compatibility"),SECONDARY_STRUCTURE_DSSP103_COMPATIBILITY("ss103Compatibility"),
+    SECONDARY_STRUCTURE("secondaryStructure"),
 
     //Full dssp STRUCTURE strings parameters
     SsS_PARAM("ssRegulator"),
